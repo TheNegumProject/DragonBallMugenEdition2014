@@ -1,0 +1,30 @@
+
+[Info]
+name ="VegettoSB"        
+displayname ="Vegetto" 
+versiondate =01.01.2011   
+mugenversion =14,04,2002   
+author ="Team SB"         
+pal.defaults =1     
+
+;Character Files
+[Files]
+cmd     =Vegetto.cmd
+cns     =Vegetto.cns
+st      =Vegetto.cns
+stcommon =common1.cns
+sprite  =Vegetto.sff
+anim    =Vegetto.air
+sound   =Vegetto.snd
+pal1=normal.act
+st1=basic.cns
+st2=supers.cns
+st3=AI.cns
+
+;Arcade mode
+[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
+
+intro.storyboard=
+ending.storyboard=

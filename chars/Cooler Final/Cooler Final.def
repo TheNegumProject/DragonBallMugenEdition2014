@@ -1,0 +1,43 @@
+;‰F’ˆ‚Ì’é‰¤‚ÌDEFƒtƒ@ƒCƒ‹
+
+[Info]
+name ="cooler"
+displayname ="Cooler Final"
+versiondate =11,11,2004
+mugenversion =04,14,2002
+author ="Merufimu"
+pal.defaults =1,2,3,4,5,6,7,8,9,10,11,12
+
+[Files]
+sprite =cooler.sff
+anim =coolerAIR.air
+sound =NEWcoolerSND.snd
+cmd =NEWcooler.cmd
+cns =NEWcooler.cns
+stcommon =devilseye.cns
+st =NEWcooler.cns
+pal5=NEWcooler5.act
+pal6=NEWcooler8.act
+pal7=NEWcooler3.act
+pal8=NEWcooler2.act
+pal9=NEWcooler1.act
+pal10=NEWcooler1.act
+pal11=NEWcooler1.act
+pal12=NEWcooler7.act
+pal1=NEWcooler1.act
+pal2=NEWcooler2.act
+pal3=NEWcooler3.act
+pal4=
+st1=helper_C.cns
+st2=NEWcooler_n.cns
+st3=-2-3c.cns
+st4=null.cns
+st5=enemy.cns
+st6=othk.cns
+st7=common_c.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+;intro.storyboard = Arcade\oping.def
+;ending.storyboard = Arcade\ending.def

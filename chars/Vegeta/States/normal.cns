@@ -1,0 +1,1927 @@
+; ______________________________________________
+;|Vegeta                                        |
+;|Character Made by: Duende Macabro  ::..       |
+;|Version: Beta 0.30 - 24/10/2005 ::..          |
+;|Started at 25/09/2005 ::..                    |
+;|Contact:                                      |
+;|weaponx_nirvana@yahoo.com.br                  |
+;|http://geocities.yahoo.com.br/rickiecreations |
+;|______________________________________________|
+
+;========================|
+;--[ Soco fraco de pé ]--|
+;========================|
+
+[Statedef 200]
+type    = S				
+movetype= A			
+physics = S				
+juggle  = 1				
+velset = 0,0			
+ctrl = 0				
+anim = 200				
+poweradd = 20		
+sprpriority = 2			
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,0
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA			
+damage = 20		
+animtype = Light			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -23		
+hitsound = s2, 0			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -1		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12	
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-37
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-37
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+;========================|
+;--[ Soco médio de pé ]--|
+;========================|
+
+[Statedef 210]
+type    = S				
+movetype= A			
+physics = S				
+juggle  = 1				
+velset = 0,0			
+ctrl = 0				
+anim = 210				
+poweradd = 20		
+sprpriority = 2			
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,1
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 4,1
+channel = 1
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA			
+damage = 40		
+animtype = Medium			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -23		
+hitsound = s2, 1			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -1		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12	
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 210, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-42
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-42
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+;========================|
+;--[ Soco forte de pé ]--|
+;========================|
+
+[Statedef 220]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 220
+
+[State 200, 1]
+type = playsnd
+trigger1 = Time = 6
+value = 1,2
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = Time = 6
+value = 4,0
+channel = 1
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA			
+damage = 55		
+animtype = Heavy	
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1	
+sparkxy = -5, -23		
+hitsound = s2, 3			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 16		
+ground.velocity = -3, -4		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 16
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-42
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-42
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+[State 200, 5]
+type = ChangeState
+trigger1 = command != "hold_z" && AnimTime = 0
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+[State 200, 5]
+type = ChangeState
+trigger1 = Time >= 6 && command = "hold_z"
+value = 7010
+ctrl = 0
+
+;=========================|
+;--[ PowerPunch Z Charge]--|
+;=========================|
+[Statedef 7010]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 7010
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = Time = 0
+channel = 1
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = Time = 0
+channel = 2
+
+[State 7010, playsnd]
+type = playsnd
+trigger1 = Time = 1
+value = 6000,0
+channel = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time = 8
+anim = 6005
+ID = 6005
+pos = -16,-33
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 0.7 ,0.7
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = command != "hold_z"
+id = 6005
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time = 0
+anim = 6004
+ID = 6004
+pos = -16,-35
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 30
+scale = 0.8,0.8
+sprpriority = 0
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = command != "hold_z" && Time < 30
+id = 6004
+
+[State 0, Explod]
+type = Explod
+trigger1 = command != "hold_z" && Time < 30
+anim = 8034
+ID = 8034
+pos = -13,-38
+postype = p1
+bindtime = -1
+removetime = 15
+scale = 1,1
+sprpriority = 0
+ontop = 1
+ownpal = 1
+removeongethit = 0
+
+[State 0, Changestate]
+type = Changestate
+Triggerall = Time > 30
+trigger1 = command != "hold_z"
+value = 7011
+ctrl = 0
+
+[State 0, Changestate]
+type = Changestate
+triggerall = Time < 30
+trigger1 = command != "hold_z"
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+;--[ PowerPunch Z Execute]--|
+[Statedef 7011]
+type    = S
+movetype= A
+physics = S
+juggle  = 1
+ctrl = 0
+anim = 7011
+
+[State 200, HitSpark Normal]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 15,-50
+ignorehitpause = 1
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time = 0
+anim = 6006
+ID = 6006
+pos = 21,-62
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 15
+scale = 0.7 ,0.7
+sprpriority = 1
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 205:		HitDef]
+type			= HitDef
+trigger1		= Time = 0
+attr			= S, NA
+hitflag		= MAF
+guardflag		= M
+animtype		= Back
+air.animtype	= Back
+priority		= 5, Hit
+damage		= 52
+pausetime		= 12,24
+guard.pausetime	= 12,25
+guard.sparkno	= -1
+;sparkxy		= 4,-70
+sparkno = -1
+hitsound		= S2,3
+guardsound		= S0,9
+ground.type		= Low
+air.type		= Low
+ground.slidetime	= 16
+ground.hittime	= 18
+air.hittime		= 15
+air.fall		= 1
+fall			= 1
+fall.recover	= 0
+yaccel		= 0.45
+ground.velocity	= -1,-12
+guard.velocity	= -10
+air.velocity	= -3,-12
+airguard.velocity	= -6,-4.7
+ground.cornerpush.veloff = -8
+
+[State 0, Changestate]
+type = Changestate
+trigger1 = Time = 30
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+[State 0, Changestate2]
+type = Changestate
+trigger1 = command = "z" && movehit
+value = 7012
+ctrl = 1
+
+;--[ PowerPunch Z after]--|
+[Statedef 7012]
+type = S
+movetype = A
+physics	= N
+anim = 7012
+ctrl = 0
+juggle = 0
+facep2 = 1
+hitdefpersist = 0
+sprpriority = 0
+
+[State 0, posadd]
+type = posadd
+trigger1 = AnimElem = 3
+x = p2bodydist x + 1
+y = p2bodydist y - 20
+
+[State 0,HitDef]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S,NA
+hitflag = MAF
+guardflag =MA
+animtype = Hard
+air.animtype = Back
+fall.animtype = Back
+damage = 30,4
+pausetime = 5,1
+ground.type = high
+ground.velocity = -0,30
+air.velocity = -2.2,20.20
+ground.slidetime =10
+ground.hittime = 12
+hitsound   = s2000, 2
+sparkno = -1
+fall = 1
+fall.recover = 0
+envshake.time = 20
+envshake.freq = 60
+envshake.ampl = -12
+
+[State 0, posset];cambio de posicion
+type = posset
+trigger1 = Time = 31
+x = 10
+y = 0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 0
+value = 300,0
+volume = 80
+channel = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 31
+value = 300,0
+volume = 80
+channel = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Time = 32
+value = 0
+ctrl = 1
+
+;=========================|
+;--[ Chute fraco de pé ]--|
+;=========================|
+
+[Statedef 230]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 22
+ctrl = 0
+velset = 3.5,0
+anim = 230
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,2
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA			
+damage = 25			
+animtype = Light			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -30		
+hitsound = s2, 1			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -2		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)	
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-58
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-58
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+;=========================|
+;--[ Chute forte de pé ]--|
+;=========================|
+
+[Statedef 240]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 240
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,3
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 4,1
+channel = 1
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA			
+damage = 55		
+animtype = Heavy			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1		
+sparkxy = -5, -30		
+hitsound = s2, 3			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -4		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-55
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-55
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+
+;==================|
+;--[ Small Shot ]--|
+;==================|
+
+[Statedef 250]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 22
+ctrl = 0
+velset = 0,0
+anim = 250
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 3,0
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 4,1
+channel = 1
+
+[State 1000, Projectil 1]
+type = Helper
+trigger1 = AnimElem = 2
+helpertype = Normal
+ID = 8016
+sprpriority = 6
+name = "Small SHot"
+postype = p1
+pos = 20,-45
+stateno = 8016
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 6010
+ID = 6010
+pos = 18,-46
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 15
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 200, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+
+;===========================|
+;--[ Soco fraco abaixado ]--|
+;===========================|
+
+[Statedef 400]
+type    = C
+movetype= A
+physics = C
+juggle  = 5
+poweradd= 15
+ctrl = 0
+anim = 400
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 1,0
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = C, NA			
+damage = 20		
+animtype = Light			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -23		
+hitsound = s2, 0			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -1		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12	
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-32
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-32
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+
+[State 400, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;===========================|
+;--[ Soco médio abaixado ]--|
+;===========================|
+
+[Statedef 410]
+type    = C
+movetype= A
+physics = C
+juggle  = 6
+poweradd= 50
+ctrl = 0
+anim = 410
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,1
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = C, NA			
+damage = 40			
+animtype = Medium			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -23		
+hitsound = s2, 1			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -1		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12	
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 210, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-34
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-34
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+
+[State 410, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;===========================|
+;--[ Soco forte abaixado ]--|
+;===========================|
+
+[Statedef 420]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 65
+ctrl = 0
+velset = 0,0
+anim = 420
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,2
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA			
+damage = 55			
+animtype = Heavy	
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1	
+sparkxy = -5, -23		
+hitsound = s2, 3			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -3, -4		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-34
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-34
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 210, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+
+;============================|
+;--[ Chute fraco abaixado ]--|
+;============================|
+
+[Statedef 430]
+type    = C
+movetype= A
+physics = C
+juggle  = 5
+poweradd= 22
+ctrl = 0
+anim = 430
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,2
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = C, NA			
+damage = 25, 0			
+animtype = Light			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1		
+sparkxy = -5, -3		
+hitsound = s2, 2			
+guardsound = 6, 0			
+ground.type = Low		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -2.4		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-10
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-10
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 430, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;============================|
+;--[ Chute forte abaixado ]--|
+;============================|
+[Statedef 440]
+type    = C
+movetype= A
+physics = C
+juggle  = 5
+poweradd= 22
+ctrl = 0
+anim = 440
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,3
+channel = 2
+
+[State 200, 1]
+type = HitDef
+triggerall = prevstateno != 240
+trigger1 = Time = 0
+attr = S, NA			
+damage = 55		
+animtype = Heavy			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1	
+sparkxy = -5, -10		
+hitsound = s2, 3			
+guardsound = 6, 0			
+ground.type = Low		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -2		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)
+
+[State 200, 1]
+type = HitDef
+triggerall = prevstateno = 240
+trigger1 = Time = 0
+attr = S, NA
+damage = 55
+animtype = Heavy
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 8, 8
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -10
+hitsound = s2, 3
+guardsound = 6, 0
+ground.type = Low
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -2
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)
+fall = ifelse(Pos y < 0,0,1)
+fall.recover = 1
+fall.recovertime = 4
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-34
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 36,-34
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 440, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(Pos y < 0,107,11)
+ctrl = ifelse(Pos y < 0,0,11)
+;===========================|
+;--[ Small Shot abaixado ]--|
+;===========================|
+
+[Statedef 450]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 22
+ctrl = 0
+velset = 0,0
+anim = 450
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 3,0
+channel = 2
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 6010
+ID = 6010
+pos = 17,-33
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 15
+scale = 0.5,0.5
+sprpriority = 0
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 1000, Projectil 1]
+type = Helper
+trigger1 = AnimElem = 2
+helpertype = Normal
+ID = 8037
+sprpriority = 6
+name = "floor Shot"
+postype = p1
+pos = 32,0
+stateno = 8037
+ownpal = 1
+keyctrl = 0
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 230, 5]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 11
+ctrl = 1
+
+;========================|
+;--[ Soco fraco no ar ]--|
+;========================|
+
+[Statedef 600]
+type    = A
+movetype= A
+physics = A
+juggle  = 2
+poweradd= 11
+ctrl = 0
+anim = 600
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 1,0
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NA			
+damage = 20	
+animtype = Light			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1	
+sparkxy = -5, -25		
+hitsound = s2, 0			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -2		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 10,-10
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 10,-10
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 600, 5]
+type = CtrlSet
+trigger1 = AnimTime = 0
+value = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdup" && Time >= 15
+value = 107
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdfwd" && Time >= 15
+value = 108
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdback" && Time >= 15
+value = 110
+ctrl = 1
+
+;========================|
+;--[ Soco forte no ar ]--|
+;========================|
+
+[Statedef 610]
+type    = A
+movetype= A
+physics = A
+juggle  = 4
+poweradd= 65
+ctrl = 0
+anim = 600
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 1,1
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = A, NA			
+damage = 45	
+animtype = Heavy			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1		
+sparkxy = -5, -20		
+hitsound = s2, 1			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -4		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 10,-10
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 10,-10
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 610, 5]
+type = CtrlSet
+trigger1 = AnimTime = 0
+value = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdup" && Time >= 15
+value = 107
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdfwd" && Time >= 15
+value = 108
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdback" && Time >= 15
+value = 110
+ctrl = 1
+
+;========================|
+;--[ Small Shot no ar ]--|
+;========================|
+
+[Statedef 620]
+type    = A
+movetype= A
+physics = A
+juggle  = 4
+poweradd = -100
+ctrl = 0
+velset = -3, 0
+anim = 610
+
+[State 1000, Projectil 1]
+type = Helper
+trigger1 = AnimElem = 2
+helpertype = Normal
+ID = 8016
+sprpriority = 6
+name = "Small SHot"
+postype = p1
+pos = 20,-45
+stateno = 8016
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 3,0
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 4,1
+channel = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdup" && Time >= 15
+value = 107
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdfwd" && Time >= 15
+value = 108
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdback" && Time >= 15
+value = 110
+ctrl = 1
+
+;=========================|
+;--[ Chute fraco no ar ]--|
+;=========================|
+
+[Statedef 630]
+type    = A
+movetype= A
+physics = A
+juggle  = 3
+poweradd= 20
+ctrl = 0
+anim = 630
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 1,2
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA			
+damage = 25, 0			
+animtype = Light	
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1		
+sparkxy = -5, -21		
+hitsound = s2, 2			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -2		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 26,-10
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 26,-10
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 630, 5]
+type = CtrlSet
+trigger1 = AnimTime = 0
+value = 1
+
+;=========================|
+;--[ Chute forte no ar ]--|
+;=========================|
+[Statedef 640]
+type    = A
+movetype= A
+physics = A
+juggle  = 4
+poweradd= 65
+ctrl = 0
+anim = 640
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 1
+value = 1,3
+channel = 2
+
+[State 200, 1]
+type = HitDef
+trigger1 = Time = 0
+attr = S, NA			
+damage = 55		
+animtype = Heavy			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1	
+sparkxy = -5, -10		
+hitsound = s2, 3			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -4		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, HitSpark Normal]
+type = Helper
+triggerall = P2stateno = [5000,5999]
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 29,-50
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 200, Guardspark]
+type = Helper
+triggerall = P2stateno != [5000,5999]
+trigger1 = MoveGuarded
+helpertype = Normal
+ID = 8013
+stateno = 8013
+name = "Guardspark"
+sprpriority = 5
+postype = p1
+pos = 29,-50
+ignorehitpause = 1 
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 640, 5]
+type = CtrlSet
+trigger1 = AnimTime = 0
+value = 1
+
+;=======================|
+;--[ Down Small Shot ]--|
+;=======================|
+
+[Statedef 650]
+type    = A
+movetype= A
+physics = A
+juggle  = 4
+poweradd= 65
+ctrl = 1
+velset = 0, -2
+anim = 650
+
+[State 1000, Projectil 1]
+type = Helper
+trigger1 = AnimElem = 2
+helpertype = Normal
+ID = 8016
+sprpriority = 6
+name = "Small Shot para baixo"
+postype = p1
+pos = 15,-10
+stateno = 8021
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 3,0
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 4,1
+channel = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdup" && Time >= 15
+value = 107
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdfwd" && Time >= 15
+value = 108
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdback" && Time >= 15
+value = 110
+ctrl = 1
+;=======================|
+;--[ Down Small Shot 2]--|
+;=======================|
+
+[Statedef 655]
+type    = A
+movetype= A
+physics = A
+juggle  = 4
+poweradd= 65
+ctrl = 1
+velset = 0, -2
+anim = 655
+
+[State 1000, Projectil 1]
+type = Helper
+trigger1 = AnimElem = 2
+helpertype = Normal
+ID = 8016
+sprpriority = 6
+name = "Small Shot para baixo"
+postype = p1
+pos = -15,-10
+stateno = 8021
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 3,0
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 4,1
+channel = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdup" && Time >= 15
+value = 107
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdfwd" && Time >= 15
+value = 108
+ctrl = 1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = command = "holdback" && Time >= 15
+value = 110
+ctrl = 1

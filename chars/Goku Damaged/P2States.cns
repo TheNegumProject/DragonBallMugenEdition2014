@@ -1,0 +1,478 @@
+;------------------------------------------------------------------------
+[Statedef 8242]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 8242, Anim]
+type = ChangeAnim2
+trigger1 = 1
+value = 825
+
+[State 8242, Anim]
+type = ChangeAnim2
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = 1
+value = 826
+
+[State 8242, State]
+type = ChangeState
+trigger1 = HitShakeOver = 1
+value = 8243
+
+;------------------------------------------------------------------------
+[Statedef 8243]
+type    = A
+movetype= H
+physics = N
+
+[State 8243, Velocity]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 8243, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .45
+
+[State 8243, No scroll]
+type = ScreenBound
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist < 65
+trigger2 = FrontEdgeBodyDist < 65
+value = 1
+movecamera = 0,1
+
+[State 8243, Hit wall]
+type = ChangeState
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist <= 10
+trigger2 = FrontEdgeBodyDist <= 10
+value = 8244
+
+;------------------------------------------------------------------------
+[Statedef 8244]
+type    = A
+movetype= H
+physics = N
+
+[State 8244, Turn]
+type = Turn
+trigger1 = (Time = 0) && (FrontEdgeBodyDist <= 30)
+
+[State 8244, Pos]
+type = PosAdd
+trigger1 = Time = 0
+x = 15 - BackEdgeBodyDist
+
+[State 8244, Stop moving]
+type = PosFreeze
+trigger1 = 1
+x = 1
+y = 1
+
+[State 8244, No scroll]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 8244, Spark]
+type = Explod
+trigger1 = Time = 0
+anim = F72
+pos = 0, floor (screenpos y) - 50
+postype = back
+sprpriority = 3
+
+[State 8244, Sound]
+type = PlaySnd
+trigger1 = Time = 0
+value = F7,1
+
+[State 8244, LifeAdd]
+type = LifeAdd
+trigger1 = Time = 0
+value = -300
+
+[State 8244, State]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 8245
+
+;------------------------------------------------------------------------
+[Statedef 8245]
+type    = A
+movetype= H
+physics = N
+
+[State 8245, Vel Y]
+type = VelSet
+trigger1 = Time = 0
+y = -7
+
+[State 8245, Vel X]
+type = VelSet
+trigger1 = Time = 0
+x = 3
+
+[State 8245, VelMul]
+type = VelMul
+trigger1 = 1
+x = .98
+
+;[State 8245, Turn]
+;type = Turn
+;trigger1 = (Time = 0) && (BackEdgeDist < 30)
+
+[State 8245, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .35
+
+[State 8245, Anim 5050]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5052)
+value = 5050
+
+[State 8245, Anim 5050]
+type = ChangeAnim
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(6052)
+value = 6050
+
+[State 8245, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+[State 8245, Hit ground]
+type = SelfState
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 6100
+
+
+;------------------------------------------------------------------------
+[Statedef 8272]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 8272, Anim]
+type = ChangeAnim2
+trigger1 = 1
+value = 825
+
+[State 8272, Anim]
+type = ChangeAnim2
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = 1
+value = 826
+
+[State 8272, State]
+type = ChangeState
+trigger1 = HitShakeOver = 1
+value = 8273
+
+;------------------------------------------------------------------------
+[Statedef 8273]
+type    = A
+movetype= H
+physics = N
+
+[State 8273, Velocity]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 8273, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .45
+
+[State 8273, No scroll]
+type = ScreenBound
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist < 65
+trigger2 = FrontEdgeBodyDist < 65
+value = 1
+movecamera = 0,1
+
+[State 8273, Hit wall]
+type = ChangeState
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist <= 10
+trigger2 = FrontEdgeBodyDist <= 10
+value = 8274
+
+;------------------------------------------------------------------------
+[Statedef 8274]
+type    = A
+movetype= H
+physics = N
+
+[State 8274, Turn]
+type = Turn
+trigger1 = (Time = 0) && (FrontEdgeBodyDist <= 30)
+
+[State 8274, Pos]
+type = PosAdd
+trigger1 = Time = 0
+x = 15 - BackEdgeBodyDist
+
+[State 8274, Stop moving]
+type = PosFreeze
+trigger1 = 1
+x = 1
+y = 1
+
+[State 8274, No scroll]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 8274, Spark]
+type = Explod
+trigger1 = Time = 0
+anim = F72
+pos = 0, floor (screenpos y) - 50
+postype = back
+sprpriority = 3
+
+[State 8274, Sound]
+type = PlaySnd
+trigger1 = Time = 0
+value = F7,1
+
+[State 8274, LifeAdd]
+type = LifeAdd
+trigger1 = Time = 0
+value = -150
+
+[State 8274, State]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 8275
+
+;------------------------------------------------------------------------
+[Statedef 8275]
+type    = A
+movetype= H
+physics = N
+
+[State 8275, Vel Y]
+type = VelSet
+trigger1 = Time = 0
+y = -5
+
+[State 8275, Vel X]
+type = VelSet
+trigger1 = Time = 0
+x = 3
+
+[State 8275, VelMul]
+type = VelMul
+trigger1 = 1
+x = .98
+
+;[State 8275, Turn]
+;type = Turn
+;trigger1 = (Time = 0) && (BackEdgeDist < 30)
+
+[State 8275, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .35
+
+[State 8275, Anim 5050]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5052)
+value = 5050
+
+[State 8275, Anim 5050]
+type = ChangeAnim
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(6052)
+value = 6050
+
+[State 8275, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+[State 8275, Hit ground]
+type = SelfState
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 6100
+
+
+;------------------------------------------------------------------------
+[Statedef 8282]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 8282, Anim]
+type = ChangeAnim2
+trigger1 = 1
+value = 825
+
+[State 8282, Anim]
+type = ChangeAnim2
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = 1
+value = 826
+
+[State 8282, State]
+type = ChangeState
+trigger1 = HitShakeOver = 1
+value = 8283
+
+;------------------------------------------------------------------------
+[Statedef 8283]
+type    = A
+movetype= H
+physics = N
+
+[State 8283, Velocity]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 8283, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .45
+
+[State 8283, No scroll]
+type = ScreenBound
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist < 65
+trigger2 = FrontEdgeBodyDist < 65
+value = 1
+movecamera = 0,1
+
+[State 8283, Hit wall]
+type = ChangeState
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist <= 10
+trigger2 = FrontEdgeBodyDist <= 10
+value = 8284
+
+;------------------------------------------------------------------------
+[Statedef 8284]
+type    = A
+movetype= H
+physics = N
+
+[State 8284, Turn]
+type = Turn
+trigger1 = (Time = 0) && (FrontEdgeBodyDist <= 30)
+
+[State 8284, Pos]
+type = PosAdd
+trigger1 = Time = 0
+x = 15 - BackEdgeBodyDist
+
+[State 8284, Stop moving]
+type = PosFreeze
+trigger1 = 1
+x = 1
+y = 1
+
+[State 8284, No scroll]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 8284, Spark]
+type = Explod
+trigger1 = Time = 0
+anim = F72
+pos = 0, floor (screenpos y) - 50
+postype = back
+sprpriority = 3
+
+[State 8284, Sound]
+type = PlaySnd
+trigger1 = Time = 0
+value = F7,1
+
+[State 8284, LifeAdd]
+type = LifeAdd
+trigger1 = Time = 0
+value = -250
+
+[State 8284, State]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 8285
+
+;------------------------------------------------------------------------
+[Statedef 8285]
+type    = A
+movetype= H
+physics = N
+
+[State 8285, Vel Y]
+type = VelSet
+trigger1 = Time = 0
+y = -6
+
+[State 8285, Vel X]
+type = VelSet
+trigger1 = Time = 0
+x = 3
+
+[State 8285, VelMul]
+type = VelMul
+trigger1 = 1
+x = .98
+
+;[State 8275, Turn]
+;type = Turn
+;trigger1 = (Time = 0) && (BackEdgeDist < 30)
+
+[State 8285, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .35
+
+[State 8285, Anim 5050]
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5052)
+value = 5050
+
+[State 8285, Anim 5050]
+type = ChangeAnim
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(6052)
+value = 6050
+
+[State 8285, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+[State 8285, Hit ground]
+type = SelfState
+triggerall = Var(19) = 1 && p2name = "Namek Goku by b-gg19 & MFT"
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 6100

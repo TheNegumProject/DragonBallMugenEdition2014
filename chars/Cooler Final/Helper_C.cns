@@ -1,0 +1,4883 @@
+;ヘルパーステート
+;---------------------------------------------------------------------------
+;スーパーノヴァ演出
+[Statedef 157]
+type     = A                     
+movetype = I                     
+physics  = N                     
+ctrl     = 0                    
+anim     = 14000                 
+
+[State 14000,0]
+type = AssertSpecial
+trigger1 = enemy,alive = 0
+trigger1 = 1
+flag = invisible
+
+[State 14000, 0]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 14000, 0];地球崩壊演出
+type = Explod
+trigger1 = time = 0
+id = 10040
+anim = 10040
+ownpal = 1
+sprpriority = 999999
+scale= 0.6,0.6
+postype = back
+bindtime = -1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[state a, オレが、宇宙最強だ！！]
+type = playsnd
+trigger1 = time = 0
+value = 999,0
+Volume=999999999
+lowpriority=1
+ignorehitpause=1
+
+[State 156, ヘルパーステートタイプ変更]
+type = Statetypeset
+trigger1 = ishelper(157)
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 156, ヘルパーアニメ変更]
+type = Changeanim
+trigger1 = ishelper(157)
+value = 14000
+ignorehitpause = 1
+
+[State 156, ヘルパーコントロール不可]
+type = Ctrlset
+trigger1 = ishelper(157)
+value = 0
+ignorehitpause = 1
+
+[State 156, ヘルパーライフ]
+type = Lifeset
+trigger1 = ishelper(157)
+value = 9999999999999
+ignorehitpause = 1
+
+[State 156, ヘルパー透明化]
+type = Assertspecial
+trigger1 = ishelper(157)
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+
+[State 156, ヘルパーカメラ固定]
+type = Screenbound
+trigger1 = ishelper(157)
+value = 0
+ignorehitpause = 1
+
+[State 156, ヘルパー追従]
+type = Bindtoroot
+trigger1 = ishelper(157)
+pos = 0, 0
+ignorehitpause = 1
+
+[state 156, ヘルパー押し戻し判定解除]
+type = Playerpush
+trigger1 = ishelper(157)
+value = 0
+ignorehitpause = 1
+
+[State 14000, 0]
+type = null;DestroySelf
+trigger1 = time = 0
+;ignorehitpause = 
+;persistent =
+
+;---------------------------------------------------------------------------
+;スーパーノヴァ演出（7Pカラー）
+[Statedef 159]
+type     = A                     
+movetype = I                     
+physics  = N                     
+ctrl     = 0                    
+anim     = 14000                 
+
+[State 14000,0]
+type = AssertSpecial
+trigger1 = enemy,alive = 0
+trigger1 = 1
+flag = invisible
+
+[State 14000, 0]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 14000, 0];地球崩壊演出
+type = Explod
+trigger1 = time = 0
+id = 10040
+anim = 10040
+ownpal = 1
+sprpriority = 999999
+scale= 0.6,0.6
+postype = back
+bindtime = -1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[state a, HAHAHAHAHA！！]
+type = playsnd
+trigger1 = time = 0
+value = 999,2
+Volume=999999999
+lowpriority=1
+ignorehitpause=1
+
+[State 156, ヘルパーステートタイプ変更]
+type = Statetypeset
+trigger1 = ishelper(157)
+statetype = A
+movetype = I
+physics = N
+ignorehitpause = 1
+
+[State 156, ヘルパーアニメ変更]
+type = Changeanim
+trigger1 = ishelper(157)
+value = 14000
+ignorehitpause = 1
+
+[State 156, ヘルパーコントロール不可]
+type = Ctrlset
+trigger1 = ishelper(157)
+value = 0
+ignorehitpause = 1
+
+[State 156, ヘルパーライフ]
+type = Lifeset
+trigger1 = ishelper(157)
+value = 9999999999999
+ignorehitpause = 1
+
+[State 156, ヘルパー透明化]
+type = Assertspecial
+trigger1 = ishelper(157)
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+
+[State 156, ヘルパーカメラ固定]
+type = Screenbound
+trigger1 = ishelper(157)
+value = 0
+ignorehitpause = 1
+
+[State 156, ヘルパー追従]
+type = Bindtoroot
+trigger1 = ishelper(157)
+pos = 0, 0
+ignorehitpause = 1
+
+[state 156, ヘルパー押し戻し判定解除]
+type = Playerpush
+trigger1 = ishelper(157)
+value = 0
+ignorehitpause = 1
+
+[State 14000, 0]
+type = null;DestroySelf
+trigger1 = time = 0
+;ignorehitpause = 
+;persistent =
+
+;------------------------------------------------------------------
+;カットイン
+[StateDef 1003]
+type = A
+velset = 0,0
+anim = 99999
+sprpriority = 5
+
+
+[State 6306, ステート変更]
+
+Type = ChangeState
+
+Trigger1 = !IsHelper && Name = "cooler"
+
+Value = 120
+
+IgnoreHitPause = 1
+
+[State 10001, AssertSpecial]
+type = assertspecial
+trigger1= 1
+flag = noshadow
+
+[State 10001, AssertSpecial]
+type = assertspecial
+trigger1 = time < 40
+flag = nobardisplay
+
+[State 10001, Explod]
+type = explod
+trigger1 = !time
+anim = 10003
+ID = 10003
+scale = 1.9,1.9
+sprpriority =-16
+postype = back
+removetime = 40
+supermovetime = -1
+
+[State 10001, Explod]
+type = explod
+trigger1= !time
+anim = 10003
+ID = 10004
+scale = 1.9,1.9
+sprpriority = -16
+postype = back
+removetime = 40
+supermovetime = -1
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10003) && time < 16
+ID = 10003
+postype = back
+pos = 160, 120
+scale = 1 - (.03125*time), 1 - (.03125*time)
+trans = addalpha
+alpha = (8*time), 256
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10004) && time < 16
+ID = 10004
+postype = back
+pos = 160, 120
+scale= 2 - (.09375*time), 2 - (.09375*time)
+trans= addalpha
+alpha= (8*time), 256
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10003) && (time = [16,32])
+ID = 10003
+postype = back
+pos = 160, 120
+scale = .5, .5
+trans = addalpha
+alpha = 256, 256
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10004) && (time = [16,32])
+ID = 10004
+scale = 0, 0
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10003) && time >= 32
+ID = 10003
+postype = back
+pos = 160 + (8*(time-32)), 120
+scale = .5, .5
+trans = addalpha
+alpha = 128 - 16*(time-32), 256
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10004) && time >= 32
+ID = 10004
+postype = back
+pos = 160 - (8*(time-32)), 120
+scale = .5, .5
+trans = addalpha
+alpha = 128 - 16*(time-32), 256
+
+[State 10001, RemoveExplod]
+type = RemoveExplod
+trigger1= time >= 40
+
+[State 10001, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 40
+
+;------------------------------------------------------------------
+;カットイン（7Pカラー）
+[StateDef 1006]
+type = A
+velset = 0,0
+anim = 99999
+sprpriority = 5
+
+[State 10001, AssertSpecial]
+type = assertspecial
+trigger1= 1
+flag = noshadow
+
+[State 10001, AssertSpecial]
+type = assertspecial
+trigger1 = time < 40
+flag = nobardisplay
+
+[State 10001, Explod]
+type = explod
+trigger1 = !time
+anim = 10005
+ID = 10005
+scale = 1.9,1.9
+sprpriority =-16
+postype = back
+removetime = 40
+supermovetime = -1
+
+[State 10001, Explod]
+type = explod
+trigger1= !time
+anim = 10005
+ID = 10006
+scale = 1.9,1.9
+sprpriority = -16
+postype = back
+removetime = 40
+supermovetime = -1
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10005) && time < 16
+ID = 10005
+postype = back
+pos = 160, 120
+scale = 1 - (.03125*time), 1 - (.03125*time)
+trans = addalpha
+alpha = (8*time), 256
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10006) && time < 16
+ID = 10006
+postype = back
+pos = 160, 120
+scale= 2 - (.09375*time), 2 - (.09375*time)
+trans= addalpha
+alpha= (8*time), 256
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10005) && (time = [16,32])
+ID = 10005
+postype = back
+pos = 160, 120
+scale = .5, .5
+trans = addalpha
+alpha = 256, 256
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10006) && (time = [16,32])
+ID = 10006
+scale = 0, 0
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10005) && time >= 32
+ID = 10005
+postype = back
+pos = 160 + (8*(time-32)), 120
+scale = .5, .5
+trans = addalpha
+alpha = 128 - 16*(time-32), 256
+
+[State 10001, ModifExplod]
+type = modifyexplod
+trigger1 = numexplod(10006) && time >= 32
+ID = 10006
+postype = back
+pos = 160 - (8*(time-32)), 120
+scale = .5, .5
+trans = addalpha
+alpha = 128 - 16*(time-32), 256
+
+[State 10001, RemoveExplod]
+type = RemoveExplod
+trigger1= time >= 40
+
+[State 10001, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 40
+
+;------------------------------------------------------------------
+;必殺エフェクト
+[StateDef 1004]
+type = A
+velset = 0,0
+anim = 9000
+sprpriority = 5
+
+
+[State 6306, ステート変更]
+
+Type = ChangeState
+
+Trigger1 = !IsHelper && Name = "cooler"
+
+Value = 120
+
+IgnoreHitPause = 1
+
+[State 10000, AssertSpecial]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 10000, BGPalFX]
+type = bgpalfx
+trigger1 = time < 39
+time = 1
+color = 0
+mul = 0,0,256
+
+[State 10000, AngleSet]
+type = angleset
+trigger1 = !time
+value = 6*(random%60)
+
+[State 10000, AngleAdd]
+type = angleadd
+trigger1 = 1
+value = -6
+
+[State 10000, AngleDraw]
+type = angledraw
+trigger1 = time<16
+scale = (.03125*time), (.03125*time)
+
+[State 10000, AngleDraw]
+type = angledraw
+trigger1 = time >= 16
+scale = 0.5,0.5
+
+[State 10000, Trans]
+type = trans
+trigger1 = 1
+trans = addalpha
+alpha = 256,256
+
+[State 10000, Explod]
+type = explod
+trigger1 = time = 0
+trigger2 = time = 8
+trigger3 = time = 16
+trigger4 = time = 24
+anim = 9001
+ID = ifelse(time = 24, 10004, ifelse(time = 16, 10003, ifelse(time = 8, 9002, 9001)))
+sprpriority = 5
+postype = p1
+facing = ifelse(random < 500,-1,1)
+vfacing = ifelse(random < 500,-1,1)
+removetime = 16
+supermovetime = -1
+
+[State 10000, ModifyExplod]
+type = modifyexplod
+trigger1 = numexplod(9001)
+ID = 9001
+scale = 1-(.0625*time), 1-(.0625*time)
+trans = addalpha
+alpha = ifelse(time < 4, 64*time, 256), 256
+
+[State 10000, ModifyExplod]
+type = modifyexplod
+trigger1 = numexplod(9002)
+ID = 9002
+scale = 1-(.0625*(time-8)), 1-(.0625*(time-8))
+trans = addalpha
+alpha = ifelse((time-8) < 4, 64*(time-8), 256), 256
+
+[State 10000, ModifyExplod]
+type = modifyexplod
+trigger1 = numexplod(10003)
+ID = 10003
+scale = 1-(.0625*(time-16)), 1-(.0625*(time-16))
+trans = addalpha
+alpha = ifelse((time-16) < 4, 64*(time-16), 256), 256
+
+[State 10000, ModifyExplod]
+type = modifyexplod
+trigger1 = numexplod(10004)
+ID = 10004
+scale = 1-(.0625*(time-24)), 1-(.0625*(time-24))
+trans = addalpha
+alpha = ifelse((time-24) < 4, 64*(time-24), 256), 256
+
+[State 10000, Explod]
+type = explod
+trigger1 = time = 24
+anim = 9002
+ID = 10005
+sprpriority = 5
+postype = p1
+facing = ifelse(random < 500,-1,1)
+vfacing = ifelse(random < 500,-1,1)
+removetime = 32
+supermovetime = -1
+
+[State 10000, Explod]
+type = modifyexplod
+trigger1 = numexplod(10005)
+ID = 10005
+scale = 2-(.125*(time-24)), 2-(.125*(time-24))
+trans = addalpha
+alpha = ifelse((time-24) < 4, 64*(time-24), 256), 256
+
+[State 10000, RemoveExplod]
+type = RemoveExplod
+trigger1 = time >= 40
+
+[State 10000, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 40
+
+;----------------------------------------------------------------------------------------------------
+;一定ダメージで言う台詞ヘルパーのステ（ノーマルカラー）
+[Statedef 14001]
+type     = A                     
+movetype = I                     
+physics  = N                     
+ctrl     = 0                    
+anim     = 14000                 
+
+[State 14000,0]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+
+[State 14000, 0]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state a, ボイス];クズごときがぁ…！！
+type = playsnd
+trigger1 = time = 0
+value = 190,60
+Volume = 999999999
+
+[State 14000, 0]
+type = null;DestroySelf
+trigger1 = time = 0
+;ignorehitpause = 
+;persistent =
+
+;----------------------------------------------------------------------------------------------------
+;一定ダメージで言う台詞ヘルパーのステ（7Pカラー）
+[Statedef 14002]
+type     = A                     
+movetype = I                     
+physics  = N                     
+ctrl     = 0                    
+anim     = 14000                 
+
+[State 14000,0]
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+
+[State 14000, 0]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[state a, ボイス];フリーザ様をなめるなよぉ！！
+type = playsnd
+trigger1 = time = 0
+value = 190,62
+Volume = 999999999
+
+[State 14000, 0]
+type = null;DestroySelf
+trigger1 = time = 0
+;ignorehitpause = 
+;persistent =
+
+;---------------------------------------------------------------------------
+;スーパーノヴァ　ノーマルカラー用ヘルパー
+[Statedef 2055,へるぱー]
+type = S
+movetype= I
+physics = S
+anim = 8999
+velset = 0,0
+
+[State 4000]
+type =null; VelSet
+trigger1 = Time > 0
+x = 0.5
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,120]
+var(1) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 120
+ID = 6010
+anim = 6010
+postype = P1
+pos = -103,-30
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = -1
+scale = 0.11,0.11;0.01,0.01
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,120]
+ID = 6010
+scale = 0.01+Var(1)/120.0 , 0.01+Var(1)/120.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,60]
+var(2) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 60
+ID = 6030
+anim = 6030
+postype = P1
+pos = -93,-34
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = -1
+scale = 2,2
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,60]
+ID = 6030
+scale = 2+Var(2)/-30.0 , 2+Var(2)/-30.0
+
+[State 1026]
+type = RemoveExplod
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+ID = 6010
+
+[State 1026]
+type = RemoveExplod
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+ID = 6030
+
+[State 1026]
+type = DestroySelf
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+
+[State 1001]
+type = ChangeState
+trigger1 = Time = 120
+value = 2062
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 2062,へるぱー1]
+type    = S
+movetype= A
+physics = S
+anim = 2062
+velset = 0,0
+sprpriority = 7
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+y = 5
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+x = 30
+
+[State 4000]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA
+time = -1
+
+[State 4000]
+type = NotHitBy
+trigger1 = Time > 0
+value = ,NA,SA,HA,NT,ST,HT
+
+[State -1]
+Type = HitDef
+Trigger1 = Time = 0
+Attr = S, HP
+guardflag = M
+hitflag = MAF
+damage = 668,75
+sparkno = -1
+P2StateNo = 2777
+p1facing = 1
+p2facing = 1
+
+[State 4000]
+type = ChangeState
+trigger1 = Time = 10
+value = 2061
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 2061,へるぱー2]
+type    = S
+movetype= A
+physics = S
+anim = 2061
+velset = 0,0
+sprpriority = 7
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4400]
+type = PlaySnd
+trigger1 = Time = 1
+value = s2050, 2
+Volume = 999999999
+
+[State 310]
+type = EnvShake
+trigger1 = Time = 1
+time = 120
+ampl = 5
+freq = 100
+
+[State 100]
+type = Explod
+trigger1 = Time = 0
+anim = 9410
+ID = 6200
+postype = p1
+pos = -30,130
+vel= -10
+facing = 1
+bindtime = 1
+sprpriority = 2
+ownpal = 1
+scale = 2,1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 100]
+type = Explod
+trigger1 = Time = 0
+anim = 9410
+ID = 6200
+postype = p1
+pos = 30,130
+vel= 10
+facing = -1
+bindtime = 1
+sprpriority = 2
+ownpal = 1
+scale = 2,1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 4400]
+type = Explod
+trigger1 = (Time > 0) && (Time < 120) && ((GameTime%1) = 0)
+anim = 6000
+ID = 6000
+random=0,100
+pos = 0,50
+postype = p1
+bindtime = 1
+vel = (IfElse(Random <= 500,Random/40,Random/(-40))),0
+removetime = 30
+scale = 1,0.1
+sprpriority = 0
+ownpal = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+y = 0.5
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+x = 0.1
+
+[State -1]
+Type = TargetBind
+Trigger1 = Time = 0
+Pos = 0,0
+Time = 120
+
+[State -1]
+Type = TargetState
+Trigger1 = Time = 1
+Value = 2777
+
+[State 4000]
+type = HitDef
+trigger1 = Time = 0
+attr = S, HP
+damage = 10,5
+animtype = Hard
+affectteam = B
+pausetime = 0,60
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 10, 0
+hitsound = -1
+guardflag = M
+hitflag = MAF
+guardsound = -1
+ground.type = high
+ground.slidetime = 15
+ground.hittime = 15
+ground.velocity = 0,0
+air.animtype = Back
+air.velocity = 0,0
+
+[State 4000]
+type = ChangeState
+trigger1 = Time = 120
+value = 2065
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 2065,へるぱー3]
+type = S
+movetype= A
+physics = S
+anim = 2065
+velset = 0,0
+sprpriority = 7
+
+[State 310]
+type = EnvShake
+trigger1 = Time = 1
+time = 240
+ampl = 5
+freq = 150
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4400];爆発音
+type = PlaySnd
+trigger1 = Time = 1
+value = s27,12
+Volume = 999999999
+
+[State 4400]
+type = Explod
+trigger1 = Time = 0
+anim = 6010
+ID = 6010
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = 360
+scale = 0.5,0.5
+sprpriority = 6
+ownpal = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(3) = 1
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6010
+time = 1
+add = 0+Var(3)*-1,0+Var(3)*-1,0+Var(3)*-1
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6010
+scale = 0.5+Var(3)/50.0 , 0.5+Var(3)/50.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(4) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 360
+ID = 6030
+anim = 6030
+postype = P1
+pos = 0,0
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = 1
+scale = 0.5,0.1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6010
+time = 1
+add = 0+Var(4)*-0.7,0+Var(4)*-0.7,0+Var(4)*-0.7
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6030
+scale = 0.5+Var(4)/10.0 , 0.1+Var(4)/120.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(5) = 1
+
+[State 4400]
+type = Explod
+trigger1 = (Time > 0) && (Time < 10) && ((GameTime%1) = 0)
+anim = 6021
+ID = 6021
+pos = 0,50;0,100
+postype = p1
+bindtime = 1
+vel = (IfElse(Random <= 500,Random/500,Random/(-500))),(IfElse(Random <= 500,Random/500,Random/(-500)))
+removetime = 60
+scale = 2.5,2.5
+sprpriority = 5
+ownpal = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6021
+time = 1
+add = 0+Var(5)*-0.9,0+Var(5)*-0.9,0+Var(5)*-0.9
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6021
+scale = 2.5+Var(5)/-60.0 , 2.5+Var(5)/-60.0
+
+[State 4000]
+type = HitDef
+trigger1 = Time = 0
+attr = S, HP
+damage = 10,5
+animtype = Hard
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 10, 0
+hitsound = -1
+guardflag = M
+hitflag = MAF
+guardsound = -1
+ground.type = high
+ground.slidetime = 15
+ground.hittime = 15
+ground.velocity = 10,-20
+air.animtype = Back
+air.velocity = 10,-20
+fall = 1
+air.fall = 1
+air.recover = 0
+p2stateno = 3013
+p2facing = 1
+
+[State 4400]
+type = DestroySelf
+trigger1 = Time = 360
+
+;---------------------------------------------------------------------------
+[Statedef 2777,へるぱー4]
+Type     = A
+MoveType = H
+Physics  = N
+Ctrl = 0
+VelSet = 0,0
+sprpriority = 0
+
+[State -1]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Value = 15001
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+x = -20
+
+[State -1]
+Type = SelfState
+Trigger1 = Time = 120
+Value = 5050
+
+;---------------------------------------------------------------------------
+;10Pカラー用ヘルパー
+[Statedef 2056,へるぱー]
+type    = S
+movetype= I
+physics = S
+anim = 8999
+velset = 0,0
+
+[State 4000]
+type =null; VelSet
+trigger1 = Time > 0
+x = 0.5
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,120]
+var(1) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 120
+ID = 6010
+anim = 6010
+postype = P1
+pos = -103,-30
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = -1
+scale = 0.11,0.11;0.01,0.01
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,120]
+ID = 6010
+scale = 0.01+Var(1)/120.0 , 0.01+Var(1)/120.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,60]
+var(2) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 60
+ID = 6030
+anim = 6030
+postype = P1
+pos = -93,-34
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = -1
+scale = 2,2
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,60]
+ID = 6030
+scale = 2+Var(2)/-30.0 , 2+Var(2)/-30.0
+
+[State 1026]
+type = RemoveExplod
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+ID = 6010
+
+[State 1026]
+type = RemoveExplod
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+ID = 6030
+
+[State 1026]
+type = DestroySelf
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+
+[State 1001]
+type = ChangeState
+trigger1 = Time = 120
+value = 2063
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 2063,へるぱー1]
+type    = S
+movetype= A
+physics = S
+anim = 2062
+velset = 0,0
+sprpriority = 7
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+y = 5
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+x = 30
+
+[State 4000]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA
+time = -1
+
+[State 4000]
+type = NotHitBy
+trigger1 = Time > 0
+value = ,NA,SA,HA,NT,ST,HT
+
+[State -1]
+Type = HitDef
+Trigger1  = Time = 0
+Attr = S, HP
+guardflag = MAF
+damage = 9999999,9999999
+sparkno = -1
+guard.sparkno = -1
+P2StateNo = 2777
+p1facing = 1
+p2facing = 1
+fall = 1
+fall.damage = 9999999
+
+[State 4000]
+type = ChangeState
+trigger1 = Time = 10
+value = 2064
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 2064,へるぱー2]
+type    = S
+movetype= A
+physics = S
+anim = 2061
+velset = 0,0
+sprpriority = 7
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4400]
+type = PlaySnd
+trigger1 = Time = 1
+value = s2050, 2
+Volume = 999999999
+
+[State 310]
+type = EnvShake
+trigger1 = Time = 1
+time = 120
+ampl = 5
+freq = 100
+
+[State 100]
+type = Explod
+trigger1 = Time = 0
+anim = 9410
+ID = 6200
+postype = p1
+pos = -30,130
+vel= -10
+facing = 1
+bindtime = 1
+sprpriority = 2
+ownpal = 1
+scale = 2,1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 100]
+type = Explod
+trigger1 = Time = 0
+anim = 9410
+ID = 6200
+postype = p1
+pos = 30,130
+vel= 10
+facing = -1
+bindtime = 1
+sprpriority = 2
+ownpal = 1
+scale = 2,1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 4400]
+type = Explod
+trigger1 = (Time > 0) && (Time < 120) && ((GameTime%1) = 0)
+anim = 6000   ;anillo punto
+ID = 6000
+random=0,100
+pos = 0,50
+postype = p1
+bindtime = 1
+vel = (IfElse(Random <= 500,Random/40,Random/(-40))),0
+removetime = 30
+scale = 1,0.1
+sprpriority = 0
+ownpal = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+y = 0.5
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+x = 0.1
+
+[State -1]
+Type = TargetBind
+Trigger1 = Time = 0
+Pos = 0,0
+Time = 120
+
+[State -1]
+Type = TargetState
+Trigger1 = Time = 1
+Value = 2777
+
+[State 4000]
+type = HitDef
+trigger1 = Time = 0
+attr = S, HP
+damage = 10,10
+animtype = Hard
+affectteam = B
+pausetime = 0,60
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 10, 0
+hitsound = -1
+guardflag = MAF
+guardsound = -1
+ground.type = high
+ground.slidetime = 15
+ground.hittime = 15
+ground.velocity = 0,0
+air.animtype = Back
+air.velocity = 0,0
+fall = 1
+fall.damage = 9999999
+
+[State 4000]
+type = ChangeState
+trigger1 = Time = 120
+value = 2066
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 2066,へるぱー3]
+type    = S
+movetype= A
+physics = S
+anim = 2065
+velset = 0,0
+sprpriority = 7
+
+[State 310]
+type = EnvShake
+trigger1 = Time = 1
+time = 240
+ampl = 5
+freq = 150
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4400];爆発音声
+type = PlaySnd
+trigger1 = Time = 1
+value = s27,12
+Volume = 999999999
+
+[State 4400]
+type = Explod
+trigger1 = Time = 0
+anim = 6010
+ID = 6010
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = 360
+scale = 0.5,0.5
+sprpriority = 6
+ownpal = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(3) = 1
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6010
+time = 1
+add = 0+Var(3)*-1,0+Var(3)*-1,0+Var(3)*-1
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6010
+scale = 0.5+Var(3)/50.0 , 0.5+Var(3)/50.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(4) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 360
+ID = 6030
+anim = 6030
+postype = P1
+pos = 0,0
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = 1
+scale = 0.5,0.1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6010
+time = 1
+add = 0+Var(4)*-0.7,0+Var(4)*-0.7,0+Var(4)*-0.7
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6030
+scale = 0.5+Var(4)/10.0 , 0.1+Var(4)/120.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(5) = 1
+
+[State 4400]
+type = Explod
+trigger1 = (Time > 0) && (Time < 10) && ((GameTime%1) = 0)
+anim = 6021
+ID = 6021
+pos = 0,50;0,100
+postype = p1
+bindtime = 1
+vel = (IfElse(Random <= 500,Random/500,Random/(-500))),(IfElse(Random <= 500,Random/500,Random/(-500)))
+removetime = 60
+scale = 2.5,2.5
+sprpriority = 5
+ownpal = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6021
+time = 1
+add = 0+Var(5)*-0.9,0+Var(5)*-0.9,0+Var(5)*-0.9
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6021
+scale = 2.5+Var(5)/-60.0 , 2.5+Var(5)/-60.0
+
+[State 4000]
+type = HitDef
+trigger1 = Time = 0
+attr = S, HP
+damage = 10,10
+animtype = Hard
+pausetime = 0,10
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 10, 0
+hitsound = -1
+guardflag = MAF
+guardsound = -1
+ground.type = high
+ground.slidetime = 15
+ground.hittime = 15
+ground.velocity = 10,-20
+air.animtype = Back
+air.velocity = 10,-20
+air.fall = 1
+air.recover = 0
+fall = 1
+fall.damage = 9999999
+p2stateno = 3013
+p2facing = 1
+
+[State 4400]
+type = DestroySelf
+trigger1 = Time = 360
+
+;---------------------------------------------------------------------------
+;11Pカラー用ヘルパー
+
+[Statedef 3056,へるぱー]
+type    = S
+movetype= I
+physics = S
+anim = 8999
+velset = 0,0
+
+[State 4000]
+type =null; VelSet
+trigger1 = Time > 0
+x = 0.5
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,120]
+var(1) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 120
+ID = 6010
+anim = 6010
+postype = P1
+pos = -103,-30
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = -1
+scale = 0.11,0.11;0.01,0.01
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,120]
+ID = 6010
+scale = 0.01+Var(1)/120.0 , 0.01+Var(1)/120.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,60]
+var(2) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 60
+ID = 6030
+anim = 6030
+postype = P1
+pos = -93,-34
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = -1
+scale = 2,2
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,60]
+ID = 6030
+scale = 2+Var(2)/-30.0 , 2+Var(2)/-30.0
+
+[State 1026]
+type = RemoveExplod
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+ID = 6010
+
+[State 1026]
+type = RemoveExplod
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+ID = 6030
+
+[State 1026]
+type = DestroySelf
+trigger1 = parent, stateno != 2050
+trigger1 = parent, stateno != 10000
+
+[State 1001]
+type = ChangeState
+trigger1 = Time = 120
+value = 3063
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 3063,へるぱー1]
+type    = S
+movetype= A
+physics = S
+anim = 2062
+velset = 0,0
+sprpriority = 7
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+y = 5
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+x = 30
+
+[State 4000]
+type = NotHitBy
+trigger1 = Time >= 0
+value = SCA
+time = -1
+
+[State 4000]
+type = NotHitBy
+trigger1 = Time > 0
+value = ,NA,SA,HA,NT,ST,HT
+
+[State 4000]
+type = ChangeState
+trigger1 = Time = 10
+value = 3064
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 3064,へるぱー2]
+type    = S
+movetype= A
+physics = S
+anim = 2061
+velset = 0,0
+sprpriority = 7
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4400]
+type = PlaySnd
+trigger1 = Time = 1
+value = s2050, 2
+Volume = 999999999
+
+[State 310]
+type = EnvShake
+trigger1 = Time = 1
+time = 120
+ampl = 5
+freq = 100
+
+[State 100]
+type = Explod
+trigger1 = Time = 0
+anim = 9410
+ID = 6200
+postype = p1
+pos = -30,130
+vel= -10
+facing = 1
+bindtime = 1
+sprpriority = 2
+ownpal = 1
+scale = 2,1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 100]
+type = Explod
+trigger1 = Time = 0
+anim = 9410
+ID = 6200
+postype = p1
+pos = 30,130
+vel= 10
+facing = -1
+bindtime = 1
+sprpriority = 2
+ownpal = 1
+scale = 2,1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 4400]
+type = Explod
+trigger1 = (Time > 0) && (Time < 120) && ((GameTime%1) = 0)
+anim = 6000
+ID = 6000
+random = 0,100
+pos = 0,50
+postype = p1
+bindtime = 1
+vel = (IfElse(Random <= 500,Random/40,Random/(-40))),0
+removetime = 30
+scale = 1,0.1
+sprpriority = 0
+ownpal = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+y = 0.5
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+x = 0.1
+
+[State -1]
+Type = TargetBind
+Trigger1 = Time = 0
+Pos = 0,0
+Time = 120
+
+[State -1]
+Type = TargetState
+Trigger1 = Time = 1
+Value = 2777
+
+[State 4000]
+type = ChangeState
+trigger1 = Time = 120
+value = 3066
+ctrl = 1
+
+;---------------------------------------------------------------------------
+[Statedef 3066,へるぱー3]
+type    = S
+movetype= A
+physics = S
+anim = 2065
+velset = 0,0
+sprpriority = 7
+
+[State 310]
+type = EnvShake
+trigger1 = Time = 1
+time = 240
+ampl = 5
+freq = 150
+
+[State 2033]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 4400];爆発音声
+type = PlaySnd
+trigger1 = Time = 1
+value = s27,12
+Volume = 999999999
+
+[State 4400]
+type = Explod
+trigger1 = Time = 0
+anim = 6010
+ID = 6010
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = 360
+scale = 0.5,0.5
+sprpriority = 6
+ownpal = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(3) = 1
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6010
+time = 1
+add = 0+Var(3)*-1,0+Var(3)*-1,0+Var(3)*-1
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6010
+scale = 0.5+Var(3)/50.0 , 0.5+Var(3)/50.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(4) = 1
+
+[State 3]
+type = Explod
+trigger1 = Time = 0
+removetime = 360
+ID = 6030
+anim = 6030
+postype = P1
+pos = 0,0
+velocity = 0,0
+ownpal = 0
+sprpriority=7
+bindtime = 1
+scale = 0.5,0.1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6010
+time = 1
+add = 0+Var(4)*-0.7,0+Var(4)*-0.7,0+Var(4)*-0.7
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6030
+scale = 0.5+Var(4)/10.0 , 0.1+Var(4)/120.0
+
+[State 100]
+type = VarAdd
+trigger1 = Time = [0,360]
+var(5) = 1
+
+[State 4400]
+type = Explod
+trigger1 = (Time > 0) && (Time < 10) && ((GameTime%1) = 0)
+anim = 6021
+ID = 6021
+pos = 0,50;0,100
+postype = p1
+bindtime = 1
+vel = (IfElse(Random <= 500,Random/500,Random/(-500))),(IfElse(Random <= 500,Random/500,Random/(-500)))
+removetime = 60
+scale = 2.5,2.5
+sprpriority = 5
+ownpal = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 1000, 3]
+type = PalFx
+trigger1 = Time = [0,360]
+ID = 6021
+time = 1
+add = 0+Var(5)*-0.9,0+Var(5)*-0.9,0+Var(5)*-0.9
+
+[State 3]
+type = ModifyExplod
+trigger1 = Time = [0,360]
+ID = 6021
+scale = 2.5+Var(5)/-60.0 , 2.5+Var(5)/-60.0
+
+[State 4400]
+type = DestroySelf
+trigger1 = Time = 360
+
+;---------------------------------------------------------------------------
+[Statedef 2777,へるぱー4]
+Type     = A
+MoveType = H
+Physics  = N
+Ctrl = 0
+VelSet = 0,0
+sprpriority = 0
+
+[State -1]
+Type = ChangeAnim2
+Trigger1 = Time = 0
+Value = 15001
+
+[State 4000]
+type = VelSet
+trigger1 = Time > 0
+x = -20
+
+[State -1]
+Type = SelfState
+Trigger1 = Time = 120
+Value = 5050
+
+;---------------------------------------------------------------------------
+;気力溜めヘルパー
+[Statedef 1902]
+type = A
+movetype = I
+physics = N
+ctrl = 0
+anim = 1950
+velset = 0,0
+sprpriority = 1
+
+[State 1902, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoShadow
+
+[State 1902, BindToParent]
+type = BindToParent
+trigger1 = anim = 1950
+pos = 4,-2
+
+[State 1902, Anim]
+type = ChangeAnim
+triggerall = anim = 1950
+trigger1 = root,anim = 1901
+trigger2 = root,movetype = H
+value = 1951
+
+[State 1902, DestroySelf]
+type = DestroySelf
+trigger1 = anim = 1950 && Root,StateNo != 1900
+trigger2 = anim = 1951 && animtime = 0
+trigger3 = Root,stateno = [5000,5090]
+
+;---------------------------------------------------------------------------
+;カオティック・デッドエンド（ビームヘルパー）
+[Statedef 9800]
+type     = A                     
+movetype = I                     
+physics  = N                     
+ctrl     = 0                    
+anim     = 3004   
+
+[State , 0]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State -1]
+type = assertspecial
+trigger1 = time >= 0
+flag = nofg
+flag2 = nobardisplay
+pausemovetime = 9999
+supermovetime = 9999         
+
+[State 14000, 0]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 2000]
+type =allPalFx
+trigger1 = time = 0
+add = 256,256,256
+sinadd = -256,-256,-256,20
+time = 5
+
+[State 2000]
+type =bgPalFx
+trigger1 = time >= 0
+add = 256,-256,-256
+time = 2
+
+[State 2000]
+type =PalFx
+trigger1 = time >= 0
+add = -256,-256,-256
+time = 2
+
+[State 2000]
+type =allPalFx
+trigger1 = time = 140
+add = 0,0,0
+sinadd = -512,-256,-256,40
+time = 10
+
+[State 10000, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 150
+
+;---------------------------------------------------------------------------
+;カオティック・デッドエンド（血ヘルパーその1）
+[Statedef 9801]
+type     = A                     
+movetype = I                     
+physics  = N                     
+ctrl     = 0                    
+anim     = 10090          
+
+[State 14000, 0]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State , 0]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State -1]
+type = assertspecial
+trigger1 = time >= 0
+flag = nofg
+flag2 = nobardisplay
+pausemovetime = 9999
+supermovetime = 9999
+
+[State 2000]
+type =allPalFx
+trigger1 = time = 0
+add = 256,256,256
+sinadd = -256,-256,-256,20
+time = 5
+
+[State 2000]
+type =bgPalFx
+trigger1 = time >= 0
+add = 256,-256,-256
+time = 2
+
+[State 2000]
+type =PalFx
+trigger1 = time >= 0
+add = -256,-256,-256
+time = 2
+
+[State 2000]
+type =allPalFx
+trigger1 = time = 140
+add = 0,0,0
+sinadd = -512,-256,-256,40
+time = 10
+
+[State 10000, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 150
+
+;---------------------------------------------------------------------------
+;カオティック・デッドエンド（血ヘルパーその2）
+[Statedef 9802]
+type     = A                     
+movetype = I                     
+physics  = N                     
+ctrl     = 0                    
+anim     = 9312
+
+[State 14000, 0]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State , 0]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State -1]
+type = assertspecial
+trigger1 = time >= 0
+flag = nofg
+flag2 = nobardisplay
+pausemovetime = 9999
+supermovetime = 9999
+
+[State 2000]
+type =allPalFx
+trigger1 = time = 0
+add = 256,256,256
+sinadd = -256,-256,-256,20
+time = 5
+
+[State 2000]
+type =bgPalFx
+trigger1 = time >= 0
+add = 256,-256,-256
+time = 2
+
+[State 2000]
+type =PalFx
+trigger1 = time >= 0
+add = -256,-256,-256
+time = 2
+
+[State 2000]
+type =allPalFx
+trigger1 = time = 140
+add = 0,0,0
+sinadd = -512,-256,-256,40
+time = 10
+
+[State 10000, DestroySelf]
+type = DestroySelf
+trigger1 = time >= 150
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> 並列混線被弾ヘルパーID調査
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+;  ID調査を行い,親変更可能領域でなければデストロイする。
+;  親変更可能領域の場合は次のステートへ。
+
+[StateDef 16000]
+type     = S
+movetype = I
+physics  = N
+ctrl = 0
+anim = -1 + (Anim != 31600) * ((Name = "cooler") * 31601)
+movehitpersist = (Name != "cooler")
+hitdefpersist  = (Name != "cooler")
+
+;--------------------------------------------------------------------------------------------------
+;  親変更可能領域なら並列混線被弾ヘルパー通常処理ステートへ
+
+[State 16000, ステート変更 - 通常処理ステート]
+type = SelfState
+triggerall = IsHelper
+triggerall = PlayerIDExist(56)		;本体
+trigger1   = PlayerID(56),var(56)	;親変更可能領域
+value = 16001	;並列混線被弾ヘルパー通常処理
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  親変更不可能領域の場合デストロイ。
+
+[State 16000, 親変更不可能領域に場合ヘルパー消去]
+type = DestroySelf
+triggerall = IsHelper
+triggerall = !Root,var(56)		;親変更不可能領域
+trigger1   = AnimElem = 2		;2F目で消去
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  ガードステートに準ステート固定。
+
+[State 16000, 準ステート固定]
+type = SelfState
+trigger1 = IsHelper
+value = 130
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> 並列混線被弾ヘルパー通常処理
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+;  並列混線ヘルパーを生成し,自分のターゲットを取得させる。
+;  並列混線ヘルパーがターゲットを取得したらデストロイ。
+
+[StateDef 16001]
+type     = S
+movetype = I
+physics  = N
+ctrl = 0
+anim = -1 + (Anim != 31600) * ((Name = "cooler") * 31601)
+movehitpersist = (Name != "cooler")
+hitdefpersist  = (Name != "cooler")
+
+;--------------------------------------------------------------------------------------------------
+;  下の位置固定のために向きを固定する。
+
+[State 16001, 向き固定]
+type = Turn
+triggerall = IsHelper
+trigger1   = Facing = -1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  邪魔にならない位置に固定する。
+
+[State 16001, 位置固定 1]
+type = PosAdd
+trigger1 = IsHelper(16000) || IsHelper(16001) || IsHelper(16002) || IsHelper(16003)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 60 + IsHelper(16001) * 10 + IsHelper(16002) * 20 + IsHelper(16003) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  同様
+
+[State 16001, 位置固定 2]
+type = PosAdd
+trigger1 = IsHelper(16004) || IsHelper(16005) || IsHelper(16006) || IsHelper(16007)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 100 + IsHelper(16005) * 10 + IsHelper(16006) * 20 + IsHelper(16007) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  同様
+
+[State 16001, 位置固定 3]
+type = PosAdd
+trigger1 = IsHelper(16008) || IsHelper(16009) || IsHelper(16010) || IsHelper(16011)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 140 + IsHelper(16009) * 10 + IsHelper(16010) * 20 + IsHelper(16011) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  同様
+
+[State 16001, 位置固定 4]
+type = PosAdd
+trigger1 = IsHelper(16012) || IsHelper(16013) || IsHelper(16014) || IsHelper(16015)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 60 + IsHelper(16013) * 10 + IsHelper(16014) * 20 + IsHelper(16015) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  同様
+
+[State 16001, 位置固定 5]
+type = PosAdd
+trigger1 = IsHelper(16016) || IsHelper(16017) || IsHelper(16018) || IsHelper(16019)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 100 + IsHelper(16017) * 10 + IsHelper(16018) * 20 + IsHelper(16019) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  同様
+
+[State 16001, 位置固定 6]
+type = PosAdd
+trigger1 = IsHelper(16020) || IsHelper(16021) || IsHelper(16022) || IsHelper(16023)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 140 + IsHelper(16021) * 10 + IsHelper(16022) * 20 + IsHelper(16023) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 特定属性のみ命中 1]
+type = HitBy
+trigger1 = IsHelper(16000) || IsHelper(16003) || IsHelper(16006) || IsHelper(16009)
+trigger2 = IsHelper(16012) || IsHelper(16015) || IsHelper(16018) || IsHelper(16021)
+value = S,NA
+time = 1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 特定属性のみ命中 2]
+type = HitBy
+trigger1 = IsHelper(16001) || IsHelper(16004) || IsHelper(16007) || IsHelper(16010)
+trigger2 = IsHelper(16013) || IsHelper(16016) || IsHelper(16019) || IsHelper(16022)
+value = S,SA
+time = 1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 特定属性のみ命中 3]
+type = HitBy
+trigger1 = IsHelper(16002) || IsHelper(16005) || IsHelper(16008) || IsHelper(16011)
+trigger2 = IsHelper(16014) || IsHelper(16017) || IsHelper(16020) || IsHelper(16023)
+value = S,HA
+time = 1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, ヘルパー消去]
+type = SelfState
+trigger1  = IsHelper(16000)
+trigger1  = NumHelper(16100)
+trigger1  = Helper(16100),NumTarget = 1
+trigger1  = Helper(16100),HitPauseTime
+trigger1  = Helper(16100),sysvar(1) > 0
+trigger2  = IsHelper(16001)
+trigger2  = NumHelper(16101)
+trigger2  = Helper(16101),NumTarget = 1
+trigger2  = Helper(16101),HitPauseTime
+trigger2  = Helper(16101),sysvar(1) > 0
+trigger3  = IsHelper(16002)
+trigger3  = NumHelper(16102)
+trigger3  = Helper(16102),NumTarget = 1
+trigger3  = Helper(16102),HitPauseTime
+trigger3  = Helper(16102),sysvar(1) > 0
+trigger4  = IsHelper(16003)
+trigger4  = NumHelper(16103)
+trigger4  = Helper(16103),NumTarget = 1
+trigger4  = Helper(16103),HitPauseTime
+trigger4  = Helper(16103),sysvar(1) > 0
+trigger5  = IsHelper(16004)
+trigger5  = NumHelper(16104)
+trigger5  = Helper(16104),NumTarget = 1
+trigger5  = Helper(16104),HitPauseTime
+trigger5  = Helper(16104),sysvar(1) > 0
+trigger6  = IsHelper(16005)
+trigger6  = NumHelper(16105)
+trigger6  = Helper(16105),NumTarget = 1
+trigger6  = Helper(16105),HitPauseTime
+trigger6  = Helper(16105),sysvar(1) > 0
+trigger7  = IsHelper(16006)
+trigger7  = NumHelper(16106)
+trigger7  = Helper(16106),NumTarget = 1
+trigger7  = Helper(16106),HitPauseTime
+trigger7  = Helper(16106),sysvar(1) > 0
+trigger8  = IsHelper(16007)
+trigger8  = NumHelper(16107)
+trigger8  = Helper(16107),NumTarget = 1
+trigger8  = Helper(16107),HitPauseTime
+trigger8  = Helper(16107),sysvar(1) > 0
+trigger9  = IsHelper(16008)
+trigger9  = NumHelper(16108)
+trigger9  = Helper(16108),NumTarget = 1
+trigger9  = Helper(16108),HitPauseTime
+trigger9  = Helper(16108),sysvar(1) > 0
+trigger10 = IsHelper(16009)
+trigger10 = NumHelper(16109)
+trigger10 = Helper(16109),NumTarget = 1
+trigger10 = Helper(16109),HitPauseTime
+trigger10 = Helper(16109),sysvar(1) > 0
+trigger11 = IsHelper(16010)
+trigger11 = NumHelper(16110)
+trigger11 = Helper(16110),NumTarget = 1
+trigger11 = Helper(16110),HitPauseTime
+trigger11 = Helper(16110),sysvar(1) > 0
+trigger12 = IsHelper(16011)
+trigger12 = NumHelper(16111)
+trigger12 = Helper(16111),NumTarget = 1
+trigger12 = Helper(16111),HitPauseTime
+trigger12 = Helper(16111),sysvar(1) > 0
+trigger13 = IsHelper(16012)
+trigger13 = NumHelper(16112)
+trigger13 = Helper(16112),NumTarget = 1
+trigger13 = Helper(16112),HitPauseTime
+trigger13 = Helper(16112),sysvar(1) > 0
+trigger14 = IsHelper(16013)
+trigger14 = NumHelper(16113)
+trigger14 = Helper(16113),NumTarget = 1
+trigger14 = Helper(16113),HitPauseTime
+trigger14 = Helper(16113),sysvar(1) > 0
+trigger15 = IsHelper(16014)
+trigger15 = NumHelper(16114)
+trigger15 = Helper(16114),NumTarget = 1
+trigger15 = Helper(16114),HitPauseTime
+trigger15 = Helper(16114),sysvar(1) > 0
+trigger16 = IsHelper(16015)
+trigger16 = NumHelper(16115)
+trigger16 = Helper(16115),NumTarget = 1
+trigger16 = Helper(16115),HitPauseTime
+trigger16 = Helper(16115),sysvar(1) > 0
+trigger17 = IsHelper(16016)
+trigger17 = NumHelper(16116)
+trigger17 = Helper(16116),NumTarget = 1
+trigger17 = Helper(16116),HitPauseTime
+trigger17 = Helper(16116),sysvar(1) > 0
+trigger18 = IsHelper(16017)
+trigger18 = NumHelper(16117)
+trigger18 = Helper(16117),NumTarget = 1
+trigger18 = Helper(16117),HitPauseTime
+trigger18 = Helper(16117),sysvar(1) > 0
+trigger19 = IsHelper(16018)
+trigger19 = NumHelper(16118)
+trigger19 = Helper(16118),NumTarget = 1
+trigger19 = Helper(16118),HitPauseTime
+trigger19 = Helper(16118),sysvar(1) > 0
+trigger20 = IsHelper(16019)
+trigger20 = NumHelper(16119)
+trigger20 = Helper(16119),NumTarget = 1
+trigger20 = Helper(16119),HitPauseTime
+trigger20 = Helper(16119),sysvar(1) > 0
+trigger21 = IsHelper(16020)
+trigger21 = NumHelper(16120)
+trigger21 = Helper(16120),NumTarget = 1
+trigger21 = Helper(16120),HitPauseTime
+trigger21 = Helper(16120),sysvar(1) > 0
+trigger22 = IsHelper(16021)
+trigger22 = NumHelper(16121)
+trigger22 = Helper(16121),NumTarget = 1
+trigger22 = Helper(16121),HitPauseTime
+trigger22 = Helper(16121),sysvar(1) > 0
+trigger23 = IsHelper(16022)
+trigger23 = NumHelper(16122)
+trigger23 = Helper(16122),NumTarget = 1
+trigger23 = Helper(16122),HitPauseTime
+trigger23 = Helper(16122),sysvar(1) > 0
+trigger24 = IsHelper(16023)
+trigger24 = NumHelper(16123)
+trigger24 = Helper(16123),NumTarget = 1
+trigger24 = Helper(16123),HitPauseTime
+trigger24 = Helper(16120),sysvar(1) > 0
+value = 1020304
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  並列混線ヘルパーを生成する。
+
+[State 16001, 並列混線ヘルパー生成 1]
+type = Helper
+triggerall = IsHelper(16000)
+trigger1   = !NumHelper(16100)
+ID = 16100
+name = "H-Konsen 1[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 16001, 並列混線ヘルパー生成 2]
+type = Helper
+triggerall = IsHelper(16001)
+trigger1   = !NumHelper(16101)
+ID = 16101
+name = "H-Konsen 2[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 3]
+type = Helper
+triggerall = IsHelper(16002)
+trigger1   = !NumHelper(16102)
+ID = 16102
+name = "H-Konsen 3[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 4]
+type = Helper
+triggerall = IsHelper(16003)
+trigger1   = !NumHelper(16103)
+ID = 16103
+name = "H-Konsen 4[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 5]
+type = Helper
+triggerall = IsHelper(16004)
+trigger1   = !NumHelper(16104)
+ID = 16104
+name = "H-Konsen 5[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 6]
+type = Helper
+triggerall = IsHelper(16005)
+trigger1   = !NumHelper(16105)
+ID = 16105
+name = "H-Konsen 6[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 7]
+type = Helper
+triggerall = IsHelper(16006)
+trigger1   = !NumHelper(16106)
+ID = 16106
+name = "H-Konsen 7[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 8]
+type = Helper
+triggerall = IsHelper(16007)
+trigger1   = !NumHelper(16107)
+ID = 16107
+name = "H-Konsen 8[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 9]
+type = Helper
+triggerall = IsHelper(16008)
+trigger1   = !NumHelper(16108)
+ID = 16108
+name = "H-Konsen 9[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 10]
+type = Helper
+triggerall = IsHelper(16009)
+trigger1   = !NumHelper(16109)
+ID = 16109
+name = "H-Konsen10[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 11]
+type = Helper
+triggerall = IsHelper(16010)
+trigger1   = !NumHelper(16110)
+ID = 16110
+name = "H-Konsen11[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 12]
+type = Helper
+triggerall = IsHelper(16011)
+trigger1   = !NumHelper(16111)
+ID = 16111
+name = "H-Konsen12[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 13]
+type = Helper
+triggerall = IsHelper(16012)
+trigger1   = !NumHelper(16112)
+ID = 16112
+name = "H-Konsen13[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 14]
+type = Helper
+triggerall = IsHelper(16013)
+trigger1   = !NumHelper(16113)
+ID = 16113
+name = "H-Konsen14[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 15]
+type = Helper
+triggerall = IsHelper(16014)
+trigger1   = !NumHelper(16114)
+ID = 16114
+name = "H-Konsen15[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 16]
+type = Helper
+triggerall = IsHelper(16015)
+trigger1   = !NumHelper(16115)
+ID = 16115
+name = "H-Konsen16[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 17]
+type = Helper
+triggerall = IsHelper(16016)
+trigger1   = !NumHelper(16116)
+ID = 16116
+name = "H-Konsen17[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 18]
+type = Helper
+triggerall = IsHelper(16017)
+trigger1   = !NumHelper(16117)
+ID = 16117
+name = "H-Konsen18[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 19]
+type = Helper
+triggerall = IsHelper(16018)
+trigger1   = !NumHelper(16118)
+ID = 16118
+name = "H-Konsen19[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 20]
+type = Helper
+triggerall = IsHelper(16019)
+trigger1   = !NumHelper(16119)
+ID = 16119
+name = "H-Konsen20[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 21]
+type = Helper
+triggerall = IsHelper(16020)
+trigger1   = !NumHelper(16120)
+ID = 16120
+name = "H-Konsen21[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 22]
+type = Helper
+triggerall = IsHelper(16021)
+trigger1   = !NumHelper(16121)
+ID = 16121
+name = "H-Konsen22[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 23]
+type = Helper
+triggerall = IsHelper(16022)
+trigger1   = !NumHelper(16122)
+ID = 16122
+name = "H-Konsen23[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16001, 並列混線ヘルパー生成 24]
+type = Helper
+triggerall = IsHelper(16023)
+trigger1   = !NumHelper(16123)
+ID = 16123
+name = "H-Konsen24[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  ガードステートに準ステート固定
+
+[State 16001, 準ステート固定]
+type = SelfState
+trigger1 = IsHelper
+value = 130
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> 並列混線ヘルパー基本処理
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+
+[StateDef 16100]
+type     = S
+movetype = I
+physics  = N
+ctrl = 0
+anim = -1 + (Anim != 31610) * ((Name = "cooler") * 31611)
+movehitpersist = 1
+hitdefpersist  = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 位置固定 1]
+type = PosAdd
+trigger1 = IsHelper(16100) || IsHelper(16101) || IsHelper(16102) || IsHelper(16103)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 60 + IsHelper(16101) * 10 + IsHelper(16102) * 20 + IsHelper(16103) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 位置固定 2]
+type = PosAdd
+trigger1 = IsHelper(16104) || IsHelper(16105) || IsHelper(16106) || IsHelper(16107)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 100 + IsHelper(16105) * 10 + IsHelper(16106) * 20 + IsHelper(16107) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 位置固定 3]
+type = PosAdd
+trigger1 = IsHelper(16108) || IsHelper(16109) || IsHelper(16110) || IsHelper(16111)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 140 + IsHelper(16109) * 10 + IsHelper(16110) * 20 + IsHelper(16111) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 位置固定 4]
+type = PosAdd
+trigger1 = IsHelper(16112) || IsHelper(16113) || IsHelper(16114) || IsHelper(16115)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 60 + IsHelper(16113) * 10 + IsHelper(16114) * 20 + IsHelper(16115) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 位置固定 5]
+type = PosAdd
+trigger1 = IsHelper(16116) || IsHelper(16117) || IsHelper(16118) || IsHelper(16119)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 100 + IsHelper(16117) * 10 + IsHelper(16118) * 20 + IsHelper(16119) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 位置固定 6]
+type = PosAdd
+trigger1 = IsHelper(16120) || IsHelper(16121) || IsHelper(16122) || IsHelper(16123)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 140 + IsHelper(16121) * 10 + IsHelper(16122) * 20 + IsHelper(16123) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲットを1つに絞る]
+type = TargetDrop
+trigger1 = NumTarget > 1
+keepone = 1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 1]
+type = TargetDrop
+triggerall = IsHelper(16100)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 2]
+type = TargetDrop
+triggerall = IsHelper(16101)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 3]
+type = TargetDrop
+triggerall = IsHelper(16102)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 4]
+type = TargetDrop
+triggerall = IsHelper(16103)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 5]
+type = TargetDrop
+triggerall = IsHelper(16104)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 6]
+type = TargetDrop
+triggerall = IsHelper(16105)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 7]
+type = TargetDrop
+triggerall = IsHelper(16106)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 8]
+type = TargetDrop
+triggerall = IsHelper(16107)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 9]
+type = TargetDrop
+triggerall = IsHelper(16108)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 10]
+type = TargetDrop
+triggerall = IsHelper(16109)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 11]
+type = TargetDrop
+triggerall = IsHelper(16110)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 12]
+type = TargetDrop
+triggerall = IsHelper(16111)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 13]
+type = TargetDrop
+triggerall = IsHelper(16112)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 14]
+type = TargetDrop
+triggerall = IsHelper(16113)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 15]
+type = TargetDrop
+triggerall = IsHelper(16114)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 16]
+type = TargetDrop
+triggerall = IsHelper(16115)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 17]
+type = TargetDrop
+triggerall = IsHelper(16116)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 18]
+type = TargetDrop
+triggerall = IsHelper(16117)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 19]
+type = TargetDrop
+triggerall = IsHelper(16118)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 20]
+type = TargetDrop
+triggerall = IsHelper(16119)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 21]
+type = TargetDrop
+triggerall = IsHelper(16120)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 22]
+type = TargetDrop
+triggerall = IsHelper(16121)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 23]
+type = TargetDrop
+triggerall = IsHelper(16122)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲットでなければ破棄 24]
+type = TargetDrop
+triggerall = IsHelper(16123)
+triggerall = NumTarget = 1
+trigger1   = PlayerIDExist(Parent,ID)	;親ヘルパーが存在している
+trigger1   = Target,ID != Parent,ID	;ターゲットが親でないとき
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16000, 親のIDを変数に記憶]
+type = VarSet
+triggerall = PlayerIDExist(Parent,ID)	;親が存在
+triggerall = NumTarget = 1		;ターゲットを1つ持っている
+trigger1   = Target,TeamSide = TeamSide	;ターゲットが自分のヘルパー
+sysvar(1) = Parent,ID
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 目的のターゲット取得フラグ]
+type = VarSet
+trigger1   = NumTarget = 1
+sysfvar(4) = Target,ID
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得時ステート変更]
+type = SelfState
+trigger1 = sysfvar(4)
+value = 16101
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 永続ターゲット]
+type = ReversalDef
+trigger1 = 1
+reversal.attr = SCA,AA,AT,AP
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 行動状態変更]
+type = StateTypeSet
+triggerall = IsHelper
+trigger1   = !NumTarget
+movetype = A
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 1]
+type = HitDef
+triggerall = IsHelper(16100)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,NA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1	;親変更時にHitPauseTimeが必要になってくるのでこの段階で付けておく
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 2]
+type = HitDef
+triggerall = IsHelper(16101)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,SA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 3]
+type = HitDef
+triggerall = IsHelper(16102)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,HA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 4]
+type = HitDef
+triggerall = IsHelper(16103)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,NA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 5]
+type = HitDef
+triggerall = IsHelper(16104)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,SA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 6]
+type = HitDef
+triggerall = IsHelper(16105)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,HA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 7]
+type = HitDef
+triggerall = IsHelper(16106)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,NA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 8]
+type = HitDef
+triggerall = IsHelper(16107)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,SA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 9]
+type = HitDef
+triggerall = IsHelper(16108)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,HA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 10]
+type = HitDef
+triggerall = IsHelper(16109)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,NA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 11]
+type = HitDef
+triggerall = IsHelper(16110)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,SA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 12]
+type = HitDef
+triggerall = IsHelper(16111)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,HA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 13]
+type = HitDef
+triggerall = IsHelper(16112)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,NA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 14]
+type = HitDef
+triggerall = IsHelper(16113)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,SA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 15]
+type = HitDef
+triggerall = IsHelper(16114)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,HA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 16]
+type = HitDef
+triggerall = IsHelper(16115)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,NA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 17]
+type = HitDef
+triggerall = IsHelper(16116)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,SA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 18]
+type = HitDef
+triggerall = IsHelper(16117)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,HA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 19]
+type = HitDef
+triggerall = IsHelper(16118)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,NA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 20]
+type = HitDef
+triggerall = IsHelper(16119)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,SA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 21]
+type = HitDef
+triggerall = IsHelper(16120)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,HA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 22]
+type = HitDef
+triggerall = IsHelper(16121)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,NA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 23]
+type = HitDef
+triggerall = IsHelper(16122)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,SA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得 24]
+type = HitDef
+triggerall = IsHelper(16123)
+trigger1   = !NumTarget
+trigger2   = !HitPauseTime
+attr = ,HA
+affectteam = F
+hitonce = 1
+sparkno = -1
+hitsound = -1
+numhits = 0
+pausetime = 99999999999,1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得後アニメ変更]
+type = ChangeAnim
+trigger1 = NumTarget
+value = 30000
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, ターゲット取得後無敵化]
+type = NotHitBy
+trigger1 = NumTarget
+value = SCA
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, デバッグ表示]
+type = DisplayToClipboard
+trigger1 = 1
+text = "ParentID:%d sysvar(1)ID:%d HitPauseTime:%d Side:%d Flag:%d"
+params = Parent,ID,sysvar(1),HitPauseTime,(Parent,TeamSide != TeamSide), (sysvar(0) & 1)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, デバッグ表示]
+type = AppendToClipBoard
+trigger1 = 1
+text = "\nvar(8):%d var(7):%d var(5):%d"
+params = var(8),var(7),var(5)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16100, 準ステート固定]
+type = SelfState
+trigger1 = 1
+value = 130
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> 並列混線ヘルパー通常処理ステート
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+
+[StateDef 16101]
+type     = S
+movetype = I
+physics  = N
+ctrl = 0
+anim = -1 + (Anim != 30000) * ((Name = "cooler") * 30001)
+movehitpersist = 1;(Name != "cooler")
+hitdefpersist  = 1;(Name != "cooler")
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16101, 永続ターゲット]
+type = ReversalDef
+trigger1 = 1
+reversal.attr = SCA,AA,AT,AP
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  下の位置固定のために向き固定。
+
+[State 16101, 向き固定]
+type = Turn
+trigger1 = Facing = -1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  邪魔にならない位置に固定。
+
+[State 16101, 位置固定 1]
+type = PosAdd
+trigger1 = IsHelper(16100) || IsHelper(16101) || IsHelper(16102) || IsHelper(16103)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 60 + IsHelper(16101) * 10 + IsHelper(16102) * 20 + IsHelper(16103) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16101, 位置固定 2]
+type = PosAdd
+trigger1 = IsHelper(16104) || IsHelper(16105) || IsHelper(16106) || IsHelper(16107)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 100 + IsHelper(16105) * 10 + IsHelper(16106) * 20 + IsHelper(16107) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16101, 位置固定 3]
+type = PosAdd
+trigger1 = IsHelper(16108) || IsHelper(16109) || IsHelper(16110) || IsHelper(16111)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 140 + IsHelper(16109) * 10 + IsHelper(16110) * 20 + IsHelper(16111) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16101, 位置固定 4]
+type = PosAdd
+trigger1 = IsHelper(16112) || IsHelper(16113) || IsHelper(16114) || IsHelper(16115)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 60 + IsHelper(16113) * 10 + IsHelper(16114) * 20 + IsHelper(16115) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16101, 位置固定 5]
+type = PosAdd
+trigger1 = IsHelper(16116) || IsHelper(16117) || IsHelper(16118) || IsHelper(16119)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 100 + IsHelper(16117) * 10 + IsHelper(16118) * 20 + IsHelper(16119) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16101, 位置固定 6]
+type = PosAdd
+trigger1 = IsHelper(16120) || IsHelper(16121) || IsHelper(16122) || IsHelper(16123)
+X = -Pos X + ifelse(TeamSide = 1,-105,145)
+Y = -ScreenPos Y + 140 + IsHelper(16121) * 10 + IsHelper(16122) * 20 + IsHelper(16123) * 30
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  <親変更ヘルパー> 親がいなくなったら親変更成功フラグリセット
+
+[State 16101, 親がいなくなったら親変更成功フラグリセット]
+type = VarSet
+triggerall = IsHelper(16100) || IsHelper(16101) || IsHelper(16102)
+trigger1   = !PlayerIDExist(Parent,ID)	;親が存在しない
+trigger2   = Parent,Name = "cooler"	;親が自分のヘルパー
+trigger2   = Parent,TeamSide = TeamSide	
+sysvar(0) = (sysvar(0) & (1 ^ -1))	;フラグリセット
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  <親変更ヘルパー> 親変更が成功していなかったら親変更ステートへ移動する。
+
+[State 16101, 親変更ステートへ]
+type = SelfState
+triggerall = PlayerIDExist(Parent,ID)	;親が存在
+triggerall = !(sysvar(0) & 1)		;親変更成功フラグが立っていない。
+triggerall = PrevStateNo != [16102,16103]
+trigger1   = IsHelper(16100) || IsHelper(16101) || IsHelper(16102)
+value = 16102	;親変更ステートへ
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  とりあえずヘルパーの変数を弄ってみる。
+
+[State 16101, ヘルパー変数弄り]
+type = ParentVarSet
+triggerall = PlayerIDExist(Parent,ID)	;親が存在
+triggerall = (sysvar(0) & 1)		;親変更成功フラグが立っている。
+trigger1   = RoundState = 2
+var(0) = Random
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  おまけ。旧鬼巫女専用対策
+;  ちなみに鬼巫女シリーズはNameが全て同じなので暴発します。
+
+[State 16101, 旧鬼巫女専用対策]
+type = ParentVarSet
+triggerall = PlayerIDExist(Parent,ID)	;親が存在
+triggerall = (sysvar(0) & 1)		;親変更成功フラグが立っている。
+triggerall = Enemy(0),Name = "ONI-MIKO-REIMU"
+trigger1   = Parent,IsHelper(6900)
+var(4) = 890106
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  ここから下に並列混線用の記述。
+
+;--------------------------------------------------------------------------------------------------
+[State , パンドラキラー改用変数調査]
+type = Varset
+triggerall = ishelper(16101)
+trigger1 = enemynear,var(gametime % 60) = enemynear,stateno
+trigger1 = enemynear,stateno != 0
+trigger1 = var(47) := 1
+var(46) = (gametime % 60)
+ignorehitpause = 1
+
+[State , target,stateno変数化]
+type = Varset
+triggerall = numtarget = 1
+triggerall = target,ishelper
+trigger1 = (target,stateno = [0, 1004]) || target,stateno = 1007 || target,stateno = 1010 || target,stateno = 1020 || target,stateno = 1043 || target,stateno = 1050 || target,stateno = 1065 || target,stateno = 1070
+trigger2 = (target,stateno = [1100, 1102]) || (target,stateno = [1110, 1120]) || (target,stateno = [1200, 1202]) || (target,stateno = [1209, 1210])|| target,stateno = 1220 || (target,stateno = [1253, 1254])
+trigger3 = (target,stateno = [1300, 1303]) || target,stateno = 1350 || target,stateno = 1400 || target,stateno = 1412 || target,stateno = 1450 || target,stateno = 1500 || target,stateno = 1510 || (target,stateno = [1600, 1602])
+trigger4 = target,stateno = 1720 || target,stateno = 1801 || target,stateno = 1999 || (target,stateno = [2000, 2005]) || (target,stateno = [2010, 2011]) || (target,stateno = [2020, 2025]) || target,stateno = 2029
+trigger5 = (target,stateno = [2100, 2105]) || target,stateno = 2110 || (target,stateno = [2120, 2121]) || target,stateno = 2125 || target,stateno = 2133 || (target,stateno = [2200, 2206]) || target,stateno = 2210
+trigger6 = (target,stateno = [2220, 2222]) || target,stateno = 2269 || target,stateno = 2300 || (target,stateno = [2350, 2356]) || target,stateno = 2400 || target,stateno = 2500 || (target,stateno = [2506, 2507])
+trigger7 = target,stateno = 2600 || target,stateno = 2611 || target,stateno = 2901 || (target,stateno = [3000, 3002]) || target,stateno = 3041 || target,stateno = 3052 || target,stateno = 3059 || (target,stateno = [3100, 3101])
+trigger8 = target,stateno = 3185 || target,stateno = 3200 || target,stateno = 3210 || target,stateno = 3230 || target,stateno = 3300 || target,stateno = 3333 || target,stateno = 3400 || target,stateno = 3403
+trigger9 = (target,stateno = [3510, 3519]) || (target,stateno = [3920, 3921]) || target,stateno = 3929 || (target,stateno = [3999, 4001]) || target,stateno = 4050 || target,stateno = 4060 || target,stateno = 4080
+trigger10 = target,stateno = 4090 || target,stateno = 4091 || target,stateno = 4211 || (target,stateno = [4310, 4311]) || (target,stateno = [4330, 4331]) || target,stateno = 4391 || (target,stateno = [4395, 4396])
+trigger11 = target,stateno = 4444 || target,stateno = 4500 || (target,stateno = [4510, 4512]) || target,stateno = 4600 || target,stateno = 4920 || target,stateno = 4921 || target,stateno = 4922 || target,stateno = 4930
+trigger12 = (target,stateno = [5000, 5001]) || (target,stateno = [5010, 5011]) || target,stateno = 5020 || target,stateno = 5030 || target,stateno = 5035 || target,stateno = 5040 || target,stateno = 5050
+trigger13 = (target,stateno = [5070, 5071]) || (target,stateno = [5080, 5081]) || (target,stateno = [5100, 5101]) || target,stateno = 5110 || target,stateno = 5120 || (target,stateno = [5200, 5201]) || target,stateno = 5210
+trigger14 = target,stateno = 5500 || target,stateno = 5555 || target,stateno = 5600 || (target,stateno = [5788, 5790]) || target,stateno = 5858 || target,stateno = 5900 || target,stateno = 5910 || (target,stateno = [6000, 6007])
+trigger15 = (target,stateno = [6010, 6016]) || (target,stateno = [6019, 6020]) || (target,stateno = [6024, 6027]) || (target,stateno = [6032, 6035]) || (target,stateno = [6100, 6107]) || target,stateno = 6110
+trigger16 = target,stateno = 6301 || target,stateno = 6306 || target,stateno = 6540 || target,stateno = 6666 || target,stateno = 6789 || target,stateno = 6800 || target,stateno = 6900 || target,stateno = 6920
+trigger17 = (target,stateno = [6999, 7000]) || target,stateno = 7006 || target,stateno = 7011 || (target,stateno = [7040, 7047]) || target,stateno = 7055 || target,stateno = 7309 || (target,stateno = [7320, 7321])
+trigger18 = (target,stateno = [7326, 7327]) || target,stateno = 7777 || target,stateno = 7878 || (target,stateno = [8000, 8006]) || target,stateno = 8012 || target,stateno = 8015 || target,stateno = 8040 || target,stateno = 8100
+trigger19 = target,stateno = 8888 || target,stateno = 8900 || target,stateno = 9000 || target,stateno = 9007 || target,stateno = 9010 || target,stateno = 9100 || target,stateno = 9110 || target,stateno = 9126
+trigger20 = target,stateno = 9200 || target,stateno = 9263 || target,stateno = 9809 || (target,stateno = [9900, 9901]) || target,stateno = 9936 || target,stateno = 9952 || target,stateno = 9988 || (target,stateno = [9990, 10004])
+trigger21 = target,stateno = 10012 || target,stateno = 10015 || target,stateno = 10040 || target,stateno = 10101 || (target,stateno = [10190, 10199]) || target,stateno = 10504 || target,stateno = 10651
+trigger22 = (target,stateno = [11000, 11004]) || target,stateno = 11100 || target,stateno = 11111 || target,stateno = 11301 || target,stateno = 11502 || target,stateno = 11680 || target,stateno = 11710 || target,stateno = 11720
+trigger23 = target,stateno = 11730 || (target,stateno = [11999, 12004]) || target,stateno = 12030 || target,stateno = 12310 || target,stateno = 12345 || target,stateno = 12500 || target,stateno = 13000 || target,stateno = 13020
+trigger24 = target,stateno = 13050 || target,stateno = 13100 || target,stateno = 13200 || target,stateno = 13500 || (target,stateno = [14001, 14002]) || target,stateno = 15000 || target,stateno = 15010 || target,stateno = 15100
+trigger25 = target,stateno = 15110 || target,stateno = 15120 || target,stateno = 15200 || target,stateno = 15210 || target,stateno = 15220 || target,stateno = 16003 || target,stateno = 16803 || target,stateno = 18102
+trigger26 = target,stateno = 19101 || target,stateno = 20000 || target,stateno = 20955 || (target,stateno = [21000, 21003]) || target,stateno = 21012 || (target,stateno = [22101, 22102]) || target,stateno = 22122
+trigger27 = (target,stateno = [22222, 22224]) || target,stateno = 22428 || target,stateno = 24601 || target,stateno = 24610 || target,stateno = 25544 || target,stateno = 26320 || target,stateno = 26485 || target,stateno = 29995
+trigger28 = (target,stateno = [30000, 30005]) || target,stateno = 30010 || (target,stateno = [30013, 30014]) || (target,stateno = [30020, 30021]) || target,stateno = 31993 || target,stateno = 32555 || target,stateno = 33333
+trigger29 = target,stateno = 37000 || (target,stateno = [40000, 40007]) || target,stateno = 40010 || target,stateno = 40020 || target,stateno = 40952 || target,stateno = 43302 || (target,stateno = [43425, 43426])
+trigger30 = target,stateno = 43655 || target,stateno = 43705 || target,stateno = 43708 || target,stateno = 44444 || target,stateno = 44488 || target,stateno = 44900 || target,stateno = 45755 || target,stateno = 45999
+trigger31 = target,stateno = 46060 || target,stateno = 46965 || target,stateno = 49933 || target,stateno = 49943 || (target,stateno = [49999, 50000]) || (target,stateno = [50505, 50506]) || (target,stateno = [51515, 51518])
+trigger32 = target,stateno = 55555 || target,stateno = 56414 || target,stateno = 58900 || target,stateno = 58901 || target,stateno = 60000 || target,stateno = 60010 || target,stateno = 60050 || target,stateno = 60315
+trigger33 = target,stateno = 61000 || target,stateno = 64000 || target,stateno = 65000 || target,stateno = 65500 || target,stateno = 65530 || target,stateno = 66666 || target,stateno = 70000 || target,stateno = 70100
+trigger34 = target,stateno = 70200 || target,stateno = 77777 || target,stateno = 80000 || target,stateno = 84555 || (target,stateno = [88885, 88888]) || target,stateno = 90000 || (target,stateno = [90017, 90019])
+trigger35 = target,stateno = 94401 || (target,stateno = [99919, 99920]) || (target,stateno = [99999, 100002]) || target,stateno = 100215 || target,stateno = 102500 || target,stateno = 108000 || target,stateno = 110010
+trigger36 = target,stateno = 111111 || target,stateno = 111222 || target,stateno = 112235 || target,stateno = 112240 || target,stateno = 112250 || target,stateno = 126100 || target,stateno = 169990 || target,stateno = 170000
+trigger37 = target,stateno = 180002 || target,stateno = 200000 || target,stateno = 220000 || target,stateno = 220005 || target,stateno = 222222 || target,stateno = 300000 || target,stateno = 301050 || target,stateno = 310120
+trigger38 = target,stateno = 313900 || target,stateno = 400000 || target,stateno = 444444 || target,stateno = 445051 || target,stateno = 450000 || target,stateno = 500000 || target,stateno = 500033 || target,stateno = 555555
+trigger39 = target,stateno = 600000 || target,stateno = 649999 || target,stateno = 666666 || target,stateno = 700000 || target,stateno = 741002 || (target,stateno = [741003, 741004]) || target,stateno = 777777
+trigger40 = target,stateno = 800000 || target,stateno = 888881 || target,stateno = 888888 || target,stateno = 900000 || target,stateno = 910010 || (target,stateno = [999999, 1000001]) || target,stateno = 1000005
+trigger41 = (target,stateno = [1000010, 1000014]) || target,stateno = 1000034 || (target,stateno = [1000040, 1000043]) || target,stateno = 1111111 || target,stateno = 1168000 || target,stateno = 1699922
+trigger42 = target,stateno = 2000000 || target,stateno = 2222222 || target,stateno = 3000000 || target,stateno = 3333333 || target,stateno = 4000000 || target,stateno = 4444444 || target,stateno = 4498234
+trigger43 = target,stateno = 5000000 || (target,stateno = [5000005, 5000006]) || target,stateno = 5000010 || target,stateno = 5000025 || target,stateno = 5000052 || target,stateno = 5000058 || (target,stateno = [5000070, 5000072])
+trigger44 = target,stateno = 5000080 || target,stateno = 5000085 || target,stateno = 5000090 || target,stateno = 5000095 || target,stateno = 5000333 || target,stateno = 5555555 || target,stateno = 6000000
+trigger45 = target,stateno = 6400000 || target,stateno = 6666666 || target,stateno = 7000000 || target,stateno = 7777777 || target,stateno = 8000000 || target,stateno = 8888888 || target,stateno = 9000000
+trigger46 = target,stateno = 9999999 || target,stateno = 10000000 || target,stateno = 11111111 || target,stateno = 20000000 || (target,stateno = [21360897, 21360898]) || target,stateno = 22222222 || target,stateno = 30000000
+trigger47 = target,stateno = 33333333 || target,stateno = 40000000 || target,stateno = 44444444 || target,stateno = 50000000 || target,stateno = 55555555 || target,stateno = 60000000 || target,stateno = 66666666
+trigger48 = target,stateno = 70000000 || target,stateno = 77777777 || target,stateno = 80000000 || target,stateno = 88010000 || target,stateno = 88040000 || target,stateno = 88080000
+trigger49 = (target,stateno = [88888880, 88888889]) || target,stateno = 90000000 || (target,stateno = [99999999, 100000000]) || target,stateno = 111111111 || target,stateno = 123456789 || target,stateno = 200000000
+trigger50 = target,stateno = 222222222 || target,stateno = 300000000 || target,stateno = 333333333 || target,stateno = 400000000 || target,stateno = 444444444 || target,stateno = 500000000
+trigger51 = (target,stateno = [555555555, 555555557]) || target,stateno = 600000000 || target,stateno = 666666666 || target,stateno = 700000000 || target,stateno = 777777777 || target,stateno = 800000000
+trigger52 = target,stateno = 880100000 || target,stateno = 880400000 || target,stateno = 880800000 || target,stateno = 888802222 || target,stateno = 888888880 || (target,stateno = [888888888, 888888889])
+trigger52 = target,stateno = 900000000 || target,stateno = 987654321 || target,stateno = 990990990 || target,stateno = 999999999 || target,stateno = 1000000000 || target,stateno = 1100000000 || target,stateno = 1111111111
+trigger53 = target,stateno = 1200000000 || target,stateno = 1300000000 || target,stateno = 1400000000 || target,stateno = 1500000000 || target,stateno = 1600000000 || target,stateno = 1700000000 || target,stateno = 1800000000
+trigger54 = target,stateno = 1900000000 || target,stateno = 2000000000 || target,stateno = 2100000000 || target,stateno = 2147483647
+sysfvar(3) = target,stateno
+ignorehitpause = 1
+
+[State , 混線、邪眼範囲内]
+type = Targetstate
+triggerall = numtarget = 1
+triggerall = target,ishelper
+triggerall = !target,ishelper(222222)
+triggerall = target,name != "cooler"
+triggerall = !(enemynear,name = "Yubel" || enemynear,name = "GEL" || enemynear,name = "Tenma")
+triggerall = !(enemynear,name = "E Youmu")
+triggerall = enemy,name != "Barbatos_Goetia"
+triggerall = enemy,name != "Mirokaross"
+triggerall = root,palno = 12
+trigger1 = roundstate != 2 || !root,var(14) ||  root,var(15) < 6000
+value = floor(sysfvar(3))
+ignorehitpause = 1
+
+[State , 混線、邪眼範囲外]
+type = Targetstate
+triggerall = numtarget = 1
+triggerall = target,ishelper
+triggerall = !target,ishelper(222222)
+triggerall = target,stateno != sysfvar(3)
+triggerall = target,name != "cooler"
+triggerall = !(enemynear,name = "Yubel" || enemynear,name = "GEL" || enemynear,name = "Tenma")
+triggerall = !(enemynear,name = "E Youmu")
+triggerall = enemy,name != "Barbatos_Goetia"
+triggerall = enemy,name != "Mirokaross"
+triggerall = root,palno = 12
+trigger1 = roundstate != 2 || !root,var(14) ||  root,var(15) < 6000
+value = 14000
+ignorehitpause = 1
+
+[State , 習得ステート飛ばし];専用対策（バルバトス）
+type = Targetstate
+triggerall = enemy,name = "Barbatos_Goetia"
+triggerall = enemy,name != "Mirokaross"
+trigger1 = gametime % 600 = [0, 300]
+value = 14100
+ignorehitpause = 1
+
+[State , 習得ステート飛ばし];専用対策（ミロカロス）
+type = Targetstate
+triggerall = enemy,name != "Barbatos_Goetia"
+triggerall = enemy,name = "Mirokaross"
+trigger1 = gametime % 600 = [0, 300]
+value = 14000
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  無敵化。
+
+[State 16101, 無敵化]
+type = NotHitBy
+trigger1 = NumTarget
+value = SCA
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16101, デバッグ表示]
+type = DisplayToClipboard
+trigger1 = PlayerIDExist(Parent,ID)
+text = "ParentID:%d sysvar(1)ID:%d HitPauseTime:%d Side:%d Flag:%d"
+params = Parent,ID,sysvar(1),HitPauseTime,(Parent,TeamSide != TeamSide), (sysvar(0) & 1)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  ガードステートに準ステート固定
+
+[State 16101, 準ステート固定]
+type = SelfState
+trigger1 = IsHelper
+persistent = 256
+value = 130
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> 親変更ヘルパー
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+
+[StateDef 16102]
+type     = U
+movetype = I
+movehitpersist = 1;(Name != "cooler")
+hitdefpersist  = 1;(Name != "cooler")
+
+;--------------------------------------------------------------------------------------------------
+;  親のIDを記憶。
+
+[State 16102, 親のIDを記憶]
+type = VarSet
+triggerall = PlayerIDExist(Parent,ID)
+trigger1   = !sysvar(1)
+trigger1   = Parent,Name = "cooler"
+trigger1   = Parent,TeamSide = TeamSide
+trigger2   = (sysvar(0) & 1)		;親変更成功
+trigger2   = Parent,TeamSide != TeamSide
+sysvar(1) = Parent,ID
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16102, 本来の親と現在の親のIDの256進数上の1桁目と2桁目を記憶]
+type = Null
+triggerall = PlayerIDExist(Parent,ID)
+triggerall = Parent,TeamSide != TeamSide
+trigger1   = var(1) := Floor(sysvar(1) / 256) || 1
+trigger1   = var(2) := (sysvar(1) % 256) || 1
+trigger1   = var(3) := Floor(Parent,ID / 256) || 1
+trigger1   = var(4) := (Parent,ID % 256) || 1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16102, IDの256進数上の2桁目の差を求める]
+type = Null
+triggerall = PlayerIDExist(Parent,ID)
+triggerall = Parent,TeamSide != TeamSide
+trigger1   = var(3) > var(1)
+trigger1   = var(5) := 128 - (var(3) - var(1))
+trigger2   = var(3) <= var(1)
+trigger2   = var(5) := var(1) - var(3)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16102, IDの256進数上の1桁目の差を求める]
+type = Null
+triggerall = PlayerIDExist(Parent,ID)
+triggerall = Parent,TeamSide != TeamSide
+trigger1   = var(4) > var(2)
+trigger1   = var(6) := 128 - (var(4) - var(2))
+trigger2   = var(4) <= var(2)
+trigger2   = var(6) := var(2) - var(4)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16102, デバッグ表示]
+type = DisplayToClipboard
+trigger1 = 1
+text = "ParentID:%d sysvar(1)ID:%d HitPauseTime:%d Side:%d Flag:%d"
+params = Parent,ID,sysvar(1),HitPauseTime,(Parent,TeamSide != TeamSide), (sysvar(0) & 1)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16102, デバッグ表示]
+type = AppendToClipBoard
+trigger1 = 1
+text = "\nvar(8):%d var(7):%d var(5):%d"
+params = var(8),var(7),var(5)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16102, 親変更用ループステートへ]
+type = SelfState
+triggerall = PlayerIDExist(Parent,ID)
+triggerall = Parent,TeamSide != TeamSide
+triggerall = HitPauseTime
+triggerall = !(sysvar(0) & 1)	;親変更が成功していない
+triggerall = var(7) <= 1000
+trigger1   = var(5) = [0,128]
+trigger1   = var(6) = [0,128]
+trigger1   = var(8) := 0 || 1	;ループ変数リセット
+persistent = 256
+value = 16103
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16102, 並列混線通常処理ステートへ]
+type = SelfState
+trigger1 = 1
+persistent = 256
+value = 16101
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> 親変更用ループステート
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+
+[StateDef 16103]
+type     = U
+movetype = U
+movehitpersist = 1;(Name != "cooler")
+hitdefpersist  = 1;(Name != "cooler")
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, 親変更成功フラグをリセット]
+type = VarSet
+trigger1 = 1
+sysvar(0) = (sysvar(0) & (1 ^ -1))
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, 親の変数をあらかじめ保存]
+type = VarSet
+triggerall = PlayerIDExist(Parent,ID)
+triggerall = Parent,TeamSide != TeamSide
+trigger1   = 1
+sysvar(2) = Parent,var(0)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, 親の変数を弄ってみる]
+type = ParentVarSet
+triggerall = PlayerIDExist(Parent,ID)
+triggerall = Parent,TeamSide != TeamSide
+trigger1   = 1
+;------------------------------------------------
+;  親の変数が0だったら1を代入し, そうでなければ0を代入する。
+var(0) = !sysvar(2)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, 親の変数が弄れたら親変更成功フラグを立てる]
+type = VarSet
+triggerall = PlayerIDExist(Parent,ID)
+triggerall = Parent,TeamSide != TeamSide
+trigger1   = Parent,var(0) = (!sysvar(2))	;上記ステコンで代入した値がきちんと格納されている
+sysvar(0) = (sysvar(0) | 1)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, 変数を元に戻す]
+type = ParentVarSet
+triggerall = PlayerIDExist(Parent,ID)
+triggerall = Parent,TeamSide != TeamSide
+trigger1   = (sysvar(0) & 1)
+var(0) = sysvar(2)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, ループ回数]
+type = VarAdd
+trigger1 = 1
+var(8) = 1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの1桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) < var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 5050505
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, Parent,IDの2桁目のアドレスを弄る]
+type = ChangeState
+triggerall = var(7) >= var(6)
+triggerall = HitPauseTime
+trigger1   = !(sysvar(0) & 1)
+trigger1   = var(8) = [0,1000]
+trigger1   = var(7) := var(7) + 1 || 1
+persistent = 256
+value = 6060606
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, 親のIDを保存]
+type = VarSet
+triggerall = PlayerIDExist(Parent,ID)
+trigger1   = !sysvar(1)
+trigger1   = Parent,Name = "cooler"
+trigger1   = Parent,TeamSide = TeamSide
+trigger2   = (sysvar(0) & 1)
+trigger2   = Parent,TeamSide != TeamSide
+sysvar(1) = Parent,ID
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16003, デバッグ表示]
+type = DisplayToClipboard
+trigger1 = 1
+text = "ParentID:%d sysvar(1)ID:%d HitPauseTime:%d Side:%d Flag:%d"
+params = Parent,ID,sysvar(1),HitPauseTime,(Parent,TeamSide != TeamSide), (sysvar(0) & 1)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, デバッグ表示]
+type = AppendToClipBoard
+trigger1 = 1
+text = "\nvar(8):%d var(7):%d var(5):%d"
+params = var(8),var(7),var(5)
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State 16103, 並列混線通常処理ステートへ]
+type = SelfState
+trigger1 = 1
+persistent = 256
+value = 16101
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> 並列混線ヘルパーメモリ領域確保用ヘルパー
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+;  並列混線被弾ヘルパーが生成する並列混線ヘルパーのメモリ領域を確保しておく。
+;  デストロイのタイミングは,並列混線被弾ヘルパーが親変更可能領域のとき。
+
+[StateDef 16999]
+type     = S
+movetype = I
+physics  = N
+ctrl = 0
+anim = -1 + (Anim != 30000) * ((Name = "cooler") * 30001)
+movehitpersist = (Name != "cooler")
+hitdefpersist  = (Name != "cooler")
+
+;--------------------------------------------------------------------------------------------------
+;  並列混線被弾ヘルパーが親変更可能領域に来たらデストロイ。
+
+[State 16999, ヘルパー消去]
+type = DestroySelf
+triggerall = IsHelper(16999)
+trigger1   = Root,var(56)	;親変更可能領域
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  ガードステートに準ステート固定。
+
+[State 16999, 準ステート固定]
+type = SelfState
+trigger1 = IsHelper(16999)
+value = 130
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> 最終ヘルパー
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+;  ヘルパー生成がなければ一番最後に動けるヘルパー。
+;  本体のターゲットを取得することで向きや位置,速度,ライフなどを戻すことができる。
+
+[StateDef 99999]
+type     = S
+movetype = I
+physics  = N
+ctrl = 0
+anim = -1 + (Anim != 30000) * ((Name = "cooler") * 30001)
+movehitpersist = (Name != "cooler")
+hitdefpersist  = (Name != "cooler")
+
+;--------------------------------------------------------------------------------------------------
+;  下の位置固定の為に向きを固定。
+
+[State 99999, 向き固定]
+type = Turn
+triggerall = IsHelper(99999) 
+trigger1   = Facing = -1
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  邪魔にならない位置に固定。
+
+[State 99999, 位置固定]
+type = PosAdd
+trigger1 = IsHelper(99999)
+X = -Pos X + ifelse(TeamSide = 1,-145,105)
+Y = -ScreenPos Y + 210
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  並列混線被弾ヘルパーが親変更領域でない場合,並列混線被弾ヘルパーを生成する。
+
+[State 99999, 並列混線被弾ヘルパー 1]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16000)	;並列混線被弾ヘルパー1
+trigger1   = !NumHelper(16100)	;並列混線ヘルパー1
+ID = 16000
+name = "H-Konsen-Hidan 1[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 2]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16001)	;並列混線被弾ヘルパー2
+trigger1   = !NumHelper(16101)	;並列混線ヘルパー2
+ID = 16001
+name = "H-Konsen-Hidan 2[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 3]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16002)	;並列混線被弾ヘルパー3
+trigger1   = !NumHelper(16102)	;並列混線ヘルパー3
+ID = 16002
+name = "H-Konsen-Hidan 3[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 4]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16003)	;並列混線被弾ヘルパー4
+trigger1   = !NumHelper(16103)	;並列混線ヘルパー4
+ID = 16003
+name = "H-Konsen-Hidan 4[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 5]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16004)	;並列混線被弾ヘルパー5
+trigger1   = !NumHelper(16104)	;並列混線ヘルパー5
+ID = 16004
+name = "H-Konsen-Hidan 5[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 6]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16005)	;並列混線被弾ヘルパー6
+trigger1   = !NumHelper(16105)	;並列混線ヘルパー6
+ID = 16005
+name = "H-Konsen-Hidan 6[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 7]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16006)	;並列混線被弾ヘルパー7
+trigger1   = !NumHelper(16106)	;並列混線ヘルパー7
+ID = 16006
+name = "H-Konsen-Hidan 7[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 8]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16007)	;並列混線被弾ヘルパー8
+trigger1   = !NumHelper(16107)	;並列混線ヘルパー8
+ID = 16007
+name = "H-Konsen-Hidan 8[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 9]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16008)	;並列混線被弾ヘルパー9
+trigger1   = !NumHelper(16108)	;並列混線ヘルパー9
+ID = 16008
+name = "H-Konsen-Hidan 9[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 10]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16009)	;並列混線被弾ヘルパー10
+trigger1   = !NumHelper(16109)	;並列混線ヘルパー10
+ID = 16009
+name = "H-Konsen-Hidan10[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 11]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16010)	;並列混線被弾ヘルパー11
+trigger1   = !NumHelper(16110)	;並列混線ヘルパー11
+ID = 16010
+name = "H-Konsen-Hidan11[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 12]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16011)	;並列混線被弾ヘルパー12
+trigger1   = !NumHelper(16111)	;並列混線ヘルパー12
+ID = 16011
+name = "H-Konsen-Hidan12[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 13]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16012)	;並列混線被弾ヘルパー13
+trigger1   = !NumHelper(16112)	;並列混線ヘルパー13
+ID = 16012
+name = "H-Konsen-Hidan13[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 14]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16013)	;並列混線被弾ヘルパー14
+trigger1   = !NumHelper(16113)	;並列混線ヘルパー14
+ID = 16013
+name = "H-Konsen-Hidan14[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 15]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16014)	;並列混線被弾ヘルパー15
+trigger1   = !NumHelper(16114)	;並列混線ヘルパー15
+ID = 16014
+name = "H-Konsen-Hidan15[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 16]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16015)	;並列混線被弾ヘルパー16
+trigger1   = !NumHelper(16115)	;並列混線ヘルパー16
+ID = 16015
+name = "H-Konsen-Hidan16[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 17]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16016)	;並列混線被弾ヘルパー17
+trigger1   = !NumHelper(16116)	;並列混線ヘルパー17
+ID = 16016
+name = "H-Konsen-Hidan17[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 18]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16017)	;並列混線被弾ヘルパー18
+trigger1   = !NumHelper(16117)	;並列混線ヘルパー18
+ID = 16017
+name = "H-Konsen-Hidan18[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 19]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16018)	;並列混線被弾ヘルパー19
+trigger1   = !NumHelper(16118)	;並列混線ヘルパー19
+ID = 16018
+name = "H-Konsen-Hidan19[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 20]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16019)	;並列混線被弾ヘルパー20
+trigger1   = !NumHelper(16119)	;並列混線ヘルパー20
+ID = 16019
+name = "H-Konsen-Hidan20[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 21]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16020)	;並列混線被弾ヘルパー21
+trigger1   = !NumHelper(16120)	;並列混線ヘルパー21
+ID = 16020
+name = "H-Konsen-Hidan21[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 22]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16021)	;並列混線被弾ヘルパー22
+trigger1   = !NumHelper(16121)	;並列混線ヘルパー22
+ID = 16021
+name = "H-Konsen-Hidan22[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 23]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16022)	;並列混線被弾ヘルパー23
+trigger1   = !NumHelper(16122)	;並列混線ヘルパー23
+ID = 16022
+name = "H-Konsen-Hidan23[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下繰り返し。
+
+[State 99999, 並列混線被弾ヘルパー 24]
+type = Helper
+triggerall = IsHelper(99999)
+triggerall = !NumHelper(16023)	;並列混線被弾ヘルパー24
+trigger1   = !NumHelper(16123)	;並列混線ヘルパー24
+ID = 16023
+name = "H-Konsen-Hidan24[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  ガードステートに準ステート固定。
+
+[State 99999, 準ステート固定]
+type = SelfState
+trigger1 = IsHelper(99999)
+value = 130
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  <ヘルパー> ヘルパー消去ステート
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;-------------------------------------------------------------------------------------------------
+
+[StateDef 1020304]
+movehitpersist = 1
+hitdefpersist  = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+ignorehitpause = 1
+
+;-------------------------------------------------------------------------------------------------
+
+[State 1020304, ヘルパー消去]
+type = DestroySelf
+trigger1 = IsHelper
+
+;-------------------------------------------------------------------------------------------------

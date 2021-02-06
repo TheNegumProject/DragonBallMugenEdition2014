@@ -1,0 +1,26 @@
+[Info]
+name ="SSJ Vegeta by Ryon
+displayname ="Vegeta SSJ Android Saga"
+versiondate =06,07,2011
+mugenversion =1.0
+author ="Ryon"
+pal.defaults =1
+localcoord = 320,240
+
+[Files]
+cmd     =SSJVegeta.cmd
+cns     =SSJVegeta.cns
+st      =SSJVegeta.cns
+stcommon =common1.cns
+sprite  =SSJVegeta.sff
+anim    =SSJVegeta.air
+sound   =SSJVegeta.snd
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=
+[Arcade]
+intro.storyboard=
+ending.storyboard=

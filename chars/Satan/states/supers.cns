@@ -1,0 +1,1430 @@
+;================================
+; CNS File for Satan Z2 by Balthazar & Cybaster
+; Super moves
+;================================
+
+;===========================================================================
+; <<<<< ARE THE CAMERAS ROLLING !? >>>>>
+; State = 2000
+; Satan punch state (right) = 2001
+; P2 hit state : 2002
+; satan pucnh state (left) = 2011
+; Dynamite Kick part : 2020-2021
+;===========================================================================
+
+[Statedef 2000]
+type = S
+physics = S
+movetype = A
+anim = 2000
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+poweradd = -0
+
+[State 6000, voice cameras rolling]
+type = playsnd
+trigger1 = !Time
+value = 2000,0
+volume = 350
+channel = 0
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time = [0,48]
+flag = noBG
+flag2 = noFG
+
+[State 3000, nhb]
+type = nothitby
+trigger1 = animelemtime(3) < 0
+time = 1
+value = SCA
+
+[State 3000, superpause]
+type = superpause
+trigger1 = time=3
+time = 40
+p2defmul = 1
+unhittable = 1
+anim = -1
+sound = s1999,0
+darken = 0
+
+[State 0, Super FX]
+type = Explod
+trigger1 = time = 3
+anim = 2003
+id = 2003
+pos = -105,40
+postype = p1
+supermovetime = 9999
+pausemovetime = 9999
+supermove = 1
+removetime = 43
+sprpriority = 8
+ownpal = 1
+bindtime = -1
+scale = 1,1
+persistent = 0
+
+[State 2500, bgpalfx1]
+type = bgpalfx
+trigger1 = !time
+time = 48
+color=0
+mul=0,0,0
+
+[state 1215, Smoke FX]
+type = explod
+trigger1 = anim=2000 && animelemtime(3)=0
+anim = 1206+(var(2)=0)
+id = 1206
+pos = -25,3
+postype = P1
+sprpriority = 3
+ownpal = 1
+removetime = -2
+persistent = 0
+ignorehitpause = 1
+
+[State 230, 1];woosh
+type = PlaySnd
+trigger1 = animelem = 3
+value = 0, 1
+
+[State 200, 1]
+type = HitDef
+trigger1 = animelem = 4
+attr = S, SA
+damage = 0, 0
+;animtype = light
+guardflag = MA
+hitflag = MAF
+priority = 2, Hit
+pausetime = 0,0
+sparkno = -1
+guard.pausetime = 10,10
+guard.sparkno = s7000
+sparkxy = -20,-70
+guardsound = S6,0
+ground.type = High
+guard.velocity = -3.5
+airguard.velocity = -1.9,-.8	
+air.hittime = 12
+air.animtype = back
+getpower= 0,0
+givepower = 35,35
+yaccel = 0.5
+p1stateno = 2001
+
+[State Idle]
+type = statetypeset
+trigger1 = animelemtime(5)>=0
+movetype = I
+
+[State 3000, end]
+type = changestate
+trigger1 = !animtime
+value = 0
+ctrl = 1
+
+;----------------------------
+;Satan's State
+[Statedef 2001]
+type = S
+movetype = A
+physics = S
+anim = ifelse(prevstateno=2000,2001,2002)
+ctrl = 0
+sprpriority = 1
+
+[State 230, 1];flurry punch
+type = PlaySnd
+trigger1 = time=0 && var(5)=0
+value = 2001,random%2
+channel = 1
+volume = 400
+
+[State 810, count attacks]
+type = varadd
+trigger1 = !time
+var(5) = 1
+
+[State Throw]
+type = targetstate
+trigger1 = !time
+value = 2002
+
+[State 182, 1]
+type = screenbound
+trigger1 = 1
+movecamera = 1,0
+value = 1
+
+[State 1315, Sparks]
+type=explod
+trigger1 = numtarget
+trigger1 = !time
+anim = 7010
+sprpriority=7
+postype=p2
+pos=(target,const(size.ground.front)-20)+random%20,-60-random%20
+removetime=-2
+ownpal=1
+facing=-1
+ignorehitpause=1
+persistent=0
+pausemovetime=100
+supermovetime=100
+
+[State 230, 1];woosh
+type = PlaySnd
+trigger1 = animelem = 3
+value = 0, 1
+
+[State 200, hit sound]
+type = PlaySnd
+trigger1 = !time
+value = s5, 0
+volume = 150
+
+[State 810, hurt]
+type = targetlifeadd
+trigger1 = !time
+value = -5
+kill = 0
+
+[State 810, hit]
+type = hitadd
+trigger1 = !time && var(5)>=2
+value = 1
+
+[State 1400, EndState]
+type = ChangeState
+triggerall = var(5) <= 9
+trigger1 = time>=10
+value = 2011
+
+[State 1400, EndState]
+type = ChangeState
+triggerall = var(5) > 9
+trigger1 = time>=5
+value = 2020
+
+;----------------------------
+;Enemy Thrown State
+[Statedef 2002]
+type = U
+movetype = H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 182, 1]
+type = screenbound
+trigger1 = 1
+movecamera = 1,0
+value = 1
+
+[State 182, 1]
+type = changeanim
+trigger1 = statetype=S && anim != 0
+value = 0
+
+[State 182, 1]
+type = changeanim
+trigger1 = statetype=C && anim != 11
+value = 11
+
+[State 801, end]
+type = selfstate
+trigger1 = statetype=S && time=19
+value = 0
+ctrl = 1
+
+[State 801, end]
+type = selfstate
+trigger1 = statetype=C && time=19
+value = 11
+ctrl = 1
+
+[State 801, end]
+type = selfstate
+trigger1 = statetype=A && time=19
+value = 50
+ctrl = 0
+
+;----------------------------
+;Satan's State (camera punch 2)
+[Statedef 2011]
+type = S
+movetype = A
+physics = S
+anim = 2011
+ctrl = 0
+sprpriority = 1
+
+[State 810, count attacks]
+type = varadd
+trigger1 = !time
+var(5) = 1
+
+[State Throw]
+type = targetstate
+trigger1 = !time
+value = 2002
+
+[State 810, hurt]
+type = targetlifeadd
+trigger1 = !time
+value = -5
+kill = 0
+
+[State 810, hit]
+type = hitadd
+trigger1 = !time && var(5)>=2
+value = 1
+
+[State 182, 1]
+type = screenbound
+trigger1 = 1
+movecamera = 1,0
+value = 1
+
+[State 1315, Sparks]
+type=explod
+trigger1 = numtarget
+trigger1 = !time
+anim = 7010
+sprpriority=7
+postype=p2
+pos=(target,const(size.ground.front)-20)+random%20,-60-random%20
+removetime=-2
+ownpal=1
+facing=-1
+ignorehitpause=1
+persistent=0
+pausemovetime=100
+supermovetime=100
+
+[State 230, 1];woosh
+type = PlaySnd
+trigger1 = animelem = 3
+value = 0, 1
+
+[State 200, hit sound]
+type = PlaySnd
+trigger1 = !time
+value = s5, 0
+volume = 150
+
+[State 1400, EndState]
+type = ChangeState
+triggerall = var(5) <= 9
+trigger1 = time>=10
+value = 2001
+
+[State 1400, EndState]
+type = ChangeState
+triggerall = var(5) > 9
+trigger1 = time>=5
+value = 2020
+
+;---------------------------
+;Dynamite Kick (cameras)
+
+[Statedef 2020];on ground
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 220
+velset = 0,0
+sprpriority = 2
+facep2 = 1
+poweradd = 0
+
+[State 4000, Invincible]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 4000, ToAir]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 2021
+ctrl = 0
+
+;---------------------------
+[StateDef 2021];Rising
+type = U
+movetype = A
+physics = N
+ctrl = 0
+anim = 221
+poweradd = 0
+
+[State 6000, VelIni]
+type = VelSet
+trigger1 = Time = 0
+X = 8
+Y = -6
+
+[State 6000, ToAir]
+type = StateTypeSet
+trigger1 = Time = 0
+statetype = A
+
+[State 6000, voice dyanmite kick]
+type = playsnd
+trigger1 = Time = 0
+value = 221,0
+
+[State 4001, Stop]
+type = VelAdd
+trigger1 = time>5 && time<10 && (vel Y > -9)
+Y = -0.7
+
+[state 1215, Rising Effect]
+type = explod
+trigger1 = !time
+anim = 1216+var(2)
+id = 1216
+pos = -50,12
+postype = P1
+sprpriority = -3
+ownpal = 1
+removetime = -2
+persistent = 0
+ignorehitpause = 1
+
+[State 6100, turning snd];woosh
+type = playsnd
+trigger1 = anim=221 && animelem=1
+value = 0,24
+volume = 10
+channel = 2
+persistent = 0
+
+[State 250, 2]
+type = HitDef
+trigger1 = anim=221 && animelem=2
+attr = S, SA
+animtype  = Hard
+damage    = 30,0
+priority = 4, Hit
+guardflag = MA
+pausetime = 14,14
+guard.pausetime = 15,15
+sparkno = s7030
+guard.sparkno = s7000
+sparkxy = -15,-65
+hitsound   = s5,5
+guardsound = S6,1
+ground.type = high
+ground.slidetime = 20
+ground.hittime = 20
+ground.velocity = -2,0
+air.velocity = -4,-4
+air.animtype = back
+getpower = 0,0
+givepower = 35,35
+ground.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+yaccel = .5
+forcestand = 1
+
+[State 4001, AirFriction]
+type = VelMul
+trigger1 = Vel X !=0 && time%2
+x = 0.96
+
+[State 4001, Fall]
+type = VelAdd
+trigger1 = Anim = 221 && (vel Y < 0)
+Y = .55
+
+[State 4001, Fall]
+type = VelAdd
+trigger1 = (Vel Y > 0)
+Y = .4
+
+[State 4001, Return&Landing]
+type = ChangeAnim
+trigger1 = Anim = 221
+trigger1 = Pos Y >= 0 && time>6
+value = 105
+
+[State 4001, Stop]
+type = VelSet
+trigger1 = Vel Y > abs(Pos Y)
+Y = 0
+
+[State 4001, Stop]
+type = VelSet
+trigger1 = anim = 105
+X = 4.5
+
+[State 4001, Replace]
+type = PosSet
+trigger1 = Vel Y = 0
+trigger2 = pos Y > 10
+Y = 0
+
+[State 4001, ToGround]
+type = StateTypeSet
+trigger1 = Anim = 105
+persistent = 0
+statetype = S
+physics = N
+
+[State 17100, Landing Sound]
+type = PlaySnd
+trigger1 = anim=105
+value = 40, 0
+persistent = 0
+
+[state 17100, twirl FX]
+type=explod
+trigger1 = Anim = 105
+anim=17200
+id=17200
+pos=7,0
+postype=P1
+sprpriority=-2
+ownpal=1
+supermovetime=-1
+removetime = -2
+persistent = 0
+scale = 1,0.8
+
+[State 4001, End]
+type = ChangeState
+trigger1 = Anim = 105
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+;==========================================
+; <<<<< COUP DE GRACE >>>>>
+; Dynamite Kick = 2200-2201
+; First punch = 2205
+; Left-right punch = 2206-2207
+; Surprise punch = 2210
+; P2 hit state = 2211
+; P2 custom state sent away = 2212
+;==========================================
+
+;Dynamite kick
+[Statedef 2200];on ground
+type = S
+movetype = A
+physics = N
+ctrl = 0
+anim = 220
+velset = 0,0
+sprpriority = 2
+facep2 = 1
+poweradd = 0
+
+[State 2206, voice]
+type = playsnd
+trigger1 = time=3
+value = 2200,0
+channel = 0
+
+[State 4000, Invincible]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = time = [0,48]
+flag = noBG
+flag2 = noFG
+
+[State 3000, superpause]
+type = superpause
+trigger1 = time=3
+time = 40
+p2defmul = 1
+unhittable = 1
+anim = -1
+sound = s1999,0
+darken = 0
+
+[State 0, Super FX]
+type = Explod
+trigger1 = time = 3
+anim = 2003
+id = 2003
+pos = -100,60
+postype = p1
+supermovetime = 9999
+pausemovetime = 9999
+supermove = 1
+removetime = 43
+sprpriority = 8
+ownpal = 1
+bindtime = -1
+scale = 1,1
+persistent = 0
+
+[State 2500, bgpalfx1]
+type = bgpalfx
+trigger1 = !time
+time = 48
+color=0
+mul=0,0,0
+
+[state 1215, Smoke FX]
+type = explod
+trigger1 = anim=220 && animelemtime(3)=0
+anim = 1206+(var(2)=0)
+id = 1206
+pos = -25,3
+postype = P1
+sprpriority = 3
+ownpal = 1
+removetime = -2
+persistent = 0
+ignorehitpause = 1
+
+[State 4000, ToAir]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 2201
+ctrl = 0
+
+;---------------------------
+[StateDef 2201];Rising
+type = U
+movetype = A
+physics = N
+ctrl = 0
+anim = 221
+poweradd = 0
+
+[State 6000, VelIni]
+type = VelSet
+trigger1 = Time = 0
+X = 10
+Y = -5
+
+[State 6000, ToAir]
+type = StateTypeSet
+trigger1 = Time = 0
+statetype = A
+
+[State 4001, Stop]
+type = VelAdd
+trigger1 = time>5 && time<10 && (vel Y > -9)
+Y = -0.7
+
+[State 6100, turning snd];woosh
+type = playsnd
+trigger1 = anim=221 && animelem=1
+value = 0,24
+volume = 10
+channel = 2
+persistent = 0
+
+[State 250, 2]
+type = HitDef
+trigger1 = anim=221 && animelem=2
+attr = S, SA
+animtype  = Hard
+damage    = 10,0
+priority = 4, Hit
+guardflag = MA
+pausetime = 14,40
+guard.pausetime = 15,15
+sparkno = s7020
+guard.sparkno = s7000
+sparkxy = -15,-65
+hitsound   = s5,5
+guardsound = S6,1
+ground.type = high
+ground.slidetime = 20
+ground.hittime = 20
+ground.velocity = -2,0
+air.velocity = -4,-4
+air.animtype = back
+getpower = 0,0
+givepower = 35,35
+ground.cornerpush.veloff = 0
+guard.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+yaccel = .5
+forcestand = 1
+kill = 0
+p2facing = 1
+p2stateno = 2211
+
+[State 4001, AirFriction]
+type = VelMul
+trigger1 = Vel X !=0 && time%2
+x = 0.96
+
+[State 4001, Fall]
+type = VelAdd
+trigger1 = Anim = 221 && (vel Y < 0)
+Y = .55
+
+[State 4001, Fall]
+type = VelAdd
+trigger1 = (Vel Y > 0)
+Y = .4
+
+[State 4001, Return&Landing];roll not hit
+type = ChangeAnim
+triggerall = !movehit
+trigger1 = Anim = 221
+trigger1 = Pos Y >= 0 && time>6
+value = 105
+
+[State 4001, Return&Landing];hit
+type = ChangeAnim
+triggerall = movehit
+trigger1 = Anim = 221
+trigger1 = Pos Y >= 0 && time>6
+value = 47
+
+[State 4001, Stop]
+type = VelSet
+trigger1 = Vel Y > abs(Pos Y)
+Y = 0
+
+[State 4001, Stop]
+type = VelSet
+trigger1 = anim = 105
+X = 4.5
+
+[State 4001, Stop]
+type = VelSet
+trigger1 = anim = 47
+X = 0
+
+[State 4001, Replace]
+type = PosSet
+trigger1 = Vel Y = 0
+trigger2 = pos Y > 10
+Y = 0
+
+[State 4001, ToGround]
+type = StateTypeSet
+trigger1 = Anim = 105 || anim=47
+persistent = 0
+statetype = S
+physics = N
+
+[State 17100, Landing Sound]
+type = PlaySnd
+trigger1 = anim=105 || anim=47
+value = 40, 0
+persistent = 0
+
+[state 17100, twirl FX]
+type=explod
+trigger1 = Anim = 105 || anim=47
+anim=17200
+id=17200
+pos=7,0
+postype=P1
+sprpriority=-2
+ownpal=1
+supermovetime=-1
+removetime = -2
+persistent = 0
+scale = 1,0.8
+
+[State 4001, End];not hit
+type = ChangeState
+trigger1 = Anim = 105
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 4001, End]
+type = ChangeState
+trigger1 = Anim = 47
+trigger1 = AnimTime = 0
+value = 2205
+ctrl = 0
+
+;----------------------
+;Flurry of punches
+
+[Statedef 2205]
+type = S
+physics = S
+movetype = A
+anim = 2000
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+poweradd = 0
+
+[State 3000, width]
+type=width
+trigger1= 1
+value = 35,0
+
+[State 3000, nhb]
+type = nothitby
+trigger1 = 1
+time = 1
+value = SCA
+
+[state 1215, Smoke FX]
+type = explod
+trigger1 = anim=2000 && animelemtime(3)=0
+anim = 1206+(var(2)=0)
+id = 1206
+pos = -25,3
+postype = P1
+sprpriority = 3
+ownpal = 1
+removetime = -2
+persistent = 0
+ignorehitpause = 1
+
+[State 230, 1];woosh
+type = PlaySnd
+trigger1 = animelem = 3
+value = 0, 1
+
+[State 200, 1]
+type = HitDef
+trigger1 = animelem = 4
+attr = S, SA
+damage = 0, 0
+;animtype = light
+guardflag = MA
+hitflag = MAF
+priority = 2, Hit
+pausetime = 0,0
+sparkno = -1
+guard.pausetime = 10,10
+guard.sparkno = s7000
+sparkxy = -20,-70
+guardsound = S6,0
+ground.type = High
+guard.velocity = -3.5
+airguard.velocity = -1.9,-.8	
+air.hittime = 12
+air.animtype = back
+getpower= 0,0
+givepower = 35,35
+yaccel = 0.5
+p1stateno = 2206
+
+;----------------------------
+;Satan's State (punch)
+[Statedef 2206]
+type = S
+movetype = A
+physics = S
+anim = 2002
+ctrl = 0
+sprpriority = 1
+
+;[State 230, 1];flurry punch voice
+;type = PlaySnd
+;trigger1 = time=0 && var(6)=0
+;value = 2001,random%2
+;channel = 0
+;volume = 400
+
+[State 230, 1];voice
+type = PlaySnd
+trigger1 = !time
+value = 200, random%13
+channel = 0
+volume = 400
+
+[State 810, count attacks]
+type = varadd
+trigger1 = !time
+var(6) = 1
+
+[State Throw]
+type = targetstate
+trigger1 = !time
+value = 2002
+
+[State 182, 1]
+type = screenbound
+trigger1 = 1
+movecamera = 1,0
+value = 1
+
+[State 1315, Sparks]
+type=explod
+trigger1 = numtarget
+trigger1 = !time
+anim = 7010
+sprpriority=7
+postype=p2
+pos=(target,const(size.ground.front)-20)+random%20,-60-random%20
+removetime=-2
+ownpal=1
+facing=-1
+ignorehitpause=1
+persistent=0
+pausemovetime=100
+supermovetime=100
+
+[State 230, 1];woosh
+type = PlaySnd
+trigger1 = animelem = 3
+value = 0, 1
+
+[State 200, hit sound]
+type = PlaySnd
+trigger1 = !time
+value = s5, 0
+volume = 150
+
+[State 810, hurt]
+type = targetlifeadd
+trigger1 = !time
+value = -5
+kill = 0
+
+[State 810, hit]
+type = hitadd
+trigger1 = !time
+value = 1
+
+[State 1400, EndState]
+type = ChangeState
+triggerall = var(6) <= 4
+trigger1 = time>=10
+value = 2207
+
+[State 1400, EndState]
+type = ChangeState
+triggerall = var(6) > 4
+trigger1 = time>=5
+value = 2210
+
+;----------------------------
+;Satan's State (punch 2)
+[Statedef 2207]
+type = S
+movetype = A
+physics = S
+anim = 2011
+ctrl = 0
+sprpriority = 1
+
+[State 230, 1];voice
+type = PlaySnd
+trigger1 = !time
+value = 200, random%13
+channel = 0
+volume = 400
+
+[State 810, count attacks]
+type = varadd
+trigger1 = !time
+var(6) = 1
+
+[State Throw]
+type = targetstate
+trigger1 = !time
+value = 2002
+
+[State 810, hurt]
+type = targetlifeadd
+trigger1 = !time
+value = -5
+kill = 0
+
+[State 810, hit]
+type = hitadd
+trigger1 = !time
+value = 1
+
+[State 182, 1]
+type = screenbound
+trigger1 = 1
+movecamera = 1,0
+value = 1
+
+[State 1315, Sparks]
+type=explod
+trigger1 = numtarget
+trigger1 = !time
+anim = 7010
+sprpriority=7
+postype=p2
+pos=(target,const(size.ground.front)-20)+random%20,-60-random%20
+removetime=-2
+ownpal=1
+facing=-1
+ignorehitpause=1
+persistent=0
+pausemovetime=100
+supermovetime=100
+
+[State 230, 1];woosh
+type = PlaySnd
+trigger1 = animelem = 3
+value = 0, 1
+
+[State 200, hit sound]
+type = PlaySnd
+trigger1 = !time
+value = s5, 0
+volume = 150
+
+[State 1400, EndState]
+type = ChangeState
+triggerall = var(6) <= 4
+trigger1 = time>=10
+value = 2206
+
+[State 1400, EndState]
+type = ChangeState
+triggerall = var(6) > 4
+trigger1 = time>=5
+value = 2210
+
+;----------------------------
+;Satan's State - surprise punch
+[Statedef 2210]
+type = S
+movetype = A
+physics = S
+anim = 2206
+ctrl = 0
+sprpriority = 1
+
+[State 2206, voice coup de grace]
+type = playsnd
+trigger1 = time=40
+value = 2206,0
+channel = 0
+
+[State Throw]
+type = targetstate
+trigger1 = !time
+value = 2211
+
+[State 182, 1]
+type = screenbound
+trigger1 = 1
+movecamera = 1,0
+value = 1
+
+[State 1315, Sparks]
+type=explod
+trigger1 = numtarget
+trigger1 = !time
+anim = 7030
+sprpriority=7
+postype=p2
+pos=(target,const(size.ground.front)-20)+random%20,-60-random%20
+removetime=-2
+ownpal=1
+facing=-1
+ignorehitpause=1
+persistent=0
+pausemovetime=100
+supermovetime=100
+
+[State 200, hit sound]
+type = PlaySnd
+trigger1 = !time
+value = s5, 0
+volume = 150
+
+[State 810, hit]
+type = hitadd
+trigger1 = !time
+value = 1
+
+[state 701, explod ? P1]
+type = explod
+trigger1 = facing = -1 && time = 60
+anim = 2208
+pos = 40,(enemynear,const(size.head.pos.y)) - 30
+postype = p2,left
+removetime = -2
+sprpriority = 5
+ownpal = 1
+
+[state 701, explod ? P2]
+type = explod
+trigger1 = facing = 1 && time = 60
+anim = 2209
+pos = 40,(enemynear,const(size.head.pos.y)) - 30
+postype = p2,left
+removetime = -2
+sprpriority = 5
+ownpal = 1
+facing = -1
+
+[State 810, hurt]
+type = targetlifeadd
+trigger1 = time=150
+value = -30
+
+[State 1400, EndState]
+type = ChangeState
+trigger1 = !animtime
+value = 0
+Ctrl = 1
+
+;----------------------------
+;Enemy Thrown State
+[Statedef 2211]
+type = U
+movetype = H
+physics = N
+velset = 0,0
+sprpriority = 0
+
+[State 182, 1]
+type = screenbound
+trigger1 = 1
+movecamera = 1,0
+value = 1
+
+[State 182, 1]
+type = PosSet
+trigger1 = !time
+Y = 0
+
+[State 182, 1]
+type = Statetypeset
+trigger1 = statetype=A
+statetype=S
+
+[State 182, 1]
+type = changeanim
+trigger1 = statetype=S && anim != 0
+value = 0
+
+[State 182, 1]
+type = changeanim
+trigger1 = statetype=C && anim != 11
+value = 11
+
+[State 182, 1]
+type = PlaySnd
+trigger1 = time=150
+value = 11,0
+
+[State 801, end]
+type = changestate ;selfstate
+trigger1 = time=150
+value = 2212   ;5070
+ctrl = 0
+
+;-------------------------------------
+;P2 custom state, sent away
+[Statedef 2212]
+type = A
+movetype = H
+physics = N
+anim = ifelse(selfanimexist(5052),5052,5030)
+ctrl = 0
+velset = -10, -5
+facep2 = 1
+
+[State 9011, VelAdd]
+type = VelAdd
+trigger1 = (Pos Y < 0)
+y = 0.35
+ 
+[State 9011, NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+ 
+[State 9011, ChangeState]
+type = SelfState
+trigger1 = (Pos Y >= 0) && (Vel Y > 0)
+value = 5100
+
+
+
+;==========================================
+; <<<<< SHUN SATAN SATSU >>>>>
+; Charging move = 2300
+; Satan Dash = 2301
+; Satan hitting = 2310
+; P2 hit = 2311
+;==========================================
+
+[Statedef 2300]
+type = S
+physics = S
+movetype = A
+anim = 220
+ctrl = 0
+velset = 0,0
+sprpriority = 1
+poweradd = -1000
+
+[State 3000, nhb]
+type = nothitby
+trigger1 = 1
+time = 1
+value = SCA
+
+[State 3000, superpause]
+type = superpause
+trigger1 = time=5
+time = 48
+p2defmul = 1
+unhittable = 1
+anim = -1
+sound = s2350,0
+darken = 0
+movetime = 0
+
+[State 2206, voice];Megaton Blast Attack
+type = playsnd
+trigger1 = time=3
+value = 2300,0
+channel = 0
+
+[State 4000, Invincible]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noBG
+flag2 = noFG
+
+[State 0, Super FX]
+type = Explod
+trigger1 = time = 3
+anim = 2440
+id = 2440
+pos = 10,-50
+postype = p1
+supermovetime = 9999
+pausemovetime = 9999
+supermove = 1
+removetime = -2
+sprpriority = 8
+ownpal = 1
+bindtime = -1
+scale = 1,1
+persistent = 0
+
+[State 2500, bgpalfx1]
+type = bgpalfx
+trigger1 = !time
+time = 54
+color=0
+mul=0,0,0
+
+[State 4001, End]
+type = ChangeState
+trigger1 = AnimElemTime(2)=3
+value = 2301
+ctrl = 0
+
+;-------------------------------
+; Satan Dash
+[Statedef 2301]
+type    = S
+movetype= A
+physics = N
+ctrl = 0
+anim = 2301
+
+[State 3005, 2]
+type = VelSet
+trigger1 = animelemtime(2)=0
+x = 15
+
+[State 3005, 3]
+type = VelMul
+trigger1 = Time > 5
+x = .97
+
+[State 3000, width]
+type=width
+trigger1 = 1
+value=25,0
+
+[State 100, A must for dashes everywhere]
+type = Assertspecial
+trigger1 = 1
+flag = nowalk
+[State 100, No Turn]
+type = AssertSpecial
+trigger1 = 1
+flag = NoAutoTurn
+
+[state 1215, Smoke FX]
+type = explod
+trigger1 = animelemtime(2)=0
+anim = 1206+(var(2)=0)
+id = 1206
+pos = -25,3
+postype = P1
+sprpriority = 3
+ownpal = 1
+removetime = -2
+persistent = 0
+ignorehitpause = 1
+
+[State 3005, hit]
+type = hitdef
+triggerall = roundstate=2
+trigger1 = p2stateno != [150,155]
+trigger1 = !movecontact
+attr = S, HT
+damage = 0,0
+animtype = light
+priority = 7, Miss
+hitflag = M-  ;MAF
+guardflag = MA
+numhits = 0
+sparkno = -1
+getpower = 0,0
+guard.sparkno = s7000
+sparkxy = -35,-50
+hitsound = s800,1
+guardsound = 6,1
+guard.dist = 0
+pausetime = 0,0
+ground.hittime = 15
+ground.type = high
+ground.slidetime = 5
+ground.velocity = 0,0
+air.velocity = 0,0
+p2facing = 1
+kill = 0
+p1stateno = 2310
+p2stateno = 2311
+
+[State 100, snd]
+type = playsnd
+trigger1 = AnimelemTime(3) = 0
+value = 5,8
+
+[State 4001, End]
+type = ChangeState
+trigger1 = !animtime  ;time > 30
+value = 0
+ctrl = 1
+
+;------------------------------------------------
+[StateDef 2310] ; hitting
+type = S
+movetype = I
+physics = N
+velset = 0,0
+ctrl = 0
+anim = 2309
+
+[State 182, 1]
+type = screenbound
+trigger1 = time = [1,450]
+movecamera = 0,0
+value = 1
+
+[State 13100, Fadeout]
+type = Helper
+trigger1 = Time = 0
+name = "Fade"
+ID = 2771
+postype = left
+stateno = 2771
+ownpal = 1
+supermovetime = 1000
+pausemovetime = 1000
+
+[State 13100, P2Place]
+type = TargetBind
+trigger1 = animelem=1
+pos = 70,0
+
+[State 650, 2]
+type = AssertSpecial
+trigger1 = time = [1,300]
+flag = nobardisplay
+
+[State 650, 2]
+type = AssertSpecial
+trigger1 = time = [100,300]
+flag = noBG
+flag2 = noFG
+
+[state 1215, Satan Fullscreen]
+type = explod
+trigger1 = time=100
+anim = 2310
+id = 2310
+pos = 160,120
+postype = left
+sprpriority = 10
+ownpal = 1
+removetime = -2
+persistent = 0
+ignorehitpause = 1
+facing = 1
+scale = 2,2
+
+[State 3000, Bakuhatsuha]
+type = helper
+trigger1 = time = 280
+helpertype = normal
+stateno = 2350
+ID = 2350
+name = "baku"
+postype = p2
+pos = 30,0
+ownpal = 1
+
+[State 2206, voice];present for you
+type = playsnd
+trigger1 = time=110
+value = 2310,0
+
+[State 2206, voice];take this
+type = playsnd
+trigger1 = time=260
+value = 2310,1
+
+[State 2206, voice];position away
+type = posadd
+trigger1 = time=280
+X = -100
+
+[State 13200, go to stance]
+type = ChangeState
+trigger1 = Time = 280
+value = 107  ;0
+ctrl = 0  ;1
+
+;------------------------------------------------
+[StateDef 2311] ; Hit
+type = S
+movetype = H
+physics = N
+velset = 0,0
+ctrl = 0
+sprpriority = -1
+
+[State 13200, Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 2311

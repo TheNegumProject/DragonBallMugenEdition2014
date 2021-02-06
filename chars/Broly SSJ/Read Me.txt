@@ -1,0 +1,32 @@
+=FIXED=
+DEBUG FLOOD
+NO POWER TAKE
+
+
+=Information=
+Name : Broli (Tara in the French SB2)
+Creator : Ryon
+Form : LSSJ
+Gameplay Style : Super Butoden 2 + Original
+
+=Move List=
+Charge - c
+Ki Blast - z
+Grab - x+y
+Machinegun Kick - F, B ,F, a or b (5 hit)
+Closeline - Hold B, F, a or b (1 Hit, can press B,F,a or b, for a 2nd hit)
+Gigantic Pressure - F, B, F, z
+Ground Explosive Wave - D, U, z
+SB2 Meteo - F, D ,B, x or y (1Hit, Combo Finisher)
+
+
+=Super List=
+Blaster Shell / Eraser Cannon - D, F, D, F, x or y (1 Hit,Can be angled Up)
+Gigantic Hammer - D, F, D, F, a or b (Grab Super, Really Fast)
+Blaster Meteor - D, F, D, F, z (Shoots Projectiles in EVERY direction, hits range from 20~62)
+
+=NOT CODED=
+Omega Blaster - D, F, D, F, c
+
+Get more of my characters at MugenFreeForAll.Com
+Join the forums dont be afraid, we may be warehousers but we are some of the nicest internet poeple your EVER gonna meet.

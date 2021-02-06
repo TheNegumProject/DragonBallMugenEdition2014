@@ -1,0 +1,52 @@
+;==============
+;Frezaa
+;==============
+
+;------------------------------------------------------
+;Autor:  //**Alien San**\\
+;------------------------------------------------------
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name ="Freeza 100 %"
+displayname ="Frieza Full Power"
+versiondate =19,03,12
+mugenversion =11,01,2001
+author ="BroliDos e Alien San"
+pal.defaults =1
+
+
+;---------------------
+;Character Files
+;---------------------
+
+;=====================
+[Files]
+;=====================
+;---------------------
+;Command Set
+;---------------------
+cmd     =Frezaa Full Power.cmd
+
+;---------------------
+;State Files
+;---------------------
+cns     =Frezaa Full Power.cns
+st      =Frezaa Full Power.cns
+stcommon =common1.cns
+
+;---------------------
+;Sprite/Sound
+;---------------------
+sprite  =Frezaa Full Power.sff
+anim    =Frezaa Full Power.air
+sound   =Frieza.snd
+pal1=Frezaa Full Power.act
+;---------------------
+;Palletes
+;---------------------
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

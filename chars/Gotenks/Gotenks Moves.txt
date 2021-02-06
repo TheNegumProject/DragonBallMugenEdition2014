@@ -1,0 +1,52 @@
+|-Gotenks' Moves---------------------------------------------------------------
+Version Final
+Character made by Goten88 http://members.lycos.co.uk/gtn88/
+|-Basics----------------------------------------------------------------------
+
+a   = punch
+b   = punch
+c   = punch
+x   = uppercut
+y   = kick
+z   = Kick
+
+|-Specials--------------------------------------------------------------------
+
+throw             - F+b - Next to opponent ( hold button to throw harder ).
+fly               - a+x
+Charge            - a+b
+ki shot           - F,B, c & B,F, c & U, c
+Zanzouken         - b+c - Hold it and press any direction(can't go down though).
+Kamikaze Ghost    - D,DB,B, b
+Galactic Donut    - x+y+z
+Renzoku Shine     - D,DF,F, c
+Great Fighting Top- D,DB,B, x
+Dynamite Kick     - D,DB,B, y
+Kamehameha        - D,DF,F, a (need 500 power to use small beam,1500 for medium,2500 for large)
+(If and only if in a beam war. Hold a to make the beam go longer)
+Punch Combo       - D,DF,F, z
+Combo             - D,DF,F, y
+Big Ball          - D,DF,F, x
+MultiBlast        - D,DF,F, b (If and only if in a beam war. Hold b to make the beam go longer)
+Down MultiBlast   - (Jump from ground) D,DF,F, b
+
+|-Supers Moves----------------------------------------------------------------
+
+SSJ Combo    - D, DF, F, D, DB, B, c
+Father Call  - D, DF, F, D, DB, B, z
+
+Thanx to: 
+
+Akira Toriyama - For creating Dragonball Z
+
+Bandai - For the SSJ2 Gohan sprites from Super Butouden 2 I edited into Gotenks.
+
+GohahSSM2 - For the homing code I edited
+
+Lonewolf - For creating the first sprite
+
+Detah - For help
+
+Insydious - For hidden stuff
+
+and anyone I forgot.

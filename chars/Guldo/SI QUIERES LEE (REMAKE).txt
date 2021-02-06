@@ -1,0 +1,154 @@
+GULDO (Remake de la version de redneck) VERSION 1.5
+
+
+CREDITS:
+
+ SAWWEN PRODUCTIONS (SEMI-DEAD xD) 
+ OS TEAM            (LIFE!!! xD)
+ REDKNECK por la gran mayoria de la programacion
+
+
+VISITALOS:
+ http://shenlong7.blogspot.com/
+ http://mugentemple.activoforo.com/forum.htm
+ http://os.zobyhost.com/
+ http://mugengenerations.foroactivo.info/forum.htm
+
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+HISTORIA DE GULDO:
+
+Ni idea, parece que fue el hijo de un sapo mutante. XD
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+
+EDICION Y AGREGADOS VERSION 1.0
+
+1) Hechos y agregados todos los sprites del char que antes tenian graficos de Nes
+2) Agregado doble salto y air dash
+3) Terminado el ataque especial del Time freeza
+4) Agregados los botones Z y C (nuevos puños)
+5) Optimizado los comandos para un mejor uso
+
+;-----------------------------------------------------------------
+
+CAMBIOS DE VERSION 1.0 A 1.1
+
+1) Optimizada el char en general para que la jugabilidad sea mas buena:
+ 1-Air run mejorados
+ 2-pequeños saltos con mas alcanze 
+ 3-mas movilidad al char
+ 4-Alargado el tiempo del time freeze
+ 
+2) Cambiado los Portraits grandes y chicos.
+3) Agregado nuevo ataque defensivo de escudo (shield).
+4) Arreglado errores y detalles menores
+5) Hechas un par de paletas para cuando se juega de varios.
+
+;-----------------------------------------------------------------
+
+CAMBIOS DE VERSION 1.1 A 1.5
+
+1) Nuevos Sprites completamente Sb (Gracias al Os team)
+2) Creadas nuevas paletas para cuando se juega de varios.
+3) Arreglado errores y detalles menores, de algunos sonidos, golpes, etc.
+4) Agregado el Fly Mode  (sumado un Fly Sprite)
+5) Dos nuevas intros (A Guldo se le escapa algo, y Reecome intro...)
+6) Agregado tecnica Kanashibari no Jyuts (Paralizis del enemigo)
+7) Agregado ataque de lanzamiento del tronco con punta (gracias a bastor del alma por el sprite)
+8) Agregado nuevo Super (Clon movedizo)
+9) Ahora los ataques si saca Ki al char XD
+10) Agregado sonidos latinos (gracias a emiliano por los sounds)
+
+
+////////////////////////////////////////////////////////////////////////////
+
+GOLPES NORMALES:
+
+A boton      : puño debil
+B boton      : puño medio
+C boton      : puño fuerte
+X boton      : patada
+Y boton      : patada media
+Z boton      : Cabezazo
+
+adelante      : caminar adelante
+atras         : caminar adelante
+arriba        : saltar
+abajo         : agacharse
+
+Start button  : se comia un pancho =( , ahora dice tres diferentes boludeces XD 
+
+
+////////////////////////////////////////////////////////////////////////////
+
+-------|Basicos|---------------------------------------------------
+
+
+Salto hacia adelante:  adelante x2
+Salto hacia atras:     atras x2
+Super Salto adelante:  ~D, UF
+Super Salto atras:     ~D, UB 
+
+Cargar Ki:             a+x
+Vuelo:                 b+y 
+Escudo temporal:       c+z
+
+
+-------|Especiales, Combos y Golpes |------------------------------
+
+
+Rocas de adelante:    D, DF, F, x - y - z (Depende el boton son 1, 2 o 3)
+
+Rocas de atras:       D, DB, B, x - y - z (Depende el boton son 1, 2 o 3)
+
+Psycho alto:          ~D, DF, F, x - y - z (Depende el boton es mas grande el poder)
+
+Psycho:               B, DB, D, DF, F, x - y - z (Depende el boton la distancia de donde sale)
+
+Clon explosivo:       D, DF, F, a - b - c (Depende el boton es diferente)
+
+Rodillazo salto:      D, DB, B, a - b - c (Depende el boton tiene mas alcance)
+
+Golpe Pycho:          D, DB, B, x - y - z (Solo saltando, es mas fuerte dependiendo el boton)
+
+Kanashibari no Jyuts: B, F, a+b o b+c (Por cuatro segundos queda el oponente paralizado)
+
+Lanzamiento Tronco:   B, DB, D, DF, F, a - b - c (Depende el boton la altura de donde sale)
+
+
+-------| Supers |--------------------------------------------------
+
+
+Time Freeze:           D, DB, B, D, DB, B, a - b - c (Detiene el tiempo por 10 segundos)
+
+Clon movedizo:         D, DF, F, D, DF, F, a - b - c (Hace un clon de Guldo que puedes mover, y explota al tocar el rival) 
+
+Campo Psiquico:        D, DB, B, D, DB, B, x - y - z (Es mas poderoso y quita mas vida dependiendo el boton que se use)
+
+Lluvia de Rocas:       D, DF, F, D, DF, F, x (Salen de adelante) 
+
+Lluvia de Rocas:       D, DF, F, D, DF, F, y (Salen de atras) 
+
+Lluvia de Rocas:       D, DF, F, D, DF, F, z (Salen de adelante y atras) 
+
+
+
+//////////////////////////////////////////////////////////////////////////////// 
+
+
+Creditos:
+
+1) Vieja del Agua, Tincho y Ryudo que hicieron todos los sprites nuevos.
+2) A mi por tomarme el tiempo de editar la programacion.
+3) Todos aquellos a los que le gusto y los que ayudaron que ahora no recuerdo.
+4) Recoome sprites for intro, credits to neocide and chrono_strife
+
+Creditos especiales:
+
+1) Bandai y Elecbyte
+2) Redneck por aver hecho este gran char. 

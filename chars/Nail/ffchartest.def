@@ -1,0 +1,18 @@
+[Info]
+name="Piccolo22"
+displayname="Super piccolo"
+versiondate=
+mugenversion=
+author="((mugen mundo))"
+pal.defaults=
+[Files]
+sprite=NailSFF.sff
+sound=NailSND.snd
+anim=NailAIR.air
+cmd=NailCMD.cmd
+cns=NailCNS.cns
+st=NailCNS.cns
+stcommon=NailCNS.cns
+pal1=Nail01.act
+
+

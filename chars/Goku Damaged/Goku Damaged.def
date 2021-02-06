@@ -1,0 +1,33 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Namek Goku by b-gg19 & MFT"
+displayname ="Goku Damaged"
+versiondate =07/09/2010
+mugenversion =06,14,2003
+author ="b-gg19 & Midnight Fighters Team"
+pal.defaults =1,2,3,4,5,6
+
+[Files]
+sprite =namgoku.sff
+anim =namgoku.air
+sound =namgoku.snd
+cmd =namgoku.cmd
+cns =namgoku.cns
+stcommon =common.cns
+st =basico.cns
+pal1=namgoku.act
+pal2=namgoku2.act
+pal3=namgoku3.act
+pal4=namgoku4.act
+pal5=namgoku5.act
+pal6=namgoku6.act
+st1=helpers.cns
+st2=P2States.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

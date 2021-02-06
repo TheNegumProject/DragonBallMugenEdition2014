@@ -1,0 +1,28 @@
+;-------------------------
+;    | Future Trunks |
+;-------------------------
+
+; Player information
+[Info]
+name ="Trunks por ssonic"
+displayname ="Trunks with Sword"
+versiondate =04,18,2001
+mugenversion =04,01,2001
+author ="Ssonic & Dude"
+pal.defaults =1,2
+
+; Files for the character
+[Files]
+cmd      =Ftrunks.cmd
+cns      =Ftrunks.cns
+st       =Ftrunks.cns
+stcommon =Common.cns
+sprite   =Ftrunks.sff 
+anim     =FTrunks.air
+sound    =Ftrunks.snd
+pal1=palettes\original1.act
+pal2=palettes\maluco.act
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

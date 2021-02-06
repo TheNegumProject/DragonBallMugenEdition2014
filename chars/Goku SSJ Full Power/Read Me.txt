@@ -1,0 +1,156 @@
+==========================================================================================
+Dragon Ball Allstars - Goku 1.0
+==========================================================================================
+
+
+Coding  -  Neocide,Majita,Roken
+
+Sprites -  Roken,Neocide
+==========================================================================================
+Basics
+==========================================================================================
+------------------------------------------------------------------------------------------
+Standing
+------------------------------------------------------------------------------------------
+X      - Light Punch
+Y      - Hard  Punch
+A      - Light Kick
+B      - Hard  Kick
+<,B    - Spin  Back Kick
+<,Y    - Dash Elbow
+>or< Y - Throw
+------------------------------------------------------------------------------------------
+Crouching
+------------------------------------------------------------------------------------------
+X       - Light Punch
+Y       - Hard  Punch 
+A       - Light Kick
+B       - Hard  Kick
+v+>,B   - Launcher
+------------------------------------------------------------------------------------------
+Air
+------------------------------------------------------------------------------------------
+X       - Light Punch
+Y       - Hard  Punch
+A       - Light Kick
+B       - Hard  Kick
+
+-------------------------------------------------------------------------------------------
+Whats new :
+-------------------------------------------------------------------------------------------
+- New System 
+- New Sparks
+- Everything else?
+- Burst evade gone
+- Burst attack gone
+- Stun Attack gone
+- Zanzouken Attacks gone
+===========================================================================================
+Things Left
+===========================================================================================
+- Super Portrait
+- Full Power Mode (Looking for ideas on it)
+- Re Establishing Zanzoken and pursuit attacks (looking for ideas on these well)
+- More intros (Normal to ssj.character specific)
+- Normal Mode (MAYBEEEEEEEEE)
+- Zanzouken counter(?)
+
+===========================================================================================
+Things Known to fix
+===========================================================================================
+- Fuck if I know. Think I got everything,maybe juggles?
+
+===========================================================================================
+Things thinking of changing
+===========================================================================================
+- Punch,Kick,hit sounds
+
+
+------------------------------------------------------------------------------------------
+Additional basics
+------------------------------------------------------------------------------------------
+>>    - Dash Foward
+<<    - Dash Back
+A+X   - ZanzoUken (cost 500 for normal,1000 when chained with basics)
+B+Y   - Power Up
+v^    - Super Jump
+
+==========================================================================================
+Specials
+==========================================================================================
+Melee Gut Punches                      -   DP, Punch
+ 2.Knee attack                         -   QCF,Kick	
+  
+  OR
+ Double Knee                           -   QCB,Kick
+
+
+Double Shot                            -   QCF,L.Punch
+
+
+Khh Shot                               -   QCF,H.Punch
+
+
+Shokan Idou   - Straight               -   QCB,Punch (Can hold with Punch,cancel with Kick)
+ Shokan Idou  - Low                    -   QCB,Punch 
+  Shokan Idou - High                   -   QCB,Punch
+
+
+Shokan Idou Strike                     -   QCF,L.Kick
+
+Shokan Idou Strike x2                  -   QCF,H.Kick 
+                                       
+Rising Knee                            -   DP, Kick
+ Flip Kick                             -   DP, Kick (once you land from rising knee)
+
+Hammer Kick                            -   QCB,L.Kick
+
+Hammer Kick,Sayajin Drill              -   QCB,H.Kick
+
+
+
+==========================================================================================
+Level 1 Supers
+==========================================================================================
+
+Chou Kamehameha                        -  QCFx2, Punch
+ Warp                                  -  QCF, Punch (Costs additional 1000)   
+
+
+Kiaiho Assault                         - QCF,QCB,Punch
+
+
+Shokan Idou Super Strike               - QCFx2, Kick
+                          
+
+
+==========================================================================================
+Level 2 Supers
+==========================================================================================
+
+Genki Dama                      -  QCF,QCB,x+y
+
+
+                                
+==========================================================================================
+Credits
+==========================================================================================
+Cyanide           -   coding help, support 
+Majita            -   the intial base, and all the awesome stuff in here.
+Roken             -   the original sheet.Bunch of Code I snagged from DBZG goku
+Tsukuyomi Ryuku   -   Support,Testing, Flip sprite (you better do it! :V)
+Chrono Strife     -   cheese,wub and sexy 18 flashyness :D
+Jesuszilla        -   Beta testing,feedback, Coding help etc etc.
+Cybaster          -   Beta testing, Ideas, keeping me motivated!
+Vans              -   Coding help 
+Balthazaar        -   Beta Testing,Ideas, keeping me motivated!
+[E]               -   Probably won't remember, but helped me with the rising knee,flip kick code ages ago.
+Iced              -   Beta Testing,Ideas, Random Nonsense we spout at one another.
+BenHazard         -   Shokan Idou frames 
+LW                -   Because he's the fucking man, nuff said bitches.
+Elecybyte         -   if I have to say so your dumbzy
+Akira Toriyama    -   for the dbz series 
+Bandai            -   for the horrid games that were only good to get sprites from :)
+Jedi              -   because he's epic, at alot of things and I miss my bro!
+
+

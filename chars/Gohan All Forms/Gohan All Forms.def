@@ -1,0 +1,35 @@
+[Info]
+name="Gohan (Saga de Cell) by Gera"
+displayname="Gohan All Forms"
+versiondate=
+mugenversion=
+author="Gera"
+pal.defaults=1,2,3,4,5
+[Files]
+sprite=Gohan.sff
+sound=Gohan.snd
+anim=Gohan.air
+cmd=Gohan.cmd
+cns=Gohan.cns
+st=Gohan.cns
+stcommon=common1.cns
+pal13=
+pal1=Gohan.act
+pal2=Gohan.act
+pal3=Gohan.act
+pal4=Gohan.act
+pal5=Gohan.act
+pal6=Gohan.act
+pal7=Gohan.act
+pal8=Gohan.act
+pal9=Gohan.act
+pal10=Gohan.act
+pal11=Gohan.act
+pal12=Gohan.act
+st1=modo_fly.cns
+st2=supers.cns
+st3=specials.cns
+st4=modossj2.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=

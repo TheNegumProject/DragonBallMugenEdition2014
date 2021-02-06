@@ -1,0 +1,16 @@
+ 
+;==============================
+;DBZ Destroy Robots by RistaR87
+;==============================
+
+This is my edit of 'Duck Hunt' by Phantom.of.the.Server
+
+SPECIAL THANKS:
+
+Elecbyte - for making M.U.G.E.N
+Phantom.of.the.Server - for coding
+Karol-Kun - for ripping Giru's Sprites
+Apocalypse - for ripping Puar's Sprites
+Chrono Strife - for Yamcha's Sprites and Sounds
+Akira Toriyama - for creating Dragon Ball Z
+Fans and Subscribers - for idea :D

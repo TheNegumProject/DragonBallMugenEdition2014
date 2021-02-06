@@ -1,0 +1,58 @@
+
+;===========================.-----------------------.=============================
+;===========================|      AI HELPER 1      |=============================
+;===========================.-----------------------.=============================
+[StateDef 9741]
+anim=9741
+ctrl=0
+[State 9741, safety]
+type=selfstate
+trigger1=!ishelper
+value=0
+[State 9741, end]
+type=destroyself
+trigger1=((root,ID)!=(parent,ID))||!(root,alive)
+trigger2=roundstate!=2
+trigger3=root,var(59)
+
+[State 9741, facing]
+type=turn
+trigger1=facing!=root,facing
+[State 9741, pausecheck]
+type=varset
+trigger1=(root,movecontact)&&!(root,ctrl)
+trigger2=(facing!=root,facing)
+var(0)=0
+
+[State 9741, dirturnonAI]
+type=parentvarset
+triggerall=var(0)
+trigger1=(root,command="up")||(root,command="down")||(root,command="back")||(root,command="forward")
+var(59)=1
+[State 9741, dirturnoffAI]
+type=parentvarset
+trigger1=(command="up")&&(root,command="up")
+trigger2=(command="down")&&(root,command="down")
+trigger3=(command="back")&&(root,command="back")
+trigger4=(command="forward")&&(root,command="forward")
+var(59)=-1
+[State 9741, buttonturnonAI]
+type=parentvarset
+triggerall=var(0)
+trigger1=(root,command="a")||(root,command="b")||(root,command="c")||(root,command="x")
+trigger2=(root,command="y")||(root,command="z")||(root,command="start")
+var(59)=1
+[State 9741, buttonturnoffAI]
+type=parentvarset
+trigger1=(command="a")&&(root,command="a")
+trigger2=(command="b")&&(root,command="b")
+trigger3=(command="c")&&(root,command="c")
+trigger4=(command="x")&&(root,command="x")
+trigger5=(command="y")&&(root,command="y")
+trigger6=(command="z")&&(root,command="z")
+trigger7=(command="start")&&(root,command="start")
+var(59)=-1
+[State 9741, unpausecheck]
+type=varset
+trigger1=root,ctrl
+var(0)=1

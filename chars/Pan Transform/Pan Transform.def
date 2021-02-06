@@ -1,0 +1,25 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Pan Transform"
+displayname ="Pan"
+versiondate =2013.02.01
+mugenversion =1.0
+author ="LegendTTA"
+pal.defaults =6,3,4,2
+
+; Files for the player
+[Files]
+cmd     =Pan.cmd
+cns     =Pan.cns
+st      =Pan.cns
+stcommon =common1.cns
+sprite  =Pan.sff
+anim    =Pan.air
+sound   =Pan.snd
+pal1=Pan.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

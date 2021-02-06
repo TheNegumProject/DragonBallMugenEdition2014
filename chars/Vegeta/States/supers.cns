@@ -1,0 +1,475 @@
+; ______________________________________________
+;|Vegeta                                        |
+;|Character Made by: Duende Macabro  ::..       |
+;|Version: Beta 0.30 - 24/10/2005 ::..          |
+;|Started at 25/09/2005 ::..                    |
+;|Contact:                                      |
+;|weaponx_nirvana@yahoo.com.br                  |
+;|http://geocities.yahoo.com.br/rickiecreations |
+;|______________________________________________|
+
+;===========================================================================================|
+;--------------------------------------< Lv.1 Supers >--------------------------------------|
+;===========================================================================================|
+
+;=======================|
+;--[ Big Bang attack ]--|
+;=======================|
+[Statedef 2000]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd = -1000
+ctrl = 0
+velset = 0,0
+anim = 2000
+poweradd = -2000
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+id = 6029
+
+[State 3200, superchargepause]
+type = SuperPause
+trigger1 = AnimElem = 1
+time = 57
+anim = -1
+sound = s10,0
+darken = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 6007
+ID = 6007
+pos = 13,-45
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 57
+supermove = 57
+pausemove = 57
+scale = 1,1
+sprpriority = 0
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 6009
+ID = 6009
+pos = 56,-59
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 15
+scale = 1,1
+sprpriority = 0
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = command = "holdback" && AnimElem = 2 && anim = 2000
+value = 2013
+elem = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = anim = 2013
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0 && anim = 2013
+value = 2000
+elem = 3
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 5
+value = 3,0
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 3 && anim != 2001 && anim != 2002
+value = 2000,0
+channel = 1
+
+[State 1000, Projectiles]
+type = Helper
+trigger1 = AnimElem = 5 && anim != 2001 && anim != 2002
+helpertype = Normal
+ID = 8023
+sprpriority = 6
+name = "Big Bang"
+postype = p1
+pos = 45,-60
+stateno = 8023
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = command = "holdup" && animelem = 3 && anim != 2001 && anim != 2002
+value = 2001
+elem = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim = 2001 || anim = 2002
+id = 6009
+
+[State 1000, Projectiles]
+type = Helper
+trigger1 = anim = 2001 && animelem = 2
+helpertype = Normal
+ID = 8042
+sprpriority = 6
+name = "Big Bang"
+postype = p1
+pos = 35,-70
+stateno = 8042
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = command = "holddown" && animelem = 3 && anim != 2001 && anim != 2002
+value = 2002
+elem = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = anim = 2001 || anim = 2002
+id = 6009
+
+[State 1000, Projectiles]
+type = Helper
+trigger1 = anim = 2002 && animelem = 2
+helpertype = Normal
+ID = 8043
+sprpriority = 6
+name = "Big Bang"
+postype = p1
+pos = 25,-60
+stateno = 8043
+ownpal = 1
+keyctrl = 0
+size.xscale = 1
+size.yscale = 1
+
+[State 2100, bound]
+type = screenbound
+trigger1 = animelemtime(3) >= 0
+value = 0
+
+[State 2100, 5]
+type = ChangeState
+trigger1 = pos y = 0 && AnimTime = 0
+value = ifelse((backedgebodydist < 2),2101,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 2100, 5]
+type = ChangeState
+trigger1 = pos y < 0 && AnimTime = 0
+value = ifelse((backedgebodydist < 2),2101,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+;Voltando à luta o\/
+;-----------------------
+
+[Statedef 2001]
+type    = S
+physics = S
+anim = 100
+sprpriority = 1
+
+[State 2101, bound]
+type = screenbound
+trigger1 = 1
+value = 0
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+x = const(velocity.run.fwd.x)
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+flag2 = NoAutoTurn
+
+[State 100, som]
+type = PlaySnd
+trigger1 = AnimElem = 4 || AnimElem = 7
+value = 100, 0
+
+[State 3021, nothitby]
+type = nothitby
+trigger1 = animelemtime(1)>0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+ignorehitpause = 1
+
+[State 3021, turn]
+type = turn
+trigger1 = p2dist x<0
+
+[State 3021, end]
+type = changestate
+trigger1 = p2dist x < 230 || time = 180
+value = 0
+ctrl = 1
+
+;===================|
+;--[ Garlick Ho ]--|
+;===================|
+
+[Statedef 2010]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 2010
+sprpriority = -2
+poweradd = -2000
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+id = 6029
+
+[State 2100, superchargepause]
+type = SuperPause
+trigger1 = AnimElem = 1
+time = 45
+anim = -1
+sound = s10,0
+darken = 0
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = AnimElem = 1
+Time = 80
+add = 30,0,80
+mul = 256,256,256
+sinadd = 30,0,80,1
+invertall = 0
+color = 30
+
+[State 0, PalFXWiz]
+type = BGPalFX
+trigger1 = Time = 1
+Time = 100
+add = 30,0,80
+mul = 256,256,256
+sinadd = 30,0,80,100
+invertall = 0
+color = 30
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = AnimElem = 2
+Time = 50
+add = 30,0,80
+mul = 256,256,256
+sinadd = 30,0,80,1
+invertall = 0
+color = 30
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 6024
+ID = 6024
+pos = -13,-44
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+supermove = 25
+pausemove = 25
+scale = 0.4,0.4
+sprpriority = 2
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 3100
+ID = 6024
+pos = -13,-44
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+supermove = 25
+pausemove = 25
+scale = 0.2,0.2
+sprpriority = 2
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = AnimElem = 3 || anim = 2011 || anim = 2012 || anim = 2013
+id = 6024
+
+[State 3200, superchargehelper]
+type = Helper
+trigger1 = AnimElem = 1
+helpertype = normal
+stateno = 3100
+ID = 3100
+name = "Super Charge"
+postype = p1
+pos = -13,-44
+ownpal = 0
+persistent = 0
+supermovetime = 9999
+
+[State 200, 1]
+type = playsnd
+trigger1 = Time = 10
+value = 6000,20
+volume = 200
+channel = 1
+
+[State 1700, Poeira - Melty Blood]
+type = Explod
+trigger1 = AnimElem = 3 && Pos y >= 0
+anim = 8030
+ID = 8030
+pos = 5,5
+scale = 0.4,0.4
+vel = -0.3,0
+sprpriority = 6
+ownpal = 1
+ignorehitpause = 1
+supermove = 1
+pausemovetime = 100
+supermovetime = 100
+removetime = 34
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = command = "holdback" && AnimElem = 2 && anim = 2010
+value = 2013
+elem = 1
+
+[State 0, Turn]
+type = Turn
+trigger1 = anim = 2013
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = AnimTime = 0 && anim = 2013
+value = 2010
+elem = 3
+
+[State 1000, Projectiles]
+type = Helper
+Triggerall = anim != 2011 && anim != 2012
+trigger1 = AnimElem = 3
+helpertype = Normal
+ID = 8040
+sprpriority = 6
+name = "Charge Ray"
+postype = p1
+pos = 10,-45
+stateno = 8040
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = command = "holdup" && AnimElem = 2 && anim != 2011 && anim != 2012
+value = 2011
+elem = 1
+
+[State 1000, Projectiles]
+type = Helper
+Triggerall = anim = 2011
+trigger1 = AnimElem = 1
+helpertype = Normal
+ID = 8041
+sprpriority = 6
+name = "Charge Ray"
+postype = p1
+pos = 10,-45
+stateno = 8041
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 2100, bound]
+type = screenbound
+trigger1 = animelemtime(3) >= 0
+value = 0
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = command = "holddown" && AnimElem = 2 && anim != 2011 && anim != 2012
+value = 2012
+elem = 1
+
+[State 1000, Projectiles]
+type = Helper
+Triggerall = anim = 2012
+trigger1 = AnimElem = 1
+helpertype = Normal
+ID = 80412
+sprpriority = 2
+ontop = 1
+name = "Charge Ray"
+postype = p1
+pos = 13,-40
+stateno = 80412
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+[State 2100, bound]
+type = screenbound
+trigger1 = animelemtime(3) >= 0
+
+[State 2100, 5]
+type = ChangeState
+Triggerall = Pos y >= 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),2101,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 2100, 5]
+type = ChangeState
+Triggerall = Pos y < 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),2101,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+;===========================================================================================|
+;--------------------------------------< Lv.2 Supers >--------------------------------------|
+;===========================================================================================|
+
+;Não ainda ^^

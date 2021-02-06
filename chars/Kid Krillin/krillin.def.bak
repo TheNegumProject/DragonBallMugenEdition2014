@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="krillin"
+displayname ="Krillin"
+versiondate =08/22/09
+mugenversion =14,04,2002
+author ="Konchu"
+pal.defaults =1,2,3,4,5,6,7
+
+[Files]
+sprite =krillin.sff
+anim =krillin.air
+sound =krillin.snd
+cmd =krillin.cmd
+cns =krillin.cns
+stcommon =common1.cns
+st =krillin.cns
+pal1=krillin.act
+pal2=krillin2.act
+pal3=krillin3.act
+pal4=krillin4.act
+pal5=krillin5.act
+pal6=krillin6.act
+pal7=krillin7.act
+;pal5 = krillin5.act
+;pal6 = krillin6.act
+;pal7 = krillin7.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

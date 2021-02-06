@@ -1,0 +1,27 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Goku namek 0.8"
+displayname ="Goku Kaioken 20x"
+versiondate =10/09/2011
+mugenversion =04,14,2002
+author ="The_Heartbreaker"
+pal.defaults =1,2
+
+[Files]
+sprite =Son Goku.sff
+anim =Son Goku.air
+sound =Son Goku.snd
+cmd =Son Goku.cmd
+cns =Son Goku.cns
+stcommon =common1.cns
+st =Son Goku.cns
+pal1=1.act
+st1=Helpers
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,572 @@
+;================================
+; CNS File for Vegeta Z2 by Balthazar & Cybaster
+; State -2 & State -3 files
+;================================
+
+;==========================================================
+[Statedef -2]
+;==========================================================
+
+;===============================================================================
+; ------- VarSets --------
+;===============================================================================
+
+[State -2, Multipunch counter]
+type = varset
+trigger1 = stateno != [200,215]
+var(4) = 0
+ignorehitpause = 1
+
+[State -2, camera counter]
+type = varset
+trigger1 = stateno != [2000,2015]
+var(5) = 0
+ignorehitpause = 1
+
+[State -2, coup de grace]
+type = varset
+trigger1 = stateno != [2200,2215]
+var(6) = 0
+ignorehitpause = 1
+
+;===============================================================================
+; ------- Miscelaneous Stuff --------
+;===============================================================================
+
+[State 180, 1];Partner is Goku Z2
+type = ChangeState
+triggerall = roundstate < 3
+trigger1 = numpartner = 1
+trigger1 = partner,name = "Goku Z2"
+value = 192
+
+[State -3, stopsnd if skip intro]
+type = stopsnd
+triggerall = roundstate=2 ;stateno=0
+trigger1 = prevstateno=191
+channel = 8
+
+[State -2, no air guard]
+type = AssertSpecial
+trigger1 = 1
+flag = noairguard
+ignorehitpause = 1
+
+[State -3, Guard fix]
+type=changestate
+value = 106 + (random%3)
+trigger1 = stateno=[130,153]
+ignorehitpause = 1
+
+[State -2, ctrlset]
+type = CtrlSet
+trigger1 = roundstate=0 || roundstate=1
+value = 0
+
+[State -2, Explod];State 5052 Twist FX
+type = playsnd
+trigger1 = anim=5052 && !(gametime%10)
+value = 5052,0
+volume = -100
+
+[State -2, Explod];State 5052 Twist FX
+type = Explod
+triggerall = NumExplod(20152) = 0
+trigger1 = anim=5052 && animelemtime(4)=0
+anim = 20152
+pos = 0,-50
+postype = P1
+removetime = -1
+;supermovetime = 99999
+sprpriority = 3
+id = 20152
+bindtime = -1
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = -1
+
+[state 17100, Flip KO FX]
+type=explod
+trigger1 = Anim=5937 && !numexplod(59370) && animelemtime(3)=0
+anim = 5938
+id = 5938
+pos = 0,-50
+postype = P1
+sprpriority = 3
+ownpal = 1
+;supermovetime = -1
+removetime = -1
+persistent = 0
+bindtime = -1
+ignorehitpause = 1
+
+;===============================================================================
+; ------- Compatibility with V.Akiha by Kohaku --------
+;===============================================================================
+
+[State -2, LifeAdd]
+type = LifeAdd
+triggerall = NumEnemy
+triggerall = Enemy,AuthorName = "Kohaku" && Enemy,Name = "VAkiha_K"
+trigger1 = Enemy,Var(30) = 1
+value = -5
+kill = 0
+
+[State -2, PowerAdd]
+type = PowerAdd
+triggerall = NumEnemy
+triggerall = Enemy,AuthorName = "Kohaku" && Enemy,Name = "VAkiha_K"
+trigger1 = Enemy,Var(30) = 1
+value = -26
+
+;===============================================================================
+; ------- Compatibility with Warachia by Rajaaboy --------
+;===============================================================================
+
+[state -2,RajaaBoy:_Warachia]
+type = lifeadd
+trigger1 = numenemy
+trigger1 = enemy,authorname="RajaaBoy"
+trigger1 = enemy,name="RajaaWarachia"
+trigger1 = enemy,var(32)=1||enemy,var(33)=1||enemy,var(34)=1
+value = (-14*enemy,var(32))+(-21*enemy,var(33))+(-28*enemy,var(34))
+kill = 0
+ignorehitpause = 1
+
+[state -2,RajaaBoy:_Warachia]
+type = poweradd
+trigger1 = numenemy
+trigger1 = enemy,authorname="RajaaBoy"
+trigger1 = enemy,name="RajaaWarachia"
+trigger1 = enemy,var(32)=1||enemy,var(33)=1||enemy,var(34)=1
+value = 10
+ignorehitpause = 1
+
+;===============================================================================
+; ------- Super Background Helper Triggers --------
+;===============================================================================
+
+; SUPER BG HELPER
+[State -2, Hyper Kill bg]
+type = helper
+triggerall = winKO && !NumHelper(19875)
+triggerall = var(13) < 2
+trigger1 = NumHelper(2350)								;baku
+trigger1 = helper(2350),movecontact
+trigger2 = stateno=2210							;surprise punch
+trigger3 = stateno=2021 && movecontact			;kick
+ID = 19875
+pos = 20-20*(var(13)=0),-250+250*(var(13)=0)
+postype = left
+stateno = 19875 + 25*var(13)
+helpertype = normal
+name = "superbackground"
+pausemovetime = 999999
+supermovetime = 999999
+sprpriority = -5
+ownpal = 1
+keyctrl = 0
+ignorehitpause = 1
+
+; SUPER BG HELPER - Super DBZ Physic
+[State -2, Hyper Kill bg]
+type = helper
+triggerall = winKO && !NumHelper(19875)
+triggerall = var(13) = 2
+trigger1 = stateno=2210							;surprise punch
+trigger2 = stateno=2021 && movecontact			;kick
+ID = 19875
+pos = 0,0
+postype = left
+stateno = 19885
+helpertype = normal
+name = "superbackground"
+pausemovetime = 999999
+supermovetime = 999999
+sprpriority = -5
+ownpal = 1
+keyctrl = 0
+ignorehitpause = 1
+persistent = 0
+
+; SUPER BG HELPER - Super DBZ Ki
+[State -2, Hyper Kill bg]
+type = helper
+triggerall = winKO && !NumHelper(19875)
+triggerall = var(13) = 2
+trigger1 = NumHelper(2350)								;baku
+trigger1 = helper(2350),movecontact
+ID = 19875
+pos =  0,0;160,120
+postype = left
+stateno = 19892
+helpertype = normal
+name = "superbackground"
+pausemovetime = 999999
+supermovetime = 999999
+sprpriority = -5
+ownpal = 1
+keyctrl = 0
+ignorehitpause = 1
+persistent = 0
+
+;===============================================================================
+; ------- Display To Clipboard --------
+;===============================================================================
+
+[State -2, DisplayToClipboard]
+type = DisplayToClipboard
+trigger1 = (authorname="Balthazar & Cybaster")
+text = "AI = %d, trans=%d, chou_kmh=%d, genki=%f, flik=%d\n"
+params = var(59), var(2),var(25), fvar(28), var(21)
+ignorehitpause = 1
+
+[State -2, Debug]
+type = appendtoclipboard
+trigger1 = (authorname="Balthazar & Cybaster")
+text = "by Balthazar & Cybaster - http://www.mugenguild.com/cybaster"
+ignorehitpause = 1
+
+[State -2, VS Thieves]
+type = DisplayToClipboard
+trigger1 = (authorname="Balthazar & Cybaster") = 0
+text = "This character was created by Balthazar and Cybaster. Don't even try to deny\it thief! Original version available at http://www.mugenguild.com/cybaster\n"
+ignorehitpause = 1
+
+;=======================================================================
+; External coding for Hyper Pause Fixes (Fighting SyN'S Characters only)
+;=======================================================================
+[State -2, Camera focus on player for Hyper Pause]
+type = ScreenBound
+triggerall = NumEnemy
+triggerall = enemynear,authorname = "ImmortaL -SyN-"
+trigger1 = enemynear,numhelper(4999)
+value = 1
+
+;===============================================================================
+; ------- Remove various explods --------
+;===============================================================================
+
+[state -2, remove Flip KO FX]
+type = removeexplod
+trigger1 = anim!=5937
+id = 5938
+[state -2, remove Twist KO FX]
+type = removeexplod
+trigger1 = anim!=5052
+id = 20152
+
+[state -2, remove charge dust]
+type = removeexplod
+trigger1 = stateno != 900
+trigger1 = stateno != 901
+id = 908
+
+;================================================================================
+; ------- Cheap K.O. system By Warusaki3 --------
+;===============================================================================
+[State -2, 3]
+type = ChangeState
+trigger1 = !Alive
+trigger1 = PrevStateNo = 130 || PrevStateNo = 131 || PrevStateNo = [150,153]
+trigger1 = Stateno = [5000,5050]
+value = 5950
+
+[State -2,KO]
+type = Varset
+triggerall = StateNo = [120,159]
+trigger1 = StateType = S
+ignorehitpause = 1
+fvar(1) = 0
+
+[State -2,KO]
+type = Varset
+triggerall = StateNo = [120,159]
+trigger1 = StateType = C
+ignorehitpause = 1
+fvar(1) = 1
+
+[State -2,KO]
+type = Varset
+triggerall = StateNo = [120,159]
+trigger1 = StateType = A
+ignorehitpause = 1
+fvar(1) = 2
+
+;===============================================================================
+; COUNTER HIT (Taken from Vans, who based his on Sander's Method)
+;===============================================================================
+
+[State -2, VarSet];Checks if opponent is in attack state
+type = VarSet
+triggerall = numenemy
+trigger1 = enemy, movetype = A
+var(56) = 1
+ignorehitpause = 1
+
+[State -2, VarSet];This resets the condition if counter not succesful and succesful
+type = VarSet
+triggerall = numenemy
+trigger1 = enemy, movetype = I || var(57) >= 1  ;Enemy is Idle | Counter was Succesful
+trigger2 = var(57) > 10 && enemy, movetype = H  ;10 ticks passed & enemy is on gethit state
+var(56) = 0
+ignorehitpause = 1
+
+[State -2, VarSet];Counter Hit Succesful
+type = VarSet
+trigger1 = var(56) = 1 && movehit ;Counter Check Ok, Move Hit Succesfully.
+trigger1 = stateno != [190,199] ;Does not activate during intros.
+trigger1 = stateno != [800,820] ;Does not activate during throws.
+trigger1 = stateno != [950,951] ;Don't activate during throws.
+trigger2 = var(56) = 1 && projhit = 1  ;Counter Check Ok, Projectile Hit Succesfully.
+var(57) = 1
+ignorehitpause = 1
+
+[State -2, VarAdd];Counter Hit Timer
+type = VarAdd
+trigger1 = var(57) >= 1 ;Counter was succesful
+var(57) = 1
+ignorehitpause = 1
+
+[State -2, VarSet];Counter Hit Reset
+type = VarSet
+trigger1 = var(57) >= 22 && movehit ;Reset if 22 ticks passed and move hit
+trigger2 = p2movetype != H ;Reset if P2 is no longer in gethit state
+trigger3 = movetype = H ;Reset if P1 is getting hit
+trigger4 = var(57) >= 22 && projhit = 1 ;Reset if 22 ticks passed and projectile hit
+var(57) = 0
+ignorehitpause = 1
+
+[State -2, AssertSpecial];This will award free juggles for Counter Hit.
+type = AssertSpecial
+trigger1 = var(57) > 0
+flag = nojugglecheck
+
+[State -2, EnvColor];This will produce a flash a la KOF2K2
+type = EnvColor
+triggerall = numenemy
+triggerall = stateno != [190,199] ;Does not activate during intros.
+triggerall = stateno != [800,820] ;Does not activate during throws.
+triggerall = stateno != [950,951] ;Don't activate during throws.
+triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
+trigger1 = var(56) = 1 && movehit  ;Move hit, Ok
+trigger2 = var(56) = 1 && projhit = 1 ;Projectile hit, Ok
+value = 255,255,255
+time = 1
+under = 1
+ignorehitpause = 1
+persistent = 0
+
+[State -2, Explod];Counter Explod for P1 Side.
+type = Explod
+triggerall = numenemy
+triggerall = var(56) = 1 && numexplod(13000) = 0 && teamside = 1 ;Counter Ok, Explod has not played, P1 Side
+triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
+triggerall = stateno != [800,820] ;Does not activate during throws.
+triggerall = stateno != [950,951] ;Don't activate during throws.
+trigger1 = movehit ;Move hits
+trigger2 = projhit = 1 ;Projectile Hits
+anim = 13000
+pos = 10,100
+postype = left  ;p2,front,back,left,right
+removetime = -2
+supermove = 1
+scale = 0.5,0.5
+sprpriority = 0
+id = 13000
+bindtime = -1
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = -1
+
+[State -2, Explod];Counter Explod for P2 Side.
+type = Explod
+triggerall = numenemy
+triggerall = var(56) = 1 && numexplod(13000) = 0 && teamside = 2 ;Counter Ok, Explod has not played, P2 Side
+triggerall = enemy, movetype = h ;Enemy was indeed HIT, otherwise this'd be retarded.
+triggerall = stateno != [800,820] ;Does not activate during throws.
+triggerall = stateno != [950,951] ;Don't activate during throws.
+trigger1 = movehit ;Move hits
+trigger2 = projhit = 1 ;Projectile Hits
+anim = 13001
+pos = -1,100
+postype = left  ;p2,front,back,left,right
+removetime = -2
+supermove = 1
+scale = 0.5,0.5
+sprpriority = 0
+id = 13000
+bindtime = -1
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = -1
+
+;===============================================================================
+; FIRST ATTACK NOTIFICATION
+;===============================================================================
+
+[State -2, First Attack]
+type = VarSet
+triggerall = Var(27) = 0
+triggerall = RoundState = 2
+trigger1 = p2stateno = [5000,5199]
+v = 27
+value = 1
+ignorehitpause = 1
+
+[State -2, Explod];P1 Side.
+type = Explod
+trigger1 = var(27)= 1 && numexplod(13100)=0 && teamside = 1
+anim = 13100
+pos = 10,ifelse(numexplod(13000),80,100)
+postype = left  ;p2,front,back,left,right
+removetime = -2
+supermove = 1
+scale = 0.5,0.5
+sprpriority = 0
+id = 13100
+bindtime = -1
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = -1
+persistent = 0
+
+[State -2, Explod];P2 Side.
+type = Explod
+trigger1 = var(27)= 1 && numexplod(13100)=0 && teamside = 2
+anim = 13101
+pos = -48,ifelse(numexplod(13000),80,100)
+postype = left  ;p2,front,back,left,right
+removetime = -2
+supermove = 1
+scale = 0.5,0.5
+sprpriority = 0
+id = 13100
+bindtime = -1
+ontop = 1
+ownpal = 1
+ignorehitpause = 1
+pausemovetime = -1
+persistent = 0
+
+[State -2, Powaa !!!]
+type = PowerAdd
+trigger1 = Var(27) = 1
+value = 200
+persistent = 0
+
+[State -2, First Attack]
+type = VarSet
+trigger1 = Var(27) = 1
+trigger2 = movetype = H && Var(27) = 0 && stateno != [150,159]
+v = 27
+value = 2
+
+;==========================================================
+[Statedef -3]
+;==========================================================
+
+;This controller plays a sound everytime the player lands from a jump, or from a back-dash.
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 ;Jump land
+trigger2 = stateno = 106 && prevstateno != 107 ;back dash land and no flik flak
+trigger3 = stateno=0 && prevstateno=5120
+trigger4 = stateno = 5201
+value = 40, 0
+
+[state 52, Land FX]
+type = helper
+triggerall = Time = 1
+trigger1 = stateno = 52
+trigger2 = stateno = 106 && prevstateno != 107
+trigger3 = stateno = 5201
+name = "LandFX"
+helpertype = normal
+stateno = 17100
+id = 17100
+postype = P1
+ownpal = 1
+keyctrl = 0
+supermovetime = 99999
+pausemovetime = 99999
+
+[State 0, ]
+type = Helper
+triggerall = !numhelper(52100)
+trigger1 = stateno = 5201
+helpertype = normal
+name = "recoverpulser"
+ID = 52100
+stateno = 52100
+ownpal = 1
+supermovetime = 99999
+pausemovetime = 99999
+
+[State -3, GetHitSnd]
+type = playsnd
+triggerall = !numhelper(2504) && !numhelper(2505)
+triggerall = alive && (time = 1)
+triggerall = stateno=5000||stateno=5010||stateno=5020||stateno=5070||stateno=5080
+trigger1 = numenemy > 0
+trigger1 = enemynear,hitdefattr = SCA,SA,HA
+trigger2 = gethitvar(animtype)>=2 ;&& random<500
+trigger3 = gethitvar(animtype)=1 ;&& random<375
+trigger4 = gethitvar(animtype)=0 ;&& random<250
+value = s5000,random%10
+channel = 0
+ignorehitpause = 1
+persistent = 0
+
+[state -3, remove afterimage]
+type = afterimagetime
+trigger1 = Movetype = H
+trigger2 = Anim != 2000
+time = 0
+
+[State -3, Prevent Crossup]
+type = width
+trigger1 = 1
+edge = 4,0
+ignorehitpause = 1
+
+[State -3, No walk during turning animation]
+type = VelSet
+trigger1 = anim=5
+x = 0
+
+[State -3, c-c-c-combo breaker on ground]
+type=changestate
+value = 2999
+triggerall = enemy,name!="Goku Z2"
+trigger1 = movetype=H && alive && statetype!=A
+trigger1 = !hitshakeover && time=1
+trigger1 = gethitvar(hitcount)>0
+
+[State -3, c-c-c-combo breaker on ground, Goku exception Kaioken]
+type=changestate
+value = 2999
+triggerall = enemy,name="Goku Z2" && (enemy,stateno!=[2900,2905])
+trigger1 = movetype=H && alive && statetype!=A
+trigger1 = !hitshakeover && time=1
+trigger1 = gethitvar(hitcount)>0
+
+[State -3, c-c-c-combo breaker in air]
+type=changestate
+value = 3000
+triggerall = enemy,name!="Goku Z2"
+trigger1 = movetype=H && alive && statetype=A
+trigger1 = !hitshakeover && time=1
+trigger1 = gethitvar(hitcount)>0
+
+[State -3, c-c-c-combo breaker in air, Goku exception Kaioken]
+type=changestate
+value = 3000
+triggerall = enemy,name="Goku Z2" && (enemy,stateno!=2935)
+trigger1 = movetype=H && alive && statetype=A
+trigger1 = !hitshakeover && time=1
+trigger1 = gethitvar(hitcount)>0

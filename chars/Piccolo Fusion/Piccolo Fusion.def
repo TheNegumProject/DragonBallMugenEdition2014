@@ -1,0 +1,35 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Piccolo"
+displayname ="Piccolo Fusion"
+versiondate =05,06,2012
+mugenversion =04,14,2002
+author ="Tapion & Emiliano_01"
+pal.defaults =1,2
+
+[Files]
+sprite =Piccolo.sff
+anim =Piccolo.air
+sound =Piccolo.snd
+cmd =Piccolo.cmd
+cns =Piccolo.cns
+stcommon =common1.cns
+st =basico.cns
+pal1=Piccolo.act
+pal2=Piccolo_allstar.act
+pal3=Piccolo_Movie.act
+pal4=Piccolo_KamiSama.act
+st1=Especiales.cns
+st2=ki.cns
+st3=supers.cns
+st4=boludeces.cns
+st5=P2States.cns
+;st6 = AI.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

@@ -1,0 +1,66 @@
+[Data]
+life=1000
+power=5000
+attack=100
+defence=100
+fall.defence_up=50
+liedown.time=60
+airjuggle=15
+sparkno=2
+guard.sparkno=40
+KO.echo=0
+volume=0
+IntPersistIndex=60
+FloatPersistIndex=40
+
+[Size]
+xscale=.85
+yscale=.85
+ground.back=30
+ground.front=30
+air.back=20
+air.front=20
+height= 82
+attack.dist=160
+proj.attack.dist=90
+proj.doscale=0
+head.pos         = -6, -82  
+mid.pos          = -5, -46  
+shadowoffset=0
+draw.offset=0,0
+
+[Velocity]
+walk.fwd=3.8
+walk.back=-3.6
+run.fwd=8,0
+run.back=-8,0
+jump.neu=0,-10
+jump.back=-3
+jump.fwd= 4.7
+runjump.back=-2.55,-9.2
+runjump.fwd=4,-9.2
+airjump.neu=0,-9.5
+airjump.back=-2.55
+airjump.fwd=2.5
+
+[Movement]
+airjump.num= 0
+airjump.height=50
+yaccel=0.51
+stand.friction=.82
+crouch.friction=.82
+
+[Quotes]
+victory1 = "I Thought that would be harder"
+victory2 = "Can I eat now?"
+victory3 = "Is that what you call fighting?"
+victory4 = "Whoa, that was a close one"
+victory5 = "And I thought vegeta was annoying"
+victory6 = "I wonder what chichi is cooking"
+victory7 = "Is that a muffin button?!"
+victory8 = "Hey where did my senzu go?"
+victory9 = "That was my full power, or was it? hehe"
+victory10 = "ummm what was I doing again?"
+victory11 = "Do you have any BBQ Sauce?"
+victory12 = "If you thought I was tough, you should see my son!"
+victory13 = "I told you I am pure,chaste and innocent!"

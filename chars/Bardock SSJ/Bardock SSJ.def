@@ -1,0 +1,29 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Bardock"
+displayname = "Bardock SSJ"
+versiondate = 09,03,2008
+mugenversion = 04,14,2002
+author = "Sawady, EDIT BY MEPHISTOPHELES"
+pal.defaults = 1
+
+[Files]
+sprite = bardock.sff
+anim = bardock.air
+sound = bardock.snd
+cmd = bardock.cmd
+cns = bardock.cns
+stcommon = common1.cns
+st = Basico.cns
+st1 = Moves.cns
+st2 = Helpers.cns
+st3 = Specials.cns
+pal1 = bardock.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

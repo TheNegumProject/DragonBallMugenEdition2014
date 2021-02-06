@@ -1,0 +1,28 @@
+; Giran from DragonBall  14 mayo 2009
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Giran"        
+displayname ="Giran" 
+versiondate =04,14,2002    
+mugenversion =04,14,2002   
+author ="Warner"
+pal.defaults =1,2
+
+; Files for the player
+[Files]
+cmd     =Giran.cmd
+cns     =Giran.cns
+st      =Giran.cns
+stcommon =common1.cns
+sprite  =Giran.sff
+anim    =Giran.air
+sound   =Giran.snd
+pal1=newgiran.act
+pal2=giran2.act
+
+; Arcade mode
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard = ..\data\final.def

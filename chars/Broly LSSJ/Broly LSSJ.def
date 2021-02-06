@@ -1,0 +1,41 @@
+
+[Info]
+name="Broly"
+displayname="Broly LSSJ"
+versiondate=07.09.2012
+mugenversion=1.0
+author="The Necromancer-Maxi-edited by-Infinite"
+pal.defaults=1,2,3,4,5,6,7,8,9,10,11,12
+
+;---------------
+;Character Files 
+;---------------
+[Files]
+cmd=Broly.cmd
+cns=Broly.cns
+st=Broly.cns
+stcommon=common1.cns
+sprite=Broly.sff
+anim=Broly.air
+sound=Broly.snd
+pal1=Palettes/Broly01.act
+pal2=Palettes/Broly02.act
+pal3=Palettes/Broly03.act
+pal4=Palettes/Broly04.act
+pal5=Palettes/Broly05.act
+pal6=Palettes/Broly06.act
+pal7=Palettes/Broly07.act
+pal8=Palettes/Broly08.act
+pal9=Palettes/Broly09.act
+pal10=Palettes/Broly10.act
+pal11=Palettes/Broly11.act
+pal12=Palettes/Broly12.act
+st1=States/Basics.st
+st2=States/Specials.st
+st3=States/Supers.st
+st4=States/Helpers.st
+st5=States/Customs.st
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard =

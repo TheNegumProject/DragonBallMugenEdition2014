@@ -1,0 +1,193 @@
+==========================================================================================
+Goku   beta 0.66665544333?
+==========================================================================================
+
+Coding  -  NeoCide
+
+Sprites -  NeoCide
+==========================================================================================
+Basics
+==========================================================================================
+------------------------------------------------------------------------------------------
+Standing
+------------------------------------------------------------------------------------------
+a = Light kick
+b = Med kick
+x = Light punch
+y = Med punch*
+*y = Med punch push back
+------------------------------------------------------------------------------------------
+Crouching
+------------------------------------------------------------------------------------------
+a = Light kick
+b = Hard  kick
+x = Light punch
+y = uppercut
+------------------------------------------------------------------------------------------
+Air
+------------------------------------------------------------------------------------------
+a       =  Light kick
+b =     =  Knockdown kick
+x =     =  Light punch
+y =     =  Knockdown punch
+fwd fwd =  dash fwd
+bck bck =  dash back 
+
+
+==========================================================================================
+jap translation (I dont remember them all)
+==========================================================================================
+
+
+==========================================================================================
+Things Left
+==========================================================================================
+supers for all 3 forms
+ssj rules (timers etc)
+links
+combo buffering
+hak fu voice samples
+
+
+
+
+========================================================================
+Known Bugs
+========================================================================
+fixes
+=========================================================================
+none to report about yet?
+--------------------------------------------------
+Additional basics
+--------------------------------------------------
+b+y = Charge up 
+power up to 2000 = ssj2
+A+C = ssj2 revert to normal (lose 10 % health)
+SSJ2 Intro trans sequence - UP,UP,DOWN,DOWN,LEFT,RIGHT,LEFT,RIGHT
+SSJ3 Intro trans sequence - UP,DOWN,DOWN,UP,RIGHT,RIGHT,DOWN,UP
+fwd fwd = zanzoken
+
+
+
+
+
+==========================================================================================
+Specials
+==========================================================================================
+----------------------------------------------------------------------------------------
+ Normal State
+-------------------------------------------------------------------------------
+
+Rising Knee	      -          F,QCF,Kick
+Flip kick             -             F,QCF, Kick (after rising knee)
+
+Zanzoken hammer smash -          QCB,Kick         
+ 
+
+Kamehameha            -          HCF, punch (hold punch down for cho khh)
+           
+
+Air Kamehameha        -          QCF, Punch (must be done in air)
+       
+
+Kaioken X10           -          HCB, Punch           
+        
+
+Taioken               -          QCF,QCB,Kick
+
+---------------------------------------------------------------------------------
+SSJ2 State
+-----------------------------------------------------------------------------
+Zanzoken assault      -          HCF,L Punch 
+(Kikou)
+
+
+Zanzoken Assault      -          HCF, H Punch
+Khh 
+
+
+Super 2 Attack        -          F,QCF,Kick
+
+
+
+
+Hammer Kick           -          B,QCB, Kick
+
+
+Ka                    -          QCB, Kick
+ Boom!                -          QCF, Kick(after Ka)
+
+
+Shukan Idou Low       -          QCB, Punch(can hold down Punch)
+
+
+
+
+
+Shukan Idou Straight  -          QCF, Punch (can hold down punch)
+
+
+
+
+
+Shukan Idou  High     -          QCB, Punch (can hold down punch)
+
+
+---------------------------------------------------------------------------------
+SSJ3 State
+-----------------------------------------------------------------------------
+Renzoku Frenzy        -          HCB,Kick 
+
+
+
+Boom!Shotgun(rapid)   -          HCF,L Punch
+Kikou                 -           QCF,Punch
+
+Boom!Shotgun(spread)  -          HCF, H punch
+Kikou                 -           QCF,Punch
+
+
+Double Trouble        -          F,QCF,Kick
+Air khh               -          QCF, kick (after double trouble)
+Port attack           -          QCB, kick (after double trouble) 
+
+
+
+Super 3 frenzy        -          F,QCF,Punch
+
+
+                
+========================================================================
+Level 1 Supers
+========================================================================
+
+
+None yet
+
+=======================================================================
+Level 2 super
+=======================================================================
+None yet
+
+==========================================================================================
+Credits
+==========================================================================================
+Cyanide           -   TONS of help without him I wouldnt be able to do alot, thanks a bunch man : )
+NeoTokyo          -   Some sprites (pce khh's are fucking win), inspiration, and because he looks hawt in a red shirt :3
+Jedi              -   some trunks sprites I converted, and for being epic
+Roken             -   Because  he's smexy, and loads of help on goku probs thanks bro. GO TEAM HAWK!
+Chrono Strife     -   stuff! and being exited about goku which makes me a happy guy :3
+Wasaby            -   screenpack I have? and ummm I wish he'd come back again bastard
+Warusaki3         -   for the awesome CVS2 hitsparks
+Majita            -   sounds,feedback,amazing stories of how to ruin relationships XD
+Toad              -   fx 
+Jesuszilla        -   Feedback and my main hoster now thanks a bunch (I'll be whoring you later for more people :D )
+MV                -   Because he cant be as smexy as me, but bless his heart for trying :) Wub u!
+Nachoinal
+Pextin            -   being so damn awesome with that spiderman mask
+Elecybyte         -   if I have to say so your dumbzy
+Akira Toriyama    -   for the dbz series 
+WD                -   My site pwns :D
+Bandai            -   for the horrid games that were only good to get sprites from :)
+
+

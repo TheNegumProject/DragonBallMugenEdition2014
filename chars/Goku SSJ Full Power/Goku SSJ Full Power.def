@@ -1,0 +1,49 @@
+;========================================================================
+;Goku
+;========================================================================
+
+;------------------------------------------------------
+;Author:	Neocide
+;		http://www.trinitymugen.net/forum/index.php?action=tpmod;dl=cat80
+;------------------------------------------------------
+
+;========================================================================
+
+
+;========================================================================
+;Character Information
+;========================================================================
+
+[Info]
+name = "Goku"
+displayname = "Goku SSJ Full Power"
+versiondate = 07,05,2011
+mugenversion = 1.0
+author = "Neocide"
+pal.defaults = 1,2,3,4,5
+
+[Files]
+sprite = Sprites\Goku.sff
+anim = Sprites\Goku.air
+sound = Sound\SOUNDS.snd
+cmd = Code\CMD.cmd
+cns = Code\CNS.cns
+stcommon = Code\Common.cns
+st = Code\Basic.st
+st1 = Code\Special.st
+st2 = Code\Helper.st
+st3 = Code\Helper.st
+st4 = Code\Super.st
+pal1 = Palletes\Pallete01.act
+pal2 = Palletes\Pallete02.act
+pal3 = Palletes\Pallete03.act
+pal4 = Palletes\Pallete04.act
+pal5 = Palletes\Pallete05.act
+pal6 = Palletes\Pallete06.act
+pal7 = Palletes\Pallete07.act
+
+
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

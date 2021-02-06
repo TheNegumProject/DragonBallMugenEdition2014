@@ -1,0 +1,31 @@
+;***********************************************************************
+;*************************Super 17 by Szowel****************************
+;*****************************version 1.0*******************************
+;***********************************************************************
+
+[Info]
+name ="Super 17 by Szowel"
+displayname ="Super 17"
+versiondate =16,09,2011
+mugenversion =04,14,2002
+author ="Szowel"
+pal.defaults =1
+
+[Files]
+sprite =Super17.sff
+anim =Super17.air
+sound =Super17.snd
+cmd =Super17.cmd
+cns =Super17.cns
+stcommon =common1.cns
+st =Super17.cns
+pal1=1.act
+pal2=SzowelStyle.act
+pal3=AsquaStyle.act
+pal4=StiwekStyle.act
+pal5=KingaStyle.act
+pal6=ArmorCageStyle.act
+
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def

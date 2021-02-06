@@ -1,0 +1,111 @@
+;超即死オメガトムハンクスキラー用ステ
+;::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+;p2stateno&&targetstate
+;::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+[Statedef 5152]
+type    = A
+movetype= H
+physics = N
+Ctrl     = 0
+             
+[State 1];ステート抜け
+type = Changestate
+triggerall = name = "cooler"
+trigger1 = 1
+value = 0
+ctrl = 1
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2];見えないように
+type = AssertSpecial
+trigger1 = 1
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State 0];ライフを０に
+type = lifeset
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2];攻撃が当たらないように
+type = nothitby
+trigger1 = 1
+value = SCA
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State 1];hitdefを撃たせるため
+type = Changeanim2
+trigger1 = alive
+value = 20000;←攻撃判定のある自分のアニメ
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State 1];hitdefを撃たせるため
+type = StateTypeSet
+trigger1 = !Ishelper
+trigger1 = alive
+movetype = A
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State -2]
+type = HitDef
+trigger1 = !Ishelper
+trigger1 = alive
+attr = A,NP
+animtype  = Hard
+damage    = 0,0
+priority  = 4
+hitflag = MHLAFDP
+guardflag = MA
+pausetime = 7,7
+sparkxy = 0,0
+hitsound   = -1
+guardsound = -1
+ground.type = Low
+ignorehitpause = 1
+pausemovetime = 9999999
+supermovetime = 9999999
+
+[State 0]
+type = ChangeState
+triggerall = !Ishelper
+triggerall = alive
+trigger1 = HitPauseTime>=4
+value = 5151
+ctrl = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State 0]
+type = SelfState
+triggerall = !Ishelper
+trigger1 = !alive
+value = 5150
+ctrl = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state 0]
+type = destroyself
+trigger1 = Ishelper
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;-----------------------
+;――――――――――――――――――――――――――――――――――――――――――――――――――――――――――――

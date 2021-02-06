@@ -1,0 +1,28 @@
+; Definition file for gai
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Arale"        ;Name of character
+displayname = "Arale" ;Name of character to display
+versiondate = 02,17,2007    ;Version date of character (MM-DD-YYYY)
+mugenversion = 02,17,2007   ;Version of M.U.G.E.N character works on
+author = "naruto1230"         ;Character author name
+pal.defaults = 1      ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd     = Arale.cmd   ;Command set
+cns     = Arale.cns   ;Constants
+st      = Arale.cns   ;States
+stcommon = common.cns ;Common states
+sprite  = Arale.sff   ;Sprite
+anim    = Arale.air   ;Animation
+;sound   = Arale.snd   ;Sound
+pal1    = Arale.act  ;Palettes (can have up to 12)
+
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Capitan Ginyu"
+displayname ="Ginyu"
+versiondate =01/04/08
+mugenversion = 
+author ="Wenchu &Tapion Team OS"
+pal.defaults =1
+
+[Files]
+sprite =ginew.sff
+anim =ginew.air
+sound =Ginew.snd
+cmd =Ginew.cmd
+cns =Ginew.cns
+stcommon =common1.cns
+st =Ginew.cns
+pal1=Ginew1.act
+pal2=Ginew2.act
+pal3=Ginew3.act
+pal4=Ginew4.act
+pal5=Ginew5.act
+pal6=Ginew6.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

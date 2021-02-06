@@ -1,0 +1,28 @@
+; Definition file for Zangya by Chrono_Strife
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "Zangya"                   ;Name of character
+displayname = "Zangya"            ;Name of character to display
+versiondate = 2009.11.29          ;Version date of character
+mugenversion = 2002.04.14         ;Version of M.U.G.E.N character works on
+author = "Chrono_Strife"          ;Character author name
+pal.defaults = 1,2,3,4,5          ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd      = coding/ZangyaCMD.cmd   ;Command set
+cns      = coding/ZangyaCNS.cns   ;Constants
+st       = coding/ZangyaCNS.cns   ;States
+st2      = coding/helperST.st     ;Helper States
+st3      = coding/P2CustomST.st   ;Custom Hit States
+stcommon = coding/commonCNS.cns   ;Common states
+sprite   = graphical/ZangyaSFF.sff;Sprite
+anim     = coding/ZangyaAIR.air   ;Animation
+sound    = audio/ZangyaSND_ENG.snd;Sound
+pal1     = graphical/ZangyaACT.act;Standard Zangya Colors
+pal2     = graphical/BojackACT.act;Transformed Bojack Colors
+pal3     = graphical/VampireACT.act;Dark Colors
+pal4     = graphical/BlondeACT.act;Blonde Hair
+pal5     = graphical/HumanACT.act ;Launch Colors

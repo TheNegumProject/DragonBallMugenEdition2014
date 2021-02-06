@@ -1,0 +1,38 @@
+;==================================
+;"Piccolo", from Super Boutuden 2
+;==================================
+
+;----------------------------------------
+;Author:	FlowaGirl
+;		flowergirl@cutey.com
+;----------------------------------------
+
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name			= "[FlowaGirl's] Piccolo"	;Name of character
+displayname		= "Piccolo"				;Name of character to display
+versiondate		= 01,03,2003			;Version date of character
+mugenversion	= 04,14,2002			;Version of M.U.G.E.N character works on
+author		= "FlowaGirl"			;Character author name
+pal.defaults	= 1,2,3,4,5,6			;Default palettes in order of preference
+
+;---------------
+;Character Files 
+;---------------
+[Files]
+cmd			= PiccoloCMD.cmd			;Command Set
+cns			= PiccoloCNS.cns			;Data
+st			= PiccoloCNS.cns			;States
+stcommon		= PiccoloCNS.cns			;Common States
+sprite		= PiccoloSFF.sff			;Sprite
+anim			= PiccoloAIR.air			;Animation
+sound			= PiccoloSND.snd			;Sound
+
+pal1			= Piccolo01.act	
+pal2			= Piccolo02.act	
+
+;[Arcade]
+;intro.storyboard = PiccoloIntro.def
+;ending.storyboard = PiccoloEnding.def

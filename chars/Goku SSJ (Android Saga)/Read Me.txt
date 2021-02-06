@@ -1,0 +1,26 @@
+=Information=
+Name : Goku
+Creator : Ryon
+Form : SSJ (In the game its 2)
+Gameplay Style : Super Butoden + Original
+
+=Move List=
+Charge - c
+Ki Blast - z
+Goku Flip - F, B ,F, a or b (1 hit, SB1 combo)
+Dancing Kick - F, D ,B, a or b (7 Hits SB2, 5 Hits SB3)
+Antiair Kick - DB, FU, a or b (2 Hit, if connects)
+Air Kick - F, D, a or b (1 Hit SB1, 1 Hit Bounce Off SB2 and 3)
+Spin Kick - Hold a or b for 1 Second (1 hit, SB2)
+Ki Push - F, B, F, z (1 hit Projectile, sends player flying if hit)
+
+=Super List=
+High Speed Rush - D, F, D, F, a or b (single hit, Combo starts if hit)
+Kamehameha - D, F, D, F, x or y (Beam worth 60 Projectiles.)
+Super Kiko - D, F, D, F, z (inspired by DBZ legends)
+
+=NOT CODED=
+Super Kaioken - D, F, D, F, c
+
+Get more of my characters at MugenFreeForAll.Com
+Join the forums dont be afraid, we may be warehousers but we are some of the nicest interent poeple your EVER gonna meet.

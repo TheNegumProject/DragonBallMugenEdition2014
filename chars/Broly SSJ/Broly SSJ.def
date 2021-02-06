@@ -1,0 +1,18 @@
+[Info]
+name = "LSSJ Broli by Ryon"
+displayname = "Broly SSJ"
+versiondate = 07,31,2011
+mugenversion = 1.0
+author = "Ryon"
+pal.defaults = 1
+localcoord = 320,240
+
+[Files]
+cmd     = Broli.cmd
+cns     = Broli.cns
+st      = Broli.cns
+stcommon = common1.cns
+sprite  = Broli.sff
+anim    = Broli.air
+sound   = Broli.snd
+pal1	= SSJ.act

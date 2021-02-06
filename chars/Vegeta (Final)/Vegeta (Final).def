@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************     http://virtualltek.mgbr.net     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Vegeta"
+displayname ="Vegeta Final"
+versiondate =17.02.2012
+mugenversion = 
+author ="Gangsti"
+pal.defaults =1
+
+[Files]
+sprite =Vegeta.sff
+anim =Vegeta.air
+sound =Vegeta.snd
+cmd =Vegeta.cmd
+cns =Vegeta.cns
+stcommon =common1.cns
+st =Vegeta.cns
+pal1=Vegeta.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

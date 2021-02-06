@@ -1,0 +1,24 @@
+[Info]
+name = "Videl"
+displayname = "Videl"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = Videl.sff
+anim = Videl.air
+sound = Videl.snd
+cmd = Videl.cmd
+cns = Videl.cns
+stcommon = common1.cns
+st = Videl.cns
+st1 = attack.cns
+st2 = special.cns
+st3 = hyper.cns
+pal1 = Videl.act
+
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

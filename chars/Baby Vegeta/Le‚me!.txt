@@ -1,0 +1,72 @@
+---------------------------------=
+B-Vegeta64=======================
+---------------------------------=
+
+Info:
+
+
+Programación      - Fantasma64                                   ;Fantasma-64@hotmail.com
+Sprites           - GokuThePower & Saykyo                        ;Gokuthepower@hotmail.fr
+Fx                - Open Sourse, Sawady & DGZteam
+Versión           - 1.0
+Releassed         - 5/7/08
+
+
+---------------------------------=
+Bebi Vegeta======================
+---------------------------------=
+
+Baby tras poseer a vegeta, adopta una fuerza increible, aunque su aspecto no cambiase
+demasiado. Adopta ademas la capacidad de poder transformarse en SSJ, aunque su fuerza 
+es superior a la de un Super Saiyajin 2. Por influencia de Baby, el pelo se vuelve blanco 
+en lugar de rubio y le aparecen rayas rojas en la cara.
+
+---------------------------------=
+Lista de movimientos:============
+---------------------------------=
+
+Movelist.html
+
+---------------------------------=
+Agradecimientos:=================
+---------------------------------=
+
+- GokuThePower: Por dejarme programar el sheet, sin problemas y a los que lo ayudaron en el sheet (Saykio,Gokax,Trunks92
+Neocide). 
+
+- Sawady: Me ayudo en todo :P, le iva pasando cada actualización, ademas de que lo empezé 
+gracias a él que me alentó a programarlo, además por hacerle  retoques y pasarme FXs. 
+Gracias por todoooooooooooo ;)
+
+- Nachonal: Gracias nacho, you know! ;), tambien testeando, y aconsejando para la programación
+y demás, tmb por abrirme los FXs del Team, Gracias man..
+
+- Jabi: Por las dudas q me saco siempre, mientras iva necesitando en programación.
+
+- Sawwen: Testeo, consejos, etc. gracias.
+
+- A los que apoyan el Open-Source y nos brindan sus cosas, para poder trabajar mejor, los q
+recien empezamos (Blaze, Chrono strife, @ndroide, Pots, Majita, Mugenfan, Etc.)
+
+- A ustedes por descargar mi primer releassed ;).
+
+---------------------------------=
+Agradecimientos Especiales:======
+---------------------------------=
+
+- Elecbyte: Por crear este tremendo engine, que me roba los tiempos ;).
+- Akira Toriyama: Por ser creador, de tan magnifica serie.
+- VirtualTek: Por crear el Fighter Factory, que te simplifica todo trabajo.
+- Bandai: Por los juegos de DB y permitir sacar buenos sprites, para que cada vez haya mejores
+chars.
+
+---------------------------------=
+Programas Usados:================
+---------------------------------=
+
+Fighter Factory
+Photoshop CS
+Paint Shop Pro
+Bloc de notas O.o
+Particle Illusion
+

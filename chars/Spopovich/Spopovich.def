@@ -1,0 +1,29 @@
+;***********************************************************************
+;*************************Spopovich by Szowel***************************
+;****************************version 1.01*******************************
+;***********************************************************************
+
+; Player information
+[Info]
+name ="Spopovich by Szowel"
+displayname ="Spopovich"
+versiondate =12,09,2011
+mugenversion =04,14,2002
+author ="Szowel"
+pal.defaults =1
+
+; Files for the player
+[Files]
+cmd     =Spopovich.cmd
+cns     =Spopovich.cns
+st      =Spopovich.cns
+stcommon =common1.cns
+sprite  =Spopovich.sff
+anim    =Spopovich.air
+sound   =Spopovich.snd
+pal1=Spopovich.act
+
+; Arcade mode
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def

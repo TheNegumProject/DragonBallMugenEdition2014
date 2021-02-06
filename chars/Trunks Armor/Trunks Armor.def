@@ -1,0 +1,30 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Trunks"
+displayname = "Trunks Armor"
+versiondate = April 2010
+mugenversion = 1.0
+author = "Jailuis (DGZ Team), mephistopheles "
+pal.defaults = 1,2,3
+
+[Files]
+sprite = Trunks.sff
+anim = Trunks.air
+sound = Trunks.snd
+cmd = Trunks.cmd
+cns = Trunks.cns
+stcommon = common1.cns
+st = Basico.cns
+st1 = Helpers.cns
+st2 = Moves.cns
+st3 = Specials.cns
+st4 = misc.cns
+pal1 = Trunks1.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = ending.def

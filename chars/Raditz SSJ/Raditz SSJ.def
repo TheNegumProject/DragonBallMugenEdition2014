@@ -1,0 +1,36 @@
+[Info]
+
+name="Raditz"
+
+displayname="Raditz SSJ"
+
+versiondate=01/12/2007
+
+mugenversion=04,14,2001 & Winmugen
+
+author="Zerberus_Dante(DgzMember)"
+
+pal.defaults=1,2,3
+
+
+[Files]
+sprite   =Raditz.sff
+sound    =Raditz.snd
+anim     =Raditz.air
+cmd      =Raditz.cmd
+cns      =Raditz.cns
+st       =Raditz.cns
+stcommon =common1.cns
+pal1=1.act
+pal2=2.act
+pal3=3.act
+st1=Hypers.cns
+st2=Helpers.cns
+
+
+;st3=
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

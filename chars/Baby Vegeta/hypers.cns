@@ -1,0 +1,1514 @@
+;Big Bang Attack
+[Statedef 1260]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+ctrl = 0
+velset = 0,0
+anim = 1260
+sprpriority = 5
+
+[State 0]
+type = ChangeAnim
+trigger1 = command = "holdup" && animelem = 2
+value = 1262
+elem = 1
+
+[State 0, Big Bang helper Up]
+type = Helper
+trigger1 = anim = 1262 && animelem = 1
+helpertype = normal
+ID = 6014
+stateno = 6014
+pos = 41,-60
+postype = p1
+facing = 1
+ownpal = 1
+
+[State 0]
+type = ChangeAnim
+trigger1 = command = "holddown" && animelem = 2
+value = 1261
+elem = 1
+
+[State 0, Big Bang helper Down]
+type = Helper
+trigger1 = anim = 1261 && animelem = 1
+helpertype = normal
+ID = 6013
+stateno = 6013
+pos = 15, -38
+postype = p1
+facing = 1
+ownpal = 1
+
+[State 0]
+type = SuperPause
+trigger1 = time = 0
+time = 0
+anim = -1
+sound = S5100,1
+pos = -5,-33
+darken = 0
+unhittable = 1
+
+[State 0]
+type = Explod
+triggerall = pos Y = 0
+trigger1 = time = 0
+anim = 6011
+ID = 6011
+pos = 0,0
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+supermove = 1
+scale = 1,1
+sprpriority = 4
+ownpal = 1
+
+[State 0, Aura Azul]
+type = Explod
+triggerall = pos Y = 0
+trigger1 = time = 0 && numexplod(8206) = 0
+anim = 8206
+Id = 8206
+pos = 0,-10
+sprpriority = 7
+scale = 1, 1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 1
+removeongethit = 1
+
+[State 0]
+type = RemoveExplod
+trigger1 = time = 60
+id = 8206
+
+[State 0]
+type = Explod
+trigger1 = time = 60 && Pos y = 0
+anim = 6015
+ID = 6000
+pos = -15,5
+postype = p1
+facing = 1
+vfacing = 1
+scale = 1,1
+sprpriority = 3
+removeongethit = 1
+ignorehitpause = 1
+
+[State 0, Ring Azul]
+type = Explod
+triggerall = pos y = 0
+trigger1 = time = 0
+anim = 8207
+Id = 8999
+pos = 0, 0
+sprpriority = 1
+removeongethit = 1
+Postype = p1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 1
+scale = 0.9,0.9
+
+[State 0]
+type = RemoveExplod
+trigger1 = time = 100
+id = 8999
+
+[State 0, Big Bang Explod]
+type = Explod
+trigger1 = time = 0
+anim = 6012
+ID = 6012
+pos = 5,-55
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 60
+scale = 0.8,0.8
+sprpriority = 7
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0, Big Bang Explod 2]
+type = Explod
+trigger1 = Time = 1
+anim = 6013
+ID = 6013
+pos = 5,-59
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 1,1
+sprpriority = 7
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0, Big Bang! SND 1]
+type = PlaySnd
+trigger1 = time = 0
+value = 3000,4
+volume = 200
+channel = 1
+
+[State 0, Effect SND 2]
+type = PlaySnd
+trigger1 = time = 0
+value = 3001,0
+volume = 200
+channel = 2
+
+[State 0, Attack! SND 3]
+type = PlaySnd
+trigger1 = time = 60
+value = 3000,5
+volume = 200
+channel = 3
+
+[State 0, Effect SND 4]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 3001,1
+volume = 200
+channel = 4
+
+[State 0]
+Type = PowerAdd
+Trigger1 = time >= 5
+value = -15
+
+[State 0]
+type = SuperPause
+trigger1 = time = 0
+time = 0
+anim = -1
+sound = S5100,1
+pos = -5,-33
+darken = 0
+unhittable = 1
+
+[State 0]
+type = EnvShake
+trigger1 = time = 0
+time = 60
+freq = 130
+ampl = -4
+phase = 70
+removeongethit = 1
+
+[State 0]
+type = BGPalFX
+trigger1 = Time > 0
+time = 10
+add = 20,20,50
+mul = 255,255,255
+sinadd = 20,20,20,60
+invertall = 0
+color = 0
+
+[State 0]
+type = PalFX
+trigger1 = time = 0
+time = 80
+add = 30,30,100
+mul = 255,255,255
+sinadd = 10,10,10,4
+invertall = 0
+color = 194
+removeongethit = 1
+
+[State 0]
+type = EnvColor
+triggerall = time > 0 && time < 60
+trigger1 = GameTime%30=0
+value = 255,255,255
+time = 2
+under = 0
+removeongethit = 1
+
+[State 0, Big Bang Helper]
+type = Helper
+trigger1 = anim = 1260 && animelem = 2
+helpertype = normal
+ID = 6012
+stateno = 6012
+pos = 41,-60
+postype = p1
+facing = 1
+ownpal = 1
+
+[State 0]
+type = screenbound
+trigger1 = animelemtime(2) >= 0
+value = 0
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y >= 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),4999,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y < 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),4999,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+;-------------------------------------------------------------------------------
+;Final Flash
+[Statedef 1250]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+ctrl = 0
+velset = 0,0
+anim = 1250
+sprpriority = 5
+
+[State 0, Aura Azul]
+type = Explod
+triggerall = pos Y = 0
+trigger1 = time = 0 && numexplod(8206) = 0
+anim = 8206
+Id = 8206
+pos = 0,-10
+sprpriority = 7
+scale = 1, 1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 1
+removeongethit = 1
+removetime = -2
+
+[State 0, Ring Azul]
+type = Explod
+triggerall = pos y = 0
+trigger1 = time = 0
+anim = 8207
+Id = 8207
+pos = 0, 0
+sprpriority = 1
+removeongethit = 1
+Postype = p1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 1
+scale = 0.9,0.9
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 2
+id = 8206
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0
+id = 8207
+
+[State 0]
+type = Explod
+trigger1 = animelem = 1
+anim = 8208
+id = 8208
+pos = -5, 5
+postype	= p1
+bindtime = -1
+removetime = -1
+supermove = 1
+scale = 0.9,0.9
+sprpriority = 0
+ownpal = 1
+removeongethit	= 1
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 2
+id = 8208
+
+[State 0]
+type = Explod
+trigger1 = animelem = 2
+anim = 8209
+id = 8209
+pos = 4, 5
+postype	= p1
+bindtime = -1
+removetime = -1
+supermove = 1
+scale = 0.85,0.85
+sprpriority = 0
+ownpal = 1
+removeongethit	= 1
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0
+id = 8209
+
+[State 0]
+type = EnvColor
+triggerall = time > 0
+trigger1 = GameTime%30=0
+value = 255,255,255
+time = 2
+under = 0
+removeongethit = 1
+
+[State 0]
+Type = PowerAdd
+Trigger1 = time > 70
+value = -30
+
+[State 0]
+type = SuperPause
+trigger1 = time = 0
+time = 0
+anim = -1
+sound = S5100,1
+pos = -5,-33
+darken = 0
+unhittable = 1
+
+[State 0]
+type = EnvShake
+trigger1 = time = 0
+time = 60
+freq = 130
+ampl = -4
+phase = 70
+removeongethit = 1
+
+[State 0]
+type = BGPalFX
+trigger1 = Time > 0
+time = 10
+add = 20,20,50
+mul = 255,255,255
+sinadd = 20,20,20,60
+invertall = 0
+color = 0
+
+[State 0]
+type = PalFX
+trigger1 = AnimElem = 1
+time = 130
+add = 30,30,100
+mul = 255,255,255
+sinadd = 10,10,10,4
+invertall = 0
+color = 194
+removeongethit = 1
+
+[State 0]
+type = Explod
+trigger1 = AnimElem = 2 && Pos y = 0
+anim = 6015
+ID = 6000
+pos = -15,5
+postype = p1
+facing = 1
+vfacing = 1
+scale = 1,1
+sprpriority = 3
+removeongethit = 1
+ignorehitpause = 1
+
+[State 0, Final! SND 1]
+type = PlaySnd
+trigger1 = time = 20
+value = 3000,6
+volume = 200
+channel = 1
+
+[State 0, Effect SND 2]
+type = PlaySnd
+trigger1 = time = 15
+value = 3003,0
+volume = 200
+channel = 2
+
+[State 0, Flash! SND 3]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 3000,7
+volume = 200
+channel = 3
+
+[State 0, Effect SND 4]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 3001,1
+volume = 200
+channel = 4
+
+[State 0, Final Flash Explod 1]
+type = Explod
+trigger1 = time = 15
+anim = 6012
+ID = 6012
+pos = -23,-50
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 0.6,0.6
+sprpriority = 7
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0, Final Flash Explod 2]
+type = Explod
+trigger1 = time = 15
+anim = 6013
+ID = 6013
+pos = -23,-50
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 0.4,0.4
+sprpriority = 7
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 2
+id = 6012
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 2
+id = 6013
+
+[State 0, Final Flash Explod 1peq]
+type = Explod
+trigger1 = time = 15
+anim = 6012
+ID = 6014
+pos = 20,-47
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 0.5,0.5
+sprpriority = 7
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0, Final Flash Explod 2peq]
+type = Explod
+trigger1 = time = 15
+anim = 6013
+ID = 6015
+pos = 20,-50
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 0.2,0.2
+sprpriority = 7
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 2
+id = 6014
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 2
+id = 6015
+
+[State 0, Finalflashfin]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 6012
+ID = 6016
+pos = 25, -47
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -1
+scale = 0.8,0.8
+sprpriority = 7
+ownpal = 1
+removeongethit = 1
+
+[State 0, Finalflashfin]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 6013
+ID = 6017
+pos = 25, -47
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 0.9,0.9
+sprpriority = 7
+ownpal = 1
+removeongethit = 0
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0
+id = 6016
+
+[State 0]
+type = NotHitBy
+trigger1 = time > 60
+value = SCA
+time = 1
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0
+id = 6017
+
+[State 0]
+type = projectile
+trigger1 = animElem = 2
+projanim = 8070
+damage = 9, 1
+projhitanim = -1
+projpriority = 5
+projremovetime = 58
+projid = 8070
+projhits = 40
+projmisstime = 2
+velocity = 0
+accel = 0
+offset = 25,-46
+attr = S, HP
+animtype = hard
+guardflag = MA
+hitflag = MAFP
+hitsound = S2,1
+sparkno = -1
+guard.sparkno = -1
+guardsound = S6,0
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -1
+air.animtype = High
+air.velocity = -1
+air.juggle = 2
+down.velocity = -1
+down.hittime = 30
+fall = 1
+air.fall = 1
+fall.recover = 1
+palfx.time = 10
+palfx.mul = 256,256,256
+palfx.add =  20,30,100
+envshake.time = 2
+envshake.freq = 20
+envshake.ampl = -12
+envshake.phase = 90
+
+[State 0]
+type = EnvColor
+trigger1 = Time = 125
+value = 255,255,255
+time = 15
+under = 0
+
+[State 0]
+type = screenbound
+trigger1 = animelemtime(2) >= 0
+value = 0
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y >= 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),4999,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y < 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),4999,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+;-------------------------------------------------------------------------------
+;Garlick Gun
+[Statedef 1280]
+type    = S
+movetype= A
+physics = S
+juggle  = 5
+ctrl = 0
+velset = 0,0
+anim = 1280
+sprpriority = 5
+
+[State 0]
+Type = PowerAdd
+Trigger1 = time >= 70
+value = -35
+
+[State 0]
+type = PalFX
+trigger1 = AnimElem = 1
+time = 116
+add = 90,0,150
+mul = 255,255,255
+sinadd = 10,10,10,4
+invertall = 0
+color = 194
+removeongethit = 1
+
+[State 0]
+type = screenbound
+trigger1 = animelemtime(2) >= 0
+value = 0
+
+[State 0]
+type = EnvColor
+triggerall = time > 0
+trigger1 = GameTime%30=0
+value = 100,30,100
+time = 4
+under = 0
+removeongethit = 1
+
+[State 0]
+type = SuperPause
+trigger1 = time = 0
+time = 0
+anim = -1
+sound = S5100,1
+pos = -5,-33
+darken = 0
+unhittable = 1
+
+[State 0]
+type = EnvShake
+trigger1 = time = 0
+time = 60
+freq = 130
+ampl = -4
+phase = 70
+removeongethit = 1
+
+[State 0]
+type = BGPalFX
+trigger1 = Time > 0
+time = 10
+add = 90,0,150
+mul = 255,255,255
+sinadd = 10,10,10,4
+invertall = 0
+color = 0
+
+[State 0, Ring]
+type = Explod
+triggerall = pos y = 0
+trigger1 = time = 0
+anim = 8052
+Id = 8052
+pos = 0, 0
+sprpriority = 1
+removeongethit = 1
+Postype = p1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 0
+scale = 0.9,0.9
+
+[State 0, garlick explod]
+type = Explod
+trigger1 = time = 0 && numexplod (8212) = 0
+anim = 8212
+ID = 8212
+pos = -13, -49
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1.5, 1.5
+sprpriority = 7
+ownpal = 1
+removeongethit = 1
+
+[State 0, aura roja]
+type = Explod
+triggerall = pos Y = 0
+trigger1 = time = 0 && numexplod(8205) = 0
+anim = 8205
+Id = 8205
+pos = 0,-10
+sprpriority = 7
+scale = 1, 1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 1
+removeongethit = 1
+removetime = -2
+
+[State 0, aura violeta]
+type = Explod
+trigger1 = animelem = 1
+anim = 8210
+id = 8210
+pos = 0, 0
+postype	= p1
+bindtime = -1
+removetime = -1
+supermove = 1
+scale = 1, 1
+sprpriority = 0
+ownpal = 1
+removeongethit = 1
+
+[State 0, piso tirra]
+type = Explod
+trigger1 = AnimElem = 3 && Pos y = 0
+anim = 6015
+ID = 6000
+pos = -15,5
+postype = p1
+facing = 1
+vfacing = 1
+scale = 1,1
+sprpriority = 3
+removeongethit = 1
+ignorehitpause = 1
+
+[State 0, aura violeta]
+type = Explod
+trigger1 = animelem = 3
+anim = 8211
+id = 8211
+pos = 0, 0
+postype	= p1
+bindtime = -1
+removetime = -1
+supermove = 1
+scale = 1, 0.99
+sprpriority = 0
+ownpal = 1
+removeongethit = 1
+
+[State 0, Garlick gun SND 1]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S3000, 3
+volume = 250
+channel = 1
+
+[State 0, Effect SND 2]
+type = PlaySnd
+trigger1 = time = 5
+value = 3001,0
+volume = 150
+channel = 2
+
+[State 0, Effect SND 4]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = 3001,1
+volume = 150
+channel = 3
+
+[State 0, garlick Explod 2]
+type = Explod
+trigger1 = time = 10
+anim = 8213
+ID = 8213
+pos = -10, -50
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 60
+scale = 1.8,1.8
+sprpriority =8
+ownpal = 1
+removeongethit = 1
+
+[State 0, garlick Explod]
+type = Explod
+trigger1 = animelem = 3
+anim = 8213
+ID = 82133
+pos = 37, -45
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = 60
+scale = 1.8,1.8
+sprpriority = 7
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0 || (numhelper(6070) = 0 && AnimELemTime(3) > 10)
+id = 82133
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 2
+id = 8213
+
+[State 0]
+type = RemoveExplod
+trigger1 = time = 15
+id = 8212
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 3
+id = 8210
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 2
+id = 8205
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0 || (numhelper(6070) = 0 && AnimELemTime(3) > 10)
+id = 8052
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0 || (numhelper(6070) = 0 && AnimELemTime(3) > 10)
+id = 8211
+
+[State 0]
+type = Helper
+trigger1 = animelem = 3
+stateno = 6070
+id = 6070
+keyctrl = 0
+postype = p1
+pos = 12, -45
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y >= 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),4999,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y < 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),4999,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+;-------------------------------------------------------------------------------
+;Hyper proyectiles
+[Statedef 1290]
+type = S
+movetype= A
+physics = S
+juggle = 5
+ctrl = 0
+velset = 0,0
+anim = 1290
+sprpriority = 1
+
+[State 0]
+type = PalFX
+trigger1 = AnimElem = 1
+time = 150
+mul = 256,256,256
+add = 20,-10,-100
+sinadd = 10,10,10,4
+invertall = 0
+color = 194
+removeongethit = 1
+
+[State 0]
+type = Explod
+trigger1 = AnimElem = 4 && Pos y = 0
+anim = 6015
+ID = 6015
+pos = -15,5
+postype = p1
+facing = 1
+vfacing = 1
+scale = 1,1
+ownpal = 1
+sprpriority = 3
+removeongethit = 1
+ignorehitpause = 1
+
+[State 0]
+Type = PowerAdd
+Trigger1 = time >= 40
+value = -20
+
+[State 0]
+type = Explod
+triggerall = pos y = 0
+trigger1 = time = 0
+anim = 8052
+Id = 8052
+pos = 0, 7
+sprpriority = 1
+removeongethit = 1
+postype = p1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 0
+scale = 0.9,0.9
+
+[State 0]
+type = RemoveExplod
+trigger1 = time = 147
+id = 8052
+
+[State 0]
+type = SuperPause
+trigger1 = time = 0
+time = 0
+anim = -1
+sound = S5100,1
+pos = -5,-33
+darken = 0
+unhittable = 1
+
+[State 0]
+type = BGPalFX
+trigger1 = Time > 0
+time = 10
+add = 20,20,50
+mul = 255,255,255
+sinadd = 20,20,20,60
+invertall = 0
+color = 0
+
+[State 0]
+type = EnvColor
+trigger1 = movehit
+value = 255,255,255
+time = 1
+under = 0
+removeongethit = 1
+
+[State 0]
+type = VarSet
+trigger1 = Time = 1
+v = 12
+value = 1
+
+[State 0]
+type = Explod
+trigger1 = AnimElem = 3
+anim = 8014
+ID = 8014
+pos = 30,-42
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 0.7,0.7
+sprpriority = 3
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0]
+type = Explod
+trigger1 = AnimElem = 5
+anim = 8014
+ID = 8014
+pos = 19,-43
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 0.7,0.7
+sprpriority = 3
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0]
+type = Helper
+trigger1 = AnimElem = 3
+helpertype = normal
+ID = 6003
+stateno = 6003
+pos = 15,-42
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 0.8
+size.yscale = 0.8
+
+[State 0]
+type = Helper
+trigger1 = AnimElem = 5
+helpertype = normal
+ID = 6003
+stateno = 6003
+pos = 15,-42
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 0.8
+size.yscale = 0.8
+
+[State 0]
+type = PlaySnd
+trigger1 = AnimElem = 2
+trigger2 = AnimElem = 4
+value = 5000,10
+volume = 100
+channel = 2
+
+[State 0]
+type = screenbound
+trigger1 = animelemtime(2) >= 0
+value = 0
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y >= 0
+trigger1 = Time = 150
+value = ifelse((backedgebodydist < 2),4999,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y < 0
+trigger1 = Time = 150
+value = ifelse((backedgebodydist < 2),4999,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+;===============================================================================
+;supershot X3
+[Statedef 1300]
+type    = S
+movetype= A
+physics = S
+anim = 1180
+ctrl = 0
+velset = 0,0
+
+[State 0]
+type = PalFX
+trigger1 = AnimElem = 1
+time = 140
+mul = 256,256,256
+add = 20,-10,-100
+sinadd = 10,10,10,4
+invertall = 0
+color = 194
+removeongethit = 1
+
+[State 0]
+type = Explod
+trigger1 = AnimElem = 2 && Pos y = 0
+anim = 6015
+ID = 6015
+pos = -15,5
+postype = p1
+facing = 1
+vfacing = 1
+scale = 1,1
+sprpriority = 3
+removeongethit = 1
+ignorehitpause = 1
+ownpal = 1
+
+[State 0]
+type = Explod
+triggerall = pos y = 0
+trigger1 = time = 0
+anim = 8052
+Id = 8052
+pos = 0, 7
+sprpriority = -1
+removeongethit = 1
+postype = p1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 0
+scale = 0.9,0.9
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0
+id = 8052
+
+[State 0]
+type = SuperPause
+trigger1 = time = 0
+time = 0
+anim = -1
+sound = S5100,1
+pos = -5,-33
+darken = 0
+unhittable = 1
+
+[State 0]
+type = BGPalFX
+trigger1 = Time > 0
+time = 10
+add = 20,20,50
+mul = 255,255,255
+sinadd = 20,20,20,60
+invertall = 0
+color = 0
+
+[State 0]
+Type = PowerAdd
+Trigger1 = time >= 40
+value = -15
+
+[State 0]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 3000,0
+volume = 100
+channel = 2
+
+[State 0]
+type = Helper
+trigger1 = animelem = 2
+helpertype = normal
+ID = 6009
+stateno = 6009
+pos = 100, ifelse (pos y = 0, 0, p2dist y + 5)
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 0.7
+size.yscale = 1
+
+[State 0]
+type = Helper
+trigger1 = Time = 60
+helpertype = normal
+ID = 6009
+stateno = 6009
+pos = 140, ifelse (pos y = 0, 0, p2dist y + 5)
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 0.7
+size.yscale = 1
+
+[State 0]
+type = Helper
+trigger1 = Time = 80
+helpertype = normal
+ID = 6009
+stateno = 6009
+pos = 180, ifelse (pos y = 0, 0, p2dist y + 5)
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 0.7
+size.yscale = 1
+
+[State 0]
+type = Helper
+trigger1 = Time = 100
+helpertype = normal
+ID = 6009
+stateno = 6009
+pos = 200, ifelse (pos y = 0, 0, p2dist y + 5)
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 0.7
+size.yscale = 1
+
+[State 0]
+type = screenbound
+trigger1 = animelemtime(2) >= 0
+value = 0
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y >= 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),4999,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y < 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),4999,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+;===============================================================================
+;BOLA DE ENERGIA
+;Levantando vuelo
+[Statedef 1350]
+type    = S
+movetype= A
+physics = S
+anim = 1350
+ctrl = 0
+velset = 0,0
+
+[State 0]
+type = SuperPause
+trigger1 = time = 0
+time = 0
+anim = -1
+sound = S5100,1
+pos = -5,-33
+darken = 0
+unhittable = 1
+
+[State 0]
+type = Veladd
+trigger1 = animelem = 2
+y = -3
+
+[State 0]
+type = BGPalFX
+trigger1 = Time > 0
+time = 10
+add = 20,20,50
+mul = 255,255,255
+sinadd = 20,20,20,60
+invertall = 0
+color = 0
+
+[State 0]
+type = ChangeState
+trigger1 = animtime = 0
+ctrl = 1
+value = 1351
+;--------------------
+[Statedef 1351]
+type = S
+movetype = A
+physics = S
+anim = 1351
+ctrl = 0
+velset = 0,0
+
+[State 0]
+type = Explod
+trigger1 = time = 0 && numexplod(8217) = 0
+anim = 8217
+Id = 8217
+pos = 0, -40
+sprpriority = -1
+scale = 1, 1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 1
+removeongethit = 1
+removetime = -2
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0
+id = 8217
+
+[State 0]
+type = PlaySnd
+trigger1 = time = 70
+value = S3001,0
+volume = 200
+channel = 3
+
+[State 0]
+type = PlaySnd
+trigger1 = animelem = 3
+value = S3001,1
+volume = 200
+channel = 4
+
+[State 0]
+type = Explod
+trigger1 = time = 70 && numexplod(8213) = 0
+anim = 8213
+Id = 8213
+pos = 0, -100
+sprpriority = 7
+scale = 1.7, 1.7
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 1
+removeongethit = 1
+removetime = -2
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 3
+id = 8213
+
+[State 0]
+type = PalFX
+trigger1 = AnimElem = 1
+time = 210
+add = 90,0,150
+mul = 255,255,255
+sinadd = 10,10,10,4
+invertall = 0
+color = 194
+removeongethit = 1
+
+[State 0]
+type = Explod
+trigger1 = time = 0 && numexplod(8219) = 0
+anim = 8219
+Id = 8219
+pos = 0, -40
+sprpriority = -1
+scale = 1, 1
+bindtime = -1
+removetime = -1
+superMove = 1
+ownpal = 1
+removeongethit = 1
+removetime = -2
+
+[State 0]
+type = RemoveExplod
+trigger1 = animtime = 0
+id = 8219
+
+[State 0]
+type = Explod
+trigger1 = animelem = 2
+anim = 8212
+id = 8212
+pos = 0, -100
+postype	= p1
+bindtime = -1
+removetime = -1
+supermove = 1
+scale = 1.5 , 1.5
+sprpriority = 4
+ownpal = 1
+removeongethit = 1
+
+[State 0]
+type = RemoveExplod
+trigger1 = animelem = 3
+id = 8212
+
+[State 0]
+Type = PowerAdd
+Trigger1 = time >= 200
+value = -200
+
+[State 0]
+type = PlaySnd
+trigger1 = time > 12
+value = S2000,1
+volume = 150
+persistent = 70
+channel = 2
+
+[State 0]
+type = PlaySnd
+trigger1 = Time = 0
+value = S2000,0
+volume = 150
+channel = 1
+
+[State 0]
+type = screenbound
+trigger1 = animelemtime(2) >= 0
+value = 0
+
+[State 0]
+type = BGPalFX
+trigger1 = Time > 0
+time = 10
+add = 20,20,50
+mul = 255,255,255
+sinadd = 20,20,20,60
+invertall = 0
+color = 0
+
+[State 0]
+type = Helper
+trigger1 = animelem = 3
+helpertype = normal
+ID = 1352
+stateno = 1352
+pos = 15, -38
+postype = p1
+facing = 1
+ownpal = 1
+keyctrl = 1
+supermove = 1
+size.xscale = 1.7
+size.yscale = 1.7
+
+[State 0]
+type = AssertSpecial
+trigger1 = 1
+flag = nobardisplay
+flag2 = nomusic
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y >= 0
+trigger1 = time = 210
+value = ifelse((backedgebodydist < 2),4999,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 0]
+type = ChangeState
+Triggerall = Pos y < 0
+trigger1 = time = 210
+value = ifelse((backedgebodydist < 2),4999,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)

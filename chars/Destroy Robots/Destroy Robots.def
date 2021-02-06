@@ -1,0 +1,31 @@
+; ____________________________________________
+;| Edit of Duck Hunt by Phantom.of.the.Server |
+; ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+;===================<DEFINITION>================
+[Info]
+name        ="Destroy Robots"
+displayname ="Destroy Robots"
+versiondate =01,27,2009
+mugenversion=06,14,2003
+author      ="RistaR87"
+pal.defaults=1,2
+
+[Files]
+cmd     =Command.cmd
+cns     =Constants.cns
+st      =States.st
+stcommon=common1.cns
+sprite  =Sprite.sff
+anim    =Anim.air
+sound   =Sound.snd
+pal1=Palettes/Default.act
+pal2=Palettes/Default.act
+st1=CONFIG.txt
+
+
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard= ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

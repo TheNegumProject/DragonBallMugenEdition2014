@@ -1,0 +1,32 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Goku"
+displayname ="Goku Armor SSJ"
+versiondate =09,05,2009
+mugenversion =04,14,2001
+author ="oz,Victor(DM)(SPRITES BY MEPHISTOPHELES)"
+pal.defaults =1
+
+[Files]
+sprite =LSSJ.sff
+anim =LSSJ.air
+sound =LSSJ.snd
+cmd =LSSJ.cmd
+cns =LSSJ.cns
+stcommon =LSSJ1.cns
+st =LSSJ.cns
+pal1=LSSJ.act
+pal2=LSSJ2.act
+st1=hypers.cns
+;pal3 = LSSJ3.act
+;pal4 = LSSJ4.act
+;pal5 = LSSJ5.act
+;pal6 = LSSJ6.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

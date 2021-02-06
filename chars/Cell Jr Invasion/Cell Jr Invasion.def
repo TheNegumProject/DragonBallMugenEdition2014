@@ -1,0 +1,31 @@
+; Player information
+[Info]
+name ="madgear"
+displayname ="Cell Jr. Invasion"
+versiondate =06,08,2001
+mugenversion =04,14,2001
+author ="RistaR87"
+pal.defaults =1,2,3
+
+; Files for the player
+[Files]
+cmd      =XmiX.cmd
+cns      =XmiX.cns
+st       =XmiX.cns
+stcommon =common1.cns
+sprite   =KainBS1.sff
+anim     =XmiX.air
+sound    =XmiX.snd
+pal1=act1.act
+pal2=act2.act
+pal3=act3.act
+st1=mary.cns
+st2=mary.cns
+st3=leona.cns
+st4=leona.cns
+st5=leona.cns
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

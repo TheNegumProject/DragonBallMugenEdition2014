@@ -1,0 +1,36 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Bardock"
+displayname ="Bardock"
+versiondate =09,03,2008
+mugenversion =04,14,2002
+author ="Sawady"
+pal.defaults =1,2,3,4,5,6,7,8
+
+[Files]
+sprite =bardock.sff
+anim =bardock.air
+sound =bardock.snd
+cmd =bardock.cmd
+cns =bardock.cns
+stcommon =common1.cns
+st =Basico.cns
+pal1=bardock.act
+pal2=turles.act
+pal3=raditz.act
+pal4=celeste.act
+pal5=blue.act
+pal6=bardock3.act
+pal7=bardock2.act
+pal8=black.act
+st1=Moves.cns
+st2=Helpers.cns
+st3=Specials.cns
+
+[Arcade]
+intro.storyboard =
+ending.storyboard = ..\data\final.def

@@ -1,0 +1,1761 @@
+;---------------------------------------------------------------------------
+; Taunt Bardock Ohzaru
+[Statedef 3919]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+velset = 0,0
+anim = 3913
+
+[State 3919, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noautoturn
+
+[State 3919, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 3900,0
+
+[State 3919, EnvShake]
+type = EnvShake
+trigger1 = animelem = 3
+time = 60
+freq = 60
+ampl = -4
+phase = 90
+
+[State 3919, Helper]
+type = Helper
+triggerall = time > 20
+trigger1 = timemod = 10,0
+helpertype = normal
+name = "Campo de Fuerza"
+id = 8020
+stateno = 8020
+pos = 50,0
+postype = p1
+facing = 1
+ownpal = 0
+
+[State 3919, 1]
+type = CtrlSet
+trigger1 = Time = 90
+value = 0
+
+[State 3919, 2]
+type = ChangeState
+trigger1 = Time = 90
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Taunt Raditz Ohzaru
+[Statedef 4019]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+velset = 0,0
+anim = 4013
+
+[State 4019, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noautoturn
+
+[State 4019, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 3
+value = 3900,0
+
+[State 4019, EnvShake]
+type = EnvShake
+trigger1 = animelem = 3
+time = 60
+freq = 60
+ampl = -4
+phase = 90
+
+[State 4019, Helper]
+type = Helper
+triggerall = time > 20
+trigger1 = timemod = 10,0
+helpertype = normal
+name = "Campo de Fuerza"
+id = 8020
+stateno = 8020
+pos = 50,0
+postype = p1
+facing = 1
+ownpal = 0
+
+[State 4019, 1]
+type = CtrlSet
+trigger1 = Time = 90
+value = 0
+
+[State 4019, 2]
+type = ChangeState
+trigger1 = Time = 90
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; Intro Seleccion Ohzaru's
+[Statedef 190]
+type = S
+ctrl = 0
+anim = 0
+velset = 0,0
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = nobardisplay
+
+[State 0, VarSet - Raditz]
+type = Varset
+trigger1 = command = "holdfwd" && time < 200
+v = 59
+value = 42
+
+[State 0, VarSet - Bardock]
+type = Varset
+trigger1 = command = "holdback" && time < 200
+trigger2 = time = 0
+v = 59
+value = 41
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 3002
+ID = 3002
+pos = -60,0
+postype = p1
+facing = 1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = var(59) = 41
+helpertype = normal
+name = "Bardock"
+ID = 8021
+stateno = 8021
+pos = -60,0
+postype = p1
+facing = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = time = 0
+anim = 3003
+ID = 3003
+pos = 10,0
+postype = p1
+facing = 1
+removetime = -2
+scale = 1,1
+sprpriority = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = var(59) = 42
+helpertype = normal
+name = "Raditz"
+ID = 8022
+stateno = 8022
+pos = 10,0
+postype = p1
+facing = 1
+
+[State 1000, Luz]
+type = Explod
+trigger1 = time = 295
+Anim = 8014
+Pos = 0, 0
+Id = 8014
+sprpriority = 0
+ontop = 1
+removetime = -2
+Postype = p1
+Bindtime = 1
+ownpal = 1
+scale = 2, 2
+
+[State 197, 2]
+type = ChangeState
+trigger1 = animtime = 0
+value = 191
+
+;---------------------------------------------------------------------------
+; Intro Seleccion Ohzaru's
+[Statedef 191]
+type = S
+ctrl = 0
+anim = IfElse(Var(59)= 41,30023,ifelse(Var(59) = 42, 30033,0))
+velset = 0,0
+
+[State 0, Explod]
+type = Explod
+triggerall = var(59) = 42
+trigger1 = enemy, numexplod(9695) = 0 && !time
+anim = 9695
+ID = 9695
+pos = -50,0
+postype = p1
+facing = 1
+removetime = -2
+scale = 1,1
+sprpriority = -2
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+triggerall = p3name = "Ohzaru's"
+trigger1 = partner, numexplod(9695) = 1 && !time
+id = 9695
+
+[State 0, PlaySnd]
+type = PlaySnd
+triggerall = numexplod(9695) = 1
+trigger1 = time = 20
+value = S4,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 26
+value = S4,0
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+flag2 = nobardisplay
+
+[State 197, 2]
+type = ChangeState
+triggerall = var(59) = 41
+trigger1 = time = 45
+value = 3900
+
+[State 197, 2]
+type = ChangeState
+triggerall = var(59) = 42
+trigger1 = time = 45
+value = 4000
+
+;---------------------------------------------------------------------------
+;Intro Bardock Ohzaru
+[Statedef 3900]
+type    = S
+ctrl = 0
+anim = 3900
+velset = 0,0
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = enemy, numhelper(7037) = 1 && !time
+trigger2 = enemy, numexplod(9695) = 1 && !time
+;trigger2 = !time && var(18) = 1
+value = 3900
+elem = 4
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = p3name = "Ohzaru's"
+trigger1 = partner, numhelper(7037) = 1 && !time
+trigger2 = partner, numexplod(9695) = 1 && !time
+;trigger2 = !time && var(18) = 1
+value = 3900
+elem = 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = enemy, numhelper(7037) = 0 && !time
+v = 17
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+triggerall = !time
+trigger1 = enemy, numhelper(7037) = 1
+trigger2 = var(18) = 1
+v = 17
+value = -200
+
+[State 0, Helper]
+type = Helper
+trigger1 = Animelem = 1
+trigger1 = enemy, numhelper(7037) = 0
+helpertype = normal
+name = "luna"
+ID = 7037
+stateno = 7037
+pos = 29,-60
+postype = p1    ;p2,front,back,left,right
+facing = -2
+keyctrl = 0
+ownpal = 1
+size.xscale = .7
+size.yscale = .7
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 13
+value = 3900,1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 15
+value = 3900,2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 17
+value = 3900,5
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 28
+value = 3900,0
+
+[State 3100, bgpalfx1]
+type = bgpalfx
+trigger1 = !time
+time = 39
+add = 0,0,0
+sinadd = -200,-200,-200,10
+
+[State 3100, bgpalfx1]
+type = bgpalfx
+trigger1 = !time
+time = 39
+add = 0,0,0
+sinadd = -100,-100,-100,156
+
+[State 3100, bgpalfx2]
+type = bgpalfx
+trigger1 = time >= 39 && time < 526+var(17)
+time = 6
+add = -100,-100,-100
+sinadd = -100,-100,-100,1
+
+[State 3100, bgpalfx2]
+type = bgpalfx
+trigger1 = time = 526+var(17)
+time = 300
+add = -200,-200,-200
+sinadd = -200,-200,-200,1
+
+[State 3100, bgpalfx2]
+type = bgpalfx
+trigger1 = time = [826+var(17),826+100+var(17)]
+time = 1
+add = -200 + 2*(time-(826+var(17))),- 200 + 2*(time-(826+var(17))), -200 + 2*(time-(826+var(17)))
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = Time = 820+var(17)
+time = 80
+add = 200,200,200
+mul = 256,256,256
+sinadd = 200,200,200,100
+invertall = 0
+color = 255
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = (command = "a") || (command = "b")  || (command = "c")  || (command = "x")  || (command = "y")  || (command = "z") || AnimTime = 0
+channel = -1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+;Intro Raditz Ohzaru
+[Statedef 4000]
+type    = S
+ctrl = 0
+anim = 4000
+velset = 0,0
+
+[State 191, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = Intro
+
+[State 0, Explod]
+type = Explod
+triggerall = roundno > 1
+trigger1 = enemy, numhelper(7037) = 0 && !time
+trigger1 = enemy, numexplod(9696) = 0 && !time
+anim = 9696
+ID = 9696
+pos = -50,0
+postype = p1
+facing = 1
+removetime = -2
+scale = 1,1
+sprpriority = 0
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+triggerall = p3name = "Ohzaru's"
+trigger1 = partner, numhelper(7037) = 1 && !time
+trigger1 = partner, numexplod(9696) = 1 && !time
+id = 9696
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = enemy, numhelper(7037) = 1 && !time
+trigger2 = enemy, numexplod(9695) = 1 && !time
+;trigger2 = !time && var(18) = 1
+value = 4000
+elem = 4
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+triggerall = p3name = "Ohzaru's"
+trigger1 = partner, numhelper(7037) = 1 && !time
+trigger2 = partner, numexplod(9695) = 1 && !time
+;trigger2 = !time && var(18) = 1
+value = 4000
+elem = 4
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = enemy, numhelper(7037) = 0 && !time
+v = 17
+value = 0
+
+[State 0, VarSet]
+type = VarSet
+triggerall = !time
+trigger1 = enemy, numhelper(7037) = 1
+trigger2 = var(18) = 1
+v = 17
+value = -200
+
+[State 0, Helper]
+type = Helper
+trigger1 = Animelem = 1
+trigger1 = enemy, numhelper(7037) = 0
+helpertype = normal
+name = "luna"
+ID = 7037
+stateno = 7037
+pos = -25,-60
+postype = p1    ;p2,front,back,left,right
+facing = -2
+keyctrl = 0
+ownpal = 1
+size.xscale = .7
+size.yscale = .7
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 13
+value = 3900,1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 15
+value = 3900,2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 17
+value = 3900,5
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 28
+value = 3900,0
+
+[State 3100, bgpalfx1]
+type = bgpalfx
+trigger1 = !time
+time = 39
+add = 0,0,0
+sinadd = -200,-200,-200,10
+
+[State 3100, bgpalfx1]
+type = bgpalfx
+trigger1 = !time
+time = 39
+add = 0,0,0
+sinadd = -100,-100,-100,156
+
+[State 3100, bgpalfx2]
+type = bgpalfx
+trigger1 = time >= 39 && time < 526+var(17)
+time = 6
+add = -100,-100,-100
+sinadd = -100,-100,-100,1
+
+[State 3100, bgpalfx2]
+type = bgpalfx
+trigger1 = time = 526+var(17)
+time = 300
+add = -200,-200,-200
+sinadd = -200,-200,-200,1
+
+[State 3100, bgpalfx2]
+type = bgpalfx
+trigger1 = time = [826+var(17),826+100+var(17)]
+time = 1
+add = -200 + 2*(time-(826+var(17))),- 200 + 2*(time-(826+var(17))), -200 + 2*(time-(826+var(17)))
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = Time = 820+var(17)
+time = 80
+add = 200,200,200
+mul = 256,256,256
+sinadd = 200,200,200,100
+invertall = 0
+color = 255
+
+[State 0, StopSnd]
+type = StopSnd
+trigger1 = (command = "a") || (command = "b")  || (command = "c")  || (command = "x")  || (command = "y")  || (command = "z") || AnimTime = 0
+channel = -1
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animTime = 0
+value = 0
+
+;---------------------------------------------------------------------------
+;Punch x Bardock Ohzaru
+[Statedef 3906]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3906
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 40
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,0
+air.velocity = -12,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3901
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch x Raditz Ohzaru
+[Statedef 4006]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 4006
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 40
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,0
+air.velocity = -12,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4001
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch y Bardock Ohzaru
+[Statedef 3907]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3907
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 60
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -15,0
+air.velocity = -15,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3901
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch y Raditz Ohzaru
+[Statedef 4007]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 4007
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 60
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -15,0
+air.velocity = -15,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4001
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch z Bardock Ohzaru
+[Statedef 3914]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3914
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 60
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,-7
+air.velocity = -15,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3901
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch z Raditz Ohzaru
+[Statedef 4014]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 4014
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 60
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,-7
+air.velocity = -15,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4001
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch a Bardock Ohzaru
+[Statedef 3908]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3908
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 40
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,0
+air.velocity = -12,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3901
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch a Raditz Ohzaru
+[Statedef 4008]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 4008
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 40
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,0
+air.velocity = -12,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4001
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch b Bardock Ohzaru
+[Statedef 3909]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3909
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 40
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,0
+air.velocity = -12,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3901
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Punch b Raditz Ohzaru
+[Statedef 4009]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 4009
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 210, 2]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 40
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,0
+air.velocity = -12,-3
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4001
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Fireball Bardock Ohzaru
+[Statedef 3911]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3911
+sprpriority = 1
+poweradd = -250
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !time
+v = 10
+value = ifelse(life<500,1,0)
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimELem = 4
+value = 300,0
+volume = 50
+channel = 1
+
+[State 3100, explod circular]
+type = explod
+triggerall = var(10) = 1
+trigger1 = time = [1,6]
+trigger1 = Timemod = 8,1
+anim = 7004
+ID = 7010
+sprpriority = 3
+pos = 3,-155
+removetime = 10
+scale = .6,.6
+supermovetime = 300
+
+[State 3100, explod circular]
+type = explod
+triggerall = var(10) = 0
+trigger1 = time = [1,6]
+trigger1 = Timemod = 8,1
+anim = 7004
+ID = 7010
+sprpriority = 3
+pos = 3,-155
+removetime = 10
+scale = .6,.6
+supermovetime = 300
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = AnimElem = 4
+v = 5
+value = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 4
+helpertype = normal ;player
+name = "ozaruBigfireball"
+ID = 7014
+stateno = 7014
+pos = 125,-75
+postype = p1
+ownpal = 0
+size.xscale = 0.8
+size.yscale = 0.8
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3901
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Fireball Raditz Ohzaru
+[Statedef 4011]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 4011
+sprpriority = 1
+poweradd = -350
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = !time
+v = 10
+value = ifelse(life<500,1,0)
+
+[State 808, VarSet]
+type = VarSet
+trigger1 = time <= 10
+v = 32
+value = 0
+
+[State 808, VarSet]
+type = VarSet
+trigger1 = time > 10
+v = 32
+value = 1
+
+[State 3100, explod circular]
+type = explod
+triggerall = var(10) = 1
+trigger1 = time = [1,16]
+trigger1 = Timemod = 8,1
+anim = 7104
+ID = 7010
+sprpriority = 3
+pos = 5,-159
+removetime = -2
+scale = .4,.4
+supermovetime = 300
+
+[State 3100, explod circular]
+type = explod
+triggerall = var(10) = 0
+trigger1 = time = [1,16]
+trigger1 = Timemod = 8,1
+anim = 7104
+ID = 7010
+sprpriority = 3
+pos = 5,-159
+removetime = -2
+scale = .4,.4
+supermovetime = 300
+
+[State 808, RemoveExplod]
+type = RemoveExplod
+triggerall = time > 10
+trigger1 = command != "hold_c"
+trigger2 = time = 15
+id = 7010
+
+[State 808, RemoveExplod]
+type = RemoveExplod
+triggerall = time > 10
+trigger1 = command != "hold_c"
+trigger2 = time = 15
+id = 7110
+
+[State 808, 4]
+type = ChangeState
+triggerall = time > 10
+trigger1 = command != "hold_c"
+trigger2 = time = 15
+value = 40112
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Fireball Raditz Ohzaru
+[Statedef 40112]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 40112
+sprpriority = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimELem = 2
+value = 300,0
+volume = 50
+channel = 1
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = AnimElem = 2
+v = 5
+value = 0
+
+[State 0, Helper]
+type = Helper
+trigger1 = AnimElem = 2
+helpertype = normal ;player
+name = "ozaruBigfireball"
+ID = 7014
+stateno = 7014
+pos = 125,-75
+postype = p1
+ownpal = 0
+size.xscale = 0.8
+size.yscale = 0.8
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4001
+ctrl = 0
+
+;-----------------------------------------------------------------------------
+;Beam Bardock Ohzaru
+[Statedef 3912]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3912
+sprpriority = 1
+
+[State 808, VarSet]
+type = VarSet
+trigger1 = time <= 20
+v = 19
+value = 0
+
+[State 808, VarSet]
+type = VarSet
+trigger1 = time > 20
+v = 19
+value = 1
+
+[State 808, 4]
+type = ChangeState
+triggerall = time >= 15
+trigger1 = command != "hold_c"
+trigger2 = time = 30
+value = 39122
+ctrl = 0
+
+;-----------------------------------------------------------------------------
+;Beam Bardock Ohzaru
+[Statedef 39122]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 39122
+sprpriority = 1
+
+[State 808, PowerAdd]
+type = PowerAdd
+triggerall = var(19) = 0
+trigger1 = time = 0
+value = -1000
+
+[State 808, PowerAdd]
+type = PowerAdd
+triggerall = var(19) = 1
+trigger1 = time = 0
+value = -1500
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 3500,0
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 2
+anim = 7501
+ID = 7026
+pos = 60,-85
+postype = p1
+bindtime = -1
+removetime = 106
+scale = .6,.6
+sprpriority = 3
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = animelemtime(2) >= 100
+ID = 7026
+pos = 60,-85
+postype = p1
+scale = .4,.4
+sprpriority = 3
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = animelemtime(2) >= 102
+ID = 7026
+pos = 60,-85
+postype = p1
+scale = .3,.3
+sprpriority = 3
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = animelemtime(2) >= 104
+ID = 7026
+pos = 60,-85
+postype = p1
+scale = .15,.15
+sprpriority = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 2
+time = 120
+freq = 80
+ampl = -4
+phase = 100
+
+[State 0, Helper]
+type = Helper
+trigger1 = Animelem = 2
+helpertype = normal
+name = "beam"
+ID = 7500
+stateno = 7500
+pos = 60,-88
+postype = p1
+keyctrl = 1
+size.xscale = .6
+size.yscale = .8
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 3901
+ctrl = 0
+
+;-----------------------------------------------------------------------------
+;Beam Raditz Ohzaru
+[Statedef 4012]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 4012
+sprpriority = 1
+poweradd = -1000
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 4
+value = 3500,0
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 4
+anim = 7601
+ID = 7026
+pos = 60,-85
+postype = p1
+bindtime = -1
+removetime = 106
+scale = .6,.6
+sprpriority = 3
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = animelemtime(4) >= 100
+ID = 7026
+pos = 60,-85
+postype = p1
+scale = .4,.4
+sprpriority = 3
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = animelemtime(4) >= 102
+ID = 7026
+pos = 60,-85
+postype = p1
+scale = .3,.3
+sprpriority = 3
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = animelemtime(4) >= 104
+ID = 7026
+pos = 60,-85
+postype = p1
+scale = .15,.15
+sprpriority = 3
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 4
+time = 120
+freq = 80
+ampl = -4
+phase = 100
+
+[State 0, Helper]
+type = Helper
+trigger1 = Animelem = 4
+helpertype = normal
+name = "beam"
+ID = 7500
+stateno = 7500
+pos = 60,-88
+postype = p1
+keyctrl = 1
+size.xscale = .6
+size.yscale = .6
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4001
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;SupColB Raditz Ohzaru
+[Statedef 4020]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 4009
+sprpriority = 1
+poweradd = -500
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = 0,4
+
+[State 0, Cámara lenta]
+type = Pause
+trigger1 = time = [1, 10]
+time = 1
+movetime = 0
+
+[State 0]
+type = AfterImage
+trigger1 = Time = 0
+time = 30
+trans = add1
+TimeGap  = 2
+FrameGap = 2
+length = 6
+PalBright = 0,  0,  0
+PalContrast = 128,128,128
+PalAdd = 0,  0,  0
+PalMul = 1,  1,  1
+
+[State 0]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = SCA, NP
+animtype  = High
+damage    = 80
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = s8000
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = s1,3
+guardsound = s2, 0
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 13
+ground.velocity = -12,0
+air.velocity = -12,-3
+fall = 1
+
+[State 0]
+type = Helper
+trigger1 = MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+sprpriority = 3
+pos = 0,-50
+postype = p2
+size.xscale = 1
+size.yscale = 1
+ignorehitpause = 1
+persistent = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = animelem = 4
+time = 15
+freq = 60
+ampl = -3
+phase = 90
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 4
+anim = 7020
+ID = 7020
+pos = 110,10
+scale = .6,.6
+sprpriority = -4
+ownpal = 1
+persistent = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 4
+anim = 7021
+ID = 7021
+pos = 110,10
+scale = .6,.6
+sprpriority = -4
+ownpal = 1
+persistent = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = animtime = 0
+value = 4001
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Bola de fuego
+[Statedef 3932]
+type = S
+physics	= N
+anim = 3932
+velset = 0,0
+ctrl = 0
+poweradd = 0
+juggle = 3
+sprpriority = 1
+
+[State 3932, Helper]
+type = Helper
+trigger1 = time = 24
+helpertype = Normal
+name = "Auxiliar de tiempo"
+id = 6310
+pos = 40,-85
+postype = p1
+facing = 1
+stateno	= 6310
+keyctrl = 0
+ownpal = 1
+size.xscale = 0.5
+size.yscale = 0.5
+
+[State 0, Turn]
+type = turn
+trigger1 = p2dist X < 0 && AnimElem = 1
+
+[State 240, 4]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 0
+
+;---------------------------------------------------------------------------
+; Override common states (use same number to override) :
+;---------------------------------------------------------------------------
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+
+[Statedef -2]
+
+[State -2, mostra no debug]
+type = displaytoclipboard
+trigger1 = 1
+text = "Bardock = %d Raditz = %d IA = %d P2dist x = %.0f"
+params = var(59)=41, var(59)=42, var(9), p2bodydist x
+
+
+;--------------------------------------------
+;Ohzaru Loose life
+
+[State 0, VarSet]
+type = VarSet
+trigger1 = var(59) = 0
+v = 41
+value = 0
+
+[State 0, LifeAdd]
+type = LifeAdd
+trigger1 = var(59) != 0
+value = var(41)
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = var(59) != 0 && win
+value = 0
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = stateno = 0
+value = 0
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = var(59) = 41
+triggerall = roundstate = 2
+trigger1 = ctrl = 1 && pos y = 0
+value = 3919
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = var(59) = 42
+triggerall = roundstate = 2
+trigger1 = ctrl = 1 && pos y = 0
+value = 4019
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = var(59) = 41
+triggerall = roundstate = 2
+trigger1 = ctrl = 1 && pos y < 0
+value = 3904
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = var(59) = 42
+triggerall = roundstate = 2
+trigger1 = ctrl = 1 && pos y < 0
+value = 4004
+ctrl = 0
+
+;[State 0, VarSet]
+;type = VarSet
+;trigger1 = roundstate = 0 && backedgedist = 87
+;v = 18
+;value = 1
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+[Statedef -3]
+
+;This controller plays a sound everytime KFM lands from a jump, or
+;from his back-dash.
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 ;Jump land
+trigger2 = stateno = 106 ;Run-back land
+value = 40, 0
+
+[State -3, Jumping Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 40 ;Jump start
+value = 40, 1

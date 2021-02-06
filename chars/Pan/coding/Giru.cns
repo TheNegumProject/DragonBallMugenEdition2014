@@ -1,0 +1,826 @@
+;------------------------------------------------------------------------------------------------------------
+;Giru
+[Statedef 20000];Based on Choujin N° 19 Helper
+type = S
+movetype = I
+physics =N
+anim = 20000
+ctrl = 0
+sprpriority = -1
+velset = 0,0
+
+[State 20000] ; Tela
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+[state 20000] ; Nunca ser atingido
+type = NotHitBy
+trigger1 = 1
+value = SCA, NA, SA, HA, NT, ST, HT
+
+[State 20000]
+type = ChangeState
+triggerall = root, stateno != [100,108]
+triggerall = root, anim != 102
+triggerall = root, anim != 107
+trigger1 = p2dist X < 0
+value = 20009
+
+[State 20000];Credits for David11 for teach me this. :D
+type = VelSet
+triggerall = root, stateno != [5000,5070]
+trigger1 = 1
+x = (RootDist X-(Root,Const(Size.XScale))+12.0)/15.0 - 30*(Root,statetype = L)*0.07
+y = (RootDist Y)*0.07+20*(Root,statetype = C)*0.07 + 30*(Root,statetype = L)*0.07
+
+[State 20000]
+type = VelSet
+trigger1 = RootDist X = 0
+x = 0
+
+[State 20000]
+type = VelSet
+trigger1 = RootDist y = 0+20*(parent,statetype = C)
+y = 0
+
+;-------; Giru Attacks ;------------------------------------------------
+[State 20000, Giru Rocket Bomb]
+type = ChangeState
+trigger1 = Root, stateno = 1600 && Root, animelem = 3
+value = 21000
+
+[State 20000, Air/Giru Rocket Bomb]
+type = ChangeState
+trigger1 = Root, stateno = 1605 && Root, animelem = 3
+value = 21001
+
+[State 20000, Giru Spin Shield]
+type = ChangeState
+trigger1 = Root, stateno = 3500 && Root, animelem = 3
+value = 22000
+
+;-------; move FF/BB/UU/DD ;--------------------------------------------
+[State 20000, Stance]
+type = Changeanim
+triggerall = anim != 20000
+trigger1 = Root, Vel X = 0 && Root, Vel Y = 0
+trigger2 = Root, stateno != 20
+value = 20000
+
+[State 20000, Walk FF]
+type = Changeanim
+triggerall = Root, stateno != [40,52];não pode transitar em pulos comuns
+triggerall = Root, stateno != [5000,5070];não pode ser em states de dano
+trigger1 = Root, Vel X = [1,5]
+trigger2 = Root, anim = 20
+trigger2 = Root, stateno = 20 && Root, animelem = 2
+value = 20001
+
+[State 20000, Run FF]
+type = Changeanim
+triggerall = Root, stateno != [40,52];não pode transitar em pulos comuns
+triggerall = Root, stateno != [5000,5070];não pode ser em states de dano
+trigger1 = Root, Vel X > 5
+trigger2 = Root, stateno = [100,103]
+value = 20002
+
+[State 20000, Walk BB]
+type = Changeanim
+triggerall = Root, stateno != [40,52];não pode transitar em pulos comuns
+triggerall = Root, stateno != [5000,5070];não pode ser em states de dano
+trigger1 = Root, Vel X = [-5,-1]
+trigger2 = Root, stateno = 20 && Root, animelem = 2
+trigger2 = Root, anim = 21
+value = 20003
+
+[State 20000, Run BB]
+type = Changeanim
+triggerall = Root, stateno != [40,52];não pode transitar em pulos comuns
+triggerall = Root, stateno != [5000,5070];não pode ser em states de dano
+trigger1 = Root, Vel X < -5
+trigger2 = Root, stateno = [105,108]
+value = 20004
+
+[State 20000, Go UU]
+type = Changeanim
+triggerall = Root, stateno != [1005,1006];não pode ser states de voo normal
+triggerall = Root, stateno != [200,750];não pode ser states de ataque
+triggerall = Root, stateno != [100,108];Somente se for em linha reta
+triggerall = Root, stateno != [5000,5070];não pode ser em states de dano
+trigger1 = Root, Vel Y = [-8,-1]
+trigger2 = Root, stateno = 50
+trigger2 = Root, vel Y < 0
+value = 20005
+
+[State 20000, Fly UU]
+type = Changeanim
+triggerall = Root, stateno != [1005,1006];não pode ser states de voo normal
+triggerall = Root, stateno != [200,750];não pode ser states de ataque
+triggerall = Root, stateno != [100,108];Somente se for em linha reta
+triggerall = Root, stateno != [5000,5070];não pode ser em states de dano
+trigger1 = Root, Vel Y < -8
+trigger2 = Root, stateno = [109,110];pode ser pelo dash up
+value = 20006
+
+[State 20000, Go DD]
+type = Changeanim
+triggerall = Root, stateno != [1005,1006];não pode ser states de voo normal
+triggerall = Root, stateno != [200,750];não pode ser states de ataque
+triggerall = Root, stateno != [100,108];Somente se for em linha reta
+triggerall = Root, stateno != [5000,5070];não pode ser em states de dano
+triggerall = Root, stateno = 50
+trigger1 = Root, Vel Y = [0,9]
+value = 20007
+
+[State 20000, Fly DD]
+type = Changeanim
+triggerall = Root, stateno != [1005,1006];não pode ser states de voo normal
+triggerall = Root, stateno != [200,750];não pode ser states de ataque
+triggerall = Root, stateno != [100,108];Somente se for em linha reta
+triggerall = Root, stateno != [5000,5070];não pode ser em states de dano
+trigger1 = Root, Vel Y > 9
+value = 20008
+
+;Pan is Attacked!
+[State 20000, Pan's hurt]
+type = Changestate
+triggerall = parent, stateno != 5150
+trigger1 = parent, movetype = H
+trigger1 = parent, stateno != [5100,5120]
+trigger1 = parent, stateno != [150,155]
+value = 20010
+
+;Giru Intro/Random Select
+[State 20000, Intro]
+type = Changestate
+trigger1 = root, stateno = 191
+trigger1 = roundno = 1 && RoundState = 0
+value = 20020
+
+;Giru Intro/Win Select
+[State 20000, Win Pose]
+type = Changestate
+trigger1 = root, stateno = 181
+trigger1 = win
+value = 20050
+
+;Giru Intro 05
+[State 20000, Win Pose]
+type = Changeanim
+trigger1 = root, stateno = 182
+trigger1 = win
+value = 20056
+
+;Light Fx
+[State 20000, Power]
+type = Changeanim
+triggerall = anim != 20019
+triggerall = Root, power >= 1500
+trigger1 = Root, stateno = 702
+trigger1 = Root, Time > 55
+value = 20019
+
+;Pan is K.O
+[State 20000, losesprite]
+type = sprpriority
+trigger1 = lose
+value = -3
+[State 20000, lose]
+type = Changeanim
+triggerall = anim != 20010
+trigger1 = RoundState = 4 && lose
+value = 20010
+[State 20000, teamlose]
+type = Changeanim
+triggerall = anim != 20010
+triggerall = numpartner
+trigger1 = partner,alive = 1 && parent,life = 0
+value = 20010
+
+;Giru Taunt
+;[State 20000, taunt]
+;type = Changeanim
+;trigger1 = parent, stateno = 195 && parent, animElem = 2, >= 1
+;value = 20100
+
+[State 0, Reset]
+type = VarSet
+trigger1 = Var(7) = 2
+v = 7
+value = 2
+
+;---------------------------------------------------------
+;Giru Pos/Turn
+[Statedef 20009]
+type = S
+movetype = I
+anim = 20009
+sprpriority = 0
+
+[State 20009]
+type = ScreenBound
+trigger1 = 1
+value = 0
+
+[state 20009]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 20009]
+type = Turn
+trigger1 = 1
+
+[State 20009]
+type = sprpriority
+trigger1 = lose
+value = -3
+
+[State 20009]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 20000
+
+;------------------------------------------------------
+;Giru is worried
+[Statedef 20010]
+type = S
+movetype = I
+anim = 20010
+sprpriority = 0
+velset = 0,0
+ctrl = 0
+
+[State 20010, Oh My God!?]; Pan is hard Damaged
+type = Changeanim
+triggerall = anim != 20011      ;no inicio desta state
+trigger1 = root, life <= 200 ;menos de 20% de life
+trigger2 = Enemy(0),HitCount >= 10  ;P2 Hitcount maior que 10
+trigger3 = P2stateno = [3000,4999];Detecta Especiais
+trigger4 = Root, Vel Y > 9 || Root, Vel X < -7
+trigger4 = root, HitFall ;danos muito fortes
+trigger5 = GameTime <= 20    ;Fim do tempo
+;trigger6 = Root, anim = 5002 ||  Root, anim = 5012 || Root, anim = 5022
+value = 20011
+
+[state 20010, nothit]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 20010, end]
+type = ChangeState
+trigger1 = parent, movetype != H
+trigger2 = parent, stateno = [5100,5150]
+value = 20000
+
+;---------------------------------------------------
+;Giru Intro/Random Select
+[Statedef 20020]
+type = S
+ctrl = 0
+velset = 0,0
+
+[State 20020, 1]
+type = ChangeAnim
+trigger1 = SelfAnimExist(20020)
+value = 20020
+
+[State 20020, VarRandom]
+type = VarRandom
+trigger1 = !time
+v = 7
+range = 0,1;2
+
+[State 20020, Next1]
+type = ChangeState
+triggerall = Var(7) = 0
+trigger1 = !Time
+value = 20021
+
+[State 20020, Next2]
+type = ChangeState
+triggerall = Var(7) = 1
+trigger1 = !Time
+value = 20022
+
+;[State 20020, Next3]
+;type = ChangeState
+;triggerall = Var(7) = 2
+;trigger1 = !Time
+;value = 20023
+
+;---------------------------------------------------
+;Giru Arrive
+[Statedef 20021]
+type = S
+ctrl = 0
+anim = 20021
+sprpriority = -1
+velset = 0,0
+
+[State 20021, PosSet]
+type = PosAdd
+trigger1 = !time
+x = -190
+
+[State 20021, VelSet]
+type = VelSet
+trigger1 = time < 40
+x = 3.7
+
+[State 20021, VelSet]
+type = VelSet
+trigger1 = time > 40
+x = 2.0
+
+[State 20021, changestate]
+type = ChangeState
+trigger1 = time = 55;root,stateno != 191
+value = 20000
+
+;---------------------------------------------------
+;Giru Scan
+[Statedef 20022]
+type = S
+ctrl = 0
+anim = 20022
+sprpriority = -1
+velset = 0,0
+
+[State 20022, Lock]
+type = Helper
+trigger1 = time = 30
+helpertype = Normal
+name = "Lock"
+id = 18000
+pos = 0,0
+postype	= p1
+facing = 1
+stateno	= 18000
+keyctrl	= 0
+ownpal = 1
+size.xscale = 1
+size.yscale = 1
+
+;[State 20022, Medo    ] ;Inimigo de nivel LV 4
+;type = VelSet
+;triggerall = Var
+;trigger1 = time < 10
+;x = 2
+;y = -3
+;[State 20022, Behind]
+;type = Changeanim
+;triggerall =
+;trigger1 = anim != 20023
+;value = 20023
+
+;[State 20022, Respeito] ;Inimigo de nivel LV 3
+;type = Changeanim
+;triggerall =
+;trigger1 = anim != 20024
+;value = 20024
+
+;[State 20022,  Animo  ] ;Inimigo de nivel LV 2
+;type = Changeanim
+;triggerall =
+;trigger1 = anim != 20025
+;value = 20025
+
+;[State 20022, Deboche ] ;Inimigo de nivel LV 1
+;type = Changeanim
+;triggerall =
+;trigger1 = anim != 20026
+;value = 20026
+
+
+[State 20022, changestate]
+type = ChangeState
+trigger1 = animtime = 0;root,stateno != 191
+value = 20000
+
+;---------------------------------------------------
+;Giru Win Pose
+[Statedef 20050]
+Type = S
+MoveType = I
+Physics = S
+sprpriority = 2
+velset = 0,0
+ctrl = 0
+
+[State 20050, Badass]
+type = ChangeAnim
+triggerall = anim != 20050
+triggerall = win && RoundState = 4
+trigger1 = Root, StateNo = 181
+trigger1 = Anim != 20050
+trigger2 = Root, StateNo = 182
+trigger2 = Anim != 20050
+value = 20050
+
+;---------------------------------------------------------------------------
+;Giru Rocket Bomb
+[Statedef 21000]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 21000
+velset = 0,0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 2.5
+y = -0.35
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 20000,5
+volume = -110
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelemtime(3)= 18
+helpertype = Normal
+name = "Rocket Bomb"
+id = 7051
+pos = 8,-57
+postype	= p1
+facing = 1
+stateno = 7051
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.8
+size.yscale = 0.9
+
+[State 21000, 5]
+type = ChangeState
+trigger1 = animtime = 0
+value = 20000
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Giru Rocket Bomb
+[Statedef 21001]
+type    = S
+movetype= I
+physics = S
+ctrl = 0
+anim = 21000
+velset = 0,0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = animelem = 1
+x = 1.5
+y = -0.2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 20000,5
+volume = -110
+
+[State 0, Helper]
+type = Helper
+trigger1 = animelemtime(3)= 0
+helpertype = Normal
+name = "Rocket Bomb"
+id = 7051
+pos = 8,-57
+postype	= p1
+facing = 1
+stateno = 7051
+keyctrl = 0
+ownpal = 1
+supermovetime = 0
+pausemovetime = 0
+size.xscale = 0.8
+size.yscale = 0.9
+
+[State 21000, 5]
+type = ChangeState
+trigger1 = animtime = 0
+value = 20000
+ctrl = 0
+
+;---------------------------------------------------------------------------
+;Giru Super Spin Shield
+[Statedef 22000]
+type    = S
+movetype= I
+physics = N
+anim = 3503
+ctrl = 0
+sprpriority = -1
+velset = 0,0
+
+[State 22000, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S20000,2
+volume = -50
+channel = 2
+[State 22000, PlaySnd]
+type = PlaySnd
+trigger1 = time = 19
+value = S20000,6
+channel = 3
+
+[State 22000, Start]
+type = VelSet
+trigger1 = animelem = 1
+x = 2
+y = -1.5
+[State 22000, wait]
+type = VelSet
+trigger1 = animelem = 2
+x = 0
+y = 0
+[State 22000, Go!]
+type = VelSet
+trigger1 = animelem = 3
+x = -5
+y = 2.5
+
+[State 22000, VarSet]
+type = Varset
+trigger1 = animtime != 0
+v = 7
+value = 0
+[State 22000, VarSet]
+type = Varset
+trigger1 = animtime = 0
+v = 7
+value = 1
+
+[State 22000, SuperPause]
+type = SuperPause
+trigger1 = animelem = 2
+time = 40
+movetime = 0
+anim = -1
+sound = -1
+darken = 0
+[State 22000, EnvShake]
+type = EnvShake
+trigger1 = animelem = 2
+time = 20
+freq = 20
+ampl = -2
+phase = 20
+
+[State 22000, Start]
+type = ChangeAnim
+trigger1 = animtime = 0
+trigger2 = Var(7) = 1
+value = 7999
+persistent = 1
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = Var(7) = 1
+time = 1
+pos = 15,-5+(10+Floor(Sin(GameTime/35.0*PI)*13))
+
+[State 22000, AssertSpecial]
+type = AssertSpecial
+trigger1 = Var(7) = 0
+flag = noshadow
+
+[State 0, Helper]
+type = Helper
+triggerall = animelem = 2
+trigger1 = numhelper(9200) = 0
+helpertype = normal ;player
+name = "Shockwave"
+ID = 8200
+stateno = 8200
+pos = 0,-60
+postype = p1
+facing = 1
+keyctrl = 0
+ownpal = 1
+size.xscale = 0.5
+size.yscale = 0.5
+supermovetime = 999
+pausemovetime = 999
+ignorehitpause = 1
+persistent = 0
+
+[State 22000, Giru Spin Shield]
+type = Helper
+triggerall = Var(7) = 1
+trigger1 = numhelper(22001) = 0
+;trigger1 = Root, stateno = 3500 && Root, animelem = 3
+name = "Giru Spin Shield"
+stateno = 22001
+postype = p1
+pos = 0, 0
+keyctrl = 0
+ownpal = 0
+id = 22001
+size.xscale = 1
+size.yscale = 1
+
+[State 22000, Giru Spin Shield]
+type = Helper
+triggerall = Var(7) = 1
+trigger1 = numhelper(22002) = 0
+;trigger1 = Root, stateno = 3500 && Root, animelem = 3
+name = "Giru Spin Shield"
+stateno = 22002
+postype = p1
+pos = 0, 0
+keyctrl = 0
+ownpal = 0
+id = 22002
+size.xscale = 1
+size.yscale = 1
+
+[State 22000, PlaySND]
+type = PlaySnd
+triggerall = Var(7) = 1
+triggerall = time > 15
+trigger1 = time % 9 = 0
+value = 0,1
+volume = -130
+
+[State 22000, Reset]
+type = Varset
+trigger1 = time = 600
+trigger2 = win
+trigger3 = lose
+v = 7
+value = 2
+
+[State 22000, 5]
+type = ChangeState
+triggerall = numhelper(22001) = 1
+triggerall = numhelper(22002) = 1
+trigger1 = win
+trigger2 = lose
+trigger3 = Var(7) = 2
+value = 20000
+ctrl = 0
+;---------------------------------------------------------------------
+;Helper Super Spin Shield
+[Statedef 22001]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 3501
+sprpriority = -1
+
+[State 102, AfterImage]
+type = AfterImage
+trigger1 = animelem = 1
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+paladd = 25,25,25
+timegap = 1
+framegap = 1
+trans = add
+
+[State 0, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+time = 1
+pos = 0,-5+(10+Floor(Sin(GameTime/35.0*PI)*13))
+
+[State 0, NotHit]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent, Var(7) = 2
+trigger2 = time = 600
+trigger3 = win
+trigger4 = lose
+;----------------------------------------------------------------------
+;Helper Super Spin Shield
+[Statedef 22002]
+type    = S
+movetype= A
+physics = S
+ctrl = 0
+anim = 3502
+sprpriority = 5
+
+[State 22002, SprPriority]
+type = SprPriority
+trigger1 = 1
+value = 5
+
+[State 22002, AfterImage]
+type = AfterImage
+trigger1 = animelem = 1
+time = -1
+length = 20
+palcolor = 256
+palbright = 10,10,10
+palcontrast = 0,0,0
+paladd = 25,25,25
+timegap = 1
+framegap = 1
+trans = add
+
+[State 22002, BindToRoot]
+type = BindToRoot
+trigger1 = 1
+time = 1
+pos = 0,-5+(10+Floor(Sin(GameTime/35.0*PI)*13))
+
+[State 22002, NotHit]
+type = NotHitBy
+trigger1 = 1
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+
+[State 22002, Hitdef]
+type = HitDef
+trigger1 = animelem = 2
+;trigger1 = timemod = 12,6
+attr = S, HP
+animtype  = Heavy
+Damage = 2,1
+priority = 5, miss
+hitflag = MAFP
+guardflag = MA
+guard.dist = 10
+pausetime = 0,10
+guard.pausetime = 0,10
+sparkno = -1
+sparkxy = 0,-25
+hitsound = S1,1
+guardsound = s2,1
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -4-(vel x), 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+air.velocity = -5-(vel x),-5-(vel y)
+kill = 1
+guard.kill = 1
+
+[State 0, Hitdef]
+type = HitDef
+trigger1 = animelem = 4
+;trigger1 = timemod = 12,6
+attr = S, HP
+animtype  = Heavy
+Damage = 4,1
+priority = 5, miss
+hitflag = MAFP
+guardflag = MA
+guard.dist = 10
+pausetime = 0,10
+guard.pausetime = 0,10
+sparkno = -1
+sparkxy = 0,-25
+hitsound = S1,1
+guardsound = s2,1
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = 4+(vel x), 0
+ground.cornerpush.veloff = 0
+air.cornerpush.veloff = 0
+air.velocity = 5+(vel x),-5-(vel y)
+kill = 1
+guard.kill = 1
+
+[State 0, Sparks]
+type = Helper
+triggerall = p2movetype = H
+trigger1 = Movehit = 1
+helpertype = Normal
+ID = 8001
+stateno = 8001
+sprpriority = 5
+pos = 10 -(random%10),-40 -(random%10)
+postype = p2
+supermovetime = 999
+pausemovetime = 999
+ownpal = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = parent, Var(7) = 2
+trigger2 = time = 600
+trigger3 = win
+trigger4 = lose

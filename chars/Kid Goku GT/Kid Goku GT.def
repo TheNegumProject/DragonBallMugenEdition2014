@@ -1,0 +1,45 @@
+﻿
+;EGC:
+
+;E-mail: eg_casco@hotmail.com 
+;(Casi nunca lo reviso, asi que, no intenten comunicarse mucho con este medio)
+
+;Wed: www.mugengeneration.foroactivo.com
+;(Pagina donde estoy actualmente)
+;usuario: E.G.C
+;Tambien estoy en otras paginas como EGC, pero no estoy activo en ellas.
+
+[Info]
+name = "Kid Goku GT"
+displayname = "Kid Goku GT"
+;versiondate =28/09/2011 (comienzo aproximado)
+versiondate = 26/07/2013; (0.8)
+mugenversion = 1.0;	(tambien 1.1)
+author = "EGC"
+pal.defaults = 1,2,3,4,5,6
+localcoord = 320,240; Se le suman multiplos de 32 al primer valor y multiplos de 24 al -
+;segundo para reducir su tamaño y no se desalinearan los efectos y otras cosas.
+;Ej: "352,264" esta es la suma de 320+32,240+24. Con esto el chars se redusira un %10.
+;La resta hara lo contrario, aumentara su tamaño.
+
+[Files]
+sprite	= sprites.sff
+anim	= animations.air
+sound	= sounds.snd
+cmd	= commands.cmd
+cns	= EGC-Kid_Goku_GT.cns
+stcommon	= common1.cns
+st	= EGC-Kid_Goku_GT.cns
+pal1	= palette-default.act
+pal2	= pallete-darker.act
+pal3	= pallete-red.act
+pal4	= pallete-lighter.act
+pal5	= pallete-green.act
+pal6	= pallete-purple.act
+pal7	= pallete-black.act
+st1	= Helpers.cns
+st2	= AI.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

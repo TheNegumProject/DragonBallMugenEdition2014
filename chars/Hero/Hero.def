@@ -1,0 +1,24 @@
+
+[Info]
+name    ="Goten88"
+displayname ="Hero"
+versiondate =12,15,2004
+authorname = "Pextin, Toad & Maybe Redneck"
+pal.defaults =1,2
+author="Pextin, Toad & Maybe Redneck"
+mugenversion=
+
+[Files]
+cmd      =Goten.cmd
+cns      =Goten.cns
+st       =Goten.cns
+stcommon =common1.cns
+sprite   =Goten.sff
+anim     =Goten.air
+sound    =Goten.snd
+pal1=Hero.act
+pal2=Hero.act
+st1=AI.cns
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

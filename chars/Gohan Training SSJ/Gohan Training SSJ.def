@@ -1,0 +1,69 @@
+;================================
+;Gohan-Kun -- The M10 Project
+;================================
+
+;------------------------------------------------------
+;Author:	ZGTE
+;	http://www.zgtm.tk
+;------------------------------------------------------
+
+;=============================================================
+
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name ="Gohan by [Roken] And [Insydious]"
+displayname ="Gohan Training SSJ"
+versiondate =04,14,2002
+mugenversion =04,14,2001
+author ="ZGTE"
+pal.defaults =1,2
+
+
+;---------------------
+;Character Files
+;---------------------
+
+;=====================
+[Files]
+;=====================
+
+;---------------------
+;Command Set
+;---------------------
+cmd     =Gohan.cmd
+
+;---------------------
+;State Files
+;---------------------
+cns     =Gohan.cns
+st      =Gohan.cns
+stcommon =common1.cns
+
+;---------------------
+;Sprite/Sound
+;---------------------
+sprite  =Gohan.sff
+anim    =Gohan.air
+sound   =Gohan.snd
+pal1=Gohan.act
+pal2=Gohan.act
+st1=basic.cns
+st2=helpers.cns
+st3=specials.cns
+st4=features.cns
+
+;---------------------
+;Palletes
+;---------------------
+
+;Arcade mode
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def
+
+;----------------------------------
+;||||||http://zgteam.cjb.net|||||||
+;|||||http://insydious.n2v.net|||||
+;----------------------------------

@@ -1,0 +1,193 @@
+;==================|
+;--[ Sequência 1]--|
+;==================|
+
+[Statedef 1020]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 120
+anim = 1020
+ctrl = 0
+sprpriority = 2
+
+[State 1020, Corre]
+type = VelSet
+trigger1 = AnimElem = 1, > 1
+x = 8
+
+[State 3000, Width]
+type = Width
+trigger1 = 1
+player = 0,0
+
+[State 200, Bate]
+type = HitDef
+trigger1 = AnimElem = 1
+attr = S, SA			
+damage = 15, 0			
+animtype = Medium			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -23		
+hitsound = s2, 1			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -1		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12	
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)
+p1stateno = 1021		
+
+[State 230, 5]
+type = ChangeState
+trigger1 = AnimTime = 0 || MoveGuarded 
+value = 0
+ctrl = 1
+
+;Batendo! \o/
+;-----------------
+[Statedef 1021]
+type    = A
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 120
+velset = 0,0
+anim = 1021
+ctrl = 0
+
+[State 3000, Vira]
+type = Turn
+trigger1 = AnimElem = 6
+trigger2 = AnimElem = 14
+trigger3 = AnimElem = 22
+
+[State 3000, Aceleração]
+type = Null
+trigger1 = AnimElem = 4
+trigger2 = AnimElem = 12
+trigger3 = AnimElem = 20
+x = 12
+
+[State 2010, teleport]
+type = posadd
+trigger1 = AnimElem = 6
+trigger2 = AnimElem = 14
+trigger3 = AnimElem = 22
+x = p2dist x - 20
+
+[State 8250, PlayerPush]
+type	= PlayerPush
+trigger1= 1
+value	= 0
+
+[State 200, Bate Mais!]
+type = HitDef
+trigger1 = AnimElem = 2 || AnimElem = 10 || AnimElem = 18
+attr = S, NA			
+damage = 15, 0			
+animtype = Medium			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -23		
+hitsound = s2, 1			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -1		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12	
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 200, Toma vagabundo!]
+type = HitDef
+trigger1 = AnimElem = 26
+attr = S, SA			
+damage = 15, 0			
+animtype = Medium			
+guardflag = MA			
+hitflag = MAF			
+priority = 3, Hit			
+pausetime = 8, 8			
+sparkno = -1
+guard.sparkno = -1
+sparkxy = -5, -23		
+hitsound = s2, 1			
+guardsound = 6, 0			
+ground.type = High		
+ground.slidetime = 5	
+ground.hittime  = 12		
+ground.velocity = -1		
+airguard.velocity = -1.9,-.8
+air.type = High			
+air.velocity = -1.4,-3		
+air.hittime = 12	
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)		
+
+[State 1020, 7]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 1022
+ctrl = 1
+
+;Gancho final \o/
+;--------------------
+[Statedef 1022]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd = 100
+ctrl = 0
+velset = 0,0
+anim = 1022
+sprpriority = -1
+
+[State 210, Finish!]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, SA
+animtype  = Up
+damage    = 50
+guardflag = MA
+pausetime = 0,0
+sparkno = -1
+sparkxy = -10,-70
+hitsound   = S0,9
+guardsound = S0,8
+ground.type = High
+ground.slidetime = 12
+ground.hittime  = 15
+ground.velocity = -10, -10
+air.velocity = 2.5,-150 
+p2stateno = 900
+fall = 1
+
+[State 242, coiso]
+type = changestate
+trigger1 = animtime = 0
+value = 0
+ctrl = 1

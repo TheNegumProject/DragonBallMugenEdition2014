@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************     http://virtualltek.mgbr.net     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Son Goku"
+displayname ="Goku Medium"
+versiondate =05.03.2012
+mugenversion = 
+author ="Gangsti"
+pal.defaults =1
+
+[Files]
+sprite =Son Goku.sff
+anim =Son Goku.air
+sound =Son Goku.snd
+cmd =Son Goku.cmd
+cns =Son Goku.cns
+stcommon =common1.cns
+st =Son Goku.cns
+pal1=Son Goku.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

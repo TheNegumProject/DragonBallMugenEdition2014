@@ -1,0 +1,29 @@
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Android 18"
+displayname ="Android 18 3"
+versiondate =09,03,2008
+mugenversion =04,14,2002
+author ="Sawady & Juanga"
+pal.defaults =1
+
+; Files for the player
+[Files]
+cmd     =c-18.cmd
+cns     =c-18.cns
+st      =Basico.cns
+stcommon =common1.cns
+sprite  =c-18.sff
+anim    =c-18.air
+sound   =c-18.snd
+pal1=c-18.act
+st1=helpers.cns
+st2=Moves.cns
+st3=Specials.cns
+
+; Arcade mode
+[Arcade]
+intro.storyboard = intro\intro.def
+ending.storyboard = final\final.def

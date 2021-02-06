@@ -1,0 +1,423 @@
+;---------------------------------------------------------------------------
+;Super Shield Attack
+[Statedef 3000]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3000
+
+[State 3200, superchargehelper]
+type = Helper
+trigger1 = AnimElem = 1
+helpertype = normal
+stateno = 8100
+ID = 8100
+name = "Super Charge"
+postype = p1
+pos = -5,-70
+ownpal = 1
+persistent = 0
+supermovetime = 9999
+
+[State 2100, superchargepause]
+type = SuperPause
+trigger1 = AnimElem = 1
+time = 45
+anim = -1
+sound = s8100,0
+darken = 0
+poweradd = -1500
+endcmdbuftime = 45
+
+[State 0, HitBy]
+type = HitBy
+trigger1 = 1
+value = SCA,HA,HP,HT
+time = 1
+
+[State 0, PalFXWiz]
+type = PalFX
+trigger1 = Animelem = 2
+time = 30
+add = 40,0,40
+mul = 255,255,255
+sinadd = 40,20,40,10
+invertall = 0
+color = 200
+
+[State 730, EnvColor]
+type = EnvColor
+trigger1 = Animelem = 2
+value = 255,255,255
+time = 3
+under = 0
+
+[State 200, vientito]
+type = playsnd
+trigger1 = Animelem = 2
+value = 3,20
+volume = 500
+
+[State 200, vientito]
+type = playsnd
+trigger1 = Animelem = 2
+value = 730,0
+channel = 1
+volume = 200
+persistent = 0
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = power < 2000 && Timemod = 15,13
+time = 16
+freq = 60
+ampl = -2
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = power >= 2000 && Timemod = 15,13
+time = 16
+freq = 140
+ampl = -3
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = unguardable
+
+[State 0, Explod]
+type = Explod
+triggerall = pos y = 0
+trigger1 = Timemod = 15,5
+anim = 7001
+ID = 7001
+pos = ifelse(power < 2000 ,-10, -20) ,3
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 1,1
+sprpriority = -2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+triggerall = pos y = 0
+trigger1 = Timemod = 15,5
+anim = 7001
+ID = 7001
+pos = ifelse(power < 2000 ,10, 20) ,3
+postype = p1
+facing = -1
+vfacing = 1
+bindtime = 1
+removetime = -2
+scale = 1,1
+sprpriority = -2
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+
+[State 3200, superchargehelper]
+type = Helper
+trigger1 = Timemod = 10,0 && animelemtime(2) >= 0 && animelemtime(3) < 0
+helpertype = normal
+stateno = 7042
+ID = 7042
+name = "redcircle"
+postype = p1
+pos = 0,-50
+ownpal = 0
+
+[State 3200, superchargehelper]
+type = Helper
+trigger1 = Timemod = 10,0 && animelemtime(2) >= 0 && animelemtime(3) < 0
+helpertype = normal
+stateno = 7043
+ID = 7043
+name = "whitecircle"
+postype = p1
+pos = 0,-50
+ownpal = 0
+
+[State 210, 2]
+type = HitDef
+trigger1 = Timemod = 10,0 && animelemtime(2) < 108
+attr = SCA, SP
+animtype  = Medium
+damage    = 40
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = -1
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = -1
+guardsound = -1
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 25
+ground.velocity = -3,0
+air.velocity = -.1,-1
+
+[State 210, 2]
+type = HitDef
+trigger1 = animelemtime(2) = 109
+attr = SCA, SP
+animtype  = Medium
+damage    = 40
+guardflag = MA
+pausetime = 0,0
+guard.sparkno = -1
+sparkno = -1
+sparkxy = -20, -52
+hitsound   = -1
+guardsound = -1
+ground.type = High
+ground.slidetime = 25
+ground.hittime  = 25
+ground.velocity = -5,-5
+air.velocity = -5,-5
+fall = 1
+
+[State 0, StateTypeSet]
+type = StateTypeSet
+trigger1 = pos y < 0
+statetype = A
+physics = A
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =  Animelemtime(3) < 0
+y = 0
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = var(3) = 1 ; fly
+trigger1 = AnimTime = 0
+value = 1006
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+trigger1 = Animtime = 0 && pos y = 0
+value = 0
+ctrl = 1
+
+;---------------------------------------------------------------------------
+; SuperAirBeam
+[Statedef 3501]
+type    = A
+movetype= I
+physics = A
+juggle  = 5
+anim = 3501
+ctrl = 0
+velset = 0,0
+
+[State 3200, superchargehelper]
+type = Helper
+trigger1 = anim = 3501 && AnimElem = 1
+helpertype = normal
+stateno = 8100
+ID = 8100
+name = "Super Charge"
+postype = p1
+pos = 20,-70
+ownpal = 1
+persistent = 0
+supermovetime = 9999
+
+[State 2100, superchargepause]
+type = SuperPause
+trigger1 = anim = 3501 && AnimElem = 1
+time = 45
+anim = -1
+sound = s8100,0
+darken = 0
+poweradd = -1500
+endcmdbuftime = 45
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = anim = 3501 && AnimElem = 1
+value = 3000,0
+channel = 1
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = anim = 3501 && AnimElem = 3
+value = 3500,0
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = anim = 3501 && AnimElem = 3
+value = 3,18
+volume = 500
+
+[State 0, HitBy]
+type = HitBy
+trigger1 = 1
+value = SCA,SA,HA,SP,HP,ST,HT
+time = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = Animelem = 1
+anim = 7004
+ID = 7004
+pos = 21,-70
+postype = p1
+bindtime = -1
+removetime = 20
+pausemovetime = 0
+scale = .5,.5
+sprpriority = 2
+shadow = 0,0,0
+ownpal = 0
+removeongethit = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = anim = 3501 && AnimElem = 3 && command != "holddown"
+anim = 7022
+ID = 7022
+pos = 90,-64
+postype = p1
+facing = -1
+bindtime = -1
+removetime = 94
+scale = .4,.5
+sprpriority = 3
+removeongethit = 1
+ownpal = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = anim = 3501 && animelemtime(3) = 94
+anim = 7000
+ID = 7000
+pos = 80,-64
+postype = p1
+facing = -1
+bindtime = -1
+removetime = -2
+scale = .4,.4
+sprpriority = 3
+removeongethit = 1
+ownpal = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 =  anim = 3501 && Animelem = 3 && command != "holddown"
+helpertype = normal
+name = "superbeam"
+ID = 7500
+stateno = 7500
+pos = 45+36,-66+16
+postype = p1
+keyctrl = 1
+size.xscale = .6
+size.yscale = .7
+ownpal = 1
+
+[State 0, ChangeAnim]
+type = ChangeAnim
+trigger1 = anim = 3501 && Animelem = 3 && command = "holddown"
+value = 3503
+elem = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = anim = 3503 && AnimElem = 1 && command = "holddown"
+helpertype = normal ;player
+name = "handfx"
+ID = 6004
+stateno = 6004
+pos = 25,-50
+postype = p1
+ownpal = 1
+size.xscale = 0.4
+size.yscale = 0.5
+
+[State 0, Helper]
+type = Helper
+trigger1 = anim = 3503 && animelemtime(1) = 94 && command = "holddown"
+helpertype = normal ;player
+name = "handfx"
+ID = 6003
+stateno = 6003
+pos = 25,-50
+postype = p1
+ownpal = 1
+size.xscale = 0.4
+size.yscale = 0.5
+
+[State 0, Helper]
+type = Helper
+trigger1 = anim = 3503 && Animelem = 1 && command = "holddown"
+helpertype = normal
+name = "superbeam"
+ID = 7502
+stateno = 7502
+pos = 65,-35
+postype = p1
+keyctrl = 1
+size.xscale = .6
+size.yscale = .7
+ownpal = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 =  Animelemtime(4) < 0
+y = 0
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = Animelemtime(3) >= 0
+x = -1
+
+[State 0, ChangeState]
+type = ChangeState
+triggerall = var(3) = 1 ; fly
+trigger1 = AnimTime = 0
+value = 1006
+ctrl = 0
+
+;-------------------------------------------------
+;Liedown
+[Statedef 4000]
+type    = C
+movetype= H
+physics = N
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 5080
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 1
+time = 15
+freq = 60
+ampl = -4
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7021
+ID = 7021
+pos = -10,10
+scale = .4,.4
+sprpriority = 3
+ownpal = 1
+
+[State 0, selfState]
+type = selfState
+trigger1 = Time >= 80
+value = 5120

@@ -1,0 +1,33 @@
+MUTEN ROSHI
+
+Special moves:
+------------------------
+Ki shot:
+- forward: qcf+LP
+- upward: qcf+HP
+- air forward: qcf+LP in air
+- air downward: qcf+HP in air
+
+Double Kick: qcf+K (also in air)
+
+Repeating Punch: f,b,f+P
+
+Sui Ken:
+- On the spot: qcb+LK
+- Dangling forward: qcb+HK
+ - Low Punch: LP
+ - Slide: LK
+ - Punch: HP
+ - Balance Loss: HK
+
+Telekinesis: qcb,f+HP (near the opponent)
+------------------------
+Super moves:
+------------------------
+Kamehameha: qcf,qcf+HP (Lv.1)
+
+Maximum Kamehameha: qcf,b+HP (Lv.2)
+
+High Speed Sprint: qcb,f+HP (Lv.2)
+
+Hankoku Kyoutenshou : qcf,qcf+HK (Lv.3)

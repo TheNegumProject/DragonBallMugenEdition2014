@@ -1,0 +1,141 @@
+;----------------------------------------------------------------------------------------------
+;---------------------------------------- Vegeta by DM ----------------------------------------
+;----------------------------------------------------------------------------------------------
+v0.35
+
+----------------------------------------------
+Contato
+----------------------------------------------
+
+Se achar algum bug, tiver alguma dúvida ou sugestão, essas são as maneiras de me encontrar:
+
+- E-mail : weaponx_nirvana@yahoo.com.br, rickividal@gmail.com
+- MSN Messenger : agentesting@hotmail.com
+- MGBR Forum (http://forum.mgbr.net), nick Duende Macabro
+- Mugen Fighters Guild Forum (http://www.mugenguild.com/forum), nick DM
+
+Esse char (talvez) foi downloadeado de Rickie Creations
+                                       - http://geocities.yahoo.com.br/rickiecreations
+
+
+----------------------------------------------
+O que têm
+----------------------------------------------
+
++ Todo o básico; (incompleto =P)
++ 1 intro;
++ 1 winpose;
++ 12 paletas;
++ Sistema de combos ( ainda em construção );
++ 5 specials;
++ Charge power;
++ Zanzoken e dodge;
++ Short e super jump;
++ Super finish background;
++ 1 super;
++ 1 hiper;
+
+
+----------------------------------------------
+O que falta
+----------------------------------------------
+
++ Arrumar os bugs ( quase prioridade :P );
++ arquivo .SND com as vozes do Vegeta em português - na próxima versão, malz ae AcesHigh :(
++ Mais specials, supers e hipers;
++ Algumas intros contra outros chars;
++ Mais winposes;
++ A.I.
++ O que mais pintar na minha mente distorcida XD.
+
+
+----------------------------------------------
+Lista de Golpes
+----------------------------------------------
+
+ - Golpes normais :
+
+    Stand              Crouch                 Air
+
+*Soco fraco : x  | *Soco fraco : x  | *Soco fraco          : x
+*Soco médio : y  | *Soco médio : y  | *Soco forte          : y
+*Soco forte : z  | *Soco forte : z  | *Small shot p/ frente: z
+*Chute fraco: a  | *Chute fraco: a  | *Chute fraco         : a
+*Chute forte: b  | *Chute forte: b  | *Chute forte         : b
+*Small Shot : c  | *Small Shot : c  | *Small shot p/ baixo : c
+
+
+
+ - Golpes especiais :
+
+*Sequência 1              : D, DF, F, x
+*Sequência 2              : D, DF, F, y
+*Chute duplo              : D, DF, F, a (desabilitado por ora =P)
+*Triple shot              : D, DB, B, c 
+*Small Beam               : D, DF, F, c
+
+
+
+ - Supers lv.1 :
+
+*Big Bang Attack : D, DB, B, F, x
+
+
+
+ - Supers lv.2 :
+
+
+
+ - Supers lv.3 ou Hipers :
+
+*Final Flash : D, DB, B, F, z
+
+
+
+ - Miscelaneous :
+
+*Charge power: segurar "b" e "y"
+*Zanzoken    : segurar "a", "x" e "fwd" ou "back" 
+*Dodge       : segurar "a" e "x" somente   
+*Parry       : F (toque leve, durante um ataque)
+
+----------------------------------------------
+Autorizaçoes
+----------------------------------------------
+
+- Cavaleiro Negro/Kurai Naito : liberou tudo o que foi feito por ele de suas criações;
+- GGN : liberou tudo de seu char Guile GGN;
+- P.o.t.S : liberou tudo o que foi feito por ele de suas criações;
+- Suppa Vegeta : liberou tudo de seu char Suppa Vegeta;
+- O Ilusionista: liberou um efeito de seu char Bob Wilson EX.
+
+
+----------------------------------------------
+Agradecimentos             
+----------------------------------------------
+
+- A todos os testers: Bardock, equipe Angels of Creation;
+- A Elecbite, pelo MUGEN;
+- Bandai, pelos bons jogos de DBZ para SNES =D
+- VirtualTek, Carnificina e todos os envolvidos na criação do Fighter Factory, esse tool me 
+  ajudou bastante =D
+- A todo o pessoal que postou no tópico do Vegeta lá na MGBR, dando dicas e incentivando;
+- Ao Strobel, pela big portrait e pela foto de fundo do Final Flash, valeu xarázinho =D
+- A quem eu esqueci de citar, minhas sinceras desculpas ^^
+- A você, por downloadear esse char =D
+
+
+----------------------------------------------
+Programas usados:          
+----------------------------------------------
+
+- JASC Paint Shop Pro 7;
+- VirtualTek's Fighter Factory;
+- Paletero;
+- ZCharCAD;
+- MCM 2;
+- WinZip, BraZIP e WinRAR;
+- 602Photo;
+- ZSNes / ZSNesW;
+- A dupla dinâmica, Paint Brush e Notepad XD.
+

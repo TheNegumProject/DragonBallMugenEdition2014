@@ -1,0 +1,20 @@
+[Info]
+name="Chaoz"
+displayname="Kid Chiaotzu"
+versiondate=28 de octubre de 2008
+mugenversion=
+author="Leo"
+pal.defaults=1.2
+[Files]
+sprite=chaoz.sff
+sound=Sonidos/chaoz.snd
+anim=chaoz.air
+cmd=chaoz.cmd
+cns=chaoz.cns
+st=chaoz.cns
+stcommon=common1.cns
+pal1=paletas/chaoz.act
+pal2=paletas/chaoz2.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

@@ -1,0 +1,23 @@
+; Definition file for 18 by Chrono_Strife and Neocide
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name = "18"                       ;Name of character
+displayname = "Android 18"      ;Name of character to display
+versiondate = 1.0         ;Version date of character
+mugenversion = 14,06,2003         ;Version of M.U.G.E.N character works on
+author = "Chrono_Strife"          ;Character author name
+pal.defaults = 1,2       ;Default palettes in order of preference
+
+; Files for the player
+[Files]
+cmd      = coding/18CMD.cmd       ;Command set
+cns      = coding/18.cns       ;Constants
+st       = coding/18.cns       ;States
+st2      = coding/helperCNS.cns   ;Helper States
+stcommon = coding/commonCNS.cns   ;Common states
+sprite   = graphical/18SFF.sff    ;Sprite
+anim     = coding/18AIR.air       ;Animation
+sound    = audio/18SND_JAP.snd    ;Sound
+pal1     = graphical/18.act       ;Standard Android 18

@@ -1,0 +1,22 @@
+[Info]
+name="Trunks"
+displayname="Trunks"
+versiondate=
+mugenversion=
+author="YLS ((Mugen Mundo))"
+pal.defaults=1,2,3,4
+[Files]
+sprite=Trunks.sff
+sound=Trunks.snd
+anim=Trunks.air
+cmd=Trunks.cmd
+cns=Trunks.cns
+st=Trunks.cns
+stcommon=common1.cns
+pal1=1
+pal2=2
+pal3=3
+pal4=
+[Arcade]
+intro.storyboard=
+ending.storyboard=

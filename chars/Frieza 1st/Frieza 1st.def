@@ -1,0 +1,33 @@
+
+;gokuLSSJ def file 
+; by oz
+
+; Player information
+[Info]
+name ="frz"
+displayname="Frieza 1st"
+versiondate=09,05,2009
+mugenversion=04,14,2001
+author="oz"
+pal.defaults=1,2,3 
+
+; Files for the player
+
+[Files]
+cmd=frz.cmd
+cns=frz.cns
+st=frz.cns
+stcommon=frz1.cns
+sprite=frz.sff
+anim=frz.air
+sound=frz.snd
+pal1=frz.act
+pal2=
+pal3=
+pal4=
+pal5=
+st1=hypers.cns
+
+    [arcade]
+ending.storyboard =
+intro.storyboard=

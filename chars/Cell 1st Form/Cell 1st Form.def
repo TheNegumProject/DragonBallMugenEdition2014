@@ -1,0 +1,28 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Cell Imperfecto"
+displayname ="Cell 1st Form"
+versiondate =1.5 Deluxe
+mugenversion = 
+author ="SaWWeN"
+pal.defaults =1,2
+
+[Files]
+sprite =cell.sff
+anim =cell.air
+sound =cell.snd
+cmd =cell.cmd
+cns =cell.cns
+stcommon =common1.cns
+st =cell.cns
+pal1=1.ACT
+pal2=2.ACT
+
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard =..\data\final.def

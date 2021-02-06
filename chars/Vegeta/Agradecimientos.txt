@@ -1,0 +1,43 @@
+Vegeta Highlight 1.0 - 02/03/08
+
+FX realizados con Particle
+
+Programacion agregada original: by Sawady
+
+Extra sprites edit: by Evangelion_nerv (wesker)... muchisimas gracias.
+
+Agradecimientos:
+
+Francynaldo: gracias por bind = -1, por turn = 1 y por supercontrol screenbound... y por testear el char.
+
+Nachonal: gracias por el apoyo, por testear el char, y la autorizacion de usar algunos sprites del vegeta namek... 
+y por el portrait jajaja
+
+Dark-cid: gracias por el apoyo, por testear el char, y por la intencion de querer ayudarme con los sprites.
+
+Cheba: me diste varias ideas interesantes, muchisimas gracias por ello y por testear el char diciendome algunos bugs.
+
+Jabi: alguna que otra explicacion tuya fue plasmada.
+
+Vieja del Agua: vo so loco viteh?, gracias por la buena onda.
+
+Pablok83: te pase el char cada vez que lo actualizaba, lo probaste? jajaja... gracias por hablarme y motivarme de 12 a 3 am.
+
+Vyn: ups... I don't ask you for the permission of some fx... but I am very thanksfull. An important part of de credits is 
+for you.
+
+Chrono and Toad: I take two fx (aura and fireball from yamcha)... the credits of that are for you. Thanks
+
+Miguel: yo se que prestas todo pero, igual gracias por una parte del permiso de usar los sprites de tu vegeta.
+
+Sabre: one fx is from your goku... thanks for that. The credit of that is for you.
+
+Bardock: alguna programacion me dijiste que es tuya del char... me debe haber ayudado bastante asi que gracias por ello
+
+Y lo mas importante
+Duende macabro: Muchisimas gracias por haberme dado el verdadero permiso de hacer un remake de tu char... 
+gracias por la gentileza, la cordialidad, la amabilidad con que me trataste. Espero no decepcionarte.
+
+
+
+

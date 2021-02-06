@@ -1,0 +1,403 @@
+;====================|
+;--[ Power Charge0 ]--|
+;====================|
+
+[Statedef 730]
+type    = S
+movetype= I
+physics = S
+anim = 730
+ctrl = 0
+SprPriority = 2
+
+[State 730, EnvColor]
+type = EnvColor
+trigger1 = AnimElem = 2
+value = 255,255,255
+time = 1
+under = 0
+
+[State 700, Tremor]
+type = EnvShake
+trigger1 = Power = 1000 && Timemod = 2,0
+;time = 2
+freq = 10
+ampl = -1
+phase = 5
+
+[State 700, PowerAdd]
+type = PowerAdd
+trigger1 = command = "hold_b" && command = "hold_y" && Time > 13
+value = 10
+
+[State 0, ChangeState]
+type = ChangeState
+Trigger1 = Power >= 1000
+value = 731
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+Trigger1 = Power >= 2000
+value = 732
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+Trigger1 = Power >= 3000
+value = 733
+ctrl = 0
+
+[State 0, ChangeState]
+type = ChangeState
+Trigger1 = Power = 4000
+value = 734
+ctrl = 0
+
+;====================|
+;--[ Power Charge1]--|
+;====================|
+
+[Statedef 731]
+type    = S
+movetype= I
+physics = S
+anim = 731
+ctrl = 0
+SprPriority = 2
+
+[State 700, PowerAdd]
+type = PowerAdd
+trigger1 = command = "hold_b" && command = "hold_y"
+value = 10
+
+[State 730, End1]
+type = ChangeState
+triggerall = Time > 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 731
+ctrl = 1
+
+[State 730, End2]
+type = ChangeState
+triggerall = Time < 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 0
+ctrl = 1
+;====================|
+;--[ Power Charge2]--|
+;====================|
+
+[Statedef 732]
+type    = S
+movetype= I
+physics = S
+anim = 731
+ctrl = 0
+SprPriority = 2
+
+[State 700, PowerAdd]
+type = PowerAdd
+trigger1 = command = "hold_b" && command = "hold_y"
+value = 10
+
+[State 730, End1]
+type = ChangeState
+triggerall = Time > 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 731
+ctrl = 1
+
+[State 730, End2]
+type = ChangeState
+triggerall = Time < 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 0
+ctrl = 1
+;====================|
+;--[ Power Charge3 ]--|
+;====================|
+[Statedef 733]
+type    = S
+movetype= I
+physics = S
+anim = 731
+ctrl = 0
+SprPriority = 2
+
+[State 730, End1]
+type = ChangeState
+triggerall = Time > 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 731
+ctrl = 1
+
+[State 730, End2]
+type = ChangeState
+triggerall = Time < 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 0
+ctrl = 1
+;====================|
+;--[ Power Charge4 ]--|
+;====================|
+[Statedef 734]
+type    = S
+movetype= I
+physics = S
+anim = 731
+ctrl = 0
+SprPriority = 2
+
+[State 730, End1]
+type = ChangeState
+triggerall = Time > 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 731
+ctrl = 1
+
+[State 730, End2]
+type = ChangeState
+triggerall = Time < 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 0
+ctrl = 1
+
+[State 730, Explod]
+type = Explod
+Trigger1 = Time = 13
+anim = 6001
+ID = 6001
+pos = -2, 0
+postype = p1
+bindtime = -1
+removetime = -1
+scale = 0.5,0.5
+sprpriority = -1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+
+[State 730, Explod]
+type = Explod
+Trigger1 = Time = 13
+anim = 6016
+id = 6001
+pos = -2, 0
+postype = p1
+bindtime = -1
+removetime = -1
+scale = 0.5,0.5
+sprpriority = -1
+ontop = 0
+ownpal = 1
+removeongethit = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = Power = 1000 || Power = 999 || Power = 998 || Power = 997 || Power = 996 || Power = 995 || Power = 994 || Power = 993 || Power = 992 || Power = 991
+ID = 6001
+scale = 0.6,0.6
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = Power = 2000 || Power = 1999 || Power = 1998 || Power = 1997 || Power = 1996 || Power = 1995 || Power = 1994 || Power = 1993 || Power = 1992 || Power = 1991
+ID = 6001
+scale = 0.7,0.7
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = Power = 3000 || Power = 2999 || Power = 2998 || Power = 2997 || Power = 2996 || Power = 2995 || Power = 2994 || Power = 2993 || Power = 2992 || Power = 2991
+ID = 6001
+scale = 0.8,0.8
+
+
+[State 0, ModifyExplod]
+type = ModifyExplod
+trigger1 = Power = 4000 || Power = 3999 || Power = 3998 || Power = 3997 || Power = 3996 || Power = 3995 || Power = 3994 || Power = 3993 || Power = 3992 || Power = 3991
+ID = 6001
+scale = 0.9,0.9
+
+[State 730, Explod]
+type = Explod
+Trigger1 = AnimElem = 2
+Trigger2 = Power = 1000 || Power = 999 || Power = 998 || Power = 997 || Power = 996 || Power = 995 || Power = 994 || Power = 993 || Power = 992 || Power = 991
+Trigger3 = Power = 2000 || Power = 1999 || Power = 1998 || Power = 1997 || Power = 1996 || Power = 1995 || Power = 1994 || Power = 1993 || Power = 1992 || Power = 1991
+Trigger4 = Power = 3000 || Power = 2999 || Power = 2998 || Power = 2997 || Power = 2996 || Power = 2995 || Power = 2994 || Power = 2993 || Power = 2992 || Power = 2991
+Trigger5 = Power = 3900 || Power = 3999 || Power = 3998 || Power = 3997 || Power = 3996 || Power = 3995 || Power = 3994 || Power = 3993 || Power = 3992 || Power = 3991
+anim = 6002
+ID = 6002
+pos = 0, -40
+postype = p1
+bindtime = 1
+removetime = 36
+scale = 0.7,0.7
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 730, Explod]
+type = Explod
+Trigger1 = Power = 1000 || Power = 999 || Power = 998 || Power = 997 || Power = 996 || Power = 995 || Power = 994 || Power = 993 || Power = 992 || Power = 991
+Trigger2 = Power = 2000 || Power = 1999 || Power = 1998 || Power = 1997 || Power = 1996 || Power = 1995 || Power = 1994 || Power = 1993 || Power = 1992 || Power = 1991
+Trigger3 = Power = 3000 || Power = 2999 || Power = 2998 || Power = 2997 || Power = 2996 || Power = 2995 || Power = 2994 || Power = 2993 || Power = 2992 || Power = 2991
+Trigger4 = Power = 3900 || Power = 3999 || Power = 3998 || Power = 3997 || Power = 3996 || Power = 3995 || Power = 3994 || Power = 3993 || Power = 3992 || Power = 3991
+anim = 6002
+ID = 6002
+pos = 0, -40
+postype = p1
+bindtime = 1
+removetime = 36
+scale = 0.7,0.7
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+
+[State 730, Explod]
+type = Explod
+Trigger1 = Time = 13
+Trigger2 = Power = 1000 || Power = 999 || Power = 998 || Power = 997 || Power = 996 || Power = 995 || Power = 994 || Power = 993 || Power = 992 || Power = 991
+Trigger3 = Power = 2000 || Power = 1999 || Power = 1998 || Power = 1997 || Power = 1996 || Power = 1995 || Power = 1994 || Power = 1993 || Power = 1992 || Power = 1991
+Trigger4 = Power = 3000 || Power = 2999 || Power = 2998 || Power = 2997 || Power = 2996 || Power = 2995 || Power = 2994 || Power = 2993 || Power = 2992 || Power = 2991
+Trigger5 = Power = 3900 || Power = 3999 || Power = 3998 || Power = 3997 || Power = 3996 || Power = 3995 || Power = 3994 || Power = 3993 || Power = 3992 || Power = 3991
+anim = 5999
+ID = 5999
+pos = 10, 2
+postype = p1
+bindtime = 1
+removetime = 30
+scale = 1,1
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 0
+
+
+[State 730, Explod]
+type = Explod
+Trigger1 = Time = 13
+Trigger2 = Power = 1000 || Power = 999 || Power = 998 || Power = 997 || Power = 996 || Power = 995 || Power = 994 || Power = 993 || Power = 992 || Power = 991
+Trigger3 = Power = 2000 || Power = 1999 || Power = 1998 || Power = 1997 || Power = 1996 || Power = 1995 || Power = 1994 || Power = 1993 || Power = 1992 || Power = 1991
+Trigger4 = Power = 3000 || Power = 2999 || Power = 2998 || Power = 2997 || Power = 2996 || Power = 2995 || Power = 2994 || Power = 2993 || Power = 2992 || Power = 2991
+Trigger5 = Power = 3900 || Power = 3999 || Power = 3998 || Power = 3997 || Power = 3996 || Power = 3995 || Power = 3994 || Power = 3993 || Power = 3992 || Power = 3991
+anim = 6015
+ID = 6015
+pos = -10, 2
+postype = p1
+bindtime = 1
+removetime = 30
+scale = 1,1
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 0
+
+[State 200, 1]
+type = playsnd
+trigger1 = Time = 13
+value = 730,0
+channel = 1
+
+[State 200, 1]
+type = playsnd
+trigger1 = Time = 13
+value = 730,1
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = TimeMod = 23,14
+value = 3,1
+channel = 2
+Volume = 10
+
+[State 700, PowerAdd]
+type = PowerAdd
+trigger1 = command = "hold_b" && command = "hold_y" && Time > 5
+value = 10
+
+[State 192, Aura]
+type = Helper
+trigger1 = command = "hold_b" && command = "hold_y" && time > 13  && numhelper(80322) = 0
+helpertype = Normal
+ID = 80323
+stateno = 80323
+name = "Power charge"
+sprpriority = -1
+postype = p1
+Pos = 0,0
+ignorehitpause = 0
+removeongethit = 1
+persistent = 0
+bindtime = -1
+
+[State 730, quieto]
+type = stopsnd
+trigger1 = stateno != 730 || command != "hold_b" || command != "hold_y"
+channel = 1
+persistent = 0
+
+[State 730, quieto]
+type = stopsnd
+trigger1 = stateno != 730 || command != "hold_b" || command != "hold_y"
+channel = 2
+persistent = 0
+
+[State 730, RemoveExplod]
+type = RemoveExplod
+trigger1 = command != "hold_b" || command != "hold_y"
+id = 6001
+
+[State 730, RemoveExplod]
+type = RemoveExplod
+trigger1 = command != "hold_b" || command != "hold_y"
+id = 7999
+
+[State 730, End1]
+type = ChangeState
+triggerall = Time > 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 731
+ctrl = 1
+
+[State 730, End2]
+type = ChangeState
+triggerall = Time < 10
+trigger1 = command != "hold_b" || command != "hold_y"
+value = 0
+ctrl = 1
+
+[Statedef 731]
+type    = S
+movetype= I
+physics = S
+anim = 731
+ctrl = 0
+velset = 0,0
+SprPriority = 2
+
+[State 731, Explod]
+type = Explod
+Trigger1 = AnimElem = 1
+anim = 6003
+ID = 6003
+Pos = 0,5
+postype = p1
+bindtime = -1
+removetime = 6
+scale = 0.7,0.7
+sprpriority = 3
+ontop = 1
+ownpal = 1
+removeongethit = 1
+vel = 0,0
+accel = 0,0
+random = 0,0

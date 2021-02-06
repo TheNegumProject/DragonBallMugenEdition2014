@@ -1,0 +1,27 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="YAMCHA"
+displayname ="Yamcha"
+versiondate =12,11,2008
+mugenversion =04,14,2002
+author ="Legendary Wariors"
+pal.defaults =1
+
+[Files]
+sprite =YAMCHA.sff
+anim =YAMCHA.air
+sound =YAMCHA.snd
+cmd =YAMCHA.cmd
+cns =YAMCHA.cns
+stcommon =common1.cns
+st =YAMCHA.cns
+pal1=1.act
+st1=INTRO.CNS
+
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def

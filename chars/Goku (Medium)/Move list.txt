@@ -1,0 +1,65 @@
+=====================================Son Goku BY GANGSTI===================================
+
+
+========================================= Movements =============================================
+
+
+=Basic Moves=
+
+a - punch 1
+b - punch 2
+c - fire ball's (Kikoha)
+x - kick 1
+y - kick 2
+z - teleport (Zanzouken)
+
+
+=Others=
+
+D,F,a
+D,F,b
+D,F,x
+D,F,y
+a+b
+x+y
+
+
+
+=Basic Combos=
+
+a,b,x,y~~
+x,y,x,y~~
+a,b,a,b~~
+etc...
+
+
+=Zanzouken Moves=
+
+D,F,a+b
+D,F,x+y
+D,B,a+b
+D,B,x+y
+D,F,y only air
+
+
+=Specjal Moves=
+
+Tayoken - D,B,c
+Ki Punch - D,F,c
+Ki Beam - D,B,F,x
+Protection Barier - b+c
+Turn SSJ - s
+Quick Turn SSJ - b+y
+
+
+=Hyper Moves=
+
+Normal Kamehameha - D,B,F,a
+Super Kamehameha - D,B,F,b
+Kikoha Combo - D,B,F,c
+Air Kamehameha - D,B,F,y 
+Genki Dama Ball (Only one for one fight, all next is -> Special Ball) - D,B,F,x+y
+Genki Dama - D,B,F,a+b
+
+
+

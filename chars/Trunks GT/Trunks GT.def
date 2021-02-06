@@ -1,0 +1,27 @@
+****************Trunks GT by Szowel v. 1.01*****
+
+[Info]
+name ="Trunks GT by Szowel"
+displayname ="Trunks GT"
+versiondate =05,11,2011
+mugenversion =04,14,2002
+author ="Szowel"
+pal.defaults =1
+
+; Files for the player
+[Files]
+cmd     =TrunksGT.cmd
+cns     =TrunksGT.cns
+st      =TrunksGT.cns
+stcommon =common1.cns
+sprite  =TrunksGT.sff
+anim    =TrunksGT.air
+sound   =TrunksGT.snd
+pal1=TrunksGT3.act
+pal2=TrunksGT2.act
+pal3=TrunksGT.act
+
+; Arcade mode
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def

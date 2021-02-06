@@ -1,0 +1,25 @@
+[Info]
+name="CellJr"
+displayname="Cell Jr"
+versiondate=16/06/2010
+mugenversion=
+author="The_Virus_X & Fran_09"
+pal.defaults=1,2,5,6,3,4
+[Files]
+sprite=jr.sff
+sound=jr.snd
+anim=jr.air
+cmd=jr.cmd
+cns=jr.cns
+st=jr.cns
+stcommon=common.cns
+pal1=jr.act
+pal2=jr2.act
+pal3=jr3.act
+pal4=jr4.act
+pal5=jr5.act
+pal6=jr6.act
+st1=especiales.cns
+[Arcade]
+intro.storyboard=intro.def
+ending.storyboard=ending.def

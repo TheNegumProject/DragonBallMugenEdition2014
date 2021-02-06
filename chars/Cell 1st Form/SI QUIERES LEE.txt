@@ -1,0 +1,182 @@
+CELL IMPERFECTO VERSION 1.5 (DELUXE) BY SAWWEN 
+
+CREDITS:
+
+ SAWWEN PRODUCTIONS (SEMI-DEAD xD) 
+ POCKET FORUM       (DEAD) (este char empezo aqui)
+ ELYSEUM FORUM      (DEAD) (luego paso por aqui)
+ PROJECTO SAGAS     (DEAD) (llego a ser parte de aqui)
+ OS TEAM            (LIFE!!! xD)
+
+
+VISITALOS:
+ http://shenlong7.blogspot.com/
+ http://mugentemple.activoforo.com/forum.htm
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+HISTORIA DE CELL:
+
+Se trata de un bioandroide creado por el Dr. Gero con la intención de vengarse
+de Son Goku por haber acabado con el Ejército Red Ribbon. Está fabricado a partir
+de células de todos los luchadores del universo y una computadora registró los
+movimientos de estos luchadores haciendo que Cell sepa usar todos sus ataques.
+Cell puede absorber la energía de sus enemigos con la aguja al final de la cola,
+y para alcanzar la perfección de su cuerpo debe absorber a los androides 17 y 18.
+
+
+/////////////////////////////////////////////////////////////////////////////
+
+Programación      : SaWWeN
+Sprites Ripeados  : Chrono Strife
+Sprites Nuevos    : Chrono Strife, Vieja del Agua, Ryudo, SaWWeN
+Edits de Sprites  : Chec, Iee, Tincho
+Dialogos Latino   : SaWWeN
+Fx                : Chrono Strife 30 %, Majita 25 %, Mugen Fan 10%, 
+                    MSSJ and Kratos 5%, Blaze 5%, Bardock 5%, Otros 20% =)
+Version           : 1.5 Deluxe
+
+MI correo: fa77out@hotmail.com
+
+////////////////////////////////////////////////////////////////////////////
+
+
+CAMBIOS DE VERSION 1.0 A 1.5:
+
+1) Dos Nuevas Intros. (Cell larva, Dr.Slump tributo :p)
+2) Nuevo Hyper Combo. (Con la programacion que ya tenia)
+3) Nuevos ataques. (Ataque de la cola que se alarga, ataque rapido)
+4) Mejorado el super salto. (Para que puedar ir a los costados)
+5) Nueva teletransportacion. (Le agregue una teletransportacion)
+6) Nuevos combos manuales simples. (Se va aprendiendo, es bien basico)
+7) Cambio de algunos Fx antiguos. (Muchos que consegui y pedi permiso)
+8) Agregados algunos nuevos Sprites y sonidos. (Carga de ki, Run, etc)
+9) Habilitados todos los especiales en el aire. (Por que algunos no se podian)
+10) Optimizados todos los golpes y especiales.  (mmm me suena a verso)
+11) Creadas nuevas paletas para el Cell. (Un par y nada mas, prueben la de aquaman :D) 
+
+----------------------------------------------------------------------------
+
+CAMBIOS DE VERSION 1.5 A 1.5 Deluxe:
+
+1) Arreglado cientos de pequeños detalles de lo sonidos, las intros, etc.
+2) Se han agregado nuevos sprites Customs, ejemplos: El ataque de Cell segunda forma, una Nueva Cabeza, etc.
+3) Se han mejorado los ataques, tanto en comandos, como programacion y Fx.
+4) Se han mejorado todos los Supers e Hypers dandole mas opciones.
+4) He Agregado dos ataques nuevos, el rayo de los ojoss y el ataque de las colas pinchudas.
+5) Le he mejorados los dos combos que tenia al pasarlos al estilo manual de mi Crilin.
+6) Le he Agregado el slash aereo al Fly mode como el que tiene Crilin.
+7) Le he Agregado un modo Super imperfect Cell (Como en la serie cuando pelea contra Picollo y 17)
+8) Tiene Nuevas Paletas (aunque lamentablemente el Sheet original se perdio, y los sprites quedaron sucios)
+9) Tiene una IA mucho mas decente que la de la version anterior. XD 
+
+
+////////////////////////////////////////////////////////////////////////////
+
+GOLPES NORMALES:
+
+A boton      : puño debil
+B boton      : zarpaso
+C boton      : Fireballs
+X boton      : patada
+Y boton      : patada alta
+Z boton      : Zazouken
+A+B          : colazo
+y+z          : Ataque Rapido         
+
+adelante      : caminar adelante
+atras         : caminar adelante
+arriba        : saltar
+abajo         : agacharse
+
+Start button  : jajaja :P
+
+
+////////////////////////////////////////////////////////////////////////////
+
+-------|Basicos|---------------------------------------------------
+
+
+Correr hacia adelante: adelante x2
+Salto hacia atras:     atras x2
+Cargar Ki:             a+x
+Vuelo:                 b+y 
+Vuelo Slash:           8 diferentes direcciones (Base del code by Mugenfan)
+Agarre:                Adelante + z
+Super Salto:           D, U
+
+
+-------|Especiales, Combos y Golpes |------------------------------------------------
+
+
+Combo x                D, DB, B, x (Seguidilla x, x, x)
+
+Combo y                D, DB, B, y (Seguidilla y, y, se puede combinar con el combo x)
+
+Rayos Ojos             D, DF, F, a o b (Solo se ejecuta Saltando, o volando pronunciando la D)
+
+Colazo Especial        D, DF, F, x (Manda a tu oponente a volar)
+
+kiensan:               D, DF, F, y (Regula el momento de lanzarlo manteniendo apretado el b)  
+
+Taioken:               D, DB, B, a  (Paraliza al oponente por unos segundos)
+
+Rafaga de viento:      D, DB, B, b (Tira para arriba al oponente y luego dale con algun otro ataque)
+
+Rayo Medio             D, DF, F, a (A mi me gustan estos rayitos!)
+
+Rayo Bajo              D, DF, F, b
+
+Rayo Alto              D, DF, B, c
+
+Colas Pinchudas:       F, B, a (El ataque sirve para cuando tienes cerca al oponente)
+
+
+-------| Supers |--------------------------------------------------
+
+
+Absorcion              D, F, D, F, a (Se tiene que estar al lado del oponente, y debes apretar A continuamente 
+                                   para chuparle mas energia y vida al oponente)
+
+Makankosapo            D, B, F a // s (tres niveles, se va cargando, con A o B para disparar el rayo)
+
+Kame hame ha           D, B, F x // y (Direccionar hacia arriba, abajo o el frente)
+
+Super Imperfect Cell   z + c (Se necesita 2500 de energia, por 10 segundos Cell es inmune a los golpes, etc)
+
+
+------| Hypers |---------------------------------------------------
+
+
+Cell 2 Kame Hame Ha    D, F, D, F, c (Necesita 3000 de energia, el ataque es winner)
+
+Hyper Oculto           D, F, D, F, b  - (Necesita 2000 de energia, puede ser direccionado)
+
+
+-------------------------------------------------------------------
+
+
+Agradecimientos:
+
+1) A mi por darme el tiempo de hacer este char.
+2) Vieja del Agua por crear los sprites que yo no pude hacer.
+3) Ryudo por ayudarme con algunos fx y sprites.
+4) A todos aquellos que brindan sus FX como Opensource (Majita, Chrono, MugenFan, etc)
+5) Stike por ayudarme con algunas efectos y lo basico en programación del Cell. 
+6) Majin_vegetto Y Blackshinobi por algunos sonidos.
+7) A17 Sprites todo el credito para Neocide.
+8) Wenchu y MugenHero por guardar el Sheet y lo que llevaba de la version 1.5
+9) Al que hizo la cabeza nueva, no recuerdo quien fue XD 
+10) Y todos los demas que me ayudaron, ahora no me acuerdo de casi ninguno XD 
+
+Agradecimientos Especiales:
+
+1) Akira Toriyama por desarrollar semejante serie de anime.
+2) Goku por salvar la tierra tantas veces.
+3) Arale por ser tan simpatica y a Dr Slump.
+
+Fuck you:
+
+1) Todos aquellos egoistas que dicen no al open source y si a la muerte del mugen.
+

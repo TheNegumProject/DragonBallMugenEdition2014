@@ -1,0 +1,26 @@
+[Info]
+name ="Goku SSJ Full Power"
+displayname ="Goku SSJ (Android Saga)"
+versiondate =07,21,2011
+mugenversion =1.0
+author ="Ryon editado por Kaioh-SAMA"
+pal.defaults =1,2
+localcoord = 320,240
+
+[Files]
+cmd     =SSJGoku.cmd
+cns     =SSJGoku.cns
+st      =SSJGoku.cns
+stcommon =common1.cns
+sprite  =SSJGoku.sff
+anim    =SSJGoku.air
+sound   =SSJGoku.snd
+pal1=1.act
+pal2=2.act
+pal3=3.act
+pal4=4.act
+pal5=5.act
+pal6=6.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

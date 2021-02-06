@@ -1,0 +1,27 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Goku SSJ4 By Jordanmaster"
+displayname ="Goku SSJ4 GT"
+versiondate =23/8/2013
+mugenversion =1.0
+author ="Jordanmaster"
+pal.defaults =1,2,3,4,5,6
+
+[Files]
+sprite = GokuSSJ4.sff
+anim = GokuSSJ4.air
+sound = GokuSSJ4.snd
+cmd = GokuSSJ4.cmd
+cns = GokuSSJ4.cns
+stcommon =common1.cns
+st = GokuSSJ4.cns
+pal1=1.act
+pal2=2.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

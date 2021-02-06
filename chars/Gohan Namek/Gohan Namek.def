@@ -1,0 +1,29 @@
+[Info]
+name ="Gohan Namek"
+displayname ="Gohan Namek"
+versiondate =17,03,12
+mugenversion =11,01,2001
+author ="BroliDos e bpruleZ"
+pal.defaults =1
+
+[Files]
+cmd      =GohanNamek.cmd
+cns      =GohanNamek.cns
+st       =GohanNamek.cns
+stcommon =common.cns
+sprite   =GohanNamek.sff
+anim     =GohanNamek.air
+sound    =GohanNamek.snd
+pal1=1.act
+st1=Basic.cns
+st2=specjalne.cns
+st3=superki.cns
+st4=ki.cns
+st5=Wstep.cns
+
+
+
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

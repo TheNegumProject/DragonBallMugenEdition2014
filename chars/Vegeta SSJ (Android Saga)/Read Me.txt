@@ -1,0 +1,26 @@
+=Information=
+Name : Vegeta
+Creator : Ryon
+Form : SSJ (In the game its 2)
+Gameplay Style : Super Butoden + Original
+
+=Move List=
+Charge - c
+Ki Blast - z
+SB Combo 1 - F, B ,F, x (3 hits, SB1 combo)
+SB Combo 1 - F, B ,F, y (4 hits, SB2 & 3 combo)
+SB Combo 2 - DB, FU, a (3 hits, SB3)
+SB Combo 2 - DB, FU, b (2 hits, SB2)
+SB Combo 3 - D, DF, F, x or y (1 hit, phasable attack)
+Ki Explosion - D, U, z (1 Hit, Ground~Mid projectile)
+
+=Super List=
+Big Bang Attack - D, F, D, F, a or b (single hit, but can stop 40 hit projectiles)
+Final Flash - D, F, D, F, x or y (inspired by DBZ legends)
+Super Kiko - D, F, D, F, z (Vegeta's typical projectile spam)
+
+=NOT CODED=
+Final Explosion - D, F, D, F, c
+
+Get more of my characters at MugenFreeForAll.Com
+Join the forums dont be afraid, we may be warehousers but we are some of the nicest interent poeple your EVER gonna meet.

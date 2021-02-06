@@ -1,0 +1,27 @@
+;***********************************************************************
+;************************Android 19 by Szowel***************************
+;**************************version beta 0.8*****************************
+;***********************************************************************
+;***************************Version for Win Mugen***********************
+
+[Info]
+name ="Android19 by Szowel"
+displayname ="Android 19"
+versiondate =24,07,2011
+mugenversion =04,14,2002
+author ="Szowel"
+pal.defaults =1
+
+[Files]
+sprite =Android19.sff
+anim =Android19.air
+sound =Android19.snd
+cmd =Android19.cmd
+cns =Android19.cns
+stcommon =common1.cns
+st =Android19.cns
+pal1=Android19.act
+
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def

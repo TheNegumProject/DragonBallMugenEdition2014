@@ -1,0 +1,4388 @@
+[Statedef -2]
+
+[State -2, 敵KO時にスローがかからないように]
+type = AssertSpecial
+trigger1 = 1
+flag = nokoslow
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State -2];BGMストップ用
+type = AssertSpecial
+triggerall = palno = 12
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "OROCHI G3"
+triggerall = enemynear,name != "Beautiful-Marisa"
+triggerall = enemynear,name != "Volcrz"
+trigger1 = roundno != 1
+flag = nomusic
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State -2];BGMストップ（MUGEN落ち回避用）
+type = AssertSpecial
+triggerall = palno = 12
+trigger1 = enemynear,name = "Ayu Tukimiya"
+trigger2 = enemynear,name = "D.O.G."
+flag = nomusic
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim != 199
+ID = 1002
+
+[state -2,気力の音停止1]
+type = stopsnd
+trigger1 = stateno != 1900
+channel = 1
+
+[state -2,気力の音停止2]
+type = stopsnd
+trigger1 = stateno != 1900
+channel = 3
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = stateno != 8699
+ID = 10700
+
+[State -2, デバッグ表示二行目]
+type = Displaytoclipboard
+trigger1 = !ishelper
+text = "sokusistate:%d sokusistate:%d sokusihen:%d"
+params = var(41), var(42), var(43)
+ignorehitpause = 1
+
+[state -2]
+type=parentvarset
+triggerall=ishelper(155);hitdefヘルパーのステート番号
+triggerall=stateno!=155;hitdefヘルパーのステート番号
+triggerall=stateno!=5110;やられステート
+triggerall=var(29)!=gametime
+trigger1=movereversed
+var(41)=stateno
+ignorehitpause=0
+
+;---------------------------------------------------------------------------
+;並列混線ヘルパー透明＆カメラ固定
+
+[State -2, ヘルパー透明化] 
+type = AssertSpecial
+trigger1   = IsHelper(16100) || IsHelper(16101) || IsHelper(16102) || IsHelper(16103)
+trigger2   = IsHelper(16104) || IsHelper(16105) || IsHelper(16106) || IsHelper(16107)
+trigger3   = IsHelper(16108) || IsHelper(16109) || IsHelper(16110) || IsHelper(16111)
+trigger4   = IsHelper(16112) || IsHelper(16113) || IsHelper(16114) || IsHelper(16115)
+trigger5   = IsHelper(16116) || IsHelper(16117) || IsHelper(16118) || IsHelper(16119)
+trigger6   = IsHelper(16120) || IsHelper(16121) || IsHelper(16122) || IsHelper(16123)
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+
+[State -2, ヘルパー透明化] 
+type = AssertSpecial
+trigger1   = IsHelper(16000) || IsHelper(16001) || IsHelper(16002) || IsHelper(16003)
+trigger2   = IsHelper(16004) || IsHelper(16005) || IsHelper(16006) || IsHelper(16007)
+trigger3   = IsHelper(16008) || IsHelper(16009) || IsHelper(16010) || IsHelper(16011)
+trigger4   = IsHelper(16012) || IsHelper(16013) || IsHelper(16014) || IsHelper(16015)
+trigger5   = IsHelper(16016) || IsHelper(16017) || IsHelper(16018) || IsHelper(16019)
+trigger6   = IsHelper(16020) || IsHelper(16021) || IsHelper(16022) || IsHelper(16023)
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+
+[State -2, ヘルパー透明化] 
+type = AssertSpecial
+trigger1   = IsHelper(16999) || IsHelper(99999)
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+
+[State -2, ヘルパーカメラ固定]
+type = Screenbound
+trigger1   = IsHelper(16100) || IsHelper(16101) || IsHelper(16102) || IsHelper(16103)
+trigger2   = IsHelper(16104) || IsHelper(16105) || IsHelper(16106) || IsHelper(16107)
+trigger3   = IsHelper(16108) || IsHelper(16109) || IsHelper(16110) || IsHelper(16111)
+trigger4   = IsHelper(16112) || IsHelper(16113) || IsHelper(16114) || IsHelper(16115)
+trigger5   = IsHelper(16116) || IsHelper(16117) || IsHelper(16118) || IsHelper(16119)
+trigger6   = IsHelper(16120) || IsHelper(16121) || IsHelper(16122) || IsHelper(16123)
+value = 0
+ignorehitpause = 1
+
+[State -2, ヘルパーカメラ固定]
+type = Screenbound
+trigger1   = IsHelper(16000) || IsHelper(16001) || IsHelper(16002) || IsHelper(16003)
+trigger2   = IsHelper(16004) || IsHelper(16005) || IsHelper(16006) || IsHelper(16007)
+trigger3   = IsHelper(16008) || IsHelper(16009) || IsHelper(16010) || IsHelper(16011)
+trigger4   = IsHelper(16012) || IsHelper(16013) || IsHelper(16014) || IsHelper(16015)
+trigger5   = IsHelper(16016) || IsHelper(16017) || IsHelper(16018) || IsHelper(16019)
+trigger6   = IsHelper(16020) || IsHelper(16021) || IsHelper(16022) || IsHelper(16023)
+value = 0
+ignorehitpause = 1
+
+[State -2, ヘルパーカメラ固定]
+type = Screenbound
+trigger1   = IsHelper(16999) || IsHelper(99999)
+value = 0
+ignorehitpause = 1
+
+[state -2, ヘルパー押し戻し判定解除]
+type = Playerpush
+trigger1   = IsHelper(16100) || IsHelper(16101) || IsHelper(16102) || IsHelper(16103)
+trigger2   = IsHelper(16104) || IsHelper(16105) || IsHelper(16106) || IsHelper(16107)
+trigger3   = IsHelper(16108) || IsHelper(16109) || IsHelper(16110) || IsHelper(16111)
+trigger4   = IsHelper(16112) || IsHelper(16113) || IsHelper(16114) || IsHelper(16115)
+trigger5   = IsHelper(16116) || IsHelper(16117) || IsHelper(16118) || IsHelper(16119)
+trigger6   = IsHelper(16120) || IsHelper(16121) || IsHelper(16122) || IsHelper(16123)
+value = 0
+ignorehitpause = 1
+
+[state -2, ヘルパー押し戻し判定解除]
+type = Playerpush
+trigger1   = IsHelper(16000) || IsHelper(16001) || IsHelper(16002) || IsHelper(16003)
+trigger2   = IsHelper(16004) || IsHelper(16005) || IsHelper(16006) || IsHelper(16007)
+trigger3   = IsHelper(16008) || IsHelper(16009) || IsHelper(16010) || IsHelper(16011)
+trigger4   = IsHelper(16012) || IsHelper(16013) || IsHelper(16014) || IsHelper(16015)
+trigger5   = IsHelper(16016) || IsHelper(16017) || IsHelper(16018) || IsHelper(16019)
+trigger6   = IsHelper(16020) || IsHelper(16021) || IsHelper(16022) || IsHelper(16023)
+value = 0
+ignorehitpause = 1
+
+[state -2, ヘルパー押し戻し判定解除]
+type = Playerpush
+trigger1   = IsHelper(16999) || IsHelper(99999)
+value = 0
+ignorehitpause = 1
+
+[State -2, ヘルパー追従]
+type = Bindtoroot
+trigger1   = IsHelper(16100) || IsHelper(16101) || IsHelper(16102) || IsHelper(16103)
+trigger2   = IsHelper(16104) || IsHelper(16105) || IsHelper(16106) || IsHelper(16107)
+trigger3   = IsHelper(16108) || IsHelper(16109) || IsHelper(16110) || IsHelper(16111)
+trigger4   = IsHelper(16112) || IsHelper(16113) || IsHelper(16114) || IsHelper(16115)
+trigger5   = IsHelper(16116) || IsHelper(16117) || IsHelper(16118) || IsHelper(16119)
+trigger6   = IsHelper(16120) || IsHelper(16121) || IsHelper(16122) || IsHelper(16123)
+pos = 0, 0
+ignorehitpause = 1
+
+[State -2, ヘルパー追従]
+type = Bindtoroot
+trigger1   = IsHelper(16000) || IsHelper(16001) || IsHelper(16002) || IsHelper(16003)
+trigger2   = IsHelper(16004) || IsHelper(16005) || IsHelper(16006) || IsHelper(16007)
+trigger3   = IsHelper(16008) || IsHelper(16009) || IsHelper(16010) || IsHelper(16011)
+trigger4   = IsHelper(16012) || IsHelper(16013) || IsHelper(16014) || IsHelper(16015)
+trigger5   = IsHelper(16016) || IsHelper(16017) || IsHelper(16018) || IsHelper(16019)
+trigger6   = IsHelper(16020) || IsHelper(16021) || IsHelper(16022) || IsHelper(16023)
+pos = 0, 0
+ignorehitpause = 1
+
+[State -2, ヘルパー追従]
+type = Bindtoroot
+trigger1   = IsHelper(16999) || IsHelper(99999)
+pos = 0, 0
+ignorehitpause = 1
+
+;-------------------------------------------
+;超即死オメガトムハンクスキラー
+
+[State -2];当身用ヘルパー
+type = helper
+triggerall = palno = 12
+triggerall = !Ishelper
+trigger1 = numhelper(152)=0
+id = 152
+name = "OTHK1"
+pos = 0,0
+postype = P1
+stateno = 152
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];相手proj受けヘルパー
+type = helper
+triggerall = palno = 12
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+trigger1 = enemy(0),numprojid(1007)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(1007)>0||enemy(1),stateno=5152
+id = 151
+name = "OTHK2"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];見えないように
+type = AssertSpecial
+trigger1 = Ishelper(151)
+flag = Invisible
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;---------------------------------------------------------------------------
+;混線バグ
+
+[State -2];アマ砲用、敵被弾用ヘルパー
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+triggerall = enemynear,name != "Megalith"
+triggerall = enemynear,name != "UNKNOWN"
+trigger1 = enemy(0),numprojid(1010)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(1010)>0||enemy(1),stateno=5152
+id = 151
+name = "konsen2"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];あゆあゆキラー用、敵被弾用ヘルパー
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(1011)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(1011)>0||enemy(1),stateno=5152
+id = 151
+name = "ayuayu-K"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];対メガリス
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+triggerall = enemynear,name = "Megalith"
+trigger1 = enemy(0),numprojid(9000)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(9000)>0||enemy(1),stateno=5152
+id = 151
+name = "Megalith"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];対イグのん
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+triggerall = enemynear,name = "UNKNOWN"
+trigger1 = enemy(0),numprojid(9010)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(9010)>0||enemy(1),stateno=5152
+id = 151
+name = "UNKNOWN"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];アマ砲用、保険用projヘルパー1
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(9300)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(9300)>0||enemy(1),stateno=5152
+id = 151
+name = "proj1"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];アマ砲用、保険用projヘルパー2
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(9400)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(9400)>0||enemy(1),stateno=5152
+id = 151
+name = "proj2"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];アマ砲用、保険用projヘルパー3
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(9500)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(9500)>0||enemy(1),stateno=5152
+id = 151
+name = "proj3"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];あゆあゆキラー用、保険用projヘルパー1
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(9301)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(9301)>0||enemy(1),stateno=5152
+id = 151
+name = "ayuayu1"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];あゆあゆキラー用、保険用projヘルパー2
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(9401)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(9401)>0||enemy(1),stateno=5152
+id = 151
+name = "ayuayu2"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];あゆあゆキラー用、保険用projヘルパー3
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(9501)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(9501)>0||enemy(1),stateno=5152
+id = 151
+name = "ayuayu3"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];即死返し用、敵被弾用ヘルパー
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+triggerall = enemynear,name != "f1"
+trigger1 = enemy(0),numprojid(2003)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(2003)>0||enemy(1),stateno=5152
+id = 151
+name = "konsen3"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];対F1
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+triggerall = enemynear,name = "f1"
+trigger1 = enemy(0),numprojid(2013)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(2013)>0||enemy(1),stateno=5152
+id = 151
+name = "f1"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];即死返し用、保険用projヘルパー1
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(7300)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(7300)>0||enemy(1),stateno=5152
+id = 151
+name = "hoken1"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];即死返し用、保険用projヘルパー2
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(7400)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(7400)>0||enemy(1),stateno=5152
+id = 151
+name = "hoken2"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[State -2];即死返し用、保険用projヘルパー3
+type = helper
+triggerall = !Ishelper
+triggerall = numhelper(151)=0
+triggerall = palno = 12
+trigger1 = enemy(0),numprojid(7500)>0||enemy(0),stateno=5152
+trigger2 = enemy(1),numprojid(7500)>0||enemy(1),stateno=5152
+id = 151
+name = "hoken3"
+pos = 0,0
+postype = P1
+stateno = 151
+helpertype = player
+keyctrl = 0
+ownpal = 1
+ignorehitpause = 1
+SuperMoveTime = 99999999999
+PauseMoveTime = 99999999999
+
+[state -2];見えないように
+type = AssertSpecial
+trigger1 = Ishelper(151)||Ishelper(152)||Ishelper(153)||Ishelper(154)
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  並列混線ヘルパーメモリ確保用ダミーヘルパー + 並列混線被弾ヘルパー生成
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+;  並列混線ヘルパーメモリ確保用ダミーヘルパーを生成。
+;  並列混線被弾ヘルパー1から生成する並列混線ヘルパー1の領域を確保しておく。
+;  並列混線被弾ヘルパーと交互に同じものを24個生成。
+
+[State -2, 並列混線占有1]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16000)	;並列混線被弾ヘルパー1
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  並列混線被弾ヘルパーを生成。
+;  並列混線ヘルパー1を生成するためのヘルパー。
+;  このヘルパーの領域が並列混線ヘルパーのターゲット領域になったり,親変更のターゲット領域になる。
+;  本体から呼び出すのは最初の1F目のみ。
+;  親変更可能範囲のIDでなければデストロイし,最終ヘルパーから生成される。
+
+[State -2, 並列混線被弾ヘルパー1]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16000)	;並列混線被弾ヘルパー1
+ID = 16000
+name = "H-Konsen-Hidan 1[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有2]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16001)	;並列混線被弾ヘルパー2
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー2]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16001)	;並列混線被弾ヘルパー2
+ID = 16001
+name = "H-Konsen-Hidan 2[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有3]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16002)	;並列混線被弾ヘルパー3
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー3]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16002)	;並列混線被弾ヘルパー3
+ID = 16002
+name = "H-Konsen-Hidan 3[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有4]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16003)	;並列混線被弾ヘルパー4
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー4]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16003)	;並列混線被弾ヘルパー4
+ID = 16003
+name = "H-Konsen-Hidan 4[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有5]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16004)	;並列混線被弾ヘルパー5
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー5]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16004)	;並列混線被弾ヘルパー5
+ID = 16004
+name = "H-Konsen-Hidan 5[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有6]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16005)	;並列混線被弾ヘルパー6
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー6]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16005)	;並列混線被弾ヘルパー6
+ID = 16005
+name = "H-Konsen-Hidan 6[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有7]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16006)	;並列混線被弾ヘルパー7
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー7]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16006)	;並列混線被弾ヘルパー7
+ID = 16006
+name = "H-Konsen-Hidan 7[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有8]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16007)	;並列混線被弾ヘルパー8
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー8]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16007)	;並列混線被弾ヘルパー8
+ID = 16007
+name = "H-Konsen-Hidan 8[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有9]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16008)	;並列混線被弾ヘルパー9
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー9]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16008)	;並列混線被弾ヘルパー9
+ID = 16008
+name = "H-Konsen-Hidan 9[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有10]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16009)	;並列混線被弾ヘルパー10
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー10]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16009)	;並列混線被弾ヘルパー10
+ID = 16009
+name = "H-Konsen-Hidan10[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有11]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16010)	;並列混線被弾ヘルパー11
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー11]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16010)	;並列混線被弾ヘルパー11
+ID = 16010
+name = "H-Konsen-Hidan11[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有12]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16011)	;並列混線被弾ヘルパー12
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー12]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16011)	;並列混線被弾ヘルパー12
+ID = 16011
+name = "H-Konsen-Hidan12[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有13]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16012)	;並列混線被弾ヘルパー13
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー13]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16012)	;並列混線被弾ヘルパー13
+ID = 16012
+name = "H-Konsen-Hidan13[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有14]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16013)	;並列混線被弾ヘルパー14
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー14]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16013)	;並列混線被弾ヘルパー14
+ID = 16013
+name = "H-Konsen-Hidan14[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有15]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16014)	;並列混線被弾ヘルパー15
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー15]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16014)	;並列混線被弾ヘルパー15
+ID = 16014
+name = "H-Konsen-Hidan15[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有16]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16015)	;並列混線被弾ヘルパー16
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー16]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16015)	;並列混線被弾ヘルパー16
+ID = 16015
+name = "H-Konsen-Hidan16[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有17]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16016)	;並列混線被弾ヘルパー17
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー17]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16016)	;並列混線被弾ヘルパー17
+ID = 16016
+name = "H-Konsen-Hidan17[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有18]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16019)	;並列混線被弾ヘルパー18
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー18]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16017)	;並列混線被弾ヘルパー18
+ID = 16017
+name = "H-Konsen-Hidan18[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有19]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16018)	;並列混線被弾ヘルパー19
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー19]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16018)	;並列混線被弾ヘルパー19
+ID = 16018
+name = "H-Konsen-Hidan19[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有20]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16019)	;並列混線被弾ヘルパー20
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー20]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16019)	;並列混線被弾ヘルパー20
+ID = 16019
+name = "H-Konsen-Hidan20[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有21]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16020)	;並列混線被弾ヘルパー21
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー21]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16020)	;並列混線被弾ヘルパー21
+ID = 16020
+name = "H-Konsen-Hidan21[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有22]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16021)	;並列混線被弾ヘルパー22
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー22]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16021)	;並列混線被弾ヘルパー22
+ID = 16021
+name = "H-Konsen-Hidan22[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有23]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16022)	;並列混線被弾ヘルパー23
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー23]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16022)	;並列混線被弾ヘルパー23
+ID = 16022
+name = "H-Konsen-Hidan23[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線占有24]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16023)	;並列混線被弾ヘルパー24
+ID = 16999
+name = "H-Konsen-Dummy[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  以下は繰り返し。
+
+[State -2, 並列混線被弾ヘルパー24]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+triggerall = !NumHelper(99999)	;最終ヘルパー
+trigger1   = !NumHelper(16023)	;並列混線被弾ヘルパー24
+ID = 16023
+name = "H-Konsen-Hidan24[BW]"
+helpertype = Player
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  最終ヘルパー生成
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+;  最終ヘルパーを生成。
+;  ヘルパーはメモリ領域番号(デバッグ画面のCtrl+Cで見られる(59)などの番号を自分が勝手にそう呼んでいます)
+;  の小さい方から処理がされるので(MoveType = Aの場合は優先的に処理されますが)普通は一番最後に
+;  処理されるヘルパー。(ヘルパーが生成されたフレームは,生成されたヘルパーの方が後に行動できます)
+
+[State -2, 最終ヘルパー]
+type = Helper
+triggerall = palno = 12
+triggerall = !IsHelper
+triggerall = enemynear,name != "OmegaTH";トムが相手の時には出さないように設定
+triggerall = enemynear,name != "Xibalba"
+triggerall = enemynear,name != "G-Dialga"
+triggerall = enemynear,name != "Itzamna"
+triggerall = enemynear,name != "Ultimate_Cell"
+triggerall = enemynear,name != "Arcadia"
+triggerall = enemynear,name != "Sirius"
+triggerall = enemynear,name != "Kukulkan"
+triggerall = enemynear,name != "HLR01-CANOPUS"
+triggerall = enemynear,name != "D-Broly"
+trigger1   = !NumHelper(99999)	;最終ヘルパー
+ID = 99999
+name = "Last[BW]"
+helpertype = Player
+supermovetime = 999999999999
+pausemovetime = 999999999999
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;  ヘルパーステート固定
+;━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+;--------------------------------------------------------------------------------------------------
+
+[State -2, 並列混線ヘルパーステート固定]
+type = SelfState
+triggerall = IsHelper
+trigger1   = IsHelper(16100) || IsHelper(16101) || IsHelper(16102) || IsHelper(16103)
+trigger2   = IsHelper(16104) || IsHelper(16105) || IsHelper(16106) || IsHelper(16107)
+trigger3   = IsHelper(16108) || IsHelper(16109) || IsHelper(16110) || IsHelper(16111)
+trigger4   = IsHelper(16112) || IsHelper(16113) || IsHelper(16114) || IsHelper(16115)
+trigger5   = IsHelper(16116) || IsHelper(16117) || IsHelper(16118) || IsHelper(16119)
+trigger6   = IsHelper(16120) || IsHelper(16121) || IsHelper(16122) || IsHelper(16123)
+value = ifelse(!sysvar(1),16100,ifelse((HitPauseTime && (sysvar(0) & 1)),7070707,16101))
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+
+[State -2, 並列混線被弾ヘルパーステート固定]
+type = SelfState
+triggerall = IsHelper
+trigger1   = IsHelper(16000) || IsHelper(16001) || IsHelper(16002) || IsHelper(16003)
+trigger2   = IsHelper(16004) || IsHelper(16005) || IsHelper(16006) || IsHelper(16007)
+trigger3   = IsHelper(16008) || IsHelper(16009) || IsHelper(16010) || IsHelper(16011)
+trigger4   = IsHelper(16012) || IsHelper(16013) || IsHelper(16014) || IsHelper(16015)
+trigger5   = IsHelper(16016) || IsHelper(16017) || IsHelper(16018) || IsHelper(16019)
+trigger6   = IsHelper(16020) || IsHelper(16021) || IsHelper(16022) || IsHelper(16023)
+value = ifelse(Root,var(56),16001,16000)	;親変更可能領域なら通常処理へ
+ignorehitpause = 1				;そうでなければID調査ステートへ
+
+;---------------------------------------------------------------------------
+;勝利演出用
+[State -2, 背景の色を変えるステコン]
+type = BgPalfx
+triggerall = palno = 12
+trigger1 = WinKo
+trigger1 = Time = 0
+invertall = 1
+add = 30,0,20
+time = -1
+color = 0
+
+;---------------------------------------------------------------------------
+;ダウン時の効果音
+[State -2, bounce Sound]
+type = PlaySnd
+trigger1 = Time = 1
+trigger1 = stateno = 5100
+Volume = 999999999
+value = 5100, 0
+
+[State -2, fall Sound]
+type = PlaySnd
+trigger1 = Time = 1
+trigger1 = stateno = 5110
+Volume = 999999999
+value = 5110, 0
+
+;--------------------------------------------------------------------
+;残り体力が危ない時の台詞「クズごときがぁ･･･！！」（ノーマルカラー）
+[State -2]
+type = Helper
+triggerall = NumHelper(14001) = 0
+triggerall = !ishelper
+trigger1 =  (palno = [1,6]) || palno = [8,9]
+trigger1 = life <= 250
+helpertype = normal
+name = "serihu1"
+ID = 14001
+stateno = 14001
+pos = 0,0
+postype = p1    
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999999999999999
+pausemovetime = 9999999999999999
+ignorehitpause = 1
+persistent = 0
+
+;--------------------------------------------------------------------
+;残り体力が危ない時の台詞「フリーザ様をなめるなよぉ！！」（7Pカラー）
+[State -2]
+type = Helper
+triggerall = NumHelper(14002) = 0
+triggerall = !ishelper
+trigger1 = PalNo = 7
+trigger1 = life <= 250
+helpertype = normal
+name = "serihu2"
+ID = 14002
+stateno = 14002
+pos = 0,0
+postype = p1    
+facing = 1
+keyctrl = 0
+ownpal = 1
+supermovetime = 9999999999999999
+pausemovetime = 9999999999999999
+ignorehitpause = 1
+persistent = 0
+
+;--------------------------------------------------------------------
+; Random variable for random sounds
+[State -2, 8];わからないけどたぶんﾀﾞﾒｰｼﾞﾎﾞｲｽ系
+type = VarRandom
+triggerall = Time = 1
+trigger1 = stateno = 5000
+trigger2 = stateno = 5010
+v = 15
+range = 0,24
+
+;やられボイス（ノーマル）
+; Play "ouch" sound A when hit light or medium
+[State -2, 9];弱・中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系A
+type = PlaySnd
+triggerall = palno != 7
+triggerall = Var(15) = [0,4]
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5000
+trigger2 = anim = 5001
+trigger3 = anim = 5010
+trigger4 = anim = 5011
+Volume = 999999999
+value = s190, 47
+
+; Play "ouch" sound B when hit light or medium
+[State -2, 10];弱・中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系B
+type = PlaySnd
+triggerall = palno != 7
+triggerall = Var(15) = [5,9]
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5000
+trigger2 = anim = 5001
+trigger3 = anim = 5010
+trigger4 = anim = 5011
+Volume = 999999999
+value = s190, 47
+
+; Play "ouch" sound A when hit light or medium (in the air)
+[State -2, 11];弱・中の空中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系A
+type = PlaySnd
+triggerall = palno != 7
+triggerall = Var(15) = [0,4]
+triggerall = time = 1
+triggerall = stateno = 5010
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5020
+trigger2 = anim = 5021
+Volume = 999999999
+value = s190, 47
+
+; Play "ouch" sound B when hit light or medium (in the air)
+[State -2, 12];弱・中の空中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系B
+type = PlaySnd
+triggerall = palno != 7
+triggerall = Var(15) = [5,9]
+triggerall = time = 1
+triggerall = stateno = 5010
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5020
+trigger2 = anim = 5021
+Volume = 999999999
+value = s190, 47
+
+; Play "ouch" sound A when hit hard
+[State -2, 13];強攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系A
+type = PlaySnd
+triggerall = palno != 7
+triggerall = Var(15) = [0,4]
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5002
+trigger2 = anim = 5012
+Volume = 999999999
+value = s190, 46
+
+; Play "ouch" sound B when hit hard
+[State -2, 14];強攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系B
+type = PlaySnd
+triggerall = palno != 7
+triggerall = Var(15) = [5,9]
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5002
+trigger2 = anim = 5012
+Volume = 999999999
+value = s190, 46
+
+; Play "ouch" sound A when hit hard (in the air)
+[State -2, 15];強の空中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系A
+type = PlaySnd
+triggerall = palno != 7
+triggerall = !ishelper
+trigger1 = Var(15) = [0,4]
+trigger1 = time = 1
+trigger1 = stateno = 5010
+trigger1 = alive
+trigger1 = anim = 5022
+Volume = 999999999
+value = s190, 46
+
+; Play "ouch" sound B when hit hard (in the air)
+[State -2, 16];強の空中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系B
+type = PlaySnd
+triggerall = palno != 7
+triggerall = !ishelper
+trigger1 = Var(15) = [5,9]
+trigger1 = time = 1
+trigger1 = stateno = 5010
+trigger1 = alive
+trigger1 = anim = 5022
+Volume = 999999999
+value = s190, 46
+
+;やられボイス（7P）
+; Play "ouch" sound A when hit light or medium
+[State -2, 9];弱・中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系A
+type = PlaySnd
+triggerall = palno = 7
+triggerall = Var(15) = [0,4]
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5000
+trigger2 = anim = 5001
+trigger3 = anim = 5010
+trigger4 = anim = 5011
+Volume = 999999999
+value = s390, 6
+
+; Play "ouch" sound B when hit light or medium
+[State -2, 10];弱・中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系B
+type = PlaySnd
+triggerall = palno = 7
+triggerall = Var(15) = [5,9]
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5000
+trigger2 = anim = 5001
+trigger3 = anim = 5010
+trigger4 = anim = 5011
+Volume = 999999999
+value = s390, 7
+
+; Play "ouch" sound A when hit light or medium (in the air)
+[State -2, 11];弱・中の空中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系A
+type = PlaySnd
+triggerall = palno = 7
+triggerall = Var(15) = [0,4]
+triggerall = time = 1
+triggerall = stateno = 5010
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5020
+trigger2 = anim = 5021
+Volume = 999999999
+value = s390, 6
+
+; Play "ouch" sound B when hit light or medium (in the air)
+[State -2, 12];弱・中の空中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系B
+type = PlaySnd
+triggerall = palno = 7
+triggerall = Var(15) = [5,9]
+triggerall = time = 1
+triggerall = stateno = 5010
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5020
+trigger2 = anim = 5021
+Volume = 999999999
+value = s390, 7
+
+; Play "ouch" sound A when hit hard
+[State -2, 13];強攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系A
+type = PlaySnd
+triggerall = palno = 7
+triggerall = Var(15) = [0,4]
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5002
+trigger2 = anim = 5012
+Volume = 999999999
+value = s390, 7
+
+; Play "ouch" sound B when hit hard
+[State -2, 14];強攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系B
+type = PlaySnd
+triggerall = palno = 7
+triggerall = Var(15) = [5,9]
+triggerall = time = 1
+triggerall = stateno = 5000
+triggerall = alive
+triggerall = !ishelper
+trigger1 = anim = 5002
+trigger2 = anim = 5012
+Volume = 999999999
+value = s390, 8
+
+; Play "ouch" sound A when hit hard (in the air)
+[State -2, 15];強の空中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系A
+type = PlaySnd
+triggerall = palno = 7
+triggerall = !ishelper
+trigger1 = Var(15) = [0,4]
+trigger1 = time = 1
+trigger1 = stateno = 5010
+trigger1 = alive
+trigger1 = anim = 5022
+Volume = 999999999
+value = s390, 7
+
+; Play "ouch" sound B when hit hard (in the air)
+[State -2, 16];強の空中攻撃のﾀﾞﾒｰｼﾞﾎﾞｲｽ系B
+type = PlaySnd
+triggerall = palno = 7
+triggerall = !ishelper
+trigger1 = Var(15) = [5,9]
+trigger1 = time = 1
+trigger1 = stateno = 5010
+trigger1 = alive
+trigger1 = anim = 5022
+Volume = 999999999
+value = s390, 8
+
+;-----------------------------------------------------------------------------------------------
+;やられボイス空中
+[State -2]
+Type = VarRandom
+triggerall = palno != 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 0
+Trigger1 = StateNo = 5020
+V = 9
+Range = 0,2
+IgnoreHitPause = 1
+
+[State -2]
+Type = PlaySnd
+triggerall = palno != 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+TriggerAll = Var(9) = 0
+Trigger1 = StateNo = 5020
+Volume = 999999999
+Value = s190, 47
+
+[State -2]
+Type = PlaySnd
+triggerall = palno != 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+TriggerAll = Var(9) = 1
+Trigger1 = StateNo = 5020
+Volume = 999999999
+Value = s190, 46
+
+[State -2]
+Type = PlaySnd
+triggerall = palno != 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+TriggerAll = Var(9) = 2
+Trigger1 = StateNo = 5020
+Volume = 999999999
+Value = s190, 48
+
+;やられボイス空中（7P）
+[State -2]
+Type = VarRandom
+triggerall = palno = 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 0
+Trigger1 = StateNo = 5020
+V = 9
+Range = 0,1
+IgnoreHitPause = 1
+
+[State -2]
+Type = PlaySnd
+triggerall = palno = 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+TriggerAll = Var(9) = 0
+Trigger1 = StateNo = 5020
+Volume = 999999999
+Value = s390, 7
+
+[State -2]
+Type = PlaySnd
+triggerall = palno = 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+TriggerAll = Var(9) = 1
+Trigger1 = StateNo = 5020
+Volume = 999999999
+Value = s390, 8
+
+;-----------------------------------------------------------------------------------------------
+;ガードボイス（通常カラー）
+[State -2]
+Type = VarRandom
+triggerall = PalNo != 7
+triggerall = PalNo != [11,12]
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 0
+triggerall = !ishelper
+Trigger1 = StateNo = 150
+Trigger2 = StateNo = 152
+Trigger3 = StateNo = 154
+V = 9
+Range = 0,1
+
+[State -2]
+Type = PlaySnd
+triggerall = PalNo != 7
+triggerall = PalNo != [11,12]
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+TriggerAll = Var(9) = 0
+triggerall = !ishelper
+Trigger1 = StateNo = 150
+Trigger2 = StateNo = 152
+Trigger3 = StateNo = 154
+Volume = 999999999
+Value = s0, 9
+Channel = 0
+
+[State -2]
+Type = PlaySnd
+triggerall = PalNo != 7
+triggerall = PalNo != [11,12]
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+TriggerAll = Var(9) = 1
+triggerall = !ishelper
+Trigger1 = StateNo = 150
+Trigger2 = StateNo = 152
+Trigger3 = StateNo = 154
+Volume = 999999999
+Value = s200, 6
+Channel = 0
+
+;------------------------------------------------------------------------------------------
+;ガードボイス（7Pカラー）
+[State -2]
+Type = VarRandom
+triggerall = PalNo = 7
+triggerall = PalNo != [11,12]
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 0
+triggerall = !ishelper
+Trigger1 = StateNo = 150
+Trigger2 = StateNo = 152
+Trigger3 = StateNo = 154
+V = 9
+Range = 0,0
+
+[State -2]
+Type = PlaySnd
+triggerall = PalNo = 7
+triggerall = PalNo != [11,12]
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+TriggerAll = Var(9) = 0
+triggerall = !ishelper
+Trigger1 = StateNo = 150
+Trigger2 = StateNo = 152
+Trigger3 = StateNo = 154
+Volume = 999999999
+Value = s390, 10
+Channel = 0
+
+;------------------------------------------------------------------------------------------
+;起き上がりボイス7P
+[State -2]
+Type = VarRandom
+triggerall = PalNo = 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+Trigger1 = StateNo = 5120
+Trigger1 = Anim = 5120
+Trigger2 = StateNo = 5120
+Trigger2 = Anim = 5120
+V = 9
+Range = 0,0
+
+[State -2]
+Type = PlaySnd
+triggerall = PalNo = 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Var(9) >= 0
+TriggerAll = Time = 1
+Trigger1 = StateNo = 5120
+Trigger1 = Anim = 5120
+Trigger2 = StateNo = 5120
+Trigger2 = Anim = 5121
+Volume = 999999999
+Value = s390, 14
+Channel = 0
+
+;------------------------------------------------------------------------------------------
+;気絶ボイス
+[State -2]
+Type = PlaySnd
+triggerall = palno != 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+Trigger1 = StateNo = 5300
+Trigger2 = Anim = 5300
+Volume = 999999999
+Value = s190, 43
+
+[State -2]
+Type = PlaySnd
+triggerall = palno = 7
+triggerall = !ishelper
+TriggerAll = Alive = 1
+TriggerAll = Time = 1
+Trigger1 = StateNo = 5300
+Trigger2 = Anim = 5300
+Volume = 999999999
+Value = s390, 8
+
+;------------------------------------------------------------------------------------------
+;ランダムボイス
+[State -2, Random Voice]
+type = VarRandom
+triggerall = !ishelper
+trigger1 = TimeMod = 4,0
+v = 13
+range = 1,100
+IgnoreHitPause = 1
+
+;------------------------------------------------------------------------------------------
+;KOボイス
+[state -2]
+type = varset
+trigger1 = alive = 1
+v = 14
+value = 0
+
+[state -2]
+type = varadd
+trigger1 = alive = 0
+v = 14
+value = 1
+
+[state -2]
+type = PlaySnd
+triggerall = palno != 7
+triggerall = !ishelper
+triggerall = palno != 12
+trigger1 = alive = 0
+trigger1 = var(14) = 1
+Volume = 999999999
+value = 3636,0+(Random % 2)
+
+[state -2]
+type = PlaySnd
+triggerall = palno = 7
+triggerall = !ishelper
+triggerall = palno != 12
+trigger1 = alive = 0
+trigger1 = var(14) = 1
+Volume = 999999999
+value = 990,0+(Random % 2)
+
+;タイムアップ時に全回復
+[State -2,タイムアップ回復]
+type = Lifeset
+triggerall = !ishelper
+triggerall = roundstate != 2
+trigger1 = palno = 12
+value = lifemax
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;	アーマー
+;---------------------------------------------------------------------------
+[State -2, ヘルパーアーマー呼び出し]
+type = Helper
+triggerall = !ishelper
+triggerall = alive
+triggerall = palno = [11,12]
+trigger1 = numhelper(150) = 0
+ID = 150
+pos = 0,0
+postype = p1
+stateno = 150
+helpertype = player
+supermovetime = 99999999999
+pausemovetime = 99999999999
+ignorehitpause = 1
+
+[State -2, 本体無敵]
+type = Nothitby
+triggerall = palno = [11,12]
+trigger1 = !ishelper
+value = SCA
+time = -1
+ignorehitpause = 1
+
+[State -2, ガード不能化]
+type = Assertspecial
+triggerall = palno = [11,12]
+trigger1 = !ishelper 
+flag = nostandguard
+flag2 = nocrouchguard
+flag3 = noairguard
+ignorehitpause = 1
+
+;-------------------------------------------
+[State -2, ダメージ処理]
+type = Lifeadd
+triggerall = !ishelper
+triggerall = numhelper(150)
+trigger1 = helper(150),gethitvar(damage)
+trigger1 = palno = 11
+value = -70
+ignorehitpause = 1
+
+[State -2, ダメージ処理]
+type = Lifeadd
+triggerall = !ishelper 
+triggerall = numhelper(150)
+trigger1 = helper(150),gethitvar(damage)
+trigger1 = palno = 12
+value = -20
+ignorehitpause = 1
+
+;-------------------------------------------
+;垂れ流し即死
+
+;待機モーション中
+[State -2,]
+type = Projectile
+triggerall = !ishelper
+triggerall = palno = 12
+triggerall = enemynear,name != "Oniwarud"
+triggerall = enemynear,name != "Fake"
+triggerall = enemynear,name != "Test Subject"
+triggerall = movetype = I
+trigger1 = roundstate = 2
+projanim = 20000
+projID = 150
+projremove = 0
+projremovetime = 1
+projheightbound = -1000000, 1000000
+projedgebound = 1000000
+projstagebound = 1000000
+offset = 0, 0
+attr = SCA, AA, AT, AP
+hitflag = MAFD
+damage   = 9999999
+priority = 7, hit
+projpriority = 9999999999999
+yaccel = 1
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 999, 999
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+ground.velocity = 0, 10
+air.velocity = 0, 10
+fall = 1
+fall.damage = 9999999
+palfx.time = 30
+palfx.add = 0,0,0
+palfx.sinadd = 0,50,50,10
+palfx.color = 0
+palfx.invertall = 1
+
+;攻撃モーション中
+[State -2,]
+type = Projectile
+triggerall = !ishelper
+triggerall = palno = 12
+triggerall = enemynear,name != "Oniwarud"
+triggerall = enemynear,name != "Fake"
+triggerall = enemynear,name != "Test Subject"
+triggerall = movetype = A
+trigger1 = roundstate = 2
+projanim = 20000
+projID = 150
+projremove = 0
+projremovetime = 1
+projheightbound = -1000000, 1000000
+projedgebound = 1000000
+projstagebound = 1000000
+offset = 0, 0
+attr = SCA, AA, AT, AP
+hitflag = MAFD
+damage   = 9999999
+priority = 7, hit
+projpriority = 9999999999999
+yaccel = 1
+sparkno = -1
+guard.sparkno = -1
+sparkxy = 999, 999
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+ground.velocity = 0, 10
+air.velocity = 0, 10
+fall = 1
+fall.damage = 9999999
+palfx.time = 30
+palfx.add = 0,0,0
+palfx.sinadd = 0,50,50,10
+palfx.color = 0
+palfx.invertall = 1
+
+[State -2, 対オニワルド、バルバトス]
+type = Projectile
+triggerall = !ishelper
+triggerall = alive
+triggerall = roundstate = 2
+triggerall = palno = 12
+triggerall = enemy,palno = 12
+trigger1 = enemynear,name = "Oniwarud"
+trigger2 = enemynear,name = "Azathoth"
+trigger3 = enemynear,name = "Barbatos_Goetia"
+projanim = 20000
+projID = 132
+projremove = 0
+projremovetime = 1
+projsprpriority = -1
+numhits = 0
+attr = SCA, AA, AT, AP
+hitflag = MA
+damage = ifelse(enemynear,name = "Barbatos_Goetia", 9999999999999, 9)
+priority = 7, hit
+projpriority = 9999999999999
+yaccel = 9999999999999
+fall = 1
+fall.recover = 0
+fall.damage = 9999999999999
+sparkno = -1
+guard.sparkno = -1
+p2stateno = 5110
+p2getp1state = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;---------------------------------------------------------------------------
+;ライフ、ゲージ回復10P
+
+;ライフ回復
+[State -2,]
+type = lifeadd
+triggerall = 1
+triggerall = Life >= 1
+triggerall = Life <= 100
+trigger1 = PalNo = 10
+value = 1
+
+[State -2,]
+type = lifeadd
+triggerall = Time = 1
+triggerall = Life >= 100
+trigger1 = PalNo = 10
+value = 1
+
+;ライフ回復根性地
+[State -2, 根性値]
+type = lifeadd
+trigger1 = PalNo = 10
+trigger1 = Life <= ceil(lifemax * 0.75)
+trigger1 = Life > ceil(lifemax * 0.5)
+value = ceil(gethitvar(damage) * 0.25)
+
+[State -2, 根性値]
+type = lifeadd
+trigger1 = PalNo = 10
+trigger1 = Life <= ceil(lifemax * 0.5)
+trigger1 = Life > ceil(lifemax * 0.25)
+value = ceil(gethitvar(damage) * 0.5)
+
+[State -2, 根性値]
+type = lifeadd
+trigger1 = PalNo = 10
+trigger1 = Life <= ceil(lifemax * 0.25)
+trigger1 = life > ceil(gethitvar(damage) * 0.75)
+value = ceil(gethitvar(damage) * 0.75)
+
+[State -2, 根性値]
+type = lifeadd
+trigger1 = PalNo = 10
+trigger1 = RoundState = 2
+trigger1 = Life > 0
+trigger1 = gametime%10 = 0
+value = ceil(lifemax - life)/100
+
+;パワー自動上昇
+[state -2 pa]
+type = Poweradd
+triggerall = Alive = 1
+trigger1 = PalNo = 10
+trigger1 = TimeMod = 1,0
+value = 4 ;回復量
+
+;攻撃力上昇根性地
+[State -2, 攻撃力アップ]
+type = attackmulset
+triggerall = 1
+triggerall = Life <= 250
+trigger1 = PalNo = 10
+value = 30
+
+[State -2, 攻撃力アップ]
+type = attackmulset
+triggerall = 1
+triggerall = Life >= 250
+triggerall = Life <= 500
+trigger1 = PalNo = 10
+value = 17
+
+[State -2, 攻撃力アップ]
+type = attackmulset
+triggerall = 1
+triggerall = Life >= 500
+trigger1 = PalNo = 10
+value = 7
+
+[State -2, 攻撃力アップ 通常体力]
+type = attackmulset
+triggerall = 1
+trigger1 = PalNo = 10
+value = 3
+
+[State -2, 防御力アップ]
+type = DefenceMulSet
+trigger1 = PalNo = 10
+value = 0.8
+
+;防御力上昇根性地
+[State -2, 防御力アップ]
+type = defencemulset
+triggerall = 1
+triggerall = Life <= 250
+trigger1 = PalNo = 10
+value = 0.1
+
+[State -2, 防御力アップ]
+type = defencemulset
+triggerall = 1
+triggerall = Life >= 250
+triggerall = Life <= 500
+trigger1 = PalNo = 10
+value = 0.5
+
+[State -2, 防御力アップ]
+type = defencemulset
+triggerall = 1
+triggerall = Life >= 500
+trigger1 = PalNo = 10
+value = 0.7
+
+-----------------------------------------
+;ゲージ回復11P
+
+;パワー自動上昇
+[state -2 pa]
+type = Poweradd
+triggerall = Alive = 1
+trigger1 = PalNo = 11
+trigger1 = TimeMod = 1,0
+value = 10 ;回復量
+
+;攻撃力上昇
+[State -2, AttackUP]
+type = AttackMulSet
+trigger1 = PalNo = 11
+value = 3
+
+;防御力上昇
+[State -2, DefenceUP]
+type = DefenceMulSet
+trigger1 = PalNo = 11
+value = 0.1
+
+;攻撃力上昇根性地
+[State -2, 攻撃力アップ]
+type = attackmulset
+triggerall = 1
+triggerall = Life <= 250
+trigger1 = PalNo = 11
+value = 10
+
+[State -2, 攻撃力アップ]
+type = attackmulset
+triggerall = 1
+triggerall = Life >= 250
+triggerall = Life <= 500
+trigger1 = PalNo = 11
+value = 7
+
+[State -2, 攻撃力アップ]
+type = attackmulset
+triggerall = 1
+triggerall = Life >= 500
+trigger1 = PalNo = 11
+value = 4
+
+;---------------------------------------------------------------------------
+;根性値＆ゲージ回復12P
+
+[State -2, 根性値]
+type = lifeadd
+trigger1 = PalNo = 12
+trigger1 = Life <= ceil(lifemax * 0.75)
+trigger1 = Life > ceil(lifemax * 0.5)
+value = ceil(gethitvar(damage) * 0.25)
+
+[State -2, 根性値]
+type = lifeadd
+trigger1 = PalNo = 12
+trigger1 = Life <= ceil(lifemax * 0.5)
+trigger1 = Life > ceil(lifemax * 0.25)
+value = ceil(gethitvar(damage) * 0.5)
+
+[State -2, 根性値]
+type = lifeadd
+trigger1 = PalNo = 12
+trigger1 = Life <= ceil(lifemax * 0.25)
+trigger1 = life > ceil(gethitvar(damage) * 0.75)
+value = ceil(gethitvar(damage) * 0.75)
+
+[State -2, ライフ半分以下で体力が徐々に回復]
+type = lifeadd
+trigger1 = PalNo = 12
+trigger1 = RoundState = 2
+trigger1 = Life > 0
+trigger1 = gametime%10 = 0
+value = ceil(lifemax - life)/500
+
+;パワー自動上昇
+[state -2 pa]
+type = poweradd
+trigger1= (GameTime% 1 )=0 ;何フレーム（時間）ごとに回復するか
+trigger1 = PalNo = 12
+value = 9999999 ;回復量
+;ignorehitpause = 1
+
+;防御力上昇
+[State -2, DefenceUP]
+type = DefenceMulSet
+trigger1 = PalNo = 12
+value = 0.00001
+
+;-----------------------------------------------------------------------------
+[State -2];敗北イントロへ
+type = changestate
+triggerall = palno = [11,12]
+trigger1 = !ishelper
+trigger1 = alive = 0
+trigger1 = life <= 0
+trigger1 = stateno != 5150
+value = 5150
+ctrl = 0
+
+;-----------------------------------------------------------------------------
+;10P用オーラ1
+[State -2]
+type = Explod
+triggerall = !ishelper
+trigger1 = PalNo = 10
+trigger1 = numexplod(89784) = 0
+anim = 90000
+id = 89784
+sprpriority = 0
+postype = p1
+pos = 3,-7
+scale= 0.8,0.5
+bindtime = -1
+under = 0
+ownpal = 1
+removetime = -1
+ignorehitpause = 1
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;10P用オーラ2
+[State -2]
+type = Explod
+triggerall = !ishelper
+trigger1 = PalNo = 10
+trigger1 = numexplod(89784) = 0
+anim = 90000
+id = 89784
+sprpriority = 0
+postype = p1
+pos = 3,-7
+scale= 0.8,0.5
+bindtime = -1
+under = 0
+ownpal = 1
+removetime = -1
+ignorehitpause = 1
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;10P用オーラ3
+[State -2]
+type = Explod
+triggerall = !ishelper
+trigger1 = PalNo = 10
+trigger1 = numexplod(89785) = 0
+anim = 90001
+id = 89785
+sprpriority = 4
+postype = p1
+pos = 7,-11
+bindtime = -1
+under = 0
+ownpal = 1
+removetime = -1
+ignorehitpause = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;10P用オーラ4
+[State -2]
+type = Explod
+triggerall = !ishelper
+trigger1 = PalNo = 10
+trigger1 = numexplod(89785) = 0
+anim = 90001
+id = 89785
+sprpriority = 4
+postype = p1
+pos = 7,-11
+bindtime = -1
+under = 0
+ownpal = 1
+removetime = -1
+ignorehitpause = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;10P用オーラ5
+[State -2]
+type = Explod
+triggerall = !ishelper
+trigger1 = PalNo = 10
+trigger1 = numexplod(89786) = 0
+anim = 1950
+id = 89786
+sprpriority = 0
+postype = p1
+pos = 4,0
+bindtime = -1
+under = 0
+ownpal = 1
+removetime = -1
+ignorehitpause = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;10P用オーラ6
+[State -2]
+type = Explod
+triggerall = !ishelper
+trigger1 = PalNo = 10
+trigger1 = numexplod(89786) = 0
+anim = 1950
+id = 89786
+sprpriority = 0
+postype = p1
+pos = 4,0
+bindtime = -1
+under = 0
+ownpal = 1
+removetime = -1
+ignorehitpause = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[state -2]
+type=explod
+trigger1 = PalNo = 10
+trigger1=animelem=6,>=0&&gametime%2=0
+id=90003
+anim=90003
+ownpal=1
+sprpriority=5
+pos= 0,-0
+random=80,20
+scale=.1,.1
+vel=1-random%3,-2+random%2
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[state -2]
+type=explod
+trigger1 = PalNo = 10
+trigger1=animelem=6,>=0&&gametime%2=0
+id=90003
+anim=90003
+ownpal=1
+sprpriority=5
+pos= 0,-0
+random=80,20
+scale=.2,.2
+vel=1-random%3,-3+random%2
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[state -2]
+type=explod
+trigger1 = PalNo = 10
+trigger1=animelem=6,>=0&&gametime%2=0
+id=90003
+anim=90003
+ownpal=1
+sprpriority=5
+pos= 0,-0
+random=80,20
+scale=.4,.4
+vel=2-random%5,-4+random%2
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;11P用スパーク
+
+[State -2:PlaySnd]
+type = PlaySnd
+trigger1 = ((GameTime%80) = 0) && (NumExplod(9700) = 0)
+trigger1 = PalNo = 11
+channel = 8
+Volume = 999999999
+value = S690,10
+
+[State -2:Explod]
+type = Explod
+trigger1 = PalNo = 11
+trigger1 = ((GameTime%80) = 0) && (NumExplod(9700) = 0)
+anim = (IfElse(Var(13) = 0,9700,9710))
+id = 9700
+pos = 0,-42
+postype	= p1
+facing = IfElse(Random <= 499,1,-1)
+vfacing	= 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random		= 20,0
+removetime = -2
+supermove = 0
+scale = 1.2,1.2
+sprpriority = 9999999
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;12P用オーラ1
+[State -2]
+type=explod
+triggerall = PalNo = 12
+trigger1 = numexplod(90000) = 0
+id = 90000
+anim = 90000
+ownpal = 1
+sprpriority = 0
+pos = 3,-7
+scale = 0.8,0.5
+bindtime = -1
+removetime = -1
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;12P用オーラ2
+[State -2]
+type=explod
+triggerall = PalNo = 12
+trigger1 = numexplod(90001) = 0
+id = 90001
+anim = 90001
+ownpal = 1
+sprpriority = 4
+pos = 7,-11
+scale = 1.0,1.0
+bindtime = -1
+removetime = -1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;12P用オーラ3
+[State -2]
+type=explod
+triggerall = anim = 0
+triggerall = PalNo = 12
+trigger1 = numexplod(1950) = 0
+id = 1950
+anim = 1950
+ownpal = 1
+sprpriority = 0
+pos = 4,0
+scale = 1.0,1.0
+bindtime = -1
+removetime = -1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;12P用オーラ4
+[state -2]
+type=explod
+trigger1 = PalNo = 12
+trigger1=animelem=6,>=0&&gametime%2=0
+id=90003
+anim=90003
+ownpal=1
+sprpriority=5
+pos= 0,-0
+random=80,20
+scale=.1,.1
+vel=1-random%3,-2+random%2
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[state -2]
+type=explod
+trigger1 = PalNo = 12
+trigger1=animelem=6,>=0&&gametime%2=0
+id=90003
+anim=90003
+ownpal=1
+sprpriority=5
+pos= 0,-0
+random=80,20
+scale=.2,.2
+vel=1-random%3,-3+random%2
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[state -2]
+type=explod
+trigger1 = PalNo = 12
+trigger1=animelem=6,>=0&&gametime%2=0
+id=90003
+anim=90003
+ownpal=1
+sprpriority=5
+pos= 0,-0
+random=80,20
+scale=.4,.4
+vel=2-random%5,-4+random%2
+trans = sub
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;---------------------------------------------------------------------------
+;12P用スパーク1
+[State -2:PlaySnd]
+type = PlaySnd
+trigger1 = ((GameTime%80) = 0) && (NumExplod(9700) = 0)
+trigger1 = PalNo = 12
+Volume = 999999999
+channel = 8
+value = S690,10
+
+[State -2:Explod]
+type = Explod
+trigger1 = PalNo = 12
+trigger1 = ((GameTime%80) = 0) && (NumExplod(9700) = 0)
+anim = (IfElse(Var(13) = 0,9700,9710))
+id = 9700
+pos = 0,-42
+postype	= p1
+facing = IfElse(Random <= 499,1,-1)
+vfacing	= 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random		= 20,0
+removetime = -2
+supermove = 0
+scale = 1.2,1.2
+sprpriority = 9999999
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;-----------------------------------------------------------------------------
+;死亡時オーラエフェクト消し用。
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = alive = 0
+ID = 90000
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = alive = 0
+ID = 90001
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = alive = 0
+ID = 90003
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = alive = 0
+ID = 89784
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = alive = 0
+ID = 89785
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = alive = 0
+ID = 89786
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = alive = 0
+ID = 1950
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = alive = 0
+ID = 9700
+
+;-----------------------------------------------------------------------------
+;スパーク音停止
+[State -2, StopSnd]
+type = StopSnd
+trigger1 = alive = 0
+channel = 8
+
+;-----------------------------------------------------------------------------
+;高速移動＆カウンター時オーラエフェクト消し用
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim = 360 || anim = 361 || anim = 720 || anim = 710
+ID = 90000
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim = 360 || anim = 361 || anim = 720 || anim = 710
+ID = 90001
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim = 360 || anim = 361 || anim = 720 || anim = 710
+ID = 90003
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim = 360 || anim = 361 || anim = 720 || anim = 710
+ID = 89784
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim = 360 || anim = 361 || anim = 720 || anim = 710
+ID = 89785
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim = 360 || anim = 361 || anim = 720 || anim = 710
+ID = 89786
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim = 360 || anim = 361 || anim = 720 || anim = 710
+ID = 1950
+
+[State -2, エフェクト消し]
+type = RemoveExplod
+trigger1 = anim = 360 || anim = 361 || anim = 720 || anim = 710
+ID = 9700
+
+;-----------------------------------------------------------------------------
+;時止め解除ヘルパー
+[State -2, 時止め解除ヘルパー呼び出し]
+type = Helper
+triggerall = !ishelper
+triggerall = palno = [11,12]
+trigger1 = palno = [11,12]
+trigger1 = sysvar(3)
+trigger1 = gametime % 60 = 0
+trigger2 = palno = [11,12]
+trigger2 = roundstate > 2
+trigger3 = palno = [11,12]
+trigger4 = !numhelper(155)
+ID = 155
+name = "tokitome_kaijo"
+postype = p1
+pos = 0, 0
+stateno = 155
+helpertype = player
+keyctrl = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State -2, 時止め無視]
+type = Pause
+triggerall = !ishelper
+triggerall = palno = [11,12]
+trigger1 = numhelper(155)
+trigger2 = palno = [11,12]
+time = 9999999999999
+movetime = 9999999999999
+ignorehitpause = 1
+
+[State -2, 時止め無視]
+type = Superpause
+triggerall = !ishelper
+triggerall = palno = [11,12]
+trigger1 = numhelper(155)
+trigger2 = palno = [11,12]
+anim = -1
+time = 9999999999999
+movetime = 9999999999999
+unhittable = 0
+darken = 0
+p2defmul = 1
+ignorehitpause = 1
+
+;-----------------------------------------------------------------------------
+;gametime式ステ抜け用
+[State -2];gametime
+type = varset
+trigger1 = 1
+v = 29
+value = gametime
+ignorehitpause = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+;-----------------------------------------------------------------------------
+;試合開始フラグ
+[state -2]
+type = varset
+triggerall = palno = 12
+trigger1 = ctrl
+var(44) = 1
+
+;コマンド
+[State -2]
+type = VelSet
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = S
+triggerall = anim = 0
+trigger1 = command = "holdfwd"
+x = const(velocity.walk.fwd.x)
+
+[State -2]
+type = VelSet
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = S
+triggerall = anim = 0
+trigger1 = command = "holdback"
+x = const(velocity.walk.back.x)
+
+;コモンステートのアニメ
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = S
+triggerall = ctrl
+triggerall = anim = 0 || (anim = [20,21])
+trigger1 = command = "holdup"
+value = 40
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 40
+value = 41
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 40
+value = 44
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 41
+value = 41
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 41
+value = 42
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 41
+value = 43
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 44
+value = 41
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 44
+value = 42
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 44
+value = 43
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = A
+triggerall = ctrl
+trigger1 = anim = 44
+value = 44
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = S
+triggerall = ctrl
+trigger1 = anim = 41
+value = 47
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = S
+triggerall = ctrl
+trigger1 = anim = 42
+value = 47
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = S
+triggerall = ctrl
+trigger1 = anim = 43
+value = 47
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = S
+triggerall = ctrl
+trigger1 = anim = 44
+value = 47
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = anim != [10,12]
+triggerall = statetype = S
+triggerall = ctrl
+triggerall = anim = 0
+trigger1 = command = "holddown"
+value = 10
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = C
+triggerall = ctrl
+trigger1 = anim = 10
+value = 11
+
+[State -2]
+type = changeanim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = statetype = S
+triggerall = ctrl
+trigger1 = anim = 11
+value = 12
+
+[State -2]
+type = ChangeAnim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = vel x = 0
+triggerall = statetype = S
+trigger1 = Anim = 20 || Anim = 21
+value = 0
+
+[State -2]
+type = ChangeAnim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = vel x > 0
+triggerall = statetype = S
+triggerall = anim = 0
+trigger1 = Anim != 20 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 20
+
+[State -2]
+type = ChangeAnim
+triggerall = palno = 12
+triggerall = roundstate = 2
+triggerall = vel x < 0
+triggerall = statetype = S
+triggerall = anim = 0
+trigger1 = Anim != 21 && Anim != 5
+trigger2 = Anim = 5 && AnimTime = 0
+value = 21
+
+;-----------------------------------------------------------------------------
+;ヘルパー用ステ固定
+
+[State -2, 時止め解除用ステ固定]
+type = Selfstate
+trigger1 = ishelper(155)
+value = 155
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State -2, アーマー用ステ固定]
+type = Selfstate
+trigger1 = ishelper(150)
+value = 150
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State -2, OTHKヘルパー用ステ固定]
+type = Selfstate
+trigger1 = ishelper(152)
+value = 152
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State -2, 敵proj受け用ステ固定]
+type = Selfstate
+trigger1 = ishelper(151)
+value = 151
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State -2, 開幕混線ヘルパー用ステ固定]
+type = Selfstate
+trigger1 = ishelper(153)
+value = 153
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State -2, 並列混線ヘルパー用ステ固定]
+type = Selfstate
+trigger1 = ishelper(16999)
+value = 16999
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State -2, 最終ヘルパー用ステ固定]
+type = Selfstate
+trigger1 = ishelper(99999)
+value = 99999
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;-----------------------------------------------------------------------------
+;アニメ監視（本体準ステート固定用）
+
+;イントロステート
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 183
+value = 192
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 190
+value = 193
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 191
+value = 194
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 192
+value = 191
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;開幕混線用イントロ
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 199
+value = 196
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;挑発
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 181
+value = 195
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;攻撃ステート
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 301
+value = 300
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 750
+value = 750
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 400
+value = 400
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 920
+value = 920
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 500
+value = 500
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 700
+value = 700
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 321
+value = 320
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 222
+value = 222
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 748
+value = 8699
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 749
+value = 8700
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1304
+value = 680
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 682
+value = 681
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 683
+value = 682
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 12
+value = 683
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1902
+value = 900
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1300
+value = 1100
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1299
+value = 1300
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1005
+value = 1005
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1305
+value = 910
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 2051
+value = 2050
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1905
+value = 910
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1020
+value = 1020
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1021
+value = 1021
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 300
+value = 2300
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 700
+value = 2310
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 302
+value = 2320
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 699
+value = 2330
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1900
+value = 1900
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1901
+value = 1901
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 361
+value = 361
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 360
+value = 360
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 2090
+value = 2090
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1903
+value = 3020
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1499
+value = 8999
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1500
+value = 9000
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1501
+value = 9001
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1502
+value = 9002
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1503
+value = 9003
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 1360
+value = 9500
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 2042
+value = 1042
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 2045
+value = 1050
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 670
+value = 670
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 676
+value = 676
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 820
+value = 820
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 800
+value = 803
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;待機ステート
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = roundstate = 2
+trigger1 = anim = 0
+trigger2 = roundstate = 3
+trigger2 = statetype != A
+value = 0
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;コモンステート系
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = [20,21]
+value = 20
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 10
+value = 10
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 12
+value = 12
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 40
+value = 40
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 44
+value = 45
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = [41,43]
+value = 50
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 47
+value = 52
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 100
+value = 100
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 47
+value = 106
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 110
+value = 115
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;空中ダッシュ系
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 60
+value = 110
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 104
+value = 111
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 103
+value = 115
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 65
+value = 112
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 113
+value = 113
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[state -2, アニメ監視]
+type = Selfstate
+triggerall = palno = 12
+triggerall = !ishelper
+triggerall = alive
+trigger1 = anim = 44
+value = 950
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+;-----------------------------------------------------------------------------
+[StateDef -3]
+
+;--------------------------------------------------------------------------------------------------
+
+[State -3, 変数の初期化]
+type = Null
+triggerall = !IsHelper
+triggerall = !RoundState
+trigger1   = var(56) := 0 || 1	;親変更可能領域フラグ
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------
+;  親変更ヘルパーのIDを調べ, 親変更可能かどうかを調べる。
+;  マクベス氏のリーゼの記述を参考にさせて頂きました。
+
+[State -3, 親変更ヘルパーID調査]
+type = VarSet
+triggerall = !IsHelper
+triggerall = TeamSide = 1		;1P側限定
+triggerall = NumHelper(16000) && NumHelper(16001) && NumHelper(16002)
+triggerall = (Helper(16000),ID % 256 = [30,60])
+triggerall = (Helper(16001),ID % 256 = [30,60])
+trigger1   = (Helper(16002),ID % 256 = [30,60])
+var(56) = 1	;親変更可能領域フラグを立てる
+ignorehitpause = 1
+
+;--------------------------------------------------------------------------------------------------

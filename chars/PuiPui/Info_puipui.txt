@@ -1,0 +1,138 @@
+
+
+
+ Disculpen que este char salio al mismo tiempo que el reciente Pui Pui, pero igual quiero compartirlo con ustedes, especialmente los que dicen que los chars de dragon ball z son muy automaticos, este soluciona eso, ya que tiene combos personalizados al estilo Tenkaichi.
+
+Imagenes
+
+
+Lista de movimientos:
+
+-----------------------
+Combos: 
+-----------------------
+
+ Este char tiene un nuevo sistema de comnbos utilizado por primera 
+vez en un char de dragon ball z, donde alternando los botones a,b,x,y realiza
+diversos ataques especiales al estilo tenkaichi.
+
+ Combo Puños:  x,x,x,x,x,x,x (termina con un disparo de bolas de energia)
+ Combo Puños:  a,a,a,a,a,a,a (termina con un disparo de una bola de energia hacia abajo)
+ Combo mixto : alternar x y a simultaneamente
+ Combo de teletransporte: presionar b durante cualquer combo
+ Golpe levantador: presionar y durante cualquier combo
+ Super combo 1: x,x,x,x,x,x,b,y,b,(esperar 2 segundos),y
+ Super combo 2: x,a,x,a,x,b,b,b,b,b,b,a,a,a,x,x,x,b,x,x,y,b(esperar 2 segundos),y 
+
+
+-----------------------
+Ataques Especiales: 
+-----------------------
+
+ Super bola de energia: ataque con buenas animaciones y un hit personalizado
+ Abajo - adelante - x+y
+
+------------
+
+ Super Ola de energia: similar a un final flash, pero de color rojo con rayos azules.
+ Abajo - adelante - a+b
+
+------------
+
+ Disparo Pui Pui: similar al que le dispara a Yamu en la serie.
+ Abajo - atras  - a
+
+------------
+
+ Paparapa: durante la pelea, desde un lugar diferente , el mago Babidi ayuda durante la pelea.
+ Abajo - atras - b
+
+------------
+
+ Explosion Z: ataque de velocidad, con teletransportaciones y explociones de golpes de ki
+ Abajo - adelante - b
+
+------------
+
+ Bola mortal: lanza una potente bola de energia verde con rayos azules.
+ Abajo - adelante - a
+
+------------
+
+ Rafaga de volley al maximo (nombre gracioso XD) : se teletransporta hacia la posision 
+ del oponente, lo lanza hacia arriba, lo tumba hacia el suelo y le lanza varias bolas de energia.
+ Abajo - adelante - y
+
+------------
+
+ Bolas multiples de enegia: sispara pequeñas bolas de energia simultaneamente , que hacen
+ un movimiento ondulatorio.
+ Abajo - atras x
+
+------------
+
+ Disparo de energia rapido: similar al anterior pero mas practico y rapido, las bolas tienen velocidad
+ aleatoria.
+ Abajo - adelante x
+
+------------
+
+ Cargar Ki: manteniendo Z
+
+------------
+
+ Modo vuelo: C
+
+------------
+
+ Planeta Zun: cuando le queda menos de la mitad de la vida a Pui Pui, Babidi cambia el stage para
+ darle ventaja al patetico Pui Pui.
+
+------------
+
+ Super golpes rapidos: despues de un golpe levantador presionar b
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+-----------------------
+Agradecimientos: 
+-----------------------
+ Principalmente al Team OS por los sprites. Sinceramente pido disculpas por sacar este char al mismo tiempo, pero lo venia haciendo hace tiempo y no quiero que se desperdicie, solo quiero brindarles mi programacion del char a los jugadores de dragon ball z Mugen.
+
+ Antes de subir el char lei el informe dentro del otro Pui Pui, y estoy muy deacuerdo con esas opiniones, todo los
+codes dentro de mi char son libres para el que quiera copiarlos.
+
+ Tambien agradezco a Electbyte obiamente y a el creador del Famoso Vegeta GT porque utilice los sprites del spark en un golpe.
+
+ Si hay alguien que use sus Fx y no lo nombre, me avisa para darle credito tambien.
+
+Espero que disfruten este char, que es Beta , todavia le falta mucho para que este completo, 
+puede tener unos cuantos bug, que me gustaria que me los digan si los descubren para mejorarlo.
+
+
+ 
+ Saludos y gracias por leer y descargar este char que pertenece a todo el que se lo descargue.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+

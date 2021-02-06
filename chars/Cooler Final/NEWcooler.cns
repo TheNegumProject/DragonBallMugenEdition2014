@@ -1,0 +1,988 @@
+;===================================
+;　基本設定・基本動作・通常技 の設定
+;  ===================================
+[Data]
+life = 1000          ;スタート時の体力総計
+attack = 100         ;攻撃力パーセンテージ （多いほど強くなります Def:100%）
+defence = 100        ;防御力パーセンテージ （多いほど強くなります Def:100%）
+fall.defence_up = 50 ;ダウン時に攻撃された時に一時的に上がる防御力のパーセンテージ
+liedown.time = 60    ;ダウンしてから起き上がるまでの時間
+airjuggle = 30       ;ジャグルポイント数
+sparkno = 2        ;ディフォルトのスパーク番号
+guard.sparkno = 40 ;ガード時のディフォルトスパーク番
+KO.echo = 0          ;1にするとKOされた時に声にエコーがかかります
+volume = 0           ;ボリュームオフセット (negative for softer)
+
+[Size]
+xscale = 1           ;水平方向の縮尺
+yscale = 1           ;垂直方向の縮尺
+ground.back = 15     ;キャラクターの幅（後方、地上）
+ground.front = 15     ;キャラクターの幅（前方、地上）
+air.back = 15        ;キャラクターの幅（後方、空中）
+air.front = 15       ;キャラクターの幅（前方、空中）
+z.width = 3          ;Player width (into and out)（現在使用されていないと思われます）
+height = 60	     ;キャラクターの高さ
+attack.width = 4,4   ;Default attack width: back, front（現在使用されていないと思われます）
+attack.dist = 160    ;攻撃時に相手がガード体勢に入る最低距離（最大320）
+proj.attack.dist = 90 ;相手がガード体勢に入る発射物との最低距離（最大320）
+proj.doscale = 0     ;xscale, yscaleの設定が発射物にも適用するかどうか（1で有効）
+head.pos = -5, -90   ;頭の大体の座標（BindToTarget使用時に必要です。）
+mid.pos = -5, -60    ;体中心の大体の座標（BindToTarget使用時に必要です。）
+shadowoffset = 0     ;影の垂直方向オフセット
+
+[Movement]
+airjump.num = 1      ;空中ジャンプの回数 （オプション）
+airjump.height = 35  ;空中ジャンプに必要な最低限の高さ （オプション）
+yaccel = .43         ;垂直方向にかかる加速度（重力）
+stand.friction = .85  ;立ち状態での摩擦係数
+crouch.friction = .82 ;しゃがみ状態での摩擦係数
+
+[Velocity]
+walk.fwd  = 1.2      ;前進の速度
+walk.back = -1.2     ;後退の速度
+run.fwd  = 9, 0    ;前ダッシュの速度（ホップする時はyを-にする）
+run.back = -6.5,-3.8 ;後ダッシュの速度（ホップする時はyを-にする）
+jump.neu = 0,-10    ;垂直ジャンプの速度
+jump.back = -2.55    ;後ジャンプの速度
+jump.fwd = 3       ;前ジャンプの速度
+runjump.back = -2.55,-8.1 ;後ダッシュしながらのジャンプ速度(オプション)
+runjump.fwd = 6,-8.1      ;前ダッシュしながらのジャンプ速度(オプション)
+airjump.neu = 0,-8.1      ;２段ジャンプ以降の垂直ジャンプの速度(オプション)
+airjump.back = -2.55      ;２段ジャンプ以降の後ジャンプの速度(オプション)
+airjump.fwd = 2.5         ;２段ジャンプ以降の前ジャンプの速度
+
+;---------------------------------------------------------------------------
+; 勝った動作
+[Statedef 180]
+type = S
+
+[State 1000, 0]
+type = AssertSpecial
+trigger1 = 1
+flag = roundnotover
+
+;フリーザに勝利
+[State 180, 2]
+Type = ChangeState
+triggerall = palno != 7
+triggerall = MatchOver = 0
+Trigger1 = enemy,name = "Frieza"
+Value = 186
+
+[State -1]
+Type = VarRandom
+triggerall = palno != 7
+triggerall = MatchOver = 0
+Triggerall = enemy,name != "Frieza"
+Trigger1 = Time = 0
+V = 6
+Range = 0,1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;フリーザ（クウラ）に勝利
+[State 180, 2]
+Type = ChangeState
+triggerall = palno != 7
+triggerall = enemy,palno = 7
+triggerall = MatchOver = 0
+Trigger1 = enemy,name = "cooler"
+Value = 186
+
+[State -1]
+Type = VarRandom
+triggerall = palno != 7
+triggerall = enemy,palno = 7
+triggerall = MatchOver = 0
+Triggerall = enemy,name != "cooler"
+Trigger1 = Time = 0
+V = 6
+Range = 0,1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;クウラに勝利（7P専用）
+[State 180, 2]
+Type = ChangeState
+triggerall = palno = 7
+triggerall = enemy,palno != 7
+triggerall = MatchOver = 0
+Trigger1 = enemy,name = "cooler"
+Value = 186
+
+[State -1]
+Type = VarRandom
+triggerall = palno = 7
+triggerall = enemy,palno != 7
+triggerall = MatchOver = 0
+Triggerall = enemy,name != "cooler"
+Trigger1 = Time = 0
+V = 6
+Range = 0,1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;超サイヤ人に勝利
+[State 180, 2]
+Type = ChangeState
+triggerall = MatchOver = 0
+Trigger1 = enemy,name = "Songoku" || enemy,name = "Songohan" || enemy,name = "Trunks" || enemy,name = "Legendary Super Saiyan" || enemy,name = "Broly557" || enemy,name = "[Necromancer's] Broli"|| enemy,name = "vegeta"
+Value = 187
+
+[State -1]
+Type = VarRandom
+triggerall = MatchOver = 0
+Triggerall = enemy,name != "Songoku" || enemy,name != "Songohan" || enemy,name != "Trunks" || enemy,name != "Legendary Super Saiyan" || enemy,name != "Broly557" || enemy,name != "[Necromancer's] Broli"|| enemy,name != "vegeta"
+Trigger1 = Time = 0
+V = 6
+Range = 0,1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;イツァムナーに勝利
+[State 180, 2]
+Type = ChangeState
+triggerall = palno = 12
+triggerall = MatchOver = 0
+Trigger1 = enemy,name = "Itzamna"
+Value = 187
+
+[State -1]
+Type = VarRandom
+triggerall = palno = 12
+triggerall = MatchOver = 0
+Triggerall = enemy,name != "Itzamna"
+Trigger1 = Time = 0
+V = 6
+Range = 0,1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;破壊タマゴに勝利
+[State 180, 2]
+Type = ChangeState
+triggerall = MatchOver = 0
+trigger1 = enemy,name = "Hakai tamago"
+Value = 187
+
+[State -1]
+Type = VarRandom
+triggerall = MatchOver = 0
+triggerall = enemy,name != "Hakai tamago"
+Trigger1 = Time = 0
+V = 6
+Range = 0,1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 180, 1];通常勝利イントロ（ランダム用）
+type = varrandom
+triggerall = MatchOver = 0
+trigger1 = 1
+v = 10
+range = 0,2
+
+[State 180, 1];通常勝利イントロ1
+type = ChangeState
+triggerall = MatchOver = 0
+triggerall = var(10) = 0
+trigger1 = time = 0
+value = 181
+
+[State 180, 1];通常勝利イントロ2
+type = ChangeState
+triggerall = MatchOver = 0
+triggerall = var(10) = 1
+trigger1 = time = 0
+value = 182
+
+[State 180, 1];通常勝利イントロ3
+type = ChangeState
+triggerall = MatchOver = 0
+triggerall = var(10) = 2
+trigger1 = time = 0
+value = 183
+
+[State 180, 1];完全勝利イントロ
+type = ChangeState
+triggerall = MatchOver = 1
+trigger1 = time = 0
+value = 184
+
+;---------------------------------------------------------------------------
+; 勝った動作１
+[Statedef 181]
+type = U
+movetype = U
+physics = N
+movehitpersist = 1
+hitdefpersist = 1
+
+[State 181, アニメ変更]
+type = Changeanim
+triggerall = !ishelper
+trigger1 = palno = [1,11]
+trigger1 = anim != 181
+value = 181
+ignorehitpause = 1
+
+[State 181, ステートタイプ変更]
+type = Statetypeset
+trigger1 = !ishelper
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 181, コントロール可否]
+type = Ctrlset
+trigger1 = !ishelper
+value = 0
+ignorehitpause = 1
+
+[State 0];オロチポーズ
+type = ChangeAnim
+triggerall = palno = 12
+trigger1 = Anim != 179
+value = 179
+
+[State -1]
+Type = VarRandom
+triggerall = palno != 7
+Trigger1 = Time = 0
+V = 9
+Range = 0,4
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Var(9) = 0
+Trigger1 = Time = 35
+Value = s0, 14
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Var(9) = 1
+Trigger1 = Time = 35
+Value = s0, 16
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Var(9) = 2
+Trigger1 = Time = 35
+Value = s190, 36
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Var(9) = 3
+Trigger1 = Time = 35
+Value = s190, 36
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Var(9) = 4
+Trigger1 = Time = 35
+Value = s0, 11
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;7P用の台詞
+[State -1]
+Type = VarRandom
+triggerall = palno = 7
+Trigger1 = Time = 0
+V = 9
+Range = 0,3
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno = 7
+Trigger1 = Var(9) = 0
+Trigger1 = Time = 35
+Value = s390, 26
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno = 7
+Trigger1 = Var(9) = 1
+Trigger1 = Time = 35
+Value = s390, 16
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno = 7
+Trigger1 = Var(9) = 2
+Trigger1 = Time = 35
+Value = s390, 13
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno = 7
+Trigger1 = Var(9) = 3
+Trigger1 = Time = 35
+Value = s390, 11
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 181, 4]
+type = AssertSpecial
+trigger1 = Time = [0,250]
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; 勝った動作２
+[Statedef 182]
+type = U
+movetype = U
+physics = N
+movehitpersist = 1
+hitdefpersist = 1
+
+[State 181, アニメ変更]
+type = Changeanim
+triggerall = palno != 7
+triggerall = !ishelper
+trigger1 = anim != 182
+value = 182
+ignorehitpause = 1
+
+[State 181, アニメ変更]
+type = Changeanim
+triggerall = !ishelper
+trigger1 = palno = 7
+trigger1 = anim != 181
+value = 181
+ignorehitpause = 1
+
+[State 181, ステートタイプ変更]
+type = Statetypeset
+trigger1 = !ishelper
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 181, コントロール可否]
+type = Ctrlset
+trigger1 = !ishelper
+value = 0
+ignorehitpause = 1
+
+[State 1900, 1];気の音1
+type = PlaySnd
+trigger1 = time = 0
+triggerall = palno != 7
+trigger1 = timemod = 30,0
+Volume = 999999999
+value = 1, 13
+
+[State 1900, 2];気の音2
+type = PlaySnd
+triggerall = palno != 7
+trigger1 = time = 10
+trigger1 = timemod = 30,0
+Volume = 999999999
+value = 1, 12
+loop = 1
+pan = 1
+
+[State 1900, 2];気の音2
+type = PlaySnd
+triggerall = palno != 7
+trigger1 = time = 10
+Volume = 999999999
+value = 2100, 3
+loop = 1
+pan = 1
+
+[State ];ゴゴゴゴゴ・・・
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Time = 0
+Value = s191, 11
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 1900, 2];ゴゴゴゴゴ・・・２
+type = PlaySnd
+triggerall = palno != 7
+trigger1 = Time = 0
+Volume = 999999999
+value = s191,7
+loop = 1
+
+[State 1900, 3];『このオレが、宇宙最強だァ！！』
+type = PlaySnd
+triggerall = palno != 7
+trigger1 = time = 0
+Volume = 999999999
+value = 0, 21
+channel = 2
+
+[State 1900, 3];『ざまあみろ！！』
+type = PlaySnd
+triggerall = palno = 7
+trigger1 = time = 0
+Volume = 999999999
+value = 390, 4
+channel = 2
+
+[state 1900, shake];振動
+type = envshake
+triggerall = palno != 7
+trigger1 = time%5 = 0
+time = 5
+freq = 120
+ampl = 4
+
+[State 3100, aura1]
+type = Explod
+triggerall = palno != 7
+trigger1 = animelem = 1
+removetime = -1
+anim = 1950
+sprpriority = -1
+postype = p1
+pos = 4,0
+ownpal = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3100, aura2]
+type = Explod
+triggerall = palno != 7
+trigger1 = animelem = 1
+removetime = -1
+anim = 90000
+sprpriority = -1
+postype = p1
+pos = 3,-7
+scale= 0.8,0.5
+trans = sub
+ownpal = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3100, aura3]
+type = Explod
+triggerall = palno != 7
+trigger1 = animelem = 1
+removetime = -1
+anim = 90001
+sprpriority = 4
+postype = p1
+pos = 7,-11
+ownpal = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 3100, 塵]
+type = Explod
+triggerall = palno != 7
+trigger1 = animelem = 1
+removetime = -1
+anim = 4040
+sprpriority = 4
+postype = p1
+pos = 14,2
+ownpal = 1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 0, EnvShake]
+type = EnvShake
+triggerall = palno != 7
+trigger1 = time = 9999
+time = 1400
+freq = 60
+ampl = -2
+phase = 90
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+triggerall = palno != 7
+trigger1 = time = [0,250]
+flag = roundnotover
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+triggerall = palno = 7
+trigger1 = time = [0,100]
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; 勝った動作３
+[Statedef 183]
+type = U
+movetype = U
+physics = N
+movehitpersist = 1
+hitdefpersist = 1
+
+[State 181, アニメ変更]
+type = Changeanim
+triggerall = !ishelper
+trigger1 = palno = [1,11]
+trigger1 = anim != 181
+value = 181
+ignorehitpause = 1
+
+[State 181, ステートタイプ変更]
+type = Statetypeset
+trigger1 = !ishelper
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 181, コントロール可否]
+type = Ctrlset
+trigger1 = !ishelper
+value = 0
+ignorehitpause = 1
+
+[State 0];オロチポーズ
+type = ChangeAnim
+triggerall = palno = 12
+trigger1 = Anim != 179
+value = 179
+
+[State -1]
+Type = VarRandom
+triggerall = palno != 7
+Trigger1 = Time = 0
+V = 9
+Range = 0,0
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Var(9) = 0
+Trigger1 = Time = 35
+Volume = 999999999
+Value = s0, 12
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;7P用の台詞
+[State -1]
+Type = VarRandom
+triggerall = palno = 7
+Trigger1 = Time = 0
+V = 9
+Range = 0,0
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno = 7
+Trigger1 = Var(9) = 0
+Trigger1 = Time = 35
+Volume = 999999999
+Value = s390, 10
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 181, 4]
+type = AssertSpecial
+triggerall = palno != 7
+trigger1 = Time = [0,350]
+flag = roundnotover
+
+[State 181, 4]
+type = AssertSpecial
+triggerall = palno = 7
+trigger1 = Time = [0,100]
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+; 勝った動作（最終ラウンド）
+[Statedef 184]
+type = U
+movetype = U
+physics = N
+movehitpersist = 1
+hitdefpersist = 1
+
+[State 181, アニメ変更]
+type = Changeanim
+triggerall = !ishelper
+trigger1 = anim != 178
+value = 178
+ignorehitpause = 1
+
+[State 181, ステートタイプ変更]
+type = Statetypeset
+trigger1 = !ishelper
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 181, コントロール可否]
+type = Ctrlset
+trigger1 = !ishelper
+value = 0
+ignorehitpause = 1
+
+;オレが、宇宙最強だ！！
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Time = 0
+Value = s190, 68
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;ふふふふふ･･･情けないやつです･･･
+[State -1]
+Type = PlaySnd
+triggerall = palno = 7
+Trigger1 = Time = 0
+Value = s390, 26
+Volume = 999999999
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;勝利演出
+[State , 0]
+type = Explod
+trigger1 = time = 0
+id = 12050
+anim = 12050
+ownpal = 1
+sprpriority = 99999999999999
+pos = -40,-10
+scale= 0.55,0.55
+postype = left
+bindtime = -1
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+
+[State 181, 4]
+type = AssertSpecial
+trigger1 = Time = [0,500]
+flag = roundnotover
+
+;---------------------------------------------------------------------------
+;勝利  VSフリーザ（7P時はクウラ）
+[Statedef 186]
+type = U
+movetype = U
+physics = N
+movehitpersist = 1
+hitdefpersist = 1
+
+[State 181, アニメ変更]
+type = Changeanim
+triggerall = !ishelper
+trigger1 = anim != 181
+value = 181
+ignorehitpause = 1
+
+[State 181, ステートタイプ変更]
+type = Statetypeset
+trigger1 = !ishelper
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 181, コントロール可否]
+type = Ctrlset
+trigger1 = !ishelper
+value = 0
+ignorehitpause = 1
+
+;ノーマルボイス
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Time = 4
+Volume = 999999999
+Value = s27,13
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;7Pボイス
+[State -1]
+Type = PlaySnd
+triggerall = palno = 7
+Trigger1 = Time = 4
+Volume = 999999999
+Value = s390,37
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 186, 4]
+type = AssertSpecial
+triggerall = palno != 7
+trigger1 = Time = [0,400]
+flag = roundnotover
+
+[State 181, 4]
+type = AssertSpecial
+triggerall = palno = 7
+trigger1 = Time = [0,300]
+flag = roundnotover
+
+[State 186, 2]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+;勝利  VS超サイヤ人＆超サイヤ魚＆破壊タマゴ
+[Statedef 187]
+type = U
+movetype = U
+physics = N
+movehitpersist = 1
+hitdefpersist = 1
+
+[State 181, アニメ変更]
+type = Changeanim
+triggerall = !ishelper
+trigger1 = anim != 181
+value = 181
+ignorehitpause = 1
+
+[State 181, ステートタイプ変更]
+type = Statetypeset
+trigger1 = !ishelper
+statetype = S
+movetype = I
+physics = S
+ignorehitpause = 1
+
+[State 181, コントロール可否]
+type = Ctrlset
+trigger1 = !ishelper
+value = 0
+ignorehitpause = 1
+
+;ノーマルカラー
+[State -1]
+Type = VarRandom
+triggerall = palno != 7
+Trigger1 = Time = 0
+V = 9
+Range = 0,1
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Var(9) = 0
+Trigger1 = Time = 4
+Volume = 999999999
+Value = s190,39
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno != 7
+Trigger1 = Var(9) = 1
+Trigger1 = Time = 4
+Volume = 999999999
+Value = s190,40
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+;7Pカラー
+[State -1]
+Type = VarRandom
+triggerall = palno = 7
+Trigger1 = Time = 0
+V = 9
+Range = 0,0
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State -1]
+Type = PlaySnd
+triggerall = palno = 7
+Trigger1 = Var(9) = 0
+Trigger1 = Time = 4
+Volume = 999999999
+Value = s390,40
+IgnoreHitPause = 1
+Persistent = 0
+SuperMoveTime = 9999
+PauseMoveTime = 9999
+
+[State 186, 4]
+type = AssertSpecial
+triggerall = palno != 7
+trigger1 = Time = [0,250]
+flag = roundnotover
+
+[State 186, 4]
+type = AssertSpecial
+triggerall = palno = 7
+trigger1 = Time = [0,200]
+flag = roundnotover
+
+[State 186, 2]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+;------------------------------ 挑発
+;============================================================
+[Statedef 195]
+type = S
+movetype = I
+physics = S
+velset = 0
+ctrl = 0
+
+[State 181, アニメ変更]
+type = Changeanim
+triggerall = !ishelper
+trigger1 = anim != 181
+value = 181
+ignorehitpause = 1
+
+[State 195, 1]
+type = PlaySnd
+triggerall = palno != 7
+trigger1 = AnimElem = 1
+Volume = 999999999
+value = 0,14
+
+[State 195, 1]
+type = PlaySnd
+triggerall = palno = 7
+trigger1 = AnimElem = 1
+Volume = 999999999
+value = 390,10
+
+;[State 195, 2]
+;type = CtrlSet
+;trigger1 = Time = 60
+;value = 1
+
+[State 195, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+[State 死亡時]
+type = ChangeState
+triggerall = palno = 12
+triggerall = !ishelper
+trigger1 = !alive
+value = 5050
+ignorehitpause = 1
+
+[State 準ステート固定]
+type = ChangeState
+triggerall = palno = 12
+trigger1 = !ishelper
+value = 120
+ignorehitpause = 1
+
+;------------------------------------------------------------------

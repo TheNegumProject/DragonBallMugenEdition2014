@@ -1,0 +1,65 @@
+;-------------------
+
+;- Helpers hit spark
+
+[Statedef 7832]
+type = S
+anim = 78+(random%3)
+sprpriority = 7
+supermove = 1
+supermovetime = 15
+pausemovetime = 15
+
+[state 0, no sombra]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 0]
+type = Helper
+trigger1 = 1
+helpertype = Normal
+ID = 7530
+stateno = 7530
+ownpal = 1
+sprpriority = 1
+postype = p1
+pos = 0,0
+ignorehitpause = 1
+persistent = 0
+size.xscale = .5
+size.yscale = .5
+supermove = 1
+ownpal = 1
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Animtime = 0
+;ignorehitpause =
+;persistent =
+
+;--------------------
+
+;spark circulo fantasma64 style
+
+
+[Statedef 7530]
+type = S
+anim = 7530
+sprpriority = 7
+supermove = 1
+supermovetime = 15
+pausemovetime = 15
+
+[state 0]
+type = assertspecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, DestroySelf]
+type = DestroySelf
+trigger1 = Animtime = 0
+;ignorehitpause =
+;persistent =
+
+

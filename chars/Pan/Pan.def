@@ -1,0 +1,33 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Pan"
+displayname = "Pan"
+versiondate = 09,03,2008
+mugenversion = 04,14,2002
+author = "Benhazard"
+pal.defaults = 1
+
+[Files]
+sprite = graphical\Pan.sff
+anim = graphical\Pan.air
+sound = audio\Pan.snd
+cmd = coding\Pan.cmd
+cns = coding\Pan.cns
+stcommon = coding\common1.cns
+st = coding\Basico.cns
+st1 = coding\Moves.cns
+st2 = coding\Helpers.cns
+st3 = coding\Giru.cns
+st4 = coding\Specials.cns
+st5 = coding\P2Custom.cns
+pal1 = graphical\Pan.act
+pal2 = graphical\PanAlt2.act
+pal3 = graphical\PanAlt3.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

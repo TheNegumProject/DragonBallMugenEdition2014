@@ -1,0 +1,120 @@
+;----------------------------------------------------------------------------------------------
+;---------------------------------------- Vegeta by DM ----------------------------------------
+;----------------------------------------------------------------------------------------------
+v0.35
+
+----------------------------------------------
+Contact
+----------------------------------------------
+
+If you want to show me a bug report, sugestion, complain or ask for something, contact me:
+
+- E-mail : weaponx_nirvana@yahoo.com.br, rickividal@gmail.com
+- MSN Messenger : agentesting@hotmail.com
+- MGBR Forum (http://forum.mgbr.net), nick Duende Macabro
+- Mugen Fighters Guild Forum (http://www.mugenguild.com/forum), nick DM
+
+
+----------------------------------------------
+Features:
+----------------------------------------------
+
++ Requerided sprites ( unfinished );
++ 1 intro;
++ 1 winpose;
++ 12 palettes;
++ Combo system ( unfinished );
++ 5 specials;
++ Charge power;
++ Zanzoken and dodge;
++ Short Jump and super Jump;
++ 1 super;
++ 1 hiper;
+
+
+----------------------------------------------
+What's Missing:
+----------------------------------------------
+
++ Fix bugs ( prioriry =P );
++ .SND arquive with Vegeta voices in portuguese - in the next version, sorry AcesHigh :(
++ More specials, supers and hypers;
++ More intros with other chars;
++ More winposes;
++ A.I.
+
+----------------------------------------------
+Move list
+----------------------------------------------
+
+ - Normal moves :
+
+    Stand              Crouch                 Air
+
+*Weak punch  : x  | *Weak punch  : x  | *Weak punch     : x
+*Medium punch: y  | *Medium punch: y  | *Strong punch   : y
+*Strong punch: z  | *Strong punch: z  | *Fwd Small Shot : z
+*Weak kick   : a  | *Weak kick   : a  | *Weak kick      : a
+*Strong kick : b  | *Strong kick : b  | *Strong kick    : b
+*Small Shot  : c  | *Small Shot  : c  | *Down Small Shot: z
+
+
+ - Golpes especiais :
+
+*Sequence 1               : D, DF, F, x
+*Sequence 2               : D, DF, F, y
+*Double kick              : D, DF, F, a (not yet =P)
+
+
+
+
+ - Supers lv.1 :
+
+*Big Bang Attack : D, DB, B, F, x
+
+
+
+ - Supers lv.2 :
+
+
+
+ - Supers lv.3 or Hipers :
+
+*Final Flash : D, DB, B, F, z
+
+
+ - Miscelaneous :
+
+*Charge power: hold "b" and "y"
+*Zanzoken    : hold "a", "x" and "fwd" or "back" 
+*Dodge       : hold "a" and "x" only  
+*Parry       : F (tap)
+
+----------------------------------------------
+Authorizations
+----------------------------------------------
+
+- Cavaleiro Negro/Kurai Naito : For letting me use everything from his creations;
+- GGN : For letting me use everything from his creation GuileGGN;
+- P.o.t.S : For letting me use everything from his creations;
+- Suppa Vegeta : For letting me use everything from his creation Suppa Vegeta;
+- O Ilusionista : For letting me use one effect from his creation Bob Wilson EX.
+
+----------------------------------------------
+Programs used:          
+----------------------------------------------
+
+- JASC Paint Shop Pro 7;
+- VirtualTek's Fighter Factory;
+- Paletero;
+- ZCharCAD;
+- MCM 2;
+- WinZip, BraZIP and WinRAR;
+- 602Photo;
+- Paint brush and Notepad XD
+
+========================================================================
+*More details in Leia-me!.txt archive ( sorry for my poor english! ¬¬ )*
+========================================================================
+
+It's the end \o\

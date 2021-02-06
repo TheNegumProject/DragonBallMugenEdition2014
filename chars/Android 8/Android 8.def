@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "Franky"
+displayname = "Android 8 (Franky)"
+versiondate = 25/01/2013
+mugenversion = 01
+author = "Betalille"
+pal.defaults = 1
+
+[Files]
+sprite = and8.sff
+anim = and8.air
+sound = and8.snd
+cmd = and8.cmd
+cns = and8.cns
+stcommon = common1.cns
+st = and8.cns
+pal1 = and8.act
+pal2 = and8-2.act
+pal3 = and8-3.act
+pal4 = and8-4.act
+pal5 = and8-5.act
+pal6 = and8-6.act
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

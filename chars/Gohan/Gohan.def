@@ -1,0 +1,29 @@
+
+
+[Info]
+name ="Son Gohan"        
+displayname ="Gohan Saiyan" 
+versiondate =04,14,2001    
+mugenversion =04,14,2001  
+author ="UG"         
+pal.defaults =1,2
+
+[Files]
+cmd     =gohan.cmd   
+cns     =gohan.cns   
+st      =gohan.cns   
+stcommon =common1.cns
+sprite  =gohan.sff   
+anim    =gohan.air  
+sound   =gohan.snd   
+pal1=gohan.act
+st1=helpershitpasrk.cns
+st2=hypers.cns
+
+
+;[Arcade]
+;intro.storyboard =intro.def
+;ending.storyboard =ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

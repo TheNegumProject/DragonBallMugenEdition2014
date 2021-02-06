@@ -1,0 +1,22 @@
+
+[Info]
+name ="Android15 by hermo"
+displayname ="Android 15"
+versiondate =24,07,2011
+mugenversion =04,14,2002
+author ="hermoduro"
+pal.defaults =1
+
+[Files]
+sprite =Android15.sff
+anim =Android15.air
+sound =Android15.snd
+cmd =Android15.cmd
+cns =Android15.cns
+stcommon =common1.cns
+st =Android15.cns
+pal1=Android15.act
+
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def

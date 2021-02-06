@@ -1,0 +1,266 @@
+
+    
+
+
+
+
+[SceneDef]
+spr = ending.sff
+  
+
+
+
+[Scene 0]
+fadein.time = 25
+fadein.col = 0,0,0
+fadeout.time = 25
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG0
+end.time = 300
+bgm = polunga-stage.mid			
+bgm.loop = 0
+end.time = 300
+
+
+[BG0Def]
+[BG0]
+type  = normal
+spriteno = 0,0
+start = -160, 0
+mask = 1
+
+
+
+
+[Scene 1]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG1
+
+
+
+
+
+[BG1Def]
+[BG1]
+type  = normal
+spriteno = 0,1
+start = -160, 0
+mask = 1
+
+
+[Scene 2]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG2
+end.time = 300
+
+
+[BG2Def]
+[BG2]
+type  = normal
+spriteno = 0,2
+start = -160, 0
+mask = 1
+
+
+
+[Scene 3]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG3
+end.time =  300
+
+
+[BG3Def]
+[BG3]
+type  = normal
+spriteno = 0,3
+start = -160, 0
+mask = 1
+
+
+
+
+
+[Scene 3]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG3
+end.time =  300
+
+
+[BG3Def]
+[BG3]
+type  = normal
+spriteno = 0,4
+start = -160, 0
+mask = 1
+
+
+[Scene 4]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG4
+end.time =  300
+
+
+[BG4Def]
+[BG4]
+type  = normal
+spriteno = 0,5
+start = -160, 0
+mask = 1
+
+
+[Scene 5]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG5
+end.time =  300
+
+
+[BG5Def]
+[BG5]
+type  = normal
+spriteno = 0,6
+start = -160, 0
+mask = 1
+
+
+
+[Scene 6]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG6
+end.time =  300
+
+
+[BG6Def]
+[BG6]
+type  = normal
+spriteno = 0,7
+start = -160, 0
+mask = 1
+
+
+
+[Scene 7]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG7
+end.time =  300
+
+
+[BG7Def]
+[BG7]
+type  = normal
+spriteno = 0,8
+start = -160, 0
+mask = 1
+
+
+
+[Scene 8]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG8
+end.time =  300
+
+
+[BG8Def]
+[BG8]
+type  = normal
+spriteno = 0,9
+start = -160, 0
+mask = 1
+
+
+
+[Scene 9]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG9
+end.time =  300
+
+
+[BG9Def]
+[BG9]
+type  = normal
+spriteno = 0,10
+start = -160, 0
+mask = 1
+
+
+
+[Scene 10]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG10
+end.time =  300
+
+
+[BG10Def]
+[BG10]
+type  = normal
+spriteno = 0,11
+start = -160, 0
+mask = 1
+
+
+
+[Scene 11]
+fadein.time = 50
+fadein.col = 0,0,0
+fadeout.time = 50
+fadeout.col = 0,0,0
+clearcolor = 0,0,0
+bg.name = BG11
+end.time =  300
+
+
+[BG11Def]
+[BG11]
+type  = normal
+spriteno = 0,11
+start = -160, 0
+mask = 1
+
+
+
+
+

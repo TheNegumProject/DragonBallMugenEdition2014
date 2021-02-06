@@ -1,0 +1,19 @@
+[Info]
+name         ="Vegeta GT"
+displayname  ="Vegeta GT SSJ"
+versiondate  =2,09,2008
+mugenversion =14,04,2002
+author       ="nn"
+pal.defaults =1,2,3,4,5,6
+[Files]
+cmd          =vegetagt.cmd
+cns          =vegetagt.cns
+st           =vegetagt.cns
+stcommon     =common1.cns
+sprite       =vegetagt.sff
+anim         =vegetagt.air
+sound        =vegetagt.snd
+pal1=1.act
+[Arcade]
+intro.storyboard =
+ending.storyboard=

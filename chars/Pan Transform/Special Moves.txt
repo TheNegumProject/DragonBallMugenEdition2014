@@ -1,0 +1,7 @@
+Ki Balls: Down,a
+Kamehameha: Down,b
+Kamehameha x10: Down,c
+IT Kamehameha: Dwon,x
+Normal Unique: Down,y
+SSJ Unique: Down,y
+Super Saiyan: z

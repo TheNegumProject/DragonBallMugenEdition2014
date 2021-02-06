@@ -1,0 +1,100 @@
+; ______________________________________________
+;|Vegeta                                        |
+;|Character Made by: Duende Macabro  ::..       |
+;|Version: Beta 0.30 - 24/10/2005 ::..          |
+;|Started at 25/09/2005 ::..                    |
+;|Contact:                                      |
+;|weaponx_nirvana@yahoo.com.br                  |
+;|http://geocities.yahoo.com.br/rickiecreations |
+;|______________________________________________|
+
+[statedef -2]
+;============|
+;--[ A.I. ]--|
+;============|
+
+[State -2, turns AI on]
+type = VarSet
+trigger1 = command = "AI_01" || command = "AI_02" || command = "AI_03" || command = "AI_04"
+trigger2 = command = "AI_05" || command = "AI_06" || command = "AI_07" || command = "AI_08"
+trigger3 = command = "AI_09" || command = "AI_10" || command = "AI_11" || command = "AI_12"
+trigger4 = command = "AI_13" || command = "AI_14" || command = "AI_15" || command = "AI_16"
+v = 59
+value = 1
+
+[State -2, Defendendo em Pé]
+type = ChangeState
+trigger1 = RoundState = 2 && Var(59) != 0 && NumProj > 0 && Random <= 950 && StateType = S && enemy,movetype = A && ctrl
+value = 130
+
+[State -2, Defendendo no Ar]
+type = ChangeState
+trigger1 = RoundState = 2 && Var(59) != 0 && NumProj > 0 && Random <= 950 && StateType = A && enemy,movetype = A && ctrl
+value = 131
+
+[State -2, Defendendo Agachado]
+type = ChangeState
+trigger1 = RoundState = 2 && Var(59) != 0 && NumProj > 0 && Random <= 950 && StateType = C && enemy,movetype = A && ctrl
+value = 132
+
+[State -2, Correr p/ Frente]
+type = ChangeState
+value = 100
+trigger1 = RoundState = 2 && Var(59) != 0 && MoveType != H && p2bodydist X > 10 && enemy,movetype != A && ctrl
+trigger1 = Random <= 950 & Statetype != A
+
+[State -2, Andar P/ Frente]
+type = ChangeState
+value = 20
+trigger1 = RoundState = 2 && Var(59) != 0 && MoveType != H && p2bodydist X <= 10 && enemy,movetype != A && ctrl
+trigger1 = Random <= 950 & Statetype != A
+
+[State -2, Dash P/ Trás]
+type = ChangeState
+value = 105
+trigger1 = RoundState = 2 && Var(59) != 0 && MoveType != H && p2bodydist x < 5 && statetype = S && ctrl
+trigger1 = Random <= 950 & Statetype != A
+
+[state -2, Recovery]
+type = changestate
+triggerall = roundstate = 2 && Var(59) != 0 && movetype = H && pos y < -50
+trigger1 = stateno = [5000,5080]
+trigger1 = random < 500
+value = 5210
+ctrl = 1
+
+[state -2, Light punch > medium punch]
+type = changestate
+triggerall = roundstate = 2 && var(59) != 0 
+trigger1 = (stateno = 200) && MoveContact && p2bodydist X < 10 
+value = 210 
+
+[state -2, Medium punch > heavy punch]
+type = changestate
+triggerall = roundstate = 2 && var(59) != 0 
+trigger1 = (stateno = 210) && MoveContact && p2bodydist X < 10 
+value = 220
+
+[state -2, Light punch > Light kick]
+type = changestate
+triggerall = roundstate = 2 && var(59) != 0 
+trigger1 = (stateno = 200) && MoveContact && p2bodydist X < 10 
+value = 230
+
+[state -2, Light kick > medium punch]
+type = changestate
+triggerall = roundstate = 2 && var(59) != 0 
+trigger1 = (stateno = 230) && MoveContact && p2bodydist X < 10 
+value = 210 
+
+[state -2, Medium punch > Heavy kick]
+type = changestate
+triggerall = roundstate = 2 && var(59) != 0 
+trigger1 = (stateno = 210) && MoveContact && p2bodydist X < 10 
+value = 240
+
+[state -2, Heavy kick > Small shot]
+type = changestate
+triggerall = roundstate = 2 && var(59) != 0 
+trigger1 = (stateno = 240) && MoveContact && p2bodydist X < 10 
+value = 250  

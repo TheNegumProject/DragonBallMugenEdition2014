@@ -1,0 +1,493 @@
+; Constants and state file.
+; There are comments scattered through this file, so you may like to
+; take a look if would like to learn more about the cns.
+
+
+
+
+;---------------------------------------------------------------------------
+-------------------------------------------------------
+-------------------------------------------------------
+-------------------------------------------------------
+; Piña normal
+[StateDef 200]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 200
+poweradd = 20
+sprpriority = 2
+
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = animelem = 2
+value = S0,6
+volume = 200
+channel = 1
+
+[State 197, 1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 20
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 10, 10
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = -2
+ground.hittime  = 12
+ground.velocity = -3
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 197, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+-------------------------------------------------------
+-------------------------------------------------------
+-------------------------------------------------------
+; piña medium
+[StateDef 201]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 1,0
+ctrl = 0
+anim = 201
+poweradd = 20
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S0,7
+volume = 200
+channel = 1
+
+
+
+[State 201, 1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 30
+animtype = hard
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 1, 1
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -7
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 201, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+-------------------------------------------------------
+-------------------------------------------------------
+-------------------------------------------------------
+;patada normal
+[StateDef 202]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 202
+poweradd = 20
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S0,7
+volume = 200
+channel = 1
+
+[State 202, 1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 25
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 1, 1
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 0
+ground.hittime  = 12
+ground.velocity = 0
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 202, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+-------------------------------------------------------
+-------------------------------------------------------
+-------------------------------------------------------
+;patada medium
+[StateDef 203]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 203
+poweradd = 20
+sprpriority = 2
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 3
+value = S0,7
+volume = 200
+channel = 1
+
+[State 203, 1]
+type = HitDef
+trigger1 = AnimElem = 3
+attr = S, NA
+damage = 30
+animtype = heavy
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 1, 1
+sparkno = 0
+sparkxy = -10, -76
+hitsound = 5, 0
+guardsound = 6, 0
+ground.type = heavy
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -4
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+
+[State 203, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+-------------------------------------------------------
+-------------------------------------------------------
+-------------------------------------------------------
+;Lanzamiento de ki
+
+
+[StateDef 204]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = 0
+anim = 204
+poweradd = -100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 500,9
+volume = 20
+channel = 1
+
+
+
+[State 204, 1]
+type = Projectile
+trigger1 = AnimElem = 2
+trigger1 = power > 50
+projanim = 10000
+projhitanim = 10001
+projpriority = 1
+projscale = .2,.2
+projheightbound = -240, 100
+projedgebound = 100
+projscreenbound = 100
+projshadow = -1
+offset = 47,-41
+velocity = 7
+attr = S, SP
+damage   = 50
+animtype = heavy
+guardflag = MA
+hitflag = MAFDP
+pausetime = 1,1
+hitsound   = s1000,0
+guardsound = s1000,0
+ground.type = Low
+ground.slidetime = 25
+ground.hittime  = 25
+ground.velocity = -6
+air.animtype = Back
+air.velocity = -4,-6
+air.juggle = 3
+air.fall = 1
+down.velocity = -4,-6
+down.hittime = 30
+down.bounce = 0
+
+[State 204, end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+;---------------------------------------------------------------------------
+; States that are always executed (use statedef -2)
+;---------------------------------------------------------------------------
+[Statedef -2]
+
+[State -2]
+type = VarSet
+triggerall = var(10) != 1
+trigger1 = command = "AI1"
+trigger2 = command = "AI2"
+trigger3 = command = "AI3"
+trigger4 = command = "AI4"
+trigger5 = command = "AI5"
+trigger6 = command = "AI6"
+trigger7 = command = "AI7"
+trigger8 = command = "AI8"
+trigger9 = command = "AI9"
+trigger10 = command = "AI10"
+trigger11 = command = "AI11"
+trigger12 = command = "AI12"
+trigger13 = command = "AI13"
+trigger14 = command = "AI14"
+trigger15 = command = "AI15"
+var(10) = 1
+
+
+
+[State -2]
+type = ChangeState
+triggerall = var(10) = 1
+triggerall = StateType != A
+triggerall = Movetype != H
+triggerall = P2Life > 0
+triggerall = P2bodydist X <= 10
+trigger1 = ctrl = 1
+value = 200
+
+[State -2]
+type = Changestate
+triggerall = var(10) = 1
+triggerall = movetype != H
+trigger1 = (movehit) && (stateno = 200) && (random > 500)
+value = IfElse(Random >= 300, 210, 40)
+
+
+[State -2]
+type = Changestate
+triggerall = var(10) = 1
+triggerall = movetype != H
+trigger1 = (ctrl = 1) && (P2bodydist X <= 10) && (p2movetype != A) && (p2statetype != L) && (Statetype != A)
+trigger2= stateno = 210 && (movecontact)
+value = IfElse(Random >= 300, 220, 520)
+
+
+[State -2]
+type = Changestate
+triggerall = var(10) = 1
+triggerall = movetype != H
+trigger1 = (ctrl = 1) && (P2bodydist X <= 10) && (p2movetype != A) && (p2statetype != L) && (Statetype != A)
+trigger1 = Stateno = 199 && (random > 600)
+value = IfElse(Random >= 300, 500, 40)
+
+[State -2]
+type = Changestate
+triggerall = var(10) = 1
+triggerall = movetype != H
+trigger1 = (ctrl = 1) && (P2bodydist X <= 10) && (p2movetype != A) && (p2statetype != L) && (Statetype != A)
+trigger1 = Stateno = 199 && (random > 300)
+value = IfElse(Random >= 300, 520, 40)
+
+[State -2]
+type = Changestate
+triggerall = var(10) = 1
+triggerall = movetype != H
+trigger1 = (ctrl = 1) && (P2bodyDist X < 10) && (p2movetype != A) && (p2statetype != L) && (Statetype != A)
+trigger1 = Stateno = 200 && movehit && (random > 500)
+value = 198
+
+[State -2]
+type = Changestate
+triggerall = var(10) = 1
+triggerall = movetype != H
+trigger1 = (ctrl = 1) && (p2movetype != A) && (p2statetype != L) && (Statetype != A)
+trigger1 = Stateno = 220 && movecontact
+trigger2= stateno= 198 && movecontact
+trigger2 = AnimElemTime(7) > 0
+value = 197
+
+[State -2]
+type = ChangeState
+triggerall = var(10) = 1
+triggerall = (P2MoveType =A) && (P2StateType !=A) && (enemy,NumProj >= 1) && (random < 300)
+triggerall = (statetype != A) && (statetype !=L)
+triggerall = stateno !=40
+trigger1 = ctrl = 1
+value = 40
+
+
+[State -2]
+type = ChangeState
+triggerall = (var(10) = 1) && alive = 1 && statetype = S && ctrl = 1 && p2life > 0
+trigger1 =   stateno = 0 && power >= 1000 && P2bodyDist X <= 20 && (p2movetype != A) && (p2statetype != L)
+value = 1050
+
+[State -2]
+type = ChangeState
+triggerall = (var(10) = 1) && alive = 1 && statetype = S && ctrl = 1 && p2life > 0
+trigger1 =  stateno = 0 && power >= 1000 && P2bodyDist X <= 50 && (p2statetype != A) && (p2statetype != L)&& (random > 600)
+value = 2000
+
+
+[State -2]
+type = ChangeState
+triggerall = (var(10) = 1) && alive = 1 && statetype = S && ctrl = 1 && p2life > 0
+trigger1 = stateno = 0 && power >= 2000 && (P2bodyDist X <= 50) && (p2movetype != A) && (p2statetype != L) && (random > 600)
+value = 3000
+
+[State -2]
+type = ChangeState
+triggerall = (var(10) = 1) && alive = 1 && statetype = S && ctrl = 1 && p2life > 0
+trigger1 = stateno = 0 && power >= 3000 && (P2bodyDist X >= 20)&& (random > 600)
+value = 4000
+
+;---------------------------------------------------------------------------
+; States that are executed when in self's state file (use statedef -3)
+;---------------------------------------------------------------------------
+
+[Statedef -3]
+
+;This controller plays a sound everytime the player lands from a jump, or
+;from a back-dash.
+[State -3, Landing Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 52 ;Jump land
+trigger2 = stateno = 106 ;Run-back land
+value = 40, 1
+
+[State -3, Jmp Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 40
+value = 40, 2
+
+[State -3, Hop Sound]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = stateno = 105
+value = 105, 0
+
+
+[State -3]
+type = PlaySnd
+triggerall = Time = 1
+trigger1 = StateNo = 5100 || StateNo = 5110
+value = 5100, 0
+channel = 20
+
+--------------------------------------------------------------
+
+[StateDef 5300 ]
+type = S
+movetype= A
+physics = S
+juggle  = 1
+velset = 0,0
+ctrl = -1
+anim =  5300
+poweradd = 0
+sprpriority = 1
+
+[State 0, PowerAdd]
+type = PowerAdd
+trigger1 = animelem = 1
+trigger2 = animelem = 2
+trigger3 = animelem = 3
+trigger4 = animelem = 4
+trigger5 = animelem = 5
+trigger6 = animelem = 6
+trigger7 = animelem = 7
+value = 7
+
+[State  5300 , end]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 0
+ctrl = 1
+
+
+
+

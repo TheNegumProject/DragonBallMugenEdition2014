@@ -1,0 +1,27 @@
+; Definition file for Pui Pui by emiliano david palleres
+
+; Player information
+[Info]
+name ="Pui Pui"        
+displayname ="Pui Pui" 
+versiondate =11,15,2008    
+mugenversion =04,14,2002   
+author ="Emiliano David Palleres"         
+pal.defaults =1,2,3,4      
+
+
+[Files]
+cmd     =Pui.cmd   
+cns     =Pui.cns   
+st      =Pui.cns   
+stcommon =common1.cns 
+sprite  =Pui.sff   
+anim    =Pui.air   
+sound   =Pui.snd   
+pal1=Pui.act
+st1=volar.cns
+
+; Arcade mode
+[Arcade]
+intro.storyboard = 
+ending.storyboard = 

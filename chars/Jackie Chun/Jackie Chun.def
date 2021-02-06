@@ -1,0 +1,20 @@
+
+[Info]
+name = "jackiechun"        ;Name of character
+displayname = "Jackie Chun" ;Name of character to display
+pal.defaults =   1
+
+; Files for the player
+[Files]
+cmd     = player.cmd   ;Command set
+cns     = player.cns   ;Constants
+st      = player.cns   ;States
+stcommon = common1.cns
+sprite  = jackie.sff   ;Sprite
+anim    = player.air   ;Animation
+sound  = jackie.snd
+pal1   = 
+
+[Arcade]
+intro.storyboard=
+ending.storyboard= ..\data\final.def

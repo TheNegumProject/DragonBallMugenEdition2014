@@ -1,0 +1,26 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name = "PunchCell! Bonus Game"
+displayname = "Cell Will Gonna Blow!"
+versiondate = 09,03,2008
+mugenversion = 04,14,2002
+author = "Sawady"
+pal.defaults = 1
+
+[Files]
+sprite = PunchCell!.sff
+anim = PunchCell!.air
+sound = PunchCell!.snd
+cmd = PunchCell!.cmd
+cns = PunchCell!.cns
+stcommon = common1.cns
+st = Basico.cns
+pal1 = PunchCell!.act
+
+[Arcade]
+intro.storyboard = intro.def
+ending.storyboard = ending.def

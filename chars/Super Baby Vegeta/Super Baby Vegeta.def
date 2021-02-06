@@ -1,0 +1,27 @@
+; Definition file for MAJIN-VEGETA
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="SUPER-BABY-VEGETA"        
+displayname ="Super Baby Vegeta" 
+versiondate =04,14,2001    
+mugenversion =04,14,2001   
+author ="Ichidori555"         
+pal.defaults =       
+
+; Files for the player
+[Files]
+cmd     =SUPER-BABY-VEGETA.cmd
+cns     =SUPER-BABY-VEGETA.cns
+st      =SUPER-BABY-VEGETA.cns
+stcommon =SUPER-BABY-VEGETA1.cns
+sprite  =SUPER-BABY-VEGETA.sff
+anim    =SUPER-BABY-VEGETA.air
+sound   =SUPER-BABY-VEGETA.snd
+pal1=SUPER-BABY-VEGETA.act
+
+; Arcade mode
+[Arcade]
+intro.storyboard =intro.def
+ending.storyboard =ending.def

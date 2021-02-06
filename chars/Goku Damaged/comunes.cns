@@ -1,0 +1,33 @@
+;---------------------------------------------------------------------------
+;Stand Ozaru Mode
+[Statedef 3901]
+type    = S
+movetype= I
+physics = S
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 3901
+sprpriority = -1
+
+[State 0, PlayerPush]
+type = PlayerPush
+trigger1 = 1
+value = 0
+
+[State 0, HitOverride]
+type = HitOverride
+trigger1 = 1
+attr = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+slot = 0
+stateno = 3901
+time = 1
+forceair = 0
+
+[State 0, CtrlSet]
+type = CtrlSet
+trigger1 = Roundstate = 3 && Time >= 100
+value = 1
+
+
+

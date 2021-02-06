@@ -1,0 +1,173 @@
+
+;helper sdm
+[Statedef 9905]
+type = A
+movetype = A
+physics = N
+velset = 0,0
+sprpriority = 2
+juggle = 99
+ctrl = 0
+anim = 9905
+
+;dust
+[State 960, 1]
+type = Explod
+trigger1 = AnimElem = 1
+Anim = 9912
+pos = 0,-(floor(pos y))
+Id = 9912
+sprpriority = 6
+removeongethit = 1
+removetime = -2
+scale=.8,.8
+;bindtime = 0
+Postype = p1
+SuperMove = 1
+ownpal = 0
+
+[State 9905,	Hitdef]
+type = HitDef
+trigger1 = animelem = 1
+trigger2 = animelem = 2
+trigger3 = animelem = 3
+trigger4 = animelem = 4
+trigger5 = animelem = 5
+trigger6 = animelem = 6
+trigger7 = animelem = 7
+trigger8 = animelem = 8
+trigger9 = animelem = 9
+trigger10 = animelem = 10
+trigger11 = animelem = 11
+trigger12 = animelem = 12
+trigger13 = animelem = 13
+trigger14 = animelem = 14
+trigger15 = animelem = 15
+trigger16 = animelem = 16
+trigger17 = animelem = 17
+trigger18 = animelem = 18
+trigger19 = animelem = 19
+trigger20 = animelem = 20
+attr = S, NA
+hitflag = MAFDP
+guardflag = M
+animtype = heavy
+air.animtype = Back
+priority = 7, Hit
+damage = 24,8
+pausetime = 4,1
+guard.pausetime	= 4,1
+sparkno	= S999999999
+guard.sparkno	= S999999999
+sparkxy	=9, -50
+hitsound = S2, 9
+guardsound = S2, 9
+ground.type=High
+ground.slidetime=13
+ground.hittime =14
+ground.velocity=-10,-0.8
+air.velocity=-10,-0.8
+fall=1
+fall.recovertime=85
+palfx.time = 50
+palfx.add = 192,192,256
+palfx.sinadd = 180,180,200,15
+palfx.mul = 160,160,256
+ownpal = 1
+envshake.time 	= 12
+envshake.freq 	= 140
+envshake.ampl 	= -5
+persistent		= 1
+
+[State 9905,	Hitdef]
+type = HitDef
+trigger1 = animelem = 21
+attr = S, NA
+hitflag = MAFDP
+guardflag = M
+animtype = heavy
+air.animtype = Back
+priority = 7, Hit
+damage = 18,4
+pausetime = 4,2
+guard.pausetime	= 4,2
+sparkno	= S999999999
+guard.sparkno	= S999999999
+sparkxy	=9, -50
+hitsound = S19, 5
+guardsound = S49, 5
+ground.type=High
+ground.slidetime=13
+ground.hittime =14
+ground.velocity=-20,-10
+air.velocity=-20,-10
+fall=1
+fall.recovertime=85
+palfx.time = 50
+palfx.add = 192,192,256
+palfx.sinadd = 180,180,200,15
+palfx.mul = 160,160,256
+ownpal = 1
+envshake.time 	= 12
+envshake.freq 	= 140
+envshake.ampl 	= -5
+persistent		= 1
+
+;effet explosion
+[State 9905, 3]
+type = Explod
+trigger1 = Movecontact = 1
+anim = 9910
+ID = 9910
+pos = 0,-65
+postype = p2
+facing = 1
+;bindtime = -1
+scale = .5,.5
+removetime = -2
+sprpriority = 5
+ownpal = 1
+SuperMove = 1
+
+
+[State 9905:	BindToParent]
+type			= BindToParent
+trigger1		= 1
+time			= 1
+pos			= 5,-60
+
+
+[State 9905, noshadow]
+type=AssertSpecial
+trigger1=1
+flag=NoShadow
+ignorehitpause=1
+
+[State 9905, nojuggle]
+type=AssertSpecial
+trigger1=1
+flag=nojugglecheck
+ignorehitpause=1
+
+[State 9905: NotHitBy]
+type = NotHitBy
+trigger1 = (Time > 0)
+time = 1
+value = SCA, NA, SA, HA, NT, ST, HT
+ignorehitpause = 1
+
+[State 9905:	BGPalFX]
+type			= BGPalFX
+trigger1 = AnimElem = 1
+time			= 25
+add			= 20,20,20
+mul			= 256,256,256
+sinadd		= 200,200,200,4
+invertall		= 1
+color			= 256
+
+
+[State 9905,	DestroySelf]
+type			= DestroySelf
+trigger1		= (Parent, StateNo != 999)
+trigger2		= AnimTime = 0

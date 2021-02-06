@@ -1,0 +1,34 @@
+; Definition file for Kung Fu Man
+; Contains all the filenames needed for the character
+
+; Player information
+[Info]
+name ="Baby Vegeta"
+displayname ="Baby Vegeta"
+versiondate =05,07,2008
+mugenversion =04,14,2001
+author ="Fantasma64 & GokuthePower"
+pal.defaults =1
+
+; Files for the player
+[Files]
+cmd      =B-Vegeta64.cmd
+cns      =B-Vegeta64.cns
+st       =Vegeta64.cns
+stcommon =common1.cns
+sprite   =B-Vegeta64.sff
+anim     =B-Vegeta64.air
+sound    =B-Vegeta64.snd
+pal1=B-Vegeta641.act
+pal2=B-Vegeta64.act
+pal3=B-Vegeta6412.act
+st1=Helper.cns
+st2=Specials.cns
+st3=combo.cns
+st4=hypers.cns
+
+
+; Arcade mode
+[Arcade]
+intro.storyboard =
+ending.storyboard =

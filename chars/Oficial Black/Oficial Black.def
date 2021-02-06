@@ -1,0 +1,29 @@
+[Info]
+name		="Oficial Black by Brayan Girón García"
+displayname	="Oficial Black"
+versiondate	=31/03/2010
+mugenversion	=06,14,2003
+author		="Brayan Girón García (b-gg19)"
+pal.defaults	=1,2,3
+
+[Files]
+sprite		=Oficial-Black.sff
+sound		=Oficial-Black.snd
+anim		=Oficial-Black.air
+cmd		=Oficial-Black.cmd
+cns		=Oficial-Black.cns
+st		=Oficial-Black.cns
+stcommon	=common1.cns
+pal1=Oficial-Black.act
+pal2=Oficial-Black2.act
+pal3=Oficial-Black3.act
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
+
+
+;------------------------------------------------------------------------------------------
+;                                 HECHO EN JUTIAPA (GUATEMALA)             
+;                                  Autor: BRAYAN GIRON GARCIA
+;----------------------------------e-mail: b-gg19@hotmail.com------------------------------

@@ -1,0 +1,2243 @@
+;ìGÉwÉãÉpÅ[îÌíeópÉXÉe
+;------------------------------------------------------------------------------------------
+;í¥ë¶éÄâ¸ìäÇ∞
+[Statedef 7000]
+type = C
+movetype = A
+ctrl = 0
+anim = 20000
+
+[State 7000, ï€åØ]
+type = Selfstate
+trigger1 = name = "cooler"
+value = 40
+ignorehitpause = 1
+
+[State 7000, çUåÇîªíËïœçX]
+type = Changeanim2
+trigger1 = !ishelper
+value = 20000
+ignorehitpause = 1
+
+[State 7000, í¥ë¶éÄìäÇ∞]
+type = Hitdef
+triggerall = !ishelper
+trigger1 = time < 30
+attr = , HP
+priority = 7, hit
+sparkno = -1
+guard.sparkno = -1
+pausetime = 2, 0
+ignorehitpause = 1
+
+[State 7000, ÉwÉãÉpÅ[è¡ãé]
+type = DestroySelf
+trigger1 = ishelper
+ignorehitpause = 1
+
+[State 7000, éÄÇ»Ç»Ç¢èÍçá]
+type = Changestate
+trigger1 = time > 60
+value = 5150
+ignorehitpause = 1
+
+[State 7000, palnoòMÇËÇ÷]
+type = Changestate
+triggerall = !ishelper
+trigger1 = hitpausetime
+value = 3030303
+persistent = 256
+ignorehitpause = 1
+
+;------------------------------------------------------------------------------------------
+[Statedef 14000]
+type = U
+movetype = U
+physics = N
+movehitpersist = 1
+hitdefpersist = 1
+
+[State , ÉXÉeÅ[ÉgÉ^ÉCÉvïœçX]
+type = Statetypeset
+trigger1 = !ishelper
+movetype = A
+physics = N
+ignorehitpause = 1
+
+[State , ÉwÉãÉpÅ[ÉAÉjÉÅïœçX]
+type = Changeanim
+trigger1 = ishelper(14000)
+value = 20000;çUåÇîªíË
+ignorehitpause = 1
+
+[State 14000, ÉpÉìÉhÉâÉLÉâÅ[â¸]
+type = Parentvarset
+triggerall = ishelper
+triggerall = root,alive
+triggerall = parent,id = root,id
+trigger1 = !((root,stateno = 16101) || root,stateno = 14000 || root,stateno = 1000044)
+var(playerid(enemy,var(10)),var(46)) = root,stateno
+ignorehitpause = 1
+
+[State ]
+type = Helper
+triggerall = ishelper
+triggerall = playeridexist(id)
+trigger1 = !numhelper(222222)
+ID = 222222
+name = "konsen_syutoku_heiper"
+postype = p1
+pos = 999, -9999999999999
+stateno = random * random
+helpertype = normal
+size.xscale = 0
+size.yscale = 0
+keyctrl = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 14000, palnoòMÇËÇ÷]
+type = Changestate
+triggerall = !ishelper
+trigger1 = hitpausetime
+value = 3030303
+persistent = 256
+ignorehitpause = 1
+
+;------------------------------------------------------------------------------------------
+;ïœêîòMÇË
+
+[state 1];ÉXÉeÅ[Égî≤ÇØ
+type = changestate
+trigger1 = !Ishelper
+value = 5152
+ctrl=0
+ignorehitpause = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 1]
+type = posset
+trigger1 = p1name="cooler"
+x = root,pos x
+y = 9999999999999999999999999999999999999999999999999999999999
+ignorehitpause = 1
+pausemovetime = 99999999
+supermovetime = 99999999
+
+[State 88]
+type = nothitby
+trigger1 =p1name!="cooler"
+value = SCA
+ignorehitpause = 1
+pausemovetime = 9999999
+supermovetime = 9999999
+
+[State 7400, ïœêîòMÇË]
+type = Varrangeset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+value = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Varrangeset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvalue = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(0) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(1) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(2) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(3) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(4) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(5) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(6) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(7) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(8) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(9) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(10) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(11) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(12) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(13) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(14) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(15) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(16) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(17) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(18) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(19) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(20) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(21) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(22) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(23) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(24) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(25) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(26) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(27) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(28) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(29) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(30) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(31) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(32) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(33) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(34) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(35) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(36) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(37) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(38) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(39) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(40) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(41) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(42) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(43) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(44) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(45) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(46) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(47) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(48) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(49) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(50) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(51) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(52) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(53) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(54) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(55) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(56) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(57) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(58) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+var(59) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(0) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(2) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(3) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(4) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(5) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(6) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(7) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(8) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(9) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(10) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(11) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(12) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(13) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(14) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(15) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(16) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(17) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(18) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(19) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(20) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(21) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(22) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(23) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(24) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(25) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(26) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(27) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(28) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(29) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(30) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(31) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(32) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(33) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(34) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(35) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(36) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(37) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(38) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+[State 7400, ïœêîòMÇË]
+type = Parentvarset
+triggerall = !(root,name = "G OROCHI" || root,name = "UNKNOWN" || root,name = "Devils eye")
+triggerall = !(root,name = "New_Shiki_Nanaya" || root,name = "Remilia Scarlet")
+triggerall = !(root,name = "Tartaros" || root,name = "cooler")
+triggerall = ishelper
+triggerall = root,alive
+trigger1 = gametime % 11 = [0, 1]
+trigger2 = gametime % 11 = [3, 4]
+trigger3 = gametime % 11 = [6, 7]
+trigger4 = gametime % 11 = [9, 10]
+fvar(39) = (gametime % 11 = [3, 4]) + ((gametime % 11 = [6, 7]) * (gametime + 1))+(gametime % 11 = [9, 10]) * -999999
+ignorehitpause = 1
+
+;------------------------------------------------------------------------------------------
+;ÉAÅ[É}Å[ä—í ñCÅïÉpÉìÉhÉâÉLÉâÅ[
+
+[state 1];ÉXÉeÅ[Égî≤ÇØ
+type = changestate
+trigger1 = !Ishelper
+value = 5152
+ctrl=0
+ignorehitpause = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 88]
+type = nothitby
+trigger1 =p1name!="cooler"
+value = SCA
+ignorehitpause = 1
+pausemovetime = 9999999
+supermovetime = 9999999
+
+;êÍópëŒçÙ
+[State 7500, ëŒÉCÉOÇÃÇÒ]
+type = Projectile
+triggerall = ishelper
+triggerall = root,alive
+triggerall = time < 30
+triggerall = root,name = "UNKNOWN"
+trigger1 = gametime % 4 = 0
+trigger2 = root,stateno != [5110, 5150]
+attr = SCA, AA, AT, AP
+projid = 9010
+projanim = 200
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = ifelse(root,gethitvar(fall.damage) != 0, 5110, 1305)
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ëŒÉÅÉKÉäÉX]
+type = Projectile
+triggerall = ishelper
+triggerall = root,alive
+triggerall = time < 30
+triggerall = root,name = "Megalith" || root,name = "G-FLANDRE"
+trigger1 = gametime % 4 = 0
+trigger2 = root,stateno != [5110, 5150]
+attr = SCA, AA, AT, AP
+projid = 9000
+projanim = 200
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = ifelse(root,gethitvar(fall.damage), 5110, 6265)
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+;îƒópÉAÅ[É}Å[ä—í ñC
+[State 7500, ÉAÉ}ñCproj1]
+type = Projectile
+triggerall = ishelper
+triggerall = root,alive
+triggerall = time < 30
+trigger1 = gametime % 4 = 0
+trigger2 = root,stateno != [5110, 5150]
+attr = SCA, AA, AT, AP
+projid = 1010
+projanim = anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = ifelse(root,gethitvar(fall.damage) != 0, 5110, 110)
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ÉAÉ}ñCproj2]
+type = Projectile
+triggerall = ishelper
+triggerall = root,alive
+triggerall = time < 30
+trigger1 = gametime % 4 = 0
+trigger2 = root,stateno != [5110, 5150]
+attr = SCA, AA, AT, AP
+projid = 1010
+projanim = root,anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = ifelse(root,gethitvar(fall.damage) != 0, 5110, 110)
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ï€è·ópproj1]
+type = Projectile
+triggerall = ishelper
+triggerall = !root,numprojid(9300)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+triggerall = !root,gethitvar(fall.damage)
+trigger1 = time > 120
+attr = SCA, AA, AT, AP
+projid = 9300
+projanim = anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ï€è·ópproj2]
+type = Projectile
+triggerall = ishelper
+triggerall = !root,numprojid(9400)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+triggerall = !root,gethitvar(fall.damage)
+trigger1 = time > 120
+attr = SCA, AA, AT, AP
+projid = 9400
+projanim = root,anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ï€è·ópproj3]
+type = Projectile
+triggerall = ishelper
+triggerall = !root,numprojid(9500)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+triggerall = !root,gethitvar(fall.damage)
+trigger1 = time > 120
+attr = SCA, AA, AT, AP
+projid = 9500
+projanim = 200
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ÉGÉtÉFÉNÉgè¡ãé]
+type = Removeexplod
+trigger1 = 1
+ignorehitpause = 1
+
+[State 7500, ñ≥ìG]
+type = Nothitby
+trigger1 = 1
+value = SCA
+ignorehitpause = 1
+
+[State 7500, ñ{ëÃèKìæéûóp]
+type = Changestate
+triggerall = name != "cooler"
+trigger1 = !ishelper
+value = 5150
+ignorehitpause = 1
+
+[State 7500, ìßñæâª]
+type = Assertspecial
+trigger1 = ishelper
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+
+[State 7500, ä±è¬äOÇ÷]
+type = Posset
+trigger1 = ishelper
+x = root,pos x
+y = 9999999999999
+ignorehitpause = 1
+
+;------------------------------------------------------------------------------------------
+;ë¶éÄï‘Çµ
+
+[state 1];ÉXÉeÅ[Égî≤ÇØ
+type = changestate
+trigger1 = !Ishelper
+value = 5152
+ctrl=0
+ignorehitpause = 1
+supermovetime = 99999999
+pausemovetime = 99999999
+
+[State 88]
+type = nothitby
+trigger1 =p1name!="cooler"
+value = SCA
+ignorehitpause = 1
+pausemovetime = 9999999
+supermovetime = 9999999
+
+;êÍópëŒçÙ
+[State ëŒF1]
+type = Projectile
+triggerall = root,name = "f1"
+trigger1 = Ishelper
+trigger1 = Root,Alive
+attr = SCA, AA, AT, AP
+projid = 2013
+projanim = 1000
+projpriority = 7
+projremove = 0
+sparkno = -1
+hitsound   = -1
+projremovetime = 30
+postype = p2
+offset = 0,500
+pausetime = 0,0
+p1stateno = 9997
+ignorehitpause = 1
+
+;îƒópë¶éÄï‘Çµ
+[State ë¶éÄï‘Çµópproj]
+type = Projectile
+triggerall = !root,name = "Devils eye"
+triggerall = !root,name = "ice G OROCHI"
+trigger1 = Ishelper
+trigger1 = Root,Alive
+attr = SCA, AA, AT, AP
+projid = 2003
+projanim = anim
+projpriority = 7
+projremove = 0
+sparkno = -1
+hitsound   = -1
+projremovetime = 30
+postype = p2
+offset = 0,500
+pausetime = 0,0
+p1stateno = enemy(enemy,name != "cooler"), var(41)
+ignorehitpause = 1
+
+[State ë¶éÄï‘Çµópproj]
+type = Projectile
+triggerall = !root,name = "Devils eye"
+triggerall = !root,name = "ice G OROCHI"
+trigger1 = Ishelper
+trigger1 = Root,Alive
+attr = SCA, AA, AT, AP
+projid = 2003
+projanim = root,anim
+projpriority = 7
+projremove = 0
+sparkno = -1
+hitsound   = -1
+projremovetime = 30
+postype = p2
+offset = 0,500
+pausetime = 0,0
+p1stateno = enemy(enemy,name != "cooler"), var(41)
+ignorehitpause = 1
+
+[State 7300, ï€è·ópproj]
+type = Projectile
+triggerall = !root,name = "Devils eye"
+triggerall = !root,name = "ice G OROCHI"
+triggerall = ishelper
+triggerall = !root,numprojid(7300)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+trigger1 = time = 60
+attr = SCA, AA, AT, AP
+projid = 7300
+projanim = anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7300, ï€è·ópproj]
+type = Projectile
+triggerall = !root,name = "Devils eye"
+triggerall = !root,name = "ice G OROCHI"
+triggerall = ishelper
+triggerall = !root,numprojid(7400)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+trigger1 = time = 60
+attr = SCA, AA, AT, AP
+projid = 7400
+projanim = root,anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7300, ï€è·ópproj]
+type = Projectile
+triggerall = !root,name = "Devils eye"
+triggerall = !root,name = "ice G OROCHI"
+triggerall = ishelper
+triggerall = !root,numprojid(7500)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+trigger1 = time = 60
+attr = SCA, AA, AT, AP
+projid = 7500
+projanim = 200
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7300, ÉGÉtÉFÉNÉgè¡ãé]
+type = Removeexplod
+trigger1 = 1
+ignorehitpause = 1
+
+[State 7300, ñ≥ìG]
+type = Nothitby
+trigger1 = 1
+value = SCA
+ignorehitpause = 1
+
+[State 7300, ñ{ëÃèKìæéûóp]
+type = Changestate
+trigger1 = !ishelper
+value = 5150
+ignorehitpause = 1
+
+[State 7300, ìßñæâª]
+type = Assertspecial
+trigger1 = ishelper
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+
+[State 7300, ä±è¬äOÇ÷]
+type = Posset
+trigger1 = ishelper
+x = root,pos x
+y = 9999999999999
+ignorehitpause = 1
+
+;------------------------------------------------------------------------------------------
+;Ç†Ç‰Ç†Ç‰ÉLÉâÅ[
+
+[State , Ç†Ç‰Ç†Ç‰ÉLÉâÅ[proj1]
+type = Projectile
+triggerall = ishelper
+triggerall = root,alive
+triggerall = time < 30
+trigger1 = gametime % 4 = 0
+trigger2 = root,stateno != [5110, 5150]
+attr = SCA, AA, AT, AP
+projid = 1011
+projanim = anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = ifelse(random % 2, ifelse(random % 2, 123 + (random % 7), random * random), ifelse(random % 2, 110 + (random % 2) * 5, 5100 + (random % 2) * 10))
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, Ç†Ç‰Ç†Ç‰ÉLÉâÅ[proj2]
+type = Projectile
+triggerall = ishelper
+triggerall = root,alive
+triggerall = time < 30
+trigger1 = gametime % 4 = 0
+trigger2 = root,stateno != [5110, 5150]
+attr = SCA, AA, AT, AP
+projid = 1011
+projanim = root,anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = ifelse(random % 2, ifelse(random % 2, 123 + (random % 7), random * random), ifelse(random % 2, 110 + (random % 2) * 5, 5100 + (random % 2) * 10))
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ï€è·ópproj1]
+type = Projectile
+triggerall = ishelper
+triggerall = !root,numprojid(9301)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+triggerall = !root,gethitvar(fall.damage)
+trigger1 = time > 120
+attr = SCA, AA, AT, AP
+projid = 9301
+projanim = anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ï€è·ópproj2]
+type = Projectile
+triggerall = ishelper
+triggerall = !root,numprojid(9401)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+triggerall = !root,gethitvar(fall.damage)
+trigger1 = time > 120
+attr = SCA, AA, AT, AP
+projid = 9401
+projanim = root,anim
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ï€è·ópproj3]
+type = Projectile
+triggerall = ishelper
+triggerall = !root,numprojid(9501)
+triggerall = root,alive
+triggerall = !root,ctrl
+triggerall = root,stateno != 52
+triggerall = !root,gethitvar(fall.damage)
+trigger1 = time > 120
+attr = SCA, AA, AT, AP
+projid = 9501
+projanim = 200
+projpriority = 7
+projremove = 0
+projremovetime = 30
+projmisstime = 1
+projhits = 1
+postype = p2
+offset = 0, 500
+sparkno = -1
+guard.sparkno = -1
+pausetime = 0, 2
+p1stateno = 52
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State 7500, ÉGÉtÉFÉNÉgè¡ãé]
+type = Removeexplod
+trigger1 = 1
+ignorehitpause = 1
+
+[State 7500, ñ≥ìG]
+type = Nothitby
+trigger1 = 1
+value = SCA
+ignorehitpause = 1
+
+[State 7500, ñ{ëÃèKìæéûóp]
+type = Changestate
+triggerall = name != "cooler"
+trigger1 = !ishelper
+value = 5150
+ignorehitpause = 1
+
+[State 7500, ìßñæâª]
+type = Assertspecial
+trigger1 = ishelper
+flag = invisible
+flag2 = noshadow
+ignorehitpause = 1
+
+[State 7500, ä±è¬äOÇ÷]
+type = Posset
+trigger1 = ishelper
+x = root,pos x
+y = 9999999999999
+ignorehitpause = 1
+
+;------------------------------------------------------------------------------------------
+;ÉoÉãÉoÉgÉXóp
+[Statedef 14100]
+type = U
+movetype = U
+physics = N
+ctrl = 0
+movehitpersist = 1
+hitdefpersist = 1
+
+[State , ÉXÉeÅ[ÉgÉ^ÉCÉvïœçX]
+type = Statetypeset
+trigger1 = !ishelper
+movetype = A
+physics = N
+ignorehitpause = 1
+
+[State , ÉwÉãÉpÅ[ÉAÉjÉÅïœçX]
+type = Changeanim
+trigger1 = ishelper(14100)
+value = 23000;çUåÇîªíË
+ignorehitpause = 1
+
+[State , ÇîÇâÇçÇÖë„ÇÌÇË]
+type = Varadd
+trigger1 = 1
+var(15) = 1
+ignorehitpause = 1
+
+[State , í¥ë¶éÄìäÇ∞]
+type = Reversaldef
+triggerall = !ishelper
+trigger1 = var(15) < 30
+trigger2 = time < 30
+numhits = 0
+reversal.attr = SCA, AA, AT, AP
+sparkno = -1
+guard.sparkno = -1
+pausetime = 2 + random % 3, 0
+ignorehitpause = 1
+
+[State , í¥ë¶éÄìäÇ∞]
+type = Hitdef
+triggerall = !ishelper
+trigger1 = var(15) = (30, 60)
+trigger2 = time = (30, 60)
+numhits = 0
+attr = , HA
+priority = 7, hit
+sparkno = -1
+guard.sparkno = -1
+pausetime = 2 + random % 3, 0
+ignorehitpause = 1
+
+[State , ä‘é“ÉwÉãÉpÅ[åƒÇ—èoÇµ]
+type = Helper
+triggerall = playerIDexist(ID)
+trigger1 = !numhelper(7070707)
+ID = 7070707
+name = "kanja"
+postype = p1
+pos = 999, -9999999999999
+stateno = random * random
+helpertype = normal
+size.xscale = 0
+size.yscale = 0
+keyctrl = 0
+supermovetime = 9999999999999
+pausemovetime = 9999999999999
+ignorehitpause = 1
+
+[State , í èÌë¶éÄ]
+type = Lifeset
+trigger1 = !ishelper(7070707)
+trigger2 = !ishelper
+value = 0
+ignorehitpause = 1
+
+[State , ÉpÉèÅ[ïïéE]
+type = Powerset
+trigger1 = 1
+value = 0
+ignorehitpause = 1
+
+[State , éÄÇ»Ç»Ç¢èÍçá]
+type = Selfstate
+triggerall = !ishelper
+trigger1 = var(15) > 60
+trigger2 = time > 60
+value = 52
+ignorehitpause = 1
+
+[State , í¥ë¶éÄÇ÷]
+type = Changestate
+triggerall = !ishelper
+trigger1 = hitpausetime
+value = 5152
+ignorehitpause = 1

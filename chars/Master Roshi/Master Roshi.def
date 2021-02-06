@@ -1,0 +1,22 @@
+[Info]
+name = "Muten Roshi"  
+displayname = "Master Roshi"
+versiondate = 12,24,2012 
+mugenversion = 1.0         
+author = "Gladiacloud"      
+pal.defaults = 1 ,1       
+                         
+localcoord = 320,240       
+
+; Files for the player
+[Files]
+cmd     = mutenroshi.cmd           ;Command set
+cns     = mutenroshi.cns           ;Constants
+st      = mutenroshi.cns           ;States
+st1      = attacks.cns           ;States
+st2      = special.cns           ;States
+st3      = hyper.cns           ;States
+stcommon = common1.cns      ;Common states (from data/ or motif)
+sprite  = mutenroshi.sff           ;Sprite
+anim    = mutenroshi.air           ;Animation
+sound   = mutenroshi.snd           ;Sound

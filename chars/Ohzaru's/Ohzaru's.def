@@ -1,0 +1,31 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Ohzaru's"
+displayname ="Ohzaru's"
+versiondate =09,03,2008
+mugenversion =04,14,2002
+author ="b-gg19"
+pal.defaults =1,2,3,4
+
+[Files]
+sprite 	=Ohzaru's.sff
+anim 	=Ohzaru's.air
+sound 	=Ohzaru's.snd
+cmd 	=Ohzaru's.cmd
+cns 	=Ohzaru's.cns
+stcommon=common1.cns
+st 	=Basico.cns
+pal1=Normal.act
+pal2=Napa.act
+pal3=Turles.act
+pal4=Thoma.act
+st1=Helpers.cns
+st2=common.cns
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard =

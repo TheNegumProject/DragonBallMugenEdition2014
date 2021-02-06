@@ -1,0 +1,28 @@
+
+; Player information
+[Info]
+name ="Goku FSSJ"        
+displayname ="Goku FSSJ " 
+versiondate =07,03,2005   
+mugenversion =04,14,2002   
+author ="Rono (spritemaker) and Tenshinhan (programador)"         
+pal.defaults =6,3,4,2     
+
+; Files for the player
+[Files]
+cmd     =ssjo.cmd   
+cns     =ssjo.cns   
+st      =ssjo.cns   
+stcommon =common1.cns 
+sprite  =ssjo.sff   
+anim    =ssjo.air   
+sound   =ssjo.snd   
+pal1=1.act
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def
+[Arcade]
+intro.storyboard=
+ending.storyboard=

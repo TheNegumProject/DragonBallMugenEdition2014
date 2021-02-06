@@ -1,0 +1,21 @@
+[Info]
+name="Trunks"
+displayname="Kid Trunks "
+versiondate=
+mugenversion=
+author="YLS ((Mugen Mundo))"
+pal.defaults=1,2
+[Files]
+sprite=Trunks.sff
+sound=Trunks.snd
+anim=Trunks.air
+cmd=Trunks.cmd
+cns=Trunks.cns
+st=Trunks.cns
+stcommon=common1.cns
+pal1=1
+pal2=2
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=..\data\final.def

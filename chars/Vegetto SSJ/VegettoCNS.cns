@@ -1,0 +1,579 @@
+;==============
+;Super-Vegetto 
+;==============
+
+;----------------------
+;Author:	Wasaby 
+;----------------------
+
+
+
+;=============================================================
+[Data]
+life                = 1000
+power               = 3000
+attack              = 80
+defence             = 100
+fall.defence_up     = 50
+liedown.time        = 50
+;airjuggle           = 25
+airjuggle           = 35
+sparkno             = -1
+guard.sparkno       = 2
+KO.echo             = 0
+volume              = 200
+IntPersistIndex     = 1
+FloatPersistIndex   = 40
+
+[Size]
+xscale              = 1
+yscale              = 1
+ground.back         = 24
+ground.front        = 22
+air.back            = 17
+air.front           = 14
+height              = 75
+attack.dist         = 160
+proj.attack.dist    = 90
+proj.doscale        = 0 
+head.pos            = 9, -71
+mid.pos             = 9, -53
+shadowoffset        = 0
+draw.offset         = 0,0
+
+[Velocity]
+walk.fwd            = 1.6
+walk.back           = -1.5
+run.fwd             = 9, 0
+run.back            = -8, 0
+jump.neu            = 0,-10
+jump.back           = -3.5
+jump.fwd            = 3.5
+runjump.back        = -2.55,13
+runjump.fwd         = 5,13
+airjump.neu         = 0,12
+airjump.back        = -2.55
+airjump.fwd         = 2.5
+
+[Movement]
+airjump.num         = 1
+airjump.height      = 35
+yaccel              = .47
+stand.friction      = .85
+crouch.friction     = .82
+
+;---------------------------------------------------------------------------
+; Format:
+;[Statedef 0]
+;type = 
+;movetype = 
+;physics = 
+;anim = 
+;velset = 0,0,0
+;ctrl = 0
+;poweradd = 0
+;juggle = 0
+;facep2 = 1
+;hitdefpersist = 0
+;movehitpersist = 0
+;hitcountpersist = 0
+;sprpriority = 0
+
+;---------------------------------------------------------------------------
+; Lose by Time Over
+; CNS difficulty: basic
+; CNS ƒŒƒxƒ‹: Šî–{
+[Statedef 170]
+type = S
+ctrl = 0
+anim = 170+(10000*var(1))
+velset = 0,0
+
+[State 170: 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+;---------------------------------------------------------------------------
+; Win state decider
+[Statedef 180]
+type                    = S
+
+[State 0: ]
+type                    = ChangeState
+trigger1                = (!Time)
+value                   = ifelse(random > 600,185,ifelse(random > 500,186,186))
+
+;---------------------------------------------------------------------------
+; Win pose 1 - Rire arrogant
+; CNS difficulty: basic
+
+[Statedef 185]
+type = S
+ctrl = 0
+anim = 185
+velset = 0,0
+
+[State 185, 1]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S13, 4
+channel = 1
+Volume = 255
+
+[State 185: 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+;---------------------------------------------------------------------------
+; Win pose 2 - Position manga
+; CNS difficulty: basic
+
+[Statedef 186]
+type = S
+ctrl = 0
+anim = 186
+velset = 0,0
+
+[State 186, 1]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = S15, 2
+channel = 1
+Volume = 255
+
+[State 186: 1]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+time = 1
+
+
+;---------------------------------------------------------------------------
+;------------------------------------------------------------------------------
+;Dizzy state
+
+[Statedef 5300]
+type = S
+ctrl = 0
+physics = N
+anim = 5300
+
+[State 5300, VarSet]
+type = VarSet
+trigger1 = (!Time)
+v = 0
+value = 0
+
+[State 5300, NotHitBy]
+type = NotHitBy
+trigger1 = (Time < 10)
+value = SCA
+
+[State 5300, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 1
+value = S14, 3
+
+[State 5300, PlaySnd]
+type = PlaySnd
+trigger1 = Time = 1
+value = S14, 4
+volume = 255
+
+[State 5300,	PalFX]
+type			= PalFX
+trigger1		= Time = 6
+time			= 3
+add			= 100,100,100
+mul			= 256,256,256
+sinadd		= -80,-80,-80,60
+invertall		= 0
+color			= 256
+
+[State 5300, 3]
+type = Explod
+trigger1 = Facing = 1
+anim = 9997
+id = 9997
+postype = Left
+pos = 1, 95
+persistent = 0
+facing = 1
+bindtime = -1
+ontop = 1
+removetime = -2
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+
+[State 920, 4]
+type = Explod
+trigger1 = Facing = -1
+anim = 9997
+id = 9997
+postype = Right
+pos = -90, 95
+persistent = 0
+facing = 1
+bindtime = -1
+ontop = 1
+removetime = -2
+sprpriority = 5
+ownpal = 1
+ignorehitpause = 1
+
+[State 5300: VarSet]
+type = VarSet
+trigger1 = (!Time)
+var(1) = 21
+
+[State 5300: VarAdd]
+type = VarAdd
+trigger1 = (Command = "a") || (Command = "b") || (Command = "c") 
+trigger2 = (Command = "x") || (Command = "y") || (Command = "z")
+var(1) = -1
+
+
+[State 5300: PalFX]
+type = PalFX
+trigger1 = (Command = "a") || (Command = "b") || (Command = "c") 
+trigger2 = (Command = "x") || (Command = "y") || (Command = "z")
+time = 3
+add			= 100,100,100
+mul			= 256,256,256
+sinadd		= -80,-80,-80,60
+invertall		= 0
+color			= 256
+
+[State 5300, ChangeState]
+type = ChangeState
+trigger1 = (Time = 250)
+trigger2 = var(1) = 0
+ctrl = 1
+value = 0
+
+;----------------------------------------------------------------------------------
+
+;Winko
+
+[Statedef 10100]
+type = S
+movetype = I
+physics = N
+anim = 10100 ;Invisible anim.
+
+[State 10100: Pause]
+type = Pause
+trigger1 = (!Time)
+time = 12
+movetime = 12
+
+[State 10100: EnvColor]
+type = EnvColor
+trigger1 = (Time < 12)
+value = (Time*4),(Time*4),(Time*4)
+time = 1
+under = 1
+
+[State 10100: EnvShake]
+type = EnvShake
+trigger1 = (!Time)
+time = 12
+freq = 120
+ampl = -3
+phase = 90
+
+[State 10100, 1]
+type = PlaySnd
+trigger1 = Time = 1
+value = S14, 9
+
+
+[State 10100: AllPalFX]
+type = AllPalFX
+trigger1 = (Time < 50)
+time = 1
+add = 0,0,0
+mul = 256,256,256
+sinadd = 0,0,0,1
+invertall = 0
+color = (Time*5)
+
+
+;--------------------------------------------------------------------------------------------------------
+
+;parry states
+
+
+;------------1-------Ground----------------1------------------------
+
+
+;And now, the parry states.
+
+[Statedef 8221]
+type = U
+movetype = I
+physics = U
+anim = IfElse(StateType = S,8221,8222); <--- The first value should be the standing parry anim, 2nd being the crouching parry anim.
+velset = 0,0
+ctrl = 0
+poweradd = 0
+juggle = 0
+facep2 = 1
+hitdefpersist = 0
+movehitpersist = 0
+hitcountpersist = 0
+sprpriority = 2
+
+;The required stuff.
+
+[State 8221: AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+
+[State 8221: CtrlSet]
+type = CtrlSet
+trigger1 = (Time > 4) && (StateType = S)
+value = 1
+
+[State 8221: CtrlSet]
+type = CtrlSet
+trigger1 = (Time > 4) && (StateType = C)
+value = 1
+
+[State 8221: NotHitBy]
+type = NotHitBy
+trigger1 = 1
+value = SCA
+
+[State 8221: Pause]
+type = Pause
+trigger1 = (!Time)
+time = 14
+movetime = 14
+
+[State 8221: VarSet]
+type = VarSet
+trigger1 = (!Time)
+var(5) = 1
+
+;Miscellaneous special effects.
+
+[State 8221: PalFX]
+type = PalFX
+trigger1 = (!Time)
+time = 8
+add = 0,0,0
+mul = 256,256,256
+sinadd = 75,100,255,8
+invertall = 0
+color = 256
+
+[State 8221: EnvColor]
+type = EnvColor
+trigger1 = (!Time)
+value = 255,255,255
+time = 4
+
+[State 8221: EnvShake]
+type = EnvShake
+trigger1 = (!Time)
+time = 8
+freq = 60
+ampl = -2
+phase = 90
+
+;Sound effects if needed. One for the character's voice, and another for the parry spark sound effect.
+
+[State 8221: PlaySnd]
+type = PlaySnd
+trigger1 = (!Time)
+value = S15,0
+
+[State 8221: PlaySnd]
+type = PlaySnd
+trigger1 = (!Time)
+value = S13,2
+
+;This is the parry spark.
+
+[State 8221: Explod]
+type = Explod
+trigger1 = (!Time)
+anim = 9150
+id = 9150
+pos = (IfElse(StateType = S,-30,0)),(IfElse(StateType = S,-30,0)) ;<--- First set of co-ordinates are used for the position of the standing parry spark, with 2nd set for the crouching.
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove = 0
+supermovetime = 0
+pausemovetime = 12
+scale = 1,1
+sprpriority = 3
+ontop = 0
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+;And this ends the ground parry state.
+
+[State 8221: ChangeState]
+type = ChangeState
+trigger1 = (!AnimTime)
+value = IfElse(StateType = S,0,11)
+
+
+;--------------------2-----------aerial parry---------------------2-------------------------------------------------------------
+
+
+
+;This is the aerial parry state.
+
+[Statedef 8223]
+type = A
+movetype = I
+physics = N
+anim = 8223
+ctrl = 0
+poweradd = 0
+juggle = 0
+facep2 = 0
+hitdefpersist = 0
+movehitpersist = 0
+hitcountpersist = 0
+sprpriority = 2
+
+[State 8223: CtrlSet]
+type = CtrlSet
+trigger1 = (Time > 4)
+value = 1
+
+[State 8223: NotHitBy]
+type = NotHitBy
+trigger1 = (Time < 14)
+value = SCA
+
+[State 8223: Pause]
+type = Pause
+trigger1 = (!Time)
+time = 14
+movetime = 14
+
+[State 8223: VarSet]
+type = VarSet
+trigger1 = (!Time)
+var(5) = 1
+
+[State 8223: PalFX]
+type = PalFX
+trigger1 = (!Time)
+time = 8
+add = 0,0,0
+mul = 256,256,256
+sinadd = 75,100,255,8
+invertall = 0
+color = 256
+
+[State 8223: EnvColor]
+type = EnvColor
+trigger1 = (!Time)
+value = 255,255,255
+time = 4
+
+[State 8223: EnvShake]
+type = EnvShake
+trigger1 = (!Time)
+time = 8
+freq = 60
+ampl = -2
+phase = 90
+
+;Sound effects if needed. One for the character's voice, and another for the parry spark sound effect.
+
+[State 8223: PlaySnd]
+type = PlaySnd
+trigger1 = (!Time)
+value = S15,0
+
+[State 8223: PlaySnd]
+type = PlaySnd
+trigger1 = (!Time)
+value = S13,2
+
+;These are used to check the character's current jumping velocities, and save it to be used later.
+;FVar(0) is used for the X velocity, and FVar(1) for the Y velocity.
+
+[State 8223: Null]
+type = Null
+trigger1 = (!Time)
+trigger1 = (FVar(0) := Vel X) && (FVar(1) := Vel Y)
+
+;The character is frozen during the parry state.
+
+[State 8223: VelSet]
+type = VelSet
+trigger1 = (Time)
+x = 0
+y = 0
+persistent = 0
+
+;But after 14 ticks, the character will resume normal jumping movement.
+
+[State 8223: VelSet]
+type = VelSet
+trigger1 = (Time > 14)
+x = FVar(0)
+y = FVar(1)
+persistent = 0
+
+[State 8223: VelAdd]
+type = VelAdd
+trigger1 = (Time > 14)
+y = 0.45
+
+;Parry spark can be added here.
+;[Explod]
+
+;and this ends the aerial parry state when the character lands.
+
+[State 8223: ChangeState]
+type = ChangeState
+trigger1 = (Pos Y >= 0) && (Vel Y > 0)
+value = 52
+
+;This is the aerial parry state helper. It should use an invisible anim, with no Clsns.
+
+[Statedef 10150]
+type = A
+movetype = I
+physics = N
+anim = 10150
+poweradd = 0
+juggle = 0
+facep2 = 0
+hitdefpersist = 0
+movehitpersist = 0
+hitcountpersist = 0
+sprpriority = 2
+
+[State 10150: ParentVarSet]
+type = ParentVarSet
+trigger1 = (!Time)
+var(4) = 8
+ignorehitpause = 1
+
+[State 10150: DestroySelf]
+type = DestroySelf
+trigger1 = (Parent, Command != "holdfwd")
+
+;-----------------------------------------------------------------------------

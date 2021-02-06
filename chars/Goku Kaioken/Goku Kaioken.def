@@ -1,0 +1,32 @@
+;==============================
+;Goku
+;	By Sabre
+;==============================
+
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name			="Goku"
+displayname		="Goku Kaioken"
+versiondate		=07,27,2002
+mugenversion	=04,14,2002
+author		="Sabre"
+pal.defaults	=1, 2
+
+;---------------
+;Character Files 
+;---------------
+[Files]
+cmd			=KGoku.cmd
+cns			=KGoku.cns
+st			=KGoku.cns
+stcommon		=KGoku.cns
+sprite		                  =KGoku.sff
+anim			=KGoku.air
+sound			=KGoku.snd
+pal1=KGoku.act
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=

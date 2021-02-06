@@ -1,0 +1,27 @@
+;Dragon Ball Z Spirit Z Team
+;Programador: MGMNZX
+;Spriter: Zack
+;Sonidos: MGMNZX
+;Le agradesco mucho a The_Virus_X por averme aclarado mis dudas y ayudarme con esto de la programacion
+
+[Info]
+name="Goku Super Saiyajin"
+displayname="Goku Legend SSJ"
+versiondate=
+mugenversion=
+author="MGMNZX"
+pal.defaults=
+[Files]
+sprite=GokuSuperSaiyajin.sff
+sound=gokussj.snd
+anim=GokuSuperSaiyajin.air
+cmd=GokuSuperSaiyajin.cmd
+cns=GokuSuperSaiyajin.cns
+st=GokuSuperSaiyajin.cns
+stcommon=common1.cns
+pal1=GokuSuperSaiyajin.act
+pal2=GokuSuperSaiyajin2.act
+pal3=GokuSuperSaiyajin3.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

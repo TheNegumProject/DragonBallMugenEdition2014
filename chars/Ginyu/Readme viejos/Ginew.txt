@@ -1,0 +1,96 @@
+Ginew versão 70% beta 3 (3ª versão)
+
+Nome: Ginew
+Autor: Kuririn
+Ripado por: Kuririn
+Jogo: Dragon Ball Z Genicis
+Emulador: Kgen
+E-mail: pabfontao@ac.mailbr.com.br
+-------------------------------------------------------------------------------------------------
+
+Novidades:
+
+ Coloquei um helper, adicionei + alguns sons, outro combo, outros ataques, etc...
+ Bom gente, espero que gostem do "superintro" que fiz!!! :-)!!!
+ (Obs: Rodem na nova versão) 
+
+-------------------------------------------------------------------------------------------------
+
+Na(s) próxima(s) Versão(ões):
+
+Ainda estou pensando, talvez colocarei algumas coisas abaixo:
+
+ - Um Mega ataque que mata na hora!
+ - + Finais!
+ - Ajuda do Grande Freeza!
+ - Teleporte!
+ - Chamar o esquadrão todo e lançar um Mega ataque!
+ - Intro especial contra Goku Normal HD do EB!
+ - E mais!!!!!!!
+
+-------------------------------------------------------------------------------------------------
+
+Pages:
+
+www.kuririns.hpg.com.br
+www.mugenssj.cjb.net
+
+-------------------------------------------------------------------------------------------------
+Agradecimentos:
+
+  - A Elecbyte por ter feito o Mugen :-)
+  - A Bandai por ter feito os jogos da série DBZ, enclusive o de mega-drive :-)   		 
+  - Ao kuzu-bei pelo movimento de voo :-)	                                                   - Ao Doink, por me deixar ser membro da mugen ssj :-)
+  - Ao GokuSSJ por me mandar a foto do Ginew :-)
+  - Denovo ao GokuSSJ pelos sons :-)
+  - Ao Pocket_Danyell por me exclarecer algumas dúvidas :-)
+  - E a você, espero que aproveite :-)!!!!!!!
+
+-------------------------------------------------------------------------------------------------
+ Golpes Básicos:
+ 
+ P/ Cima:     cima				     			     			
+ P/ Baixo:    baixo
+ P/ Direita:  frente
+ P/ Esquerda: trás
+
+Socos:
+ Soco  Fraco: A     				     
+ Soco  Médio: S       		             
+
+Chutes: 				     						          Chute Fraco: Z			     
+ Chute Medio: X				     
+
+Outros:
+ Nada       : D
+ Nada       : C
+ Teleporte  : S (Enter)
+
+-------------------------------------------------------------------------------------------------                           
+ Ataques:
+
+ Super Soco: baixo, frente e Z
+ Super Chute: baixo, frente e X
+ Super Combo: baixo, frente e Z + X				                      
+ Carregar energia: A + S     		          
+ Voar: Z + X
+ Fireball: baixo, frente e S                                     
+ Agarrão: A (de perto)                     
+ Corrida pra Frente:  frente, frente                          
+ Corrida pra Traz:    trás, trás                           
+
+-------------------------------------------------------------------------------------------------
+                                  				                        
+ Hipers:					     
+						     
+ Super Raio: baixo, trás, frente e A (2 de energia)                      
+ Super Bola: baixo, trás, frente e B (1 de energia)
+ Raio Médio: baixo, trás, frente e D (1,5 de energia) 		
+     
+-------------------------------------------------------------------------------------------------
+
+Comentário:
+
+Espero que gostem :-)!!!!!!!!!!
+
+-------------------------------------------------------------------------------------------------

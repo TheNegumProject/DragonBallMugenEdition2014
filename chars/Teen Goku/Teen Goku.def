@@ -1,0 +1,35 @@
+;==============================
+;Goku
+;	By BroliDos Project
+;==============================
+
+;---------------------
+;Character Information
+;---------------------
+[Info]
+name			="Goku Z"
+displayname		="Teen Goku"
+pal.defaults	=1,2
+versiondate=16/3/2012
+mugenversion=06,14,2003
+author="BroliDos e Sabre"
+
+;---------------
+;Character Files 
+;---------------
+[Files]
+cmd			=Teen Goku.cmd
+cns			=Teen Goku.cns
+st			=Teen Goku.cns
+stcommon		=Teen Goku.cns
+sprite		        =Teen Goku.sff
+anim			=Teen Goku.air
+sound			=Teen Goku.snd
+pal1=1.act
+pal2=2.act
+pal3=3.act
+
+; Arcade mode
+[Arcade]
+intro.storyboard =intro/intro.def
+ending.storyboard=final/final.def

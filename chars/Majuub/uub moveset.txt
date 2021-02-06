@@ -1,0 +1,41 @@
+UUB MOVESET
+
+------------------------
+Special moves:
+------------------------
+Kamehameha (can in air): D,DF,F + WP or HP (use 100 spirit)
+
+Lighting Arrow: B,DB,D + WP or HP (use 100 spirit)
+
+Fierce Upper: F, D, DF + WP or HP (can cancel a Flip Kick)
+
+Rolling Whirlpool: (during jump) D, DB, B + WK or HK
+
+Piercing Blow: D, DB, B + WP or HP
+
+Powerful Triplet: D, DB, B + WK or HK
+
+Uub Fury: D, DB, B, F + WK or HK (can cancel a Devil Sword Kick)
+
+
+------------------------
+Special Techniques:
+------------------------
+Energy Charge: HP + HK (hold down)
+
+Teleport: WP + WK or B + WP + WK
+
+Sugar Counter: (during stand/crouch guard) WP + WK (Lv1 Hyper)
+
+
+------------------------
+Super moves:
+------------------------
+Chou Kamehameha (can in air): D, DF, F, D, DF, F + HP (Lv1 Hyper)
+
+- Choco Kamehameha: (during Chou Kamehameha) HP (use 500 spirit)
+
+Blazing Barrage: : D, DB, B, F + HP (Lv2 Hyper)
+
+Chocolate Doom: D, DF, F, D, DF, F + HK (Lv3 Hyper)
+

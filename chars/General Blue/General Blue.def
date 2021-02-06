@@ -1,0 +1,21 @@
+[Info]
+name = "General Blue"
+displayname = "General Blue"
+versiondate = 
+mugenversion = 
+author = "Tomo"
+pal.defaults = 1
+
+[Files]
+sprite = GeneralBlue.sff
+anim = GeneralBlue.air
+sound = GeneralBlue.snd
+cmd = GeneralBlue.cmd
+cns = GeneralBlue.cns
+stcommon = common1.cns
+st = GeneralBlue.cns
+st2 = attack.cns
+st3 = special.cns
+st4 = hyper.cns
+st9 = AI.cns
+pal1 = GeneralBlue.act

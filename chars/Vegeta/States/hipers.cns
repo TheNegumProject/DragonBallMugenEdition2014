@@ -1,0 +1,554 @@
+; ______________________________________________
+;|Vegeta                                        |
+;|Character Made by: Duende Macabro  ::..       |
+;|Version: Beta 0.30 - 24/10/2005 ::..          |
+;|Started at 25/09/2005 ::..                    |
+;|Contact:                                      |
+;|weaponx_nirvana@yahoo.com.br                  |
+;|http://geocities.yahoo.com.br/rickiecreations |
+;|______________________________________________|
+
+;===========================================================================================|
+;--------------------------------------< Lv.3 Hipers >--------------------------------------|
+;===========================================================================================|
+
+;===================|
+;--[ Final Flash ]--|
+;===================|
+
+[Statedef 2100]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+poweradd= 22
+ctrl = 0
+velset = 0,0
+anim = 2100
+poweradd= -330
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 0
+id = 6029
+
+[State 2100, s/h variavel] 
+type = Varset 
+trigger1 = 1
+var(25) = 2
+
+[State 2100, superchargepause]
+type = SuperPause
+trigger1 = AnimElem = 2
+time = 45
+anim = -1
+sound = s10,0
+darken = 0
+poweradd = -2000
+
+[State 3200, superchargehelper]
+type = Helper
+trigger1 = AnimElem = 1
+helpertype = normal
+stateno = 3100
+ID = 3100
+name = "Super Charge"
+postype = p1
+pos = 23,-44
+ownpal = 1
+persistent = 0
+supermovetime = 9999
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 3
+value = 3,0
+channel = 2
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1000,0
+channel = 1
+
+[State 1700, Poeira - Melty Blood]
+type = Explod
+Triggerall = pos y >= 0
+trigger1 = AnimElem = 3
+anim = 8030
+ID = 8030
+pos = 5,5
+scale = 0.4,0.4
+vel = -0.3,0
+sprpriority = 6
+ownpal = 1
+ignorehitpause = 1
+supermove = 1
+pausemovetime = 100
+supermovetime = 100
+removetime = 34
+
+[State 2000, Beam]
+type = Projectile
+trigger1 = AnimElem = 3
+getpower  = 0
+projanim = 8026
+projhitanim = -1
+projpriority = 5
+projremovetime = 58
+projid = 8026
+projhits = 50
+projmisstime = 2
+velocity = 0
+accel = 0
+offset = 21,-44
+attr = S, HP
+damage   = 15,5
+animtype = hard
+guardflag = MA
+hitflag = MAFP
+pausetime = 0,0
+hitpause = 0,0
+hitsound   = S2,1
+sparkno = -1
+guard.sparkno = -1
+guardsound = S6,0
+ground.type = High
+ground.slidetime = 15
+ground.hittime  = 15
+ground.velocity = -1
+air.animtype = High
+air.velocity = -1
+air.juggle = 2
+down.velocity = -1
+down.hittime = 30
+fall = 1
+fall.recover = 0
+envshake.time = 10
+envshake.freq = 70
+envshake.ampl = 3
+
+[State 2100, bound]
+type = screenbound
+trigger1 = animelemtime(3) >= 0
+value = 0
+
+[State 2100, 5]
+type = ChangeState
+Triggerall = Pos y >= 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),2101,0)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+[State 2100, 5]
+type = ChangeState
+Triggerall = Pos y < 0
+trigger1 = AnimTime = 0
+value = ifelse((backedgebodydist < 2),2101,107)
+ctrl = ifelse((backedgebodydist < 2),0,1)
+
+;Voltando à luta o\/
+;-----------------------
+
+[Statedef 2101]
+type    = S
+physics = S
+anim = ifelse ((pos y < 0),108,100)
+sprpriority = 1
+
+[State 2101, bound]
+type = screenbound
+trigger1 = 1
+value = 0
+
+[State 100, 1]
+type = VelSet
+trigger1 = 1
+x = const(velocity.run.fwd.x)
+
+[State 100, 2]
+type = AssertSpecial
+trigger1 = 1
+flag = NoWalk
+flag2 = NoAutoTurn
+
+[State 100, som]
+type = PlaySnd
+trigger1 = AnimElem = 4 || AnimElem = 7
+value = 100, 0
+
+[State 3021, nothitby]
+type = nothitby
+trigger1 = animelemtime(1)>0
+value = SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT
+time = 1
+ignorehitpause = 1
+
+[State 3021, turn]
+type = turn
+trigger1 = p2dist x<0
+
+[State 3021, end]
+type = changestate
+trigger1 = p2dist x < 230 || time = 180
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+;=======================|
+;--[ Super Big Bang attack ]--|
+;=======================|
+[Statedef 2200]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+anim = 2200
+poweradd = -3800
+supermove = 50
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = nomusic
+
+[State 0, SuperPause]
+type = SuperPause
+trigger1 = Time = 0
+time = 50
+anim = -1
+sound = s6000, 25
+move = 50
+darken = 0
+poweradd = 0
+unhittable = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+id = 6041
+anim = 6041
+pos = 160,0
+postype = left
+bindtime = -1
+removetime = -1
+scale = 1,1.1
+sprpriority = -3
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+supermove = 50
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 2
+value = 6000,19
+channel = 1
+
+[State 1020, Corre]
+type = VelSet
+trigger1 = AnimElem = 2, > 1
+x = 8
+
+[State 108, AfterImage]
+type = AfterImage
+trigger1 = Animelem = 2
+time = 25
+length = 3
+timegap = 1
+framegap = 1
+paladd = 0,0,0
+PalBright   =   50,  50,  50
+PalContrast = 128,128,128
+PalAdd      =   0,  0,  0
+PalMul      =  1,1,1
+Trans = Add1
+
+[State 2100, 5]
+type = ChangeState
+trigger1 = p2bodydist x < 10
+value = 2201
+ctrl = 1
+
+[State 2100, 5]
+type = ChangeState
+trigger1 = Time = 100
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+;=======================|
+;--[ Golpea y corre ]--|
+;=======================|
+
+[Statedef 2201]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+anim = 2201
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = nomusic
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 2
+value = 1,0
+channel = 1
+
+[State 200, 1]
+type = playsnd
+trigger1 = AnimElem = 5
+value = 1,2
+channel = 1
+
+[State 10001, HitDef1]
+type = HitDef
+trigger1 = AnimElem = 2
+attr = S, NA
+damage = 40, 0
+animtype = Light
+guardflag = MA
+hitflag = MAF
+priority = 3, Hit
+pausetime = 8, 8
+sparkno = -1
+guard.sparkno = -1
+hitsound = s2, 0
+guardsound = 6, 0
+ground.type = High
+ground.slidetime = 5
+ground.hittime  = 12
+ground.velocity = -1
+airguard.velocity = -1.9,-.8
+air.type = High
+air.velocity = -1.4,-3
+air.hittime = 12
+envshake.time = 3
+envshake.freq = 60
+envshake.ampl = ifelse(Random <500,-3,3)
+
+[State 200, HitSpark Normal]
+type = Helper
+trigger1 = Time = 4 && MoveHit
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 36,-42
+size.xscale = 1
+size.yscale = 1
+
+[State 200, HitSpark Normal]
+type = Helper
+trigger1 = AnimElem = 5
+helpertype = Normal
+ID = 8000
+stateno = 8000
+name = "HitSparkNormal"
+sprpriority = 5
+postype = p1
+pos = 15,-50
+ignorehitpause = 1
+persistent = 0
+size.xscale = 1
+size.yscale = 1
+supermove = 1
+supermovetime = 16
+pausemovetime = 16
+
+[State 205:		HitDef]
+type = HitDef
+trigger1 = AnimElem = 5
+attr = S, NA
+hitflag = MAF
+guardflag = M
+animtype = Back
+air.animtype = Back
+priority = 5, Hit
+damage = 52
+pausetime = 12,24
+guard.pausetime	= 12,25
+guard.sparkno	= -1
+sparkno = -1
+hitsound = S2,3
+guardsound = S0,9
+ground.type = Low
+air.type = Low
+ground.slidetime = 16
+ground.hittime = 18
+air.hittime = 15
+air.fall = 1
+fall = 1
+fall.recover = 0
+ground.velocity	= -8,-17
+
+guard.velocity	= -10
+air.velocity = -3,-12
+airguard.velocity = -6,-4.7
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = Time = 4 && (Movecontact = 0 || moveguarded)
+id = 6041
+
+[State 10001, ChangeState]
+type = ChangeState
+trigger1 = Time = 4 && (Movecontact = 0 || moveguarded)
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)
+
+[State 10001, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 2202
+ctrl = 0
+
+;=======================|
+;--[ Pose de Big Bang ]--|
+;=======================|
+
+[Statedef 2202]
+type    = S
+movetype= A
+physics = S
+juggle  = 4
+ctrl = 0
+anim = 2202
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = nomusic
+
+[State 108, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 1
+value = 6000, 19
+volume = 80
+channel = 1
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 1
+x = -25
+y = -10
+
+[State 0, VelSet]
+type = VelSet
+trigger1 = AnimElem = 2
+x = 0
+y = 0
+
+[State 108, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 7
+value = 6000, 28
+volume = 80
+channel = 2
+
+[State 108, PlaySnd]
+type = PlaySnd
+trigger1 = AnimElem = 9
+value = 6000, 29
+volume = 80
+channel = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 9
+anim = 6007
+ID = 6007
+pos = 44,-45
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0, Explod]
+type = Explod
+trigger1 = Time = 110
+anim = 6007
+ID = 6007
+pos = 44,-45
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = -1
+removetime = -2
+scale = 1,1
+sprpriority = 0
+ontop = 1
+shadow = 0,0,0
+ownpal = 1
+removeongethit = 1
+
+[State 0, Helper]
+type = Helper
+trigger1 = Time = 150
+helpertype = normal
+name = "sbigbang"
+ID = 8051
+stateno = 8051
+pos = 40,-45
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 1.2
+size.yscale = 1.2
+
+[State 0, Helper]
+type = Helper
+Triggerall = var(35) = 1
+trigger1 = Time > 192 && numhelper(8051) = 1 && command = "c" && numhelper(8052) < 1 && Time < 400
+helpertype = normal
+name = "mbigbang"
+ID = 8052
+stateno = 8052
+pos = 40,-45
+postype = p1
+facing = 1
+ownpal = 1
+size.xscale = 0.7
+size.yscale = 0.7
+
+[State 10001, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0 || (Time > 192 && numhelper(8051) = 0)
+value = 2203
+ctrl = 0
+
+;===============================|
+;--[ Final del Hiper Big Bang ]-|
+;===============================|
+
+[Statedef 2203]
+type    = S
+movetype= I
+physics = S
+juggle  = 4
+ctrl = 0
+anim = 2203
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = AnimElem = 7
+id = 6041
+
+[State 10001, ChangeState]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = ifelse(Pos y < 0,107,0)
+ctrl = ifelse(Pos y < 0,0,1)

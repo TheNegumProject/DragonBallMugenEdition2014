@@ -1,0 +1,282 @@
+; kamehameha
+[Statedef 1400]
+type    = S
+movetype= a
+physics = S
+ctrl = 0
+anim = 1400
+poweradd = 0
+
+[State 0, Explod]
+type = Explod
+trigger1 = animelem = 2
+anim = 1403
+ID = 1403
+pos = -11,-22
+postype = p1
+facing = 1
+vfacing = 1
+bindtime = 1
+vel = 0,0
+accel = 0,0
+random = 0,0
+removetime = -2
+supermove = 63
+sprpriority = 1
+
+[State 0, RemoveExplod]
+type = RemoveExplod
+trigger1 = animtime = 0
+id = 1504
+
+[State 0]
+type = superPause
+trigger1 = animelem = 2
+time = 63
+anim = -1
+sound = s1,5
+pos= 12,-31
+movetime = 100
+
+[State 610, 4]
+type = ChangeState
+trigger1 = animTime = 0
+value = 1401
+
+;---------------------------------------------------------------------------
+; kame hame ha lansar
+[Statedef 1401]
+type    = S
+movetype= A
+physics = S
+juggle = 0
+ctrl = 0
+anim = 1401
+
+[State 0, BGPalFX]
+type = BGPalFX
+trigger1 = animelem = 1
+time = 60
+add = 30,20,50
+sinadd = 80,70,40,10
+color = 100
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = 7,3
+
+[State 0, Helper Kame Debil]
+type = Helper
+triggerall = power >= 1000 && power < 3000
+trigger1 = animelem = 1
+name = "kamehameha"
+helpertype = normal
+ID =1402
+stateno = 1402
+pos = 21,-91
+postype = p1
+ownpal = 1
+supermovetime = 0
+
+[State 0, Helper]
+type = Helper
+triggerall = power = 3000
+trigger1 = animelem = 1
+name = "kamehameha 2"
+helpertype = normal
+ID =1403
+stateno = 1403
+pos = 21,-91
+postype = p1
+ownpal = 1
+supermovetime = 0
+
+[State 1000,33]
+type = ChangeState
+trigger1 = Time = 70
+value = 0
+ctrl = 1
+;---------------------------------------------------------------------------
+
+[StateDef 1402]
+type = A
+movetype= A
+physics = N
+ctrl = 0
+anim = 1402
+sprpriority = 20
+poweradd = -1000
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = 21,-91
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,2
+
+[State 3010, HitDef]
+type = HitDef
+trigger1 = (Time%3) = 0
+trigger1 = Time <= 78
+attr = A, HP
+getpower = 0
+animtype  = Heavy
+damage    = 5,1
+guardflag = MA
+hitflag = MAFP
+priority = 7, Hit
+sprpriority = 1
+pausetime = 0,2
+guard.sparkno = S6010
+sparkno = -1
+sparkxy = 600,600
+hitsound   = S10,0
+guardsound = 6
+ground.type = Low
+ground.slidetime = 15
+ground.hittime  = 20
+ground.velocity = -1,0
+air.juggle = 3
+air.type = Low
+air.velocity = -1,0
+air.animtype = Back
+air.fall = 1
+fall.recover = 0
+
+[State 3010, HitDef]
+type = HitDef
+trigger1 = Time >= 52
+attr = A, HP
+getpower = 0
+animtype  = Heavy
+damage    = 12,1
+guardflag = MA
+hitflag = MAFP
+priority = 7, Hit
+sprpriority = 1
+pausetime = 0,2
+guard.sparkno = -1
+sparkno = -1
+sparkxy = 600,600
+hitsound   = S10,0
+guardsound = S0,0
+ground.type = Low
+ground.slidetime = 15
+ground.hittime  = 20
+ground.velocity = -10,-8
+air.type = Low
+air.velocity = -10,-7
+air.animtype = Back
+air.fall = 1
+fall = 1
+fall.recover = 0
+
+[State 0, end]
+type = destroyself
+trigger1 = root,stateno != 1401
+
+[State 0, end]
+type = destroyself
+trigger1 = animtime = 0
+
+
+;--- KAME FUERTE!-------
+
+
+[StateDef 1403]
+type = A
+movetype= A
+physics = N
+ctrl = 0
+anim = 1404
+sprpriority = 20
+poweradd = -3000
+
+[State 0, BindToParent]
+type = BindToParent
+trigger1 = 1
+pos = -12,-130
+
+[State 0, AssertSpecial]
+type = AssertSpecial
+trigger1 = 1
+flag = noshadow
+
+[State 0, PlaySnd]
+type = PlaySnd
+trigger1 = time = 0
+value = S1,2
+
+[State 3010, HitDef]
+type = HitDef
+trigger1 = (Time%3) = 0
+trigger1 = Time <= 72
+attr = A, HP
+getpower = 0
+animtype  = Heavy
+damage    = 9,4
+guardflag = MA
+hitflag = MAFP
+priority = 7, Hit
+sprpriority = 1
+pausetime = 0,2
+guard.sparkno = S6010
+sparkno = -1
+sparkxy = 600,600
+hitsound   = S10,0
+guardsound = 6
+ground.type = Low
+ground.slidetime = 15
+ground.hittime  = 20
+ground.velocity = -1,0
+air.juggle = 3
+air.type = Low
+air.velocity = -1,0
+air.animtype = Back
+air.fall = 1
+fall.recover = 0
+
+[State 3010, HitDef]
+type = HitDef
+trigger1 = Time >= 40
+attr = A, HP
+getpower = 0
+animtype  = Heavy
+damage    = 17,4
+guardflag = MA
+hitflag = MAFP
+priority = 7, Hit
+sprpriority = 1
+pausetime = 0,2
+guard.sparkno = -1
+sparkno = -1
+sparkxy = 600,600
+hitsound   = S10,0
+guardsound = S0,0
+ground.type = Low
+ground.slidetime = 15
+ground.hittime  = 20
+ground.velocity = -10,-8
+air.type = Low
+air.velocity = -10,-7
+air.animtype = Back
+air.fall = 1
+fall = 1
+fall.recover = 0
+
+[State 0, end]
+type = destroyself
+trigger1 = root,stateno != 1401
+
+[State 0, end]
+type = destroyself
+trigger1 = animtime = 0

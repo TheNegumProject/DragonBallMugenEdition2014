@@ -1,0 +1,53 @@
+; Definition file for Satan Z2
+
+;====================================================================
+; PLAYER INFORMATION
+
+[Info]
+name = "Satan Z2"
+displayname = "Mr Satan"
+versiondate = 12,04,2012
+mugenversion = 04,11,2002
+author = "Balthazar & Cybaster"
+pal.defaults = 1,2,3,4
+
+;====================================================================
+;FILES FOR THE PLAYER
+
+[Files]
+sprite  = files/satan.sff
+anim    = files/satan.air
+sound   = files/satan-jap-bl.snd
+cmd     = files/satan.cmd
+cns     = states/constants.cns
+st	= states/system.cns
+st2	= states/helpers.cns
+st3	= states/state-2-3.cns
+st4	= states/override.cns
+st5	= config.txt
+st6      = states/normals.cns
+st7	= states/supers.cns
+stcommon = common1.cns
+
+;====================================================================
+;PALETTES
+
+pal1 = palettes/Cybaster-Default.act
+pal2 = palettes/MDD-Dan_Hibiki.act
+pal3 = palettes/MDD-Mr_Jones.act
+pal4 = palettes/MDD-Tiger_Jackson.act
+pal5 = palettes/MDD-Paul_Phoenix.act
+pal6 = palettes/MDD-Sahz_Katzroy.act
+
+pal7 = palettes/MDD-Evil_Shin.act
+pal8 = palettes/MDD-Jersey.act
+pal9 = palettes/MDD-Grape.act
+pal10 = palettes/MDD-Zombie.act
+pal11 = palettes/MDD-Gokule.act
+pal12 = palettes/MDD-Clown.act
+
+
+; Arcade mode
+;[Arcade]
+;intro.storyboard = intro.def
+;ending.storyboard = ending.def

@@ -1,0 +1,21 @@
+[Info]
+name="Nail "
+displayname="Nail "
+versiondate=12,03,12
+mugenversion=06,14,2003
+author="BroliDos e ((Mugen Mundo))"
+pal.defaults=
+
+
+[Files]
+sprite=NailSFF.sff
+sound=NailSND.snd
+anim=NailAIR.air
+cmd=NailCMD.cmd
+cns=PiccoloCNS.cns
+st=PiccoloCNS.cns
+stcommon=PiccoloCNS.cns
+pal1=Nail01.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

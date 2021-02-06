@@ -1,0 +1,23 @@
+;Goten by Bardock
+[Info]
+name    ="Goten by Bardock"
+displayname ="Kid Goten"
+pal.defaults =1,2
+versiondate=12/28/2010
+mugenversion=
+author=""
+
+[Files]
+cmd     =goten.cmd
+cns     =goten.cns
+st      =goten.cns
+stcommon =common1.cns
+sprite  =goten.sff
+anim    =goten.air
+sound   =goten.snd
+pal1=new-goten.act
+pal2=new-goten.act
+
+[Arcade] 
+intro.storyboard =
+ending.storyboard=..\data\final.def

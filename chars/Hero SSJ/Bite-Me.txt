@@ -1,0 +1,104 @@
+==========================================================================================
+Teen Gohan 0.7
+==========================================================================================
+Base    -  Cyanide
+
+Coding  -  HaVoC
+
+Sprites -  Ne0cIdE
+==========================================================================================
+Basics
+==========================================================================================
+------------------------------------------------------------------------------------------
+Standing
+------------------------------------------------------------------------------------------
+a = Light kick
+b = Med kick
+x = Light punch
+y = Med punch*
+*y = Med punch push back
+------------------------------------------------------------------------------------------
+Crouching
+------------------------------------------------------------------------------------------
+a = Light kick
+b = Hard  kick
+x = Light punch
+y = Med punch
+------------------------------------------------------------------------------------------
+Air
+------------------------------------------------------------------------------------------
+a       =  Light kick
+b =     =  Knockdown kick
+x =     =  Light punch
+y =     =  Knockdown punch
+fwd fwd =  dash fwd
+bck bck =  dash back 
+
+
+==========================================================================================
+Things Left
+==========================================================================================
+Supers
+win poses
+damamge dampers
+flying bat huge overhaul
+Sonic Charge
+Pin Needle
+
+
+--------------------------------------------------
+Additional basics
+
+Hold DF, y = Heavy launcher
+QCB, z = While p2 is attacking deals a knockdown
+a+x = Charge up
+b+y = Guard counter
+
+
+==========================================================================================
+Specials
+==========================================================================================
+Pin Missle            -          QCF,Punch
+ Pin Rocket                      Punch (after pin missle)
+  Pin Bomb                       QCB, Kick (after pin rocket,
+                              pin missle must also be fully charged)
+	
+Sonic Kick            -          Down,Up Kick (air only)
+
+Sonic Bird            -          QCF, Kick (can be done 2 times)
+
+Kamehameha            -          QCB, Kick
+
+Needle Rocket         -          Hold back, then Foward, Kick
+
+Flying bat            -          HCF, Punch 
+
+
+                
+--------------------------------------------------
+Supers
+
+
+-None yet
+
+
+==========================================================================================
+Credits
+==========================================================================================
+Cyanide           -   for enduring so much damn nonsense from me and making my base thank youz
+Wasaby            -   orignal base\beta testing
+Roken             -   for showing me the style I use in most of my dbz sheets.
+Jedi              -   I wub U!
+Warusuki3         -   for the awesome CVS2 hitsparks
+Majita            -   sounds,feedback,Zanzoken attack code I whined to him about using thx!
+Toad              -   fx 
+Chrono Strife     -   cheese is good I wub U thisssss much!
+Pextin            -   being so damn awesome with that spiderman mask
+Elecybyte         -   if I have to say so your dumbzy
+Akira Toriyama    -   for the dbz series 
+Annubis           -   beta testing and something else I think? (maybe sounds?)
+WD                -   My site pwns :D
+MV                -   Because he cant be as sexy as me, but bless his heart for trying :)
+Bandai            -   for the horrid games that were only good to get sprites from :)
+
+

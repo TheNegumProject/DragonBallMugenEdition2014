@@ -1,0 +1,63 @@
+======================================Vegeta BY GANGSTI=====================================
+
+
+========================================= Movements =============================================
+
+
+=Basic Moves=
+
+a - punch 1
+b - punch 2
+c - fire ball's (Kikoha)
+x - kick 1
+y - kick 2
+z - teleport (Zanzouken)
+
+
+=Others=
+
+D,F,a
+D,F,b
+D,F,x
+D,F,y
+
+
+=Basic Combos=
+
+a,b,x,y~~
+x,y,x,y~~
+a,b,a,b~~
+etc...
+
+
+=Zanzouken Moves=
+
+D,F,a+b
+D,F,x+y
+D,F,y only air
+
+
+=Specjal Moves=
+
+Barikuhama - D,B,c
+Ki Punch Combo - D,F,c,c,c,c~~
+Ki Beam - D,B,F,x
+Turn SSJ - s
+Quick Turn SSJ - a+b
+
+
+=Hyper Moves=
+
+Bakuhatsu - D,B,F,a
+Galic Ho - D,B,F,b
+Kikoha Combo - D,B,F,c
+Big Bang Attack - D,B,F,y 
+Big Bang Attack Air - D,B,F,x+y
+Finale Flash - D,B,F,a+b
+
+
+
+
+
+
+

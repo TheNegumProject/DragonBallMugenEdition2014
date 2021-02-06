@@ -1,0 +1,28 @@
+;***************************************************************************;
+;******************* Created in Fighter Factory Ultimate *******************;
+;*******************      http://www.virtualltek.com     *******************;
+;***************************************************************************;
+
+[Info]
+name ="Guldo"
+displayname ="Guldo"
+versiondate =02.03.2005
+mugenversion =29.02.2006
+author ="Redneck edit Sawwen"
+pal.defaults =1,2
+
+[Files]
+sprite =Guldo.sff
+anim =Guldo.air
+sound =Guldo.snd
+cmd =Guldo.cmd
+cns =Guldo.cns
+stcommon =common.cns
+st =Guldo.cns
+pal1=Guldooriginal.act
+pal2=hombregris.act
+st1=AI.st
+
+[Arcade]
+intro.storyboard = 
+ending.storyboard = ..\data\final.def

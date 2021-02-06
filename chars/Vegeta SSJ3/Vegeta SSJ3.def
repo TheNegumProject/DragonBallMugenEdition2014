@@ -1,0 +1,22 @@
+[Info]
+name="Vegeta by Giovanni"
+displayname="Vegeta SSJ3"
+versiondate=13.11.09
+mugenversion=
+author="Giovanni"
+pal.defaults=1,2,3,4
+[Files]
+sprite=Vegeta.sff
+sound=Vegeta.snd
+anim=Vegeta.air
+cmd=Vegeta.cmd
+cns=Vegeta.cns
+st=Vegeta.cns
+stcommon=common1.cns
+pal1=Vegeta.act
+pal2=Vegeta2.act
+pal3=Vegeta3.act
+pal4=Vegeta4.act
+[Arcade]
+intro.storyboard=
+ending.storyboard=

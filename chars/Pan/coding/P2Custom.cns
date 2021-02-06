@@ -1,0 +1,248 @@
+;
+;[4000,4499] = p2 custom states
+;-------------------------------------------------
+;Liedown
+[Statedef 4000]
+type    = C
+movetype= H
+physics = N
+juggle  = 4
+ctrl = 0
+velset = 0,0
+anim = 5080
+
+[State 0, EnvShake]
+type = EnvShake
+trigger1 = AnimElem = 1
+time = 15
+freq = 60
+ampl = -4
+
+[State 0, Explod]
+type = Explod
+trigger1 = AnimElem = 1
+anim = 7021
+ID = 7021
+pos = -10,10
+scale = .4,.4
+sprpriority = 3
+ownpal = 1
+
+[State 0, selfState]
+type = selfState
+trigger1 = Time >= 80
+value = 5120
+
+;-------------------------------------------------
+;Spin Liedown
+[Statedef 4100]
+type = A
+movetype = H
+physics = N
+velset = 0, 0
+anim = 5030
+
+[State 4100, Anim]
+type = changeanim2
+trigger1 = !time
+value = 4100
+
+[State 0, Vel]
+type = hitvelset
+trigger1 = !time
+x = 1
+y = 1
+
+[State 0, Accel]
+type = veladd
+trigger1 = 1
+y = gethitvar(yaccel)
+
+[State 0, Camera]
+type = screenbound
+trigger1 = 1
+value = 1
+movecamera = 1, 0
+
+[State 0, End]
+type = selfstate
+triggerall = time > 0
+trigger1 = pos y = 0;vel y > 0 && pos y >= const(movement.air.gethit.groundlevel)
+value = 5100
+
+[State 0, Offset]
+type = offset
+trigger1 = 1
+y = const(size.mid.pos.y)
+
+;------------------
+;Shaking from the hit
+[Statedef 4125]
+type    = A
+movetype= H
+physics = N
+velset = 0,0
+
+[State 4125, Anim] ;Custom animation
+type = ChangeAnim2
+trigger1 = 1
+value = 4125
+
+[State 4125, State]
+type = ChangeState
+trigger1 = HitShakeOver = 1
+value = 4126
+
+;------------------
+;Flying through the air
+[Statedef 4126]
+type    = A
+movetype= H
+physics = N
+
+[State 4126, Velocity]
+type = HitVelSet
+trigger1 = Time = 0
+x = 1
+y = 1
+
+[State 4126, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .45
+
+[State 4126, No scroll]
+type = ScreenBound
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist < 65
+trigger2 = FrontEdgeBodyDist < 65
+value = 1
+movecamera = 0,1
+
+[State 4126, Hit wall]
+type = ChangeState
+triggerall = Pos y < -15
+trigger1 = BackEdgeBodyDist <= 20
+trigger2 = FrontEdgeBodyDist <= 20
+value = 4127
+
+[State 4126, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
+;------------------
+;Hit wall
+[Statedef 4127]
+type    = A
+movetype= H
+physics = N
+
+[State 4127, Turn]
+type = Turn
+trigger1 = (Time = 0) && (FrontEdgeBodyDist <= 30)
+
+[State 4127, Pos]
+type = PosAdd
+trigger1 = Time = 0
+x = 15 - BackEdgeBodyDist
+
+[State 4127, Stop moving]
+type = PosFreeze
+trigger1 = 1
+x = 1
+y = 1
+
+[State 4127, No scroll]
+type = ScreenBound
+trigger1 = 1
+value = 1
+movecamera = 0,1
+
+[State 4127, Spark]
+type = Explod
+trigger1 = Time = 0
+anim = F72
+pos = 0, floor (screenpos y) - 50
+postype = back
+sprpriority = 3
+
+[State 4127, Anim]
+type = ChangeAnim2
+trigger1 = Time = 0
+value = 4127
+
+[State 4127, Sound]
+type = PlaySnd
+trigger1 = Time = 0
+value = F7,0
+
+[State 4127, State]
+type = ChangeState
+trigger1 = AnimTime = 0
+value = 4128
+
+;------------------
+;Bounce off wall
+[Statedef 4128]
+type    = A
+movetype= H
+physics = N
+
+[State 4128, 1]
+type = NotHitBy
+trigger1 = 1
+value = , NA, NP
+
+[State 4128, Vel Y]
+type = VelSet
+trigger1 = Time = 0
+y = -6
+
+[State 4128, Vel X]
+type = VelSet
+trigger1 = Time = 0
+x = 1.6
+
+[State 4128, Turn]
+type = Turn
+trigger1 = (Time = 0) && (BackEdgeDist < 30)
+
+[State 4128, Gravity]
+type = VelAdd
+trigger1 = 1
+y = .35
+
+[State 4128, Anim 5050] ;Self falling animation
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = !SelfAnimExist(5052)
+value = 5050
+
+[State 4128, Anim 5052] ;Self falling animation (diagup type)
+type = ChangeAnim
+trigger1 = Time = 0
+trigger1 = SelfAnimExist(5052)
+value = 5052
+
+[State 4128, Anim 5060] ;Coming down - normal
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5050
+trigger1 = SelfAnimExist(5060)
+persistent = 0
+value = 5060
+
+[State 4128, Anim 5062] ;Coming down - diagup type
+type = ChangeAnim
+trigger1 = Vel Y > -2
+trigger1 = Anim = 5052
+trigger1 = SelfAnimExist(5062)
+persistent = 0
+value = 5062
+
+[State 4128, Hit ground]
+type = SelfState
+trigger1 = (Vel y > 0) && (Pos y >= 0)
+value = 5100
+
