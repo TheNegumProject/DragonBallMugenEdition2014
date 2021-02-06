@@ -1,0 +1,241 @@
+;========================================================
+;Desert BYR nigth 2.0
+;Gracias especiales:
+;A ti por descargar este release
+;A todo DGZ-Team por ayudarme a mejorar dia a dia
+;Y a toda la comunidad Muegengenerations
+;enjoy!
+;========================================================
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Desierto Noche"
+author= "crazy_logic"
+;--------------------------------------------------------
+[Camera]
+startx = 0
+starty = 0
+boundleft = -150
+boundright = 150
+boundhigh = -100
+boundlow = 0
+verticalfollow = .7
+floortension = 0
+tension = 50
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -60
+p1starty = 0
+p1startz = 0
+p1facing = 1
+;--- Player 2 ---
+p2startx = 60
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;--- Common ---
+leftbound  = -500
+rightbound =  500
+topbound  =  0
+botbound  =  0
+;--------------------------------------------------------
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+;--------------------------------------------------------
+[Bound]
+screenleft = 15
+screenright = 15
+;--------------------------------------------------------
+[StageInfo]
+zoffset = 200
+autoturn = 1
+resetBG = 1
+;--------------------------------------------------------
+[Shadow]
+intensity = 96
+color = 80,80,80
+yscale = .2
+fade.range = 0,0
+;--------------------------------------------------------
+[Music]
+bgmusic = sound/Until Day Break.mp3
+bgvolume = 255
+;========================================================
+;--------------------------------------------------------
+[BGdef]
+spr = Desert_BYR-noche.sff
+debugbg = 0
+;----------
+[BG 0]
+type  = normal
+spriteno = 1,0
+layerno = 0
+start = 0,95
+tile  = 1,0
+velocity = 0.0,0
+
+[BG nuves]
+type  = anim
+actionno = 6
+layerno = 0
+start = 0,120
+mask  = 1
+tile  = 0, 0
+tilespacing = 0,0
+
+[BG 2]
+type  = normal
+spriteno = 0, 0
+layerno = 0                
+start = 0,95
+mask  = 1
+tile  = 0, 0
+tilespacing = 0,0
+
+[BG 3]
+type  = normal
+spriteno = 1, 7
+layerno = 0
+start = 0,90
+velocity = 1,0
+mask  = 1
+trans = add
+tile  = 1, 0
+tilespacing = 0,0
+
+[BG 4]
+type  = normal
+spriteno = 1, 7
+layerno = 1
+start = 0,95
+velocity = -1,0
+mask  = 1
+trans = add
+tile  = 1, 0
+tilespacing = 0,0
+
+[BG 5]
+type  = anim  
+actionno = 5
+start = 0,95
+delta = 1, 1
+velocity = 0, 0
+trans = add
+mask  = 1
+
+[Begin action 5]
+0,4,0,0,5,,A
+0,5,0,0,5,,A
+0,6,0,0,5,,A
+
+[Begin action 6]
+5,1,0,0,5,,A
+5,2,0,0,5,,A
+5,3,0,0,5,,A
+5,4,0,0,5,,A
+5,5,0,0,5,,A
+5,6,0,0,5,,A
+5,7,0,0,5,,A
+5,8,0,0,5,,A
+5,9,0,0,5,,A
+5,10,0,0,5,,A
+5,11,0,0,5,,A
+5,12,0,0,5,,A
+5,13,0,0,5,,A
+5,14,0,0,5,,A
+5,15,0,0,5,,A
+5,16,0,0,5,,A
+5,17,0,0,5,,A
+5,18,0,0,5,,A
+5,19,0,0,5,,A
+5,20,0,0,5,,A
+5,21,0,0,5,,A
+5,22,0,0,5,,A
+5,23,0,0,5,,A
+5,24,0,0,5,,A
+5,23,0,0,5,,A
+5,22,0,0,5,,A
+5,21,0,0,5,,A
+5,20,0,0,5,,A
+5,21,0,0,5,,A
+5,22,0,0,5,,A
+5,23,0,0,5,,A
+5,24,0,0,5,,A
+5,25,0,0,5,,A
+5,24,0,0,5,,A
+5,23,0,0,5,,A
+5,22,0,0,5,,A
+5,21,0,0,5,,A
+5,20,0,0,5,,A
+5,19,0,0,5,,A
+5,18,0,0,5,,A
+5,17,0,0,5,,A
+5,16,0,0,5,,A
+5,15,0,0,5,,A
+5,14,0,0,5,,A
+5,13,0,0,5,,A
+5,12,0,0,5,,A
+5,11,0,0,5,,A
+5,10,0,0,5,,A
+5,9,0,0,5,,A
+5,8,0,0,5,,A
+5,7,0,0,5,,A
+5,6,0,0,5,,A
+5,5,0,0,5,,A
+5,4,0,0,5,,A
+5,3,0,0,5,,A
+5,2,0,0,5,,A
+5,1,0,0,5,,A
+5,0,0,0,5,,A
+
+[BG crazy]
+type  = anim
+actionno = 7000
+layerno = 1
+mask = 1
+start = -160,0
+
+[BG logo trans]
+type  = anim
+actionno = 7001
+layerno = 1
+mask = 1
+start = -160,0
+
+[Begin Action 7000]
+7000,0, 0,0, 4, , AS0D220
+7000,0, 0,0, 4, , AS50D150
+7000,0, 0,0, 4, , AS70D120
+7000,0, 0,0, 4, , AS100D100
+7000,0, 0,0, 4, , AS150D70
+7000,0, 0,0, 4, , AS200D50
+7000,0, 0,0, 200, , AS255D0
+7000,0, 0,0, 4, , AS200D50
+7000,0, 0,0, 4, , AS150D70
+7000,0, 0,0, 4, , AS100D100
+7000,0, 0,0, 4, , AS70D120
+7000,0, 0,0, 4, , AS50D150
+7000,0, 0,0, 4, , AS0D220
+-1,0,0,0,-1
+
+[Begin Action 7001]
+7001,0, 0,0, 4, , AS0D255
+7001,0, 0,0, 4, , AS50D255
+7001,0, 0,0, 4, , AS70D255
+7001,0, 0,0, 4, , AS90D255
+7001,0, 0,0, 4, , AS130D255
+7001,0, 0,0, 4, , AS150D255
+7001,0, 0,0, 200, , AS255D255
+7001,0, 0,0, 4, , AS150D255
+7001,0, 0,0, 4, , AS130D255
+7001,0, 0,0, 4, , AS90D255
+7001,0, 0,0, 4, , AS70D255
+7001,0, 0,0, 4, , AS50D255
+7001,0, 0,0, 4, , AS0D255
+-1,0,0,0,-1
+
+

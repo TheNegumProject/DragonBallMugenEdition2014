@@ -1,0 +1,121 @@
+[Info]
+name = "Abandoned battlefield"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -312
+boundright = 312
+boundhigh = -13
+boundlow = 0
+verticalfollow = .2
+tension = 50
+
+[PlayerInfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset = 205
+autoturn = 1
+resetBG = 1
+
+[Shadow]
+yscale = -.05
+
+[Music]
+bgmusic = sound/Criminally Insane.mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/field.sff
+
+[BG 1]
+type = anim
+actionno = 0
+start = 0,240
+delta = 1,1
+
+[BG tent]
+type = anim
+actionno = 1
+start = 0,240
+delta = 1,1
+
+[BG plank]
+type = normal
+spriteno = 2,0
+layerno = 1
+start = -472,240
+delta = 1,1
+mask = 1
+
+[BG fence]
+type = normal
+spriteno = 3,0
+layerno = 1
+start = -628,240
+delta = 1.5,1.4
+mask = 1
+
+[BG helmet]
+type = anim
+actionno = 4
+layerno = 1
+start = 628,240
+delta = 1.5,1.4
+
+[Begin action 0]
+
+0,0, 0,0, 6
+0,1, 0,0, 6
+0,2, 0,0, 6
+0,3, 0,0, 6
+0,4, 0,0, 6
+0,5, 0,0, 6
+0,6, 0,0, 6
+0,7, 0,0, 6
+
+[Begin action 1]
+
+1,0, 0,0, 4
+1,1, 0,0, 4
+1,2, 0,0, 4
+1,3, 0,0, 4
+1,4, 0,0, 4
+1,5, 0,0, 4
+
+[Begin action 4]
+
+4,0, 0,0, 8
+4,1, 0,0, 8
+4,2, 0,0, 8
+4,3, 0,0, 8
+4,4, 0,0, 8
+4,5, 0,0, 8
+4,4, 0,0, 8
+4,3, 0,0, 8
+4,2, 0,0, 8
+4,1, 0,0, 8

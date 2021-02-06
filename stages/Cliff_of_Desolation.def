@@ -1,0 +1,262 @@
+; Stage rippato da "Marvel VS Capcom" by CAPCOM
+; tutti i diritti sono della CAPCOM
+; Questo stage è stato creato da Kain the Supreme e scaricato da:
+; http://digilander.iol.it/kainthesupreme
+; Non potete modificare nulla senza il mio permesso.
+; You can't modify nothing without my permission
+
+
+;--------------------------------------------------------
+[Info]
+ ;Name of the stage.
+name = "Cliff of Desolation"
+
+;--------------------------------------------------------
+[Camera]
+ ;Camera starting position: Usually 0 for both
+ ;***
+startx = 0
+starty = 0
+
+ ;Left and right bound of camera
+ ;You may want to fiddle a bit with these values to make sure the
+ ;background doesn't move too far or too little
+ ;***
+boundleft = -565
+boundright = 590
+boundhigh = -350
+boundlow = 0
+verticalfollow = .2
+floortension = 0
+tension = 50
+
+
+;--------------------------------------------------------
+[PlayerInfo]
+;--- Player 1 ---
+ ;Player 1 starting coordinates.
+ ;p1startx is typically -70 and p2startx is 70.
+ ;p1starty and p1startz should be 0.
+p1startx = -70          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+ ;Don't change these values.
+leftbound  = -1000 ;Left bound (x-movement)
+rightbound =  1000 ;Right bound
+topbound  =  0     ;Top bound (z-movement)
+botbound  =  0     ;Bottom bound
+
+;--------------------------------------------------------
+[Scaling]
+ ;No need to change these values
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+;--------------------------------------------------------
+[Bound]
+ ;Distance from left/right edge of screen that player can move to
+ ;Typically 15
+screenleft = 15    ;Dist from left of screen that player can move to
+screenright = 15   ;Right edge
+
+;--------------------------------------------------------
+[StageInfo]
+ ;Z offset for drawing
+ ;Adjust this value to move the ground level up/down in the screen.
+ ;It's the position where the players stand at.
+ ;Up - smaller, Down - larger
+ ;***
+zoffset = 215
+
+ ;Leave this at 1. It makes the players face each other
+autoturn = 1
+
+ ;Set the following to 1 to have the background be reset between
+ ;rounds.
+resetBG = 1
+
+;--------------------------------------------------------
+[Shadow]
+ ;This is the shadow color given in r,g,b. Valid values for each
+ ;range from 0 (lightest) to 255 (darkest).
+ ;Defaults to 92,92,92 if omitted.
+color = 128,128,128
+yscale = .3
+reflect = 0
+
+;--------------------------------------------------------
+[Music]
+ ;Put a filename for a MOD, MP3 or MIDI here, or just leave it
+ ;blank if you don't want music. If an invalid filename is
+ ;given, then no music will play. To play CD audio, put
+ ;the track number followed by ".da". Using a track number of
+ ;0 will play a random audio track. For example, to play
+ ;track 3 from a music CD, use:
+ ;  bgmusic = 3.da
+bgmusic = sound/Intros.mp3
+
+ ;Adjust the volume. 0 is normal, negative for softer, and
+ ;positive for louder (only for mp3, mods and CDA)
+bgvolume = 255
+
+
+
+;-------------------------------------
+; Main background definition
+[BGdef]
+ ;Filename of sprite data
+spr = Cliff_of_Desolation.sff
+debugbg = 0
+
+
+;----------
+; primo livello
+[BG Grande Cielo]
+type  = normal
+spriteno = 0, 0
+layerno = 0                
+start = 0, -20
+delta = 0,1
+trans = none
+mask  = 0
+window = 0,0, 319, 239
+
+;Anim Cielo1
+[BG Cielo]
+type  = anim
+actionno = 5
+start = 0, -20
+delta = 0,1
+mask = 1
+layerno = 0
+window = 0,0, 319, 239
+
+;Roccia DX
+[BG RocciaDX]
+type  = anim
+actionno = 1
+layerno = 0                
+start = -90, -25
+delta = 0.23,1
+trans = none
+mask  = 1
+tile  = 0, 0
+tilespacing = 0,0
+window = 0,0, 319, 239
+
+; roccia SX
+[BG RocciaSX]
+type  = anim
+actionno = 3
+layerno = 0                
+start = -90, -25
+delta = 0.23,1
+trans = none
+mask  = 1
+tile  = 0, 0
+tilespacing = 0,0
+window = 0,0, 319, 239
+
+
+;Nebbia
+[BG Nebbia]
+type  = anim
+actionno = 4
+start = -90, -25
+delta = 0.23,1
+mask = 1
+layerno = 0
+window = 0,0, 319, 239
+
+
+
+
+
+
+
+
+
+;copri buchi
+[BG CBuchi]
+type  = anim
+actionno = 6
+layerno = 0                
+start = 0, -32
+delta = 0.38, 1
+trans = none
+mask  = 1
+tile  = 0, 0
+tilespacing = 0,0
+
+
+
+;ultimo livello
+[BG Pavimento]
+type  = anim
+actionno = 2
+layerno = 0                
+start = 0, -25
+delta = 0.38, 1
+trans = none
+mask  = 1
+tile  = 0, 0
+tilespacing = 0,0
+
+
+
+
+
+;pavimento
+[begin action 2]
+2,0, 0,0, 10
+
+;Roccia DX
+[begin action 1]
+1,0, 0,0, 10
+
+
+
+;Roccia SX
+[begin action 3]
+4,0, 0,0, 10
+
+
+;ANIM nebbia
+[begin action 4]
+3,0, 0,0, 10
+3,1, 0,0, 10
+3,2, 0,0, 10
+3,3, 0,0, 10
+3,4, 0,0, 10
+3,5, 0,0, 10
+3,6, 0,0, 10
+3,7, 0,0, 10
+
+
+;ANIM cielo
+[begin action 5]
+5,0, 0,0, 10
+5,1, 0,0, 10
+5,2, 0,0, 10
+5,3, 0,0, 10
+5,4, 0,0, 10
+5,5, 0,0, 10
+5,6, 0,0, 10
+5,7, 0,0, 10
+5,8, 0,0, 10
+5,9, 0,0, 10
+
+;C Buchi
+[begin action 6]
+6,0, 0,0, 5

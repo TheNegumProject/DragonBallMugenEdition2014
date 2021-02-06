@@ -1,0 +1,433 @@
+;STAGE BY TAHATTUS
+[info]
+name = "New Tournament Arena"
+
+; CAMERA!!!
+[camera]
+startx = 0
+starty = 0
+boundleft = -320
+boundright = 320
+boundhigh = -200
+boundlow = 0
+verticalfollow = 1
+floortension = 100
+tension = 50
+
+[playerinfo]
+p1startx = -70
+p1starty = 0
+p1startz = 0
+p1facing = 1
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+leftbound  = -400
+rightbound =  400
+topbound  = 0
+botbound  = 0
+
+[scaling]
+topz     = 0
+botz     = 50
+topscale = 1
+botscale = 1.2
+
+[bound]
+screenleft = 30
+screenright = 30
+
+[stageinfo]
+zoffset   = 200
+autoturn  = 1
+resetbg  = 1
+
+[shadow]
+color = 88,88,88
+yscale = 0.3
+reflect = 0
+
+[Music]
+bgmusic = sound/dbz_battle_theme_2.mp3
+bgvolume = 255
+
+[StageInfo]
+zoffset = 0
+zoffsetlink = 1
+autoturn = 1
+resetBG = 0
+
+[shadow]
+color = 2,2,2
+yscale = .1
+reflect = 0
+
+;---------------------
+
+; GRÁFICOS
+
+[bgdef]
+spr = NewTenkaichi.sff
+debugbg = 0
+
+;========================================
+;O céu
+;========================================
+
+[bg ceu]
+type  = normal
+spriteno = 0,1
+start = 0,128
+delta = -0.3,1.7
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg nuvem 2]
+type=normal
+spriteno = 1,1
+start = 180, -100
+delta = 0.25, 1.7
+scale = .8,.8
+velocity = 0.1
+mask = 1
+layerno = 0
+tilespacing = 320
+tile = 1, 0
+trans = add
+
+[bg nuvem 2]
+type=normal
+spriteno = 1,2
+start = 0, -100
+delta = 0.25, 1.7
+scale = .8,.8
+velocity = 0.1
+mask = 1
+layerno = 0
+tilespacing = 320
+tile = 1, 0
+trans = add
+
+
+[bg nuvem 3]
+type=normal
+spriteno = 1,2
+start = -80, -160
+delta = 0.25, 1.7
+scale = .8,.8
+velocity = 0.2
+mask = 0
+layerno = 0
+tilespacing = 320
+tile = 1, 0
+trans = add
+
+[bg nuvem 1]
+type=normal
+spriteno = 1,0
+start = 200, -200
+delta = 0.25, 1.7
+scale = .8,.8
+velocity = 0.25
+mask = 1
+layerno = 1
+tilespacing = 200
+tile = 1, 0
+trans = add
+
+[bg nuvem 1]
+type=normal
+spriteno = 1,0
+start = 200, -230
+delta = 0.25, 1.7
+scale = .8,.8
+velocity = 0.30
+mask = 1
+layerno = 0
+tilespacing = 100
+tile = 1, 0
+trans = add
+
+[bg nuvem 4]
+type=normal
+spriteno = 1,1
+start = -80, -270
+delta = 0.25, 1.7
+scale = .8,.8
+velocity = 0.44
+mask = 1
+layerno = 1
+tilespacing = 320
+tile = 1, 0
+trans = add
+
+[bg nuvem 4]
+type=normal
+spriteno = 1,2
+start = -280, -250
+delta = 0.25, 1.7
+scale = .8,.8
+velocity = 0.44
+mask = 1
+layerno = 0
+tilespacing = 320
+tile = 1, 0
+trans = add
+
+;========================================
+;Coqueiros, flamulas e construcao atras do templo
+;========================================
+
+
+[bg Coqueiro esq atras]
+type  = normal
+spriteno = 3,3
+start = -180,112
+delta = 0.15,1.685
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+
+[bg Coqueiro dir atras]
+type  = normal
+spriteno = 3,2
+start = 180,112
+delta = 0.15,1.685
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+
+[bg flamula esq atras]
+type  = normal
+spriteno = 3,6
+start = -180,112
+delta = 0.15,1.675
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg flamula dir atras]
+type  = normal
+spriteno = 3,5
+start = 180,112
+delta = 0.15,1.675
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg flamula esq ]
+type  = normal
+spriteno = 3,6
+start = -60,62
+delta = 0.15,1.685
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg flamula dir ]
+type  = normal
+spriteno = 3,5
+start = 60,62
+delta = 0.15,1.685
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg const dir ]
+type  = normal
+spriteno = 3,0
+start = 260,128
+delta = 0.2,1.685
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg const esq ]
+type  = normal
+spriteno = 3,0
+start = -150,128
+delta = 0.2,1.685
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+;========================================
+;O chão
+;========================================
+
+[bg grama]
+type  = parallax
+spriteno = 2,2
+start = 0,152
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+delta = 0.175,1.67
+xscale =                                      -1,                          -6
+yscalestart = 100
+yscaledelta = -1.7 
+
+;========================================
+;O Templo
+;========================================
+
+[bg sombra]
+type= normal
+spriteno = 2,8
+start = 0,204
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+delta = 0.2,1.67
+
+[bg Porta do templo]
+type  = normal
+spriteno = 2,3
+start = 0,154
+delta = 0.2,1.67
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg telhado do templo]
+type  = normal
+spriteno = 2,4
+start = 0,154
+delta = 0.2,1.67
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg placa]
+type  = normal
+spriteno = 2,7
+start = 0,154
+delta = 0.2,1.67
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg enfeites dourados]
+type  = normal
+spriteno = 3,8
+start = 0,152
+delta = 0.2,1.67
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+
+[bg Coqueiro esq]
+type  = normal
+spriteno = 3,1
+start = -190,135
+delta = 0.2,1.67
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg Coqueiro dir]
+type  = normal
+spriteno = 3,4
+start = 190,135
+delta = 0.2,1.67
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg arbustos]
+type  = normal
+spriteno = 2,0
+start = 0,152
+delta = 0.2,1.67
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+[bg muros do templo]
+type  = normal
+spriteno = 2,1
+start = 0,152
+delta = 0.2,1.67
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+
+
+;========================================
+;As árvores
+;========================================
+
+
+;========================================
+;A arena
+;========================================
+
+[bg escada]
+type= parallax
+spriteno = 2,5
+start = 0,204
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+delta = 0.188,1.67
+xscale =                                      -1,                          -2.4
+
+
+
+
+
+
+
+
+;delta = 0.175,1.67
+;xscale =                                      -1,                          -3
+
+
+[bg arena]
+type= parallax
+spriteno = 0,0
+start = 0,204
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+delta = 0.5,1
+xscale = 0.078,0.23
+yscalestart = 100
+yscaledelta = -1.7 
+
+[bg corrimao]
+type= normal
+spriteno = 2,6
+start = 0,204
+mask = 1
+trans = none
+layerno = 0
+tile = 0, 0
+delta = 0.5,1.45
+

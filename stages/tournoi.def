@@ -1,0 +1,159 @@
+=============================================================
+;  STAGE INFORMATION :
+;
+;  Resolution : 640 * 480
+;  Mugen Version : Mugen 1.0 only
+;
+;  CREDITS : Sprites originals ripped by Majita
+;
+;=============================================================
+[Info]
+name 		= "Tournoi"
+displayname 	= "Tournoi"
+versiondate 	= "06/2010"
+mugenversion 	= 1.0
+author 		= "misterr07"
+
+[Camera]
+startx 		= 0
+starty 		= 0
+boundleft 	= -229
+boundright 	= 229
+boundhigh 	= -180
+boundlow 	= 0
+tension 	= 100
+verticalfollow 	= .75
+floortension 	= 200
+overdrawhigh 	= 120
+overdrawlow 	= 120
+cuthigh 	= 0
+cutlow 		= 0
+
+[PlayerInfo]
+p1startx 	= -140
+p1starty 	= 0
+p1facing 	= 1
+p2startx 	= 140
+p2starty 	= 0
+p2facing 	= -1
+p3startx 	= -200
+p3starty 	= 0
+p3facing 	= 1
+p4startx 	= 200
+p4starty 	= 0
+p4facing 	= -1
+leftbound 	= -2000
+rightbound 	= 2000
+
+[Bound]
+screenleft 	= 30
+screenright 	= 30
+
+[StageInfo]
+zoffset 	= 440.0
+autoturn 	= 1
+resetBG 	= 0
+localcoord 	= 640, 480
+xscale 		= 1
+yscale 		= 1
+
+[Scaling]
+topz     	= 0
+botz     	= 50
+topscale 	= 1
+botscale 	= 1.2
+
+[Shadow]
+color 		= 0,0,0
+yscale 		= .2
+
+[Music]
+bgmusic 	= sound/dragonball-no-nazo.mp3
+bgvolume 	= 50
+
+
+;background
+
+[BGdef]
+spr 		= stages/tournoi.sff
+debugbg 	= 0
+
+
+[BG image1]
+type  		= normal
+spriteno 	= 0, 0
+start 		= 0,37
+delta 		= 1,1
+mask=0
+
+[BG nuage1]
+type = normal
+spriteno = 2,0
+start = 340,0
+delta = 1,.85
+tile = 1,1
+tilespacing = 200,200
+velocity = -.47,0
+trans = addalpha
+alpha = 230,255
+mask = 1
+ 
+[BG nuage2]
+type = normal
+spriteno = 2,1
+start = 200,30
+delta = 1,.85
+tile = 1,1
+tilespacing = 300,320
+velocity = -.32,0
+trans = addalpha
+alpha = 230,255
+mask = 1
+
+ 
+[BG nuage3]
+type = normal
+spriteno = 2,2
+start = 10,60
+delta = 1,.85
+tile = 1,1
+tilespacing = 460,500
+velocity = -.25,0
+trans = addalpha
+alpha = 230,255
+mask = 1
+
+
+[BG nuage4]
+type = normal
+spriteno = 2,1
+start = 400,-60
+delta = 1,.85
+tile = 1,1
+tilespacing = 300,320
+velocity = -.42,0
+trans = addalpha
+alpha = 230,255
+mask = 1
+
+[BG image2]
+type  		= normal
+spriteno 	= 1, 0
+start 		= 0,37
+delta 		= 1,1
+mask=1
+
+[BG image3]
+type  		= normal
+spriteno 	= 1,2
+start 		= 0,37
+delta 		= 1,1
+mask=0
+
+[BG image4]
+type  		= normal
+spriteno 	= 1, 1
+start 		= 0,37
+delta 		= 1,1
+mask=1
+

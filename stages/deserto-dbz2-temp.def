@@ -1,0 +1,106 @@
+;Dragon Ball Z M.U.G.E.N. Edition 2
+
+; BackGround - Tempestade de Areia
+; by Omega_Weapon2 e Billy_Brother
+; E-Mail: billy_brother@bol.com.br
+; Mugen Eleven - dbaa_piccolo
+; MugeNow - http://MugeNow.cjb.net
+; Riped: Dragon ball Z 2 - SNES
+
+[Info]
+name = "Tempestad de Arena"
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -625
+boundright = 625
+boundhigh = -256
+boundlow = 0
+verticalfollow = .7
+tension = 50
+
+[PlayerInfo]
+;--- Player 1 ---
+p1startx = -56          ;Starting x coordinates
+p1starty = 0            ;Starting y coordinates
+p1startz = 0            ;Starting z coordinates
+p1facing = 1            ;Direction player faces: 1=right, -1=left
+
+;--- Player 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+
+;--- Common ---
+leftbound  = -1000
+rightbound =  1000
+topbound  =  0
+botbound  =  0
+
+[Scaling]
+topz     = 0       ;Top z-coordinate for scaling
+botz     = 50      ;Bottom z-coordinate for scaling
+topscale = 1       ;Scale to use at top
+botscale = 1.2     ;Scale to use at bottom
+
+[Bound]
+screenleft = 15
+screenright = 15
+
+[StageInfo]
+zoffset   = 210
+autoturn  = 1
+
+[Shadow]
+color = 128,128,128
+yscale = .3
+
+[Music]
+bgmusic = sound/09 Chikyuu Marugoto Choukessen.mp3
+bgvolume = 255
+
+[BGdef]
+spr = stages/deserto-dbz2-temp.sff
+
+[BG 0]
+type  = normal
+spriteno = 0, 0
+layerno = 0
+start = 0, 168
+delta = 1, 1
+trans = none
+mask  = 1
+tile  = 1
+
+[BG 1]
+type  = normal
+spriteno = 0, 1
+layerno = 0
+start = 0, 33
+delta = 1, 1
+trans = none
+mask  = 1
+tile  = 1
+
+[BG 2]
+type  = normal
+spriteno = 0, 3
+layerno = 0
+start = 0, -379
+delta = 1, 1
+trans = none
+mask  = 1
+tile  = 1
+
+[BG 3]
+type  = normal
+layerno = 1
+spriteno = 15,1,,A1
+start = 0, 0
+delta = 0, 0
+mask = 1
+tile = 1, 1
+layerno = 3
+velocity = -7, 2

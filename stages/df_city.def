@@ -1,0 +1,133 @@
+﻿;--------------------------------------------------------
+; http://www.samouczek.com/
+; autor: Xaero-7 (dV) & ARMOR_CAGE
+;--------------------------------------------------------
+
+[Info]
+name = "Destroyed Freezed City"
+
+[StageInfo]
+zoffset = 220
+autoturn = 1
+resetBG = 1
+Hires = 0
+
+[Camera]
+startx = 0
+starty = 0
+boundleft = -140
+boundright = 140
+boundhigh = -180
+boundlow = 0
+verticalfollow = 0.3
+floortension = 50
+tension = 50
+
+[Bound]
+screenleft = 15  
+screenright = 15
+
+[PlayerInfo]
+;--- Postać 1 ---
+p1startx = -70       
+p1starty = 0         
+p1startz = 0         
+p1facing = 1         
+;--- Postać 2 ---
+p2startx = 70
+p2starty = 0
+p2startz = 0
+p2facing = -1
+;--- Ograniczenia osi X i Z ---
+leftbound  = -680 
+rightbound =  1000 
+topbound  =  -1000     
+botbound  =  1000     
+
+[Scaling]
+topz     = 0   
+botz     = 0   
+topscale = 1    
+botscale = 1  
+
+[Shadow]
+intensity = 100
+color = 0,0,0
+yscale = 0.2
+;fade.range = 0, 0
+
+[Reflection]
+intensity = 0
+;===============================
+[Music]
+bgmusic = sound/df_city.mp3
+bgvolume = 1000
+
+[BGdef]
+spr = stages/df_city.sff
+debugbg = 0
+;===============================
+[BG tlo]
+type = normal
+spriteno = 0, 1
+layerno = 0
+start = -300, -150
+delta = 0.7, 0.7
+mask = 0
+tile = 0, 0
+
+
+[BG animacja]
+type = anim
+actionno = 0
+layerno = 0
+start = -300, 50
+delta = 0.7, 0.7
+mask = 1
+
+
+
+[BG podloga]
+type = normal
+spriteno = 0, 0
+layerno = 0
+start = -300, 96
+delta = 1, 1
+mask = 1
+tile = 0, 0
+
+
+[BG magla]
+type = normal
+spriteno = 3, 0
+layerno = 1
+start = -300, 70
+velocity = 0.7, 0
+delta = 1, 1
+mask = 1
+tile = 1, 0
+trans = addalpha 
+alpha = 128, 255
+
+
+[BG skalki]
+type = normal
+spriteno = 1, 0
+layerno = 1
+start = -300, 212
+delta = 1, 1.2
+mask = 1
+tile = 0, 0
+[BG skalki]
+type = normal
+spriteno = 1, 1
+layerno = 1
+start = 18, 212
+delta = 1, 1.2
+mask = 1
+tile = 0, 0
+
+[Begin Action 0]
+2, 0, 0,  0, 10
+2, 1, 0, -1, 10
+2, 2, 0, -2, 10
