@@ -1,0 +1,470 @@
+
+;-----------------------------------------------
+DragonBall Z M.U.G.E.N Edition 2014 by Kaioh-SAMA
+;-----------------------------------------------
+
+[Characters]
+
+Goku Oozaru, stages/Goku's House.def, order = 1
+Goku kid, stages/tournoi.def, order = 1
+Teen Goku, stages/tenkaichiHR.def, order=1
+Goku, stages/Earth_Rocks.def, order = 1
+Goku Kaioken, stages/Earth_Rocks.def, order = 1
+Goku Kaioken 20x, stages/Namekusein.def, order=1
+Goku FSSJ, stages/CityDestroyed_Night_Rain.def , order = 1
+Goku Damaged, stages/Namekusein.def, order=1
+Goku Legend SSJ, stages/Destroyed_Namek.def, order=2
+Goku Legend SSJ 2, stages/Destroyed_Namek.def, order=2
+Goku Iadora, stages/Final_Battle_HR.def, order=2
+Goku (Medium), stages/Destruction_HR.def, order = 2
+Goku SSJ (Android Saga), stages/Destruction_HR.def, order = 2
+Goku Armor, stages/Time_Chamber_HR.def, order=2
+Goku armor SSJ, stages/Time_Chamber_HR.def, order=2
+Goku SSJ Full Power, stages/CELL_GAMES.def, order = 3
+Goku Super Kaioken, stages/dbz_alife_tourn.def, order = 3
+Goku (Final), stages/Snakeway.def, order = 3
+Goku SSJ, stages/CELL_GAMES.def, order = 3
+Goku SSJ2, stages/Desert-Battle.def, order = 2
+Goku SSJ3, stages/DM_supreme_kais_planet.def, order = 4
+Goku Transform, stages/DM_supreme_kais_planet.def, order = 4
+Goku SSJ God, stages/The Greatest Saiyans.def
+Goku SSJ4, stages/Cliff_of_Desolation.def, order = 3
+Vegeta Saiyan Inicio, Planet_Freezer_79.def
+Vegeta Saiyan, stages/Earth_Rocks.def, order = 1
+Vegeta Namek, stages/Namekusein.def, order=1
+Vegeta, stages/Waterfall_Night_HR.def, order = 1
+Vegeta SSJ (Android Saga), stages/Destruction_HR.def, order = 2
+Vegeta SSJ, stages/Waterfall_Night_HR.def, order = 2
+Vegeta USSJ, stages/cataract.def, order = 2
+Vegeta (Final), stages/Volcano-GelboPlanetHR.def, order = 3 
+Majin Vegeta SSJ2, stages/Desert-Battle.def, order = 3
+Vegeta SSJ2, stages/dbz_gravity_room.def, order = 2
+Vegeta SSJ3, stages/The Greatest Saiyans.def
+Vegeta Transform, stages/The Greatest Saiyans.def
+Vegeta SSJ4, stages/Cliff_of_Desolation.def, order = 3
+Vegetto, stages/Cliff_of_Desolation.def, order = 0
+Vegetto SSJ, stages/Cliff_of_Desolation.def, order = 3
+Gogeta SSJ, stages/SnakewayN.def, order = 3
+Gogeta SSJ4, stages/tufflep.def, order = 5
+Gohan Sword, stages/Piccolo_Waterfall.def, order = 1
+Gohan, stages/raditz_arrived.def, order = 1
+Gohan Namek, stages/Namekusein.def, order=1
+Gohan Armor, stages/Time_Chamber_HR.def, order=1
+Gohan Armor SSJ, stages/Time_Chamber_HR.def, order=2
+Teen Gohan, stages/Nuevo_vegita2.def, order = 4
+Gohan All Forms, stages/Fight_Field.def, order = 2
+Gohan SSJ, stages/Fight_Field.def, order = 2
+Gohan SSJ2, stages/ozharu_night.def, order = 3
+Gohan SSJ2 Movie 9, stages/satan_challanger.def
+Gohan Training, stages/trainning.def, order = 2
+Gohan Training SSJ, stages/trainning.def
+Saiyaman, stages/road.def, order = 2
+Gohan Black Saiyaman, stages/Planet Zun.def
+Gohan Z Sword, stages/Planet_Gods_Goku.def, order = 3
+Gohan SSJ Z, stages/Planet_Gods_Goku.def, order = 3
+Mystic Gohan, stages/PlanetaKaioshin.def, order = 3
+Gohan Adult SSJ, stages/City_Destroyed.def, order = 2
+Future Gohan, stages/CityDestroyed_Night_Rain.def, order = 2
+Future Trunks, stages/City_Destroyed.def, order = 2
+Trunks Sword, stages/CityDestroyed_Night_Rain.def, order=2
+Trunks 2 Armor, stages/cataract.def, order = 2
+Super Trunks, stages/cataract.def, order = 2
+Trunks USSJ, stages/cataract.def, order = 3
+black
+black
+black
+black
+black
+Trunks 2, stages/City_Destroyed.def, order = 2
+Trunks SSJ2, stages/Fight_Field.def, order = 2
+Trunks Armor, stages/Time_Chamber_HR.def, order=2
+Kid Trunks, stages/Capsule_Corp_HR.def, order=2
+Kid Trunks SSJ, stages/NewTenkaichi.def, order = 2
+Kid Goten, stages/Training_Field.def, order=2
+Kid Goten SSJ, stages/NewTenkaichi.def, order = 2
+black
+black
+black
+black
+black
+Gotenks
+Gotenks SSJ, stages/Kamis_Lookout.def, order = 3
+Piccolo Cape, stages/Kamisama's Temple.def, order=1
+Piccolo, stages/picolo.vs.17.def, order = 2
+black
+black
+black
+black
+black
+Piccolo Fusion, stages/Island.def
+Nail, stages/Nameku.def, order=1
+Dende, stages/Nameku.def, order=1
+Pikkon, stages/dbz_alife_tourn.def, order = 3
+Master Roshi, stages/dbz_kame_house.def, order = 1
+Jackie Chun, stages/Tournament.def, order = 1
+Kid Krillin, stages/Tournament.def, order = 1
+black
+black
+black
+black
+black
+Krillin, stages/dbz_kame_house.def, order = 1
+Krillin 2, stages/dbz_kame_house.def, order = 1
+Krillin Z, stages/dbz_kame_house.def, order = 2
+Krillin Special, stages/Rocks_Earth_Kai.def = 2
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+Yamcha, stages/Baba_Arena.def, order = 1
+Yamcha 2
+Tien, stages/tenkaichiHR.def, order = 1
+Kid Chiaotzu, stages/turnoi.def
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+Chiaotzu, stages/karintemple.def, order = 1
+Son Gohan
+Oozaru
+Android 8, stages/SB2-snowy_aurora_borealis
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+General Blue, stages/Dr.Slump_House.def
+Arale, stages/Dr.Slump_House.def
+Taopaipai, stages/karin.def
+Metal Taopaipai, stages/tenkaichiHR.def, order = 1
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+black
+Oficial Black, stages/dbkai-mountaintop.def, order = 1
+FusedRobotPilaf, stages/dbkai-mountaintop.def, order = 1
+Giran, stages/rocky_mountain.def, order = 1
+King Piccolo, stages/Piccolo Daimaoh Palace.def, order = 1
+Garlic Jr, stages/GarlicJr-Lookout.def, order = 1
+Raditz, stages/raditz_arrived.def, order = 1
+Nappa, stages/Battle_Saiyan.def, order = 1
+Saibaman, stages/Battle_Saiyan.def, order = 1
+Turles, stages/Tree_Of_Might.def, order = 1
+Bardock, stages/BardockStage.def, order = 1
+Bardock SSJ, stages/dbkai-mountaintop.def, order = 1
+Broly SSJ, stages/venezula.def, order = 1
+Broly LSSJ, stages/Nuevo_vegita2.def, order = 4
+Broly LSSJ3, stages/City_Destroyed.def, order = 2
+Frieza 1st, stages/Namek_Biget.def
+Frieza All Forms, stages/Namekusein.def, order=1
+Frieza, stages/Vegeta_Death.def, order = 1
+Frieza Full Power, stages/Destroyed_Namek.def, order=2
+Mecha Frieza, stages/frieza_spaceship.def, order = 2
+Dodoria, stages/Namekusein.def, order=1
+Zarbon, stages/Namekusein.def, order=1
+Kiwi, stages/Namekusein.def, order=1
+Ginyu, stages/Namekusein.def, order=1
+Recoome, stages/Namekusein.def, order=1
+Burter, stages/Namekusein.def, order=1
+Jeice, stages/dbz_frieza_spaceship2.def, order = 1
+Guldo, stages/dbz_frieza_spaceship2.def, order = 1
+Cooler, stages/cataract.def, order = 2
+Cooler Final, stages/cataract.def, order = 2
+Metal Cooler, stages/Nameku.def, order=2
+Dr. Gero, stages/Destruction_HR.def, order = 2
+Android 19, stages/Destruction_HR.def, order = 2
+Android 16, stages/Confrontation_train.def, order = 2
+Android 18, stages/Destruction.def, order = 2
+Android 18 2, stages/Mountain_Road.def
+Android 18 3, Planet_Freezer_79.def
+Android 17, stages/Island.def, order = 2
+Android 13, stages/Arctic.def, order = 3
+Super Android 13, stages/Arctic.def, order = 3
+Android 15, stages/Arctic.def, order = 3
+Cell 1st Form, stages/Destruction_HR.def, order=2
+Cell 2nd Form, stages/cataract.def, order = 2
+Cell, stages/CELL_GAMES.def, order = 3
+PunchCell!,stages/CELL_GAMES.def
+Cell Super Perfect,stages/CELL_GAMES.def, order = 3
+Cell Jr, stages/CELL_GAMES.def, order = 2
+Bojack, stages/ozharu_night.def, order = 3
+Zangya, stages/ozharu_night.def, order = 2
+Supreme Kai, stages/PlanetaKaioshin.def, order = 3
+Spopovich, stages/satan_challanger.def , order = 3
+Dabura, stages/Volcano-GelboPlanetHR.def, order = 3
+Majin Buu, stages/Buu's House.def, order = 3
+Super Buu, stages/KAIOH.def, order = 4
+Kid Buu, stages/DM_supreme_kais_planet.def, order = 4
+Puipui, stages/Planet Zun.def, order = 2
+Janemba, stages/World Janemba.def, order = 4
+Tapion, stages/WrathOfTheDragon.def, order = 3
+Tarble, stages/Training_Field.def, order=2
+Uub, stages/Kamis_Lookout.def, order = 3, music=sound/Dragon_Ball_GT_Theme.mp3
+Majuub, stages/New_Tuffle_Planet.def, order = 4
+Satan, stages/satan.def, order = 2
+Videl, stages/Tenkaichi Budokai.def
+Pan, stages/Giant_Plants.def, order = 3
+Goku GT, stages/Kamis_Lookout.def, order = 3, music=sound/Dragon_Ball_GT_Theme.mp3
+Kid Goku GT, stages/Giant_Plants.def, order = 3
+Goku kid SSJ3, stages/Giant_Plants.def, order = 3
+Goku SSJ4 GT, stages/New_Tuffle_Planet.def, order = 4
+Trunks GT, stages/The_Hopes_Gone.def, order = 5
+Goten GT, stages/road.def, order = 3
+Gohan GT, stages/road.def, order = 3
+Baby Gohan, stages/road.def, order = 3
+Bulla, stages/road.def, order = 3
+Vegeta GT, stages/WrathOfTheDragon.def, order = 3
+Vegeta GT SSJ, stages/WrathOfTheDragon.def, order = 3
+Vegeta GT SSJ2, stages/WrathOfTheDragon.def, order = 3
+Vegeta SSJ4 GT, stages/WrathOfTheDragon.def, order = 3
+Baby Vegeta, stages/New_Tuffle_Planet.def, order = 4
+Baby Vegeta SSJ2, stages/New_Tuffle_Planet.def, order = 4
+Super Baby Vegeta, stages/tufflep.def, order = 5
+Baby Tuffle, stages/tufflep.def, order = 5
+Super 17, stages/Burning_Forest.def, order = 5
+Nuova Shenron, stages/tufflep.def, order = 4
+Omega Shenron, stages/The_Hopes_Gone.def, order = 5
+Goku Jr, stages/Tenkaichi Budokai.def
+Hero, stages/dbdesert.def
+Hero SSJ, stages/dbdesert.def
+black
+black
+black
+black
+black
+black
+black
+OozaruVegeta, stages/Earth_Rocks.def
+Ohzaru's, stages/Tenkaichi Budokai.def
+Oozaru SSJ, stages/New_Tuffle_Planet.def
+Saibamen Invasion, stages/Battle_Saiyan.def, order = 2
+Cell Jr Invasion, stages/CELL_GAMES.def, order = 2
+Destroy Robots, stages/dbz_gravity_room.def, order = 2
+randomselect
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+-
+
+-add new character here
+-add new character here
+-add new character here
+-add new character here
+-add new character here
+-add new character here
+-add new character here
+-add new character here
+-add new character here
+-add new character here
+Goku SSJ5, stages/Snakeway.def, order = 0
+Vegeta Transform SSJ5, stages/Snakeway.def, order = 0
+Vegeta SSJ5, stages/Snakeway.def, order = 0
+Gogeta SSJ5, stages/The Greatest Saiyans.def, order = 0
+GOHAN AF Z SWORD, stages/The Greatest Saiyans.def, order = 0
+Pan Transform, stages/The Greatest Saiyans.def, order = 0
+Raditz SSJ, stages/The Greatest Saiyans.def, order = 0
+Xicor, stages/The Greatest Saiyans.def, order = 0
+
+;-----------------------
+[ExtraStages]
+stages/NewTenkaichi.def
+stages/basin.def
+stages/Battle_Saiyan.def
+stages/Budokai-sunset.def
+stages/Tournament.def
+stages/tufflep.def
+stages/GarlicJr-Lookout.def
+stages/SnakewayN.def
+stages/Kamis_Lookout.def
+stages/cataract.def
+stages/Campo_de_batalla.def
+stages/PlanetaKaioshin.def
+stages/Planet_Gods_Goku.def
+stages/Piccolo_Waterfall.def
+stages/karin.def
+stages/karintemple.def
+stages/road.def
+stages/Janemba.def
+stages/New_Tuffle_Planet.def
+stages/picolo.vs.17.def
+stages/frieza_spaceship.def
+stages/Destruction.def
+stages/Fight_Field.def
+stages/Giant_Plants.def
+stages/WrathOfTheDragon.def
+stages/Training_Field.def
+stages/Vegeta_Death.def
+stages/Snakeway.def
+stages/KAIOH.def
+stages/dbz_gravity_room.def
+stages/dbz_alife_tourn.def
+stages/rocky_mountain.def
+stages/Desert_Rain.def
+stages/Burning_Forest.def
+stages/Cliff_of_Desolation.def
+stages/Storm2.def
+stages/Ice_dbz.def
+stages/Arctic.def
+stages/Rocks vegeta.def
+stages/Infinity World.def
+stages/kingkai.def
+stages/kamehouse.def
+stages/DM_supreme_kais_planet.def
+stages/dbz_kame_house.def
+stages/dbz_frieza_spaceship2.def
+stages/King_Piccolo.def
+stages/Destroyed_Namek.def
+stages/Waterfall_Night_HR.def
+stages/Capsule_Corp_HR.def
+stages/Earth_Rocks.def
+stages/satan.def
+stages/tenkaichiHR.def
+stages/BardockStage.def
+stages/City_Destroyed.def
+stages/Nuevo_vegita2.def
+stages/Time_Chamber_HR.def
+stages/raditz_arrived.def
+stages/Destruction_HR.def
+stages/Nameku.def
+stages/Buu's House.def
+stages/Baba_Arena.def
+stages/CELL_GAMES.def
+stages/tournoi.def
+stages/trainning.def
+stages/Dr.Slump_House.def
+stages/Planet_Zun.def
+stages/Final_Battle_HR.def
+stages/Planet_Freezer_79.def
+stages/Desert-Battle.def
+stages/ozharu_night.def
+stages/CityDestroyed_Night_Rain.def
+stages/Confrontation_train.def
+stages/dbkai-mountaintop.def
+stages/Namekusein.def
+stages/Tree_Of_Might.def
+stages/The_Hopes_Gone.def
+stages/Volcano-GelboPlanetHR.def
+stages/SB2-snowy_aurora_borealis.def
+stages/goku house.def
+stages/The Greatest Saiyans.def
+stages/satan_challanger.def
+stages/Céu.def
+stages/Inferno.def
+stages/Rocks_Earth_Kai.def
+stages/Tenkaichi Budokai.def
+stages/dbchamber.def
+stages/dbdesert.def
+stages/dbnamek.def
+stages/dbz1-starrynight.def
+stages/dbz_namek_islands.def
+stages/Desert Rain.def
+stages/Desert_BYR.def
+stages/Desert_BYR-noche.def
+stages/deserto-dbz2-temp.def
+stages/df_city.def
+stages/Estanque_sangriento.def
+stages/field.def
+stages/Goku's_House.def
+stages/Inside_Buu.def
+stages/Island.def
+stages/kame-house.def
+stages/Mountain_Road.def
+stages/Namek.def
+stages/Namek2.def
+stages/Namek_Biget.def
+stages/NAMEKD.def
+stages/Piccolo Daimaoh Palace.def
+stages/Piccolo's_Waterfall.def
+stages/Planeta Supremo.def
+stages/RagingSnow.def
+stages/SB2-HR-desert-sunset.def
+stages/Son-gohan_oiajii.def
+stages/Tenkaichi.def
+stages/venezula.def
+stages/World Janemba.def
+
+
+
+
+;---------------------------------------------------------------------
+[Options]
+ ;Here you set the maximum number of matches to fight before game ends
+ ;in Arcade Mode. The first number is the number of matches against
+ ;characters with order=1, followed by order=2 and order=3 respectively.
+ ;For example, for 4,3,1 you will fight up to 4 randomly-picked
+ ;characters who have order=1, followed by 3 with order=2 and 1 with
+ ;order=3.
+arcade.maxmatches = 3,3,3,2,1
+
+
+ ;Maximum number of matches to fight before game ends in Team Mode.
+ ;Like arcade.maxmatches, but applies to Team Battle.
+team.maxmatches = 3,3,3,2,1
+
+team.arcade.maxmatches = 3,3,3,2,1
+team.versus.maxmatches = 3,3,3,2,1
